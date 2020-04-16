@@ -41,6 +41,10 @@
                this.label6 = new System.Windows.Forms.Label();
                this.btnSearch = new System.Windows.Forms.Button();
                this.timeOrderSearch = new System.Windows.Forms.DateTimePicker();
+               this.btnPre = new System.Windows.Forms.Button();
+               this.btnCurrent = new System.Windows.Forms.Button();
+               this.btnNext = new System.Windows.Forms.Button();
+               this.btnTotalPage = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvOrder_Search)).BeginInit();
                this.SuspendLayout();
                // 
@@ -134,12 +138,12 @@
                this.dgvOrder_Search.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvOrder_Search.BackgroundColor = System.Drawing.Color.White;
                this.dgvOrder_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-               this.dgvOrder_Search.Location = new System.Drawing.Point(68, 454);
+               this.dgvOrder_Search.Location = new System.Drawing.Point(68, 354);
                this.dgvOrder_Search.Name = "dgvOrder_Search";
                this.dgvOrder_Search.ReadOnly = true;
                this.dgvOrder_Search.RowHeadersWidth = 51;
                this.dgvOrder_Search.RowTemplate.Height = 24;
-               this.dgvOrder_Search.Size = new System.Drawing.Size(958, 222);
+               this.dgvOrder_Search.Size = new System.Drawing.Size(958, 243);
                this.dgvOrder_Search.TabIndex = 14;
                // 
                // label6
@@ -172,11 +176,53 @@
                this.timeOrderSearch.TabIndex = 17;
                this.timeOrderSearch.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
                // 
+               // btnPre
+               // 
+               this.btnPre.Location = new System.Drawing.Point(262, 645);
+               this.btnPre.Name = "btnPre";
+               this.btnPre.Size = new System.Drawing.Size(67, 43);
+               this.btnPre.TabIndex = 18;
+               this.btnPre.Text = "<=";
+               this.btnPre.UseVisualStyleBackColor = true;
+               this.btnPre.Click += new System.EventHandler(this.button1_Click);
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.Enabled = false;
+               this.btnCurrent.Location = new System.Drawing.Point(386, 645);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(67, 43);
+               this.btnCurrent.TabIndex = 19;
+               this.btnCurrent.UseVisualStyleBackColor = true;
+               // 
+               // btnNext
+               // 
+               this.btnNext.Location = new System.Drawing.Point(497, 645);
+               this.btnNext.Name = "btnNext";
+               this.btnNext.Size = new System.Drawing.Size(67, 43);
+               this.btnNext.TabIndex = 20;
+               this.btnNext.Text = "=>";
+               this.btnNext.UseVisualStyleBackColor = true;
+               this.btnNext.Click += new System.EventHandler(this.button3_Click);
+               // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.Enabled = false;
+               this.btnTotalPage.Location = new System.Drawing.Point(607, 645);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(67, 43);
+               this.btnTotalPage.TabIndex = 21;
+               this.btnTotalPage.UseVisualStyleBackColor = true;
+               // 
                // SearchOrder
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(1069, 737);
+               this.ClientSize = new System.Drawing.Size(1121, 809);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnNext);
+               this.Controls.Add(this.btnCurrent);
+               this.Controls.Add(this.btnPre);
                this.Controls.Add(this.timeOrderSearch);
                this.Controls.Add(this.btnSearch);
                this.Controls.Add(this.label6);
@@ -214,5 +260,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DateTimePicker timeOrderSearch;
+        private System.Windows.Forms.Button btnPre;
+        private System.Windows.Forms.Button btnCurrent;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnTotalPage;
     }
 }

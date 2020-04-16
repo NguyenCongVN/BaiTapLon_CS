@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,29 @@ namespace BaiTapLon_CS
 {
      public partial class MedicineList : Form
      {
+          int pageSize = 5;
+          int page;
+          int pageMax;
           public static int ID_Medicine;
           public static string Name_Medicine;
           public static string Image_Medicine;
           public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
           SqlConnection con = new SqlConnection(connect);
 
-          
+          public string getCountMedicine()
+          {
+               string query = "SELECT COUNT(*) FROM Medicine";
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               return count;
+
+          }
           public void DisplayListView(string query)
           {
                try
@@ -54,6 +71,10 @@ namespace BaiTapLon_CS
                          dgwMedicineList.Columns[6].HeaderText = "Giá bán";
                          dgwMedicineList.Columns[7].HeaderText = "Số đăng ký";
 
+                         dgwMedicineList.Columns[6].DefaultCellStyle.Format = "n0";
+                         dgwMedicineList.Columns[6].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
+
+
                     }
                     else
                     {
@@ -71,10 +92,22 @@ namespace BaiTapLon_CS
           }
           public MedicineList()
           {
+               page = 1;
                InitializeComponent();
-               string query = "SELECT * FROM Medicine";
+               string query ="SELECT TOP("+pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page-1) + ") * FROM dbo.Medicine";
                DisplayListView(query);
-              
+               btnPre.Enabled = false;
+               btnCurrent.Text =page.ToString();
+               pageMax = int.Parse(getCountMedicine());
+               if (pageMax % pageSize == 0)
+               {
+                    pageMax = pageMax / pageSize;
+               }
+               else
+               {
+                    pageMax = (pageMax / pageSize) + 1;
+               }
+               btnTotalPage.Text ="of "+pageMax.ToString();
                con.Close();
           }
 
@@ -148,7 +181,7 @@ namespace BaiTapLon_CS
                }
                if (Subquery == "")
                {
-                    string queryy = "SELECT * FROM Medicine";
+                    string queryy = "SELECT TOP("+pageSize+")* FROM Medicine";
                     DisplayListView(queryy);
                }
                else
@@ -160,10 +193,11 @@ namespace BaiTapLon_CS
 
           private void btnReset_Click(object sender, EventArgs e)
           {
-              // listViewMedicine.Items.Clear();
-               string query = "SELECT * FROM Medicine";
+               // listViewMedicine.Items.Clear();
+               string query = "SELECT TOP(+"+pageSize+") * FROM dbo.Medicine";
                DisplayListView(query);
-               con.Close();
+               btnPre.Enabled = false;
+               //btnNext.Enabled = true;
           }
 
           private void listViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,6 +246,70 @@ namespace BaiTapLon_CS
           private void cBoxCategoty_MouseClick(object sender, MouseEventArgs e)
           {
 
+          }
+
+          private void dgwMedicineList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+          {
+
+          }
+
+          private void btnNext_Click(object sender, EventArgs e)
+          {
+               if (page < pageMax-1)
+               {
+                    page += 1;
+                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnNext.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else
+               {
+                    page += 1;
+                    btnNext.Enabled = false;
+                    btnPre.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
+
+          }
+
+          private void btnPre_Click(object sender, EventArgs e)
+          {
+               if (page > 2)
+               {
+                    page -= 1;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else if(page == 2)
+               {
+                    page -= 1;
+                    btnPre.Enabled = false;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize + ") * FROM dbo.Medicine ";
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
+          }
+
+          private void txtID_Medicine_KeyPress(object sender, KeyPressEventArgs e)
+          {
+               if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+               {
+                    e.Handled = true;
+               }
+
+               // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
+               if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+               {
+                    e.Handled = true;
+               }
           }
      }
 }

@@ -49,6 +49,11 @@
                this.label8 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
                this.dgvAnalytics = new System.Windows.Forms.DataGridView();
+               this.btnExcel = new System.Windows.Forms.Button();
+               this.btnPre = new System.Windows.Forms.Button();
+               this.btnCurrent = new System.Windows.Forms.Button();
+               this.btnNext = new System.Windows.Forms.Button();
+               this.btnTotalPage = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvAnalytics)).BeginInit();
                this.SuspendLayout();
                // 
@@ -250,12 +255,65 @@
                this.dgvAnalytics.Size = new System.Drawing.Size(632, 301);
                this.dgvAnalytics.TabIndex = 5;
                // 
+               // btnExcel
+               // 
+               this.btnExcel.Location = new System.Drawing.Point(836, 665);
+               this.btnExcel.Name = "btnExcel";
+               this.btnExcel.Size = new System.Drawing.Size(121, 47);
+               this.btnExcel.TabIndex = 22;
+               this.btnExcel.Text = "Xuất Excel";
+               this.btnExcel.UseVisualStyleBackColor = true;
+               this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+               // 
+               // btnPre
+               // 
+               this.btnPre.Location = new System.Drawing.Point(158, 705);
+               this.btnPre.Name = "btnPre";
+               this.btnPre.Size = new System.Drawing.Size(75, 41);
+               this.btnPre.TabIndex = 23;
+               this.btnPre.Text = "<=";
+               this.btnPre.UseVisualStyleBackColor = true;
+               this.btnPre.Click += new System.EventHandler(this.button1_Click);
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.Enabled = false;
+               this.btnCurrent.Location = new System.Drawing.Point(255, 705);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(75, 41);
+               this.btnCurrent.TabIndex = 24;
+               this.btnCurrent.UseVisualStyleBackColor = true;
+               // 
+               // btnNext
+               // 
+               this.btnNext.Location = new System.Drawing.Point(356, 705);
+               this.btnNext.Name = "btnNext";
+               this.btnNext.Size = new System.Drawing.Size(75, 41);
+               this.btnNext.TabIndex = 25;
+               this.btnNext.Text = "=>";
+               this.btnNext.UseVisualStyleBackColor = true;
+               this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+               // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.Enabled = false;
+               this.btnTotalPage.Location = new System.Drawing.Point(452, 705);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(75, 41);
+               this.btnTotalPage.TabIndex = 26;
+               this.btnTotalPage.UseVisualStyleBackColor = true;
+               // 
                // Analytics
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1362, 833);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnNext);
+               this.Controls.Add(this.btnCurrent);
+               this.Controls.Add(this.btnPre);
+               this.Controls.Add(this.btnExcel);
                this.Controls.Add(this.label9);
                this.Controls.Add(this.label8);
                this.Controls.Add(this.txtNameManufacturer);
@@ -310,5 +368,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvAnalytics;
+        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Button btnPre;
+        private System.Windows.Forms.Button btnCurrent;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnTotalPage;
     }
 }

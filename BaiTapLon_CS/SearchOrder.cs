@@ -13,6 +13,10 @@ namespace BaiTapLon_CS
 {
      public partial class SearchOrder : Form
      {
+          int pageSize = 1;
+          int page;
+          string Subquery = "";
+          int pageMax;
           public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
           SqlConnection con = new SqlConnection(connect);
           public void DisplayListView(string query)
@@ -35,8 +39,8 @@ namespace BaiTapLon_CS
                          dgvOrder_Search.DataSource = dt;
                          dgvOrder_Search.Columns[0].Visible = false;
                          dgvOrder_Search.Columns[1].HeaderText = "Tên KH";
-                         dgvOrder_Search.Columns[2].HeaderText = "Địa chỉ";
-                         dgvOrder_Search.Columns[3].HeaderText = "Giới tính";
+                         dgvOrder_Search.Columns[2].HeaderText = "Giới tính";
+                         dgvOrder_Search.Columns[3].HeaderText = "Địa chỉ";
                          dgvOrder_Search.Columns[4].HeaderText = "Tuổi";
                          dgvOrder_Search.Columns[5].HeaderText = "Số ĐT";
                          dgvOrder_Search.Columns[6].HeaderText = "Mã HĐ";
@@ -62,9 +66,24 @@ namespace BaiTapLon_CS
                     return;
                }
           }
+          public string getCountMedicine(string query)
+          {
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               return count;
+
+          }
           public SearchOrder()
           {
                InitializeComponent();
+               btnPre.Enabled = false;
+               btnNext.Enabled = false;
           }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -130,7 +149,7 @@ namespace BaiTapLon_CS
         private void btnSearch_Click(object sender, EventArgs e)
         {
                dgvOrder_Search.DataSource = null;
-               var Subquery = "";
+               Subquery = "";
                var isIndex = true;
                if(txtID_Invoice.Text != "")
                {
@@ -195,7 +214,7 @@ namespace BaiTapLon_CS
                         Subquery += " and YEAR(inv.Time_Of_Purchase)=" + timeOrderSearch.Value.Year + " and MONTH(inv.Time_Of_Purchase)=" + timeOrderSearch.Value.Month + " and DAY(inv.Time_Of_Purchase)=" + timeOrderSearch.Value.Day;
                     }
                }
-               string query = "SELECT * FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery+" and cu.ID_Customer = inv.ID_Customer";
+               string query = "SELECT TOP("+pageSize+")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery+" and cu.ID_Customer = inv.ID_Customer";
                if (Subquery == "")
                {
                     MessageBox.Show("Bạn chưa nhập thông tin gì cả nhaaaaa");
@@ -203,6 +222,30 @@ namespace BaiTapLon_CS
                else
                {
                     DisplayListView(query);
+                    page = 1;
+                    string q= "SELECT COUNT(*) FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
+                    pageMax = int.Parse(getCountMedicine(q));
+                    if (pageMax % pageSize == 0)
+                    {
+                         pageMax = pageMax / pageSize;
+                    }
+                    else
+                    {
+                         pageMax = (pageMax / pageSize) + 1;
+                    }
+                    btnTotalPage.Text = "of " + pageMax.ToString();
+                    if(pageMax==1)
+                    {
+                         btnNext.Enabled = false;
+                         btnPre.Enabled = false;
+                    }
+                    else
+                    {
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                    }
+                    btnCurrent.Text = page.ToString();
+
                }
 
         }
@@ -223,6 +266,54 @@ namespace BaiTapLon_CS
           {
                if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                     e.Handled = true;
+          }
+
+          private void button1_Click(object sender, EventArgs e) // pre
+          {
+               if (page > 2)
+               {
+                    page -= 1;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
+                         " EXCEPT SELECT TOP(" + pageSize * (page-1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else if (page == 2)
+               {
+                    page -= 1;
+                    btnPre.Enabled = false;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
+                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
+          }
+
+          private void button3_Click(object sender, EventArgs e) // next
+          {
+               if (page < pageMax - 1)
+               {
+                    page += 1;
+                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
+                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnNext.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else
+               {
+                    page += 1;
+                    btnNext.Enabled = false;
+                    btnPre.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
+                          " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
           }
      }
 }

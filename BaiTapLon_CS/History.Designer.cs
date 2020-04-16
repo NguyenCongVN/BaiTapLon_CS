@@ -37,6 +37,7 @@
                this.txtOrder = new System.Windows.Forms.TextBox();
                this.txtTotal = new System.Windows.Forms.TextBox();
                this.btnPrint = new System.Windows.Forms.Button();
+               this.btnExcel = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
                this.SuspendLayout();
                // 
@@ -124,7 +125,7 @@
                // 
                // btnPrint
                // 
-               this.btnPrint.Location = new System.Drawing.Point(654, 590);
+               this.btnPrint.Location = new System.Drawing.Point(568, 574);
                this.btnPrint.Name = "btnPrint";
                this.btnPrint.Size = new System.Drawing.Size(108, 49);
                this.btnPrint.TabIndex = 8;
@@ -132,12 +133,23 @@
                this.btnPrint.UseVisualStyleBackColor = true;
                this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
                // 
+               // btnExcel
+               // 
+               this.btnExcel.Location = new System.Drawing.Point(744, 574);
+               this.btnExcel.Name = "btnExcel";
+               this.btnExcel.Size = new System.Drawing.Size(103, 49);
+               this.btnExcel.TabIndex = 9;
+               this.btnExcel.Text = "Xuất Excel";
+               this.btnExcel.UseVisualStyleBackColor = true;
+               this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+               // 
                // History
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1054, 723);
+               this.Controls.Add(this.btnExcel);
                this.Controls.Add(this.btnPrint);
                this.Controls.Add(this.txtTotal);
                this.Controls.Add(this.txtOrder);
@@ -167,5 +179,6 @@
         private System.Windows.Forms.TextBox txtOrder;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnExcel;
     }
 }

@@ -42,6 +42,10 @@
                this.cBoxCategoty = new System.Windows.Forms.ComboBox();
                this.cBoxManufacturer = new System.Windows.Forms.ComboBox();
                this.label5 = new System.Windows.Forms.Label();
+               this.btnPre = new System.Windows.Forms.Button();
+               this.btnNext = new System.Windows.Forms.Button();
+               this.btnCurrent = new System.Windows.Forms.Button();
+               this.btnTotalPage = new System.Windows.Forms.Button();
                this.panel2.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.dgwMedicineList)).BeginInit();
                this.SuspendLayout();
@@ -82,7 +86,7 @@
                this.panel2.Controls.Add(this.dgwMedicineList);
                this.panel2.Location = new System.Drawing.Point(45, 329);
                this.panel2.Name = "panel2";
-               this.panel2.Size = new System.Drawing.Size(1063, 365);
+               this.panel2.Size = new System.Drawing.Size(1063, 322);
                this.panel2.TabIndex = 18;
                // 
                // dgwMedicineList
@@ -96,8 +100,9 @@
                this.dgwMedicineList.Name = "dgwMedicineList";
                this.dgwMedicineList.RowHeadersWidth = 51;
                this.dgwMedicineList.RowTemplate.Height = 24;
-               this.dgwMedicineList.Size = new System.Drawing.Size(1063, 365);
+               this.dgwMedicineList.Size = new System.Drawing.Size(1063, 322);
                this.dgwMedicineList.TabIndex = 0;
+               this.dgwMedicineList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMedicineList_CellContentClick);
                this.dgwMedicineList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgwMedicineList_MouseClick);
                // 
                // label11
@@ -146,6 +151,7 @@
                this.txtID_Medicine.Name = "txtID_Medicine";
                this.txtID_Medicine.Size = new System.Drawing.Size(158, 36);
                this.txtID_Medicine.TabIndex = 24;
+               this.txtID_Medicine.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_Medicine_KeyPress);
                // 
                // txtName_Medicine
                // 
@@ -197,12 +203,63 @@
                this.label5.TabIndex = 30;
                this.label5.Text = "Nhà sản xuất";
                // 
+               // btnPre
+               // 
+               this.btnPre.BackColor = System.Drawing.Color.Blue;
+               this.btnPre.ForeColor = System.Drawing.Color.White;
+               this.btnPre.Location = new System.Drawing.Point(379, 683);
+               this.btnPre.Name = "btnPre";
+               this.btnPre.Size = new System.Drawing.Size(57, 36);
+               this.btnPre.TabIndex = 31;
+               this.btnPre.Text = "<=";
+               this.btnPre.UseVisualStyleBackColor = false;
+               this.btnPre.Click += new System.EventHandler(this.btnPre_Click);
+               // 
+               // btnNext
+               // 
+               this.btnNext.BackColor = System.Drawing.Color.Blue;
+               this.btnNext.ForeColor = System.Drawing.Color.White;
+               this.btnNext.Location = new System.Drawing.Point(539, 683);
+               this.btnNext.Name = "btnNext";
+               this.btnNext.Size = new System.Drawing.Size(49, 36);
+               this.btnNext.TabIndex = 32;
+               this.btnNext.Text = "=>";
+               this.btnNext.UseVisualStyleBackColor = false;
+               this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.BackColor = System.Drawing.Color.Blue;
+               this.btnCurrent.Enabled = false;
+               this.btnCurrent.ForeColor = System.Drawing.Color.White;
+               this.btnCurrent.Location = new System.Drawing.Point(467, 683);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(51, 36);
+               this.btnCurrent.TabIndex = 33;
+               this.btnCurrent.UseVisualStyleBackColor = false;
+               // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.BackColor = System.Drawing.Color.Blue;
+               this.btnTotalPage.Enabled = false;
+               this.btnTotalPage.ForeColor = System.Drawing.Color.White;
+               this.btnTotalPage.Location = new System.Drawing.Point(616, 683);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(62, 36);
+               this.btnTotalPage.TabIndex = 34;
+               this.btnTotalPage.Text = "of 11";
+               this.btnTotalPage.UseVisualStyleBackColor = false;
+               // 
                // MedicineList
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-               this.ClientSize = new System.Drawing.Size(1168, 761);
+               this.ClientSize = new System.Drawing.Size(1168, 825);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnCurrent);
+               this.Controls.Add(this.btnNext);
+               this.Controls.Add(this.btnPre);
                this.Controls.Add(this.label5);
                this.Controls.Add(this.cBoxManufacturer);
                this.Controls.Add(this.cBoxCategoty);
@@ -241,5 +298,9 @@
         private System.Windows.Forms.ComboBox cBoxCategoty;
         private System.Windows.Forms.ComboBox cBoxManufacturer;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnPre;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnCurrent;
+        private System.Windows.Forms.Button btnTotalPage;
     }
 }
