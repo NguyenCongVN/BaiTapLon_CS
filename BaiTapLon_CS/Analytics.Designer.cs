@@ -143,7 +143,7 @@
                // 
                // button3
                // 
-               this.button3.Location = new System.Drawing.Point(1053, 665);
+               this.button3.Location = new System.Drawing.Point(1015, 662);
                this.button3.Name = "button3";
                this.button3.Size = new System.Drawing.Size(116, 47);
                this.button3.TabIndex = 11;
@@ -195,7 +195,7 @@
                this.txtAmount_Product.Multiline = true;
                this.txtAmount_Product.Name = "txtAmount_Product";
                this.txtAmount_Product.ReadOnly = true;
-               this.txtAmount_Product.Size = new System.Drawing.Size(185, 50);
+               this.txtAmount_Product.Size = new System.Drawing.Size(82, 50);
                this.txtAmount_Product.TabIndex = 16;
                // 
                // txtAmount
@@ -204,7 +204,7 @@
                this.txtAmount.Multiline = true;
                this.txtAmount.Name = "txtAmount";
                this.txtAmount.ReadOnly = true;
-               this.txtAmount.Size = new System.Drawing.Size(185, 50);
+               this.txtAmount.Size = new System.Drawing.Size(82, 50);
                this.txtAmount.TabIndex = 17;
                // 
                // txtTotal
@@ -213,7 +213,7 @@
                this.txtTotal.Multiline = true;
                this.txtTotal.Name = "txtTotal";
                this.txtTotal.ReadOnly = true;
-               this.txtTotal.Size = new System.Drawing.Size(185, 50);
+               this.txtTotal.Size = new System.Drawing.Size(147, 50);
                this.txtTotal.TabIndex = 18;
                // 
                // txtNameManufacturer
@@ -252,12 +252,12 @@
                this.dgvAnalytics.ReadOnly = true;
                this.dgvAnalytics.RowHeadersWidth = 51;
                this.dgvAnalytics.RowTemplate.Height = 24;
-               this.dgvAnalytics.Size = new System.Drawing.Size(632, 301);
+               this.dgvAnalytics.Size = new System.Drawing.Size(632, 253);
                this.dgvAnalytics.TabIndex = 5;
                // 
                // btnExcel
                // 
-               this.btnExcel.Location = new System.Drawing.Point(836, 665);
+               this.btnExcel.Location = new System.Drawing.Point(808, 662);
                this.btnExcel.Name = "btnExcel";
                this.btnExcel.Size = new System.Drawing.Size(121, 47);
                this.btnExcel.TabIndex = 22;
@@ -267,7 +267,7 @@
                // 
                // btnPre
                // 
-               this.btnPre.Location = new System.Drawing.Point(158, 705);
+               this.btnPre.Location = new System.Drawing.Point(119, 668);
                this.btnPre.Name = "btnPre";
                this.btnPre.Size = new System.Drawing.Size(75, 41);
                this.btnPre.TabIndex = 23;
@@ -278,7 +278,7 @@
                // btnCurrent
                // 
                this.btnCurrent.Enabled = false;
-               this.btnCurrent.Location = new System.Drawing.Point(255, 705);
+               this.btnCurrent.Location = new System.Drawing.Point(233, 668);
                this.btnCurrent.Name = "btnCurrent";
                this.btnCurrent.Size = new System.Drawing.Size(75, 41);
                this.btnCurrent.TabIndex = 24;
@@ -286,7 +286,7 @@
                // 
                // btnNext
                // 
-               this.btnNext.Location = new System.Drawing.Point(356, 705);
+               this.btnNext.Location = new System.Drawing.Point(356, 668);
                this.btnNext.Name = "btnNext";
                this.btnNext.Size = new System.Drawing.Size(75, 41);
                this.btnNext.TabIndex = 25;
@@ -297,7 +297,7 @@
                // btnTotalPage
                // 
                this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.Location = new System.Drawing.Point(452, 705);
+               this.btnTotalPage.Location = new System.Drawing.Point(480, 668);
                this.btnTotalPage.Name = "btnTotalPage";
                this.btnTotalPage.Size = new System.Drawing.Size(75, 41);
                this.btnTotalPage.TabIndex = 26;

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -148,9 +149,13 @@ namespace BaiTapLon_CS
                     this.dgvInvoice.Rows[index - 1].Cells[1].Value = txtNameMedicine.Text;
                     this.dgvInvoice.Rows[index - 1].Cells[2].Value = txtAmount.Text;
                     this.dgvInvoice.Rows[index - 1].Cells[3].Value = txtPrice.Text;
-                    this.dgvInvoice.Rows[index - 1].Cells[4].Value = int.Parse(txtAmount.Text) * int.Parse(txtPrice.Text);
-                    int total = this.dgvInvoice.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value));
-                    Total.Text = total.ToString();
+                    this.dgvInvoice.Rows[index - 1].Cells[4].Value = int.Parse(txtAmount.Text) * decimal.Parse(txtPrice.Text);
+                    decimal total = this.dgvInvoice.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value));
+
+               CultureInfo culture = new CultureInfo("en-US");
+
+               Total.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
+             //  Total.Text = total.ToString();
                     txtID_Medicine.Text = "";
                     txtPrice.Text = "";
                     txtAmount.Text = "";
@@ -251,31 +256,38 @@ namespace BaiTapLon_CS
                }
                else
                {
-                    string query = "INSERT INTO Invoice (ID_Customer,Diagnostic,Time_Of_Purchase,ID_Manager,Remind,Note) VALUES(" +
-                         int.Parse(txtID_Customer.Text) + ",N'" + txtDiagnostic.Text + "'," +"'"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',"
-                         + int.Parse(txtID_Manager.Text) + ",N'" + txtRemind.Text + "',N'" + txtNote.Text + "')";
-                    DisplayListView(query);
-
-                    for (int i = 0; i < dgvInvoice.Rows.Count - 1; i++)
+                    if (txtID_Customer.Text != "")
                     {
-                         string que = "INSERT Invoice_Detail( ID_Invoice ,ID_Medicine ,Cost ,Amount)VALUES(" + int.Parse(txtID_Invoice.Text) + "," + int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString()) + "," + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString()) + ")";
-                         DisplayListView(que); // lưu vào cơ sở dữ liệu
-                      
-                       
-                        
-                   
+                         string query = "INSERT INTO Invoice (ID_Customer,Diagnostic,Time_Of_Purchase,ID_Manager,Remind,Note) VALUES(" +
+                              int.Parse(txtID_Customer.Text) + ",N'" + txtDiagnostic.Text + "'," + "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',"
+                              + int.Parse(txtID_Manager.Text) + ",N'" + txtRemind.Text + "',N'" + txtNote.Text + "')";
+                         DisplayListView(query);
+
+                         for (int i = 0; i < dgvInvoice.Rows.Count - 1; i++)
+                         {
+                              string que = "INSERT Invoice_Detail( ID_Invoice ,ID_Medicine ,Cost ,Amount)VALUES(" + int.Parse(txtID_Invoice.Text) + "," + int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString()) + "," + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString()) + ")";
+                              DisplayListView(que); // lưu vào cơ sở dữ liệu
+
+
+
+
+                         }
+                         dgvInvoice.Rows.Clear();
+                         txtAddress_Order.Text = "";
+                         txtDiagnostic.Text = "";
+                         txtName_Customer_Order.Text = "";
+                         txtNote.Text = "";
+                         txtRemind.Text = "";
+                         txtPhoneOrder.Text = "";
+                         txtAddress_Order.Text = "";
+                         txtID_Customer.Text = "";
+                         txtID_Customer.Focus();
+                         MessageBox.Show("Thêm hóa đơn thành công, bạn có muốn in hóa đơn không");
                     }
-                    dgvInvoice.Rows.Clear();
-                    txtAddress_Order.Text = "";
-                    txtDiagnostic.Text = "";
-                    txtName_Customer_Order.Text = "";
-                    txtNote.Text = "";
-                    txtRemind.Text = "";
-                    txtPhoneOrder.Text = "";
-                    txtAddress_Order.Text = "";
-                    txtID_Customer.Text = "";
-                    txtID_Customer.Focus();
-                    MessageBox.Show("Thêm hóa đơn thành công, bạn có muốn in hóa đơn không");
+                    else
+                    {
+                         MessageBox.Show("Bạn cần nhập thông tin khách hàng trước");
+                    }
                }
           }
           private void Order_Load(object sender, EventArgs e)

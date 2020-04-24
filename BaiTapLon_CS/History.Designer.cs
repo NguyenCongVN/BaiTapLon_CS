@@ -38,6 +38,10 @@
                this.txtTotal = new System.Windows.Forms.TextBox();
                this.btnPrint = new System.Windows.Forms.Button();
                this.btnExcel = new System.Windows.Forms.Button();
+               this.btnPre = new System.Windows.Forms.Button();
+               this.btnCurrent = new System.Windows.Forms.Button();
+               this.btnNext = new System.Windows.Forms.Button();
+               this.btnTotalPage = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
                this.SuspendLayout();
                // 
@@ -45,7 +49,7 @@
                // 
                this.label1.AutoSize = true;
                this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label1.Location = new System.Drawing.Point(332, 19);
+               this.label1.Location = new System.Drawing.Point(332, 56);
                this.label1.Name = "label1";
                this.label1.Size = new System.Drawing.Size(344, 38);
                this.label1.TabIndex = 0;
@@ -57,23 +61,23 @@
                this.dgvHistory.BackgroundColor = System.Drawing.Color.White;
                this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                this.dgvHistory.GridColor = System.Drawing.SystemColors.Highlight;
-               this.dgvHistory.Location = new System.Drawing.Point(76, 169);
+               this.dgvHistory.Location = new System.Drawing.Point(51, 155);
                this.dgvHistory.Name = "dgvHistory";
                this.dgvHistory.ReadOnly = true;
                this.dgvHistory.RowHeadersWidth = 51;
                this.dgvHistory.RowTemplate.Height = 24;
-               this.dgvHistory.Size = new System.Drawing.Size(875, 303);
+               this.dgvHistory.Size = new System.Drawing.Size(945, 241);
                this.dgvHistory.TabIndex = 1;
                this.dgvHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellContentClick);
                // 
                // txtAmount_Product
                // 
                this.txtAmount_Product.BackColor = System.Drawing.Color.White;
-               this.txtAmount_Product.Location = new System.Drawing.Point(269, 501);
+               this.txtAmount_Product.Location = new System.Drawing.Point(282, 501);
                this.txtAmount_Product.Multiline = true;
                this.txtAmount_Product.Name = "txtAmount_Product";
                this.txtAmount_Product.ReadOnly = true;
-               this.txtAmount_Product.Size = new System.Drawing.Size(158, 38);
+               this.txtAmount_Product.Size = new System.Drawing.Size(75, 38);
                this.txtAmount_Product.TabIndex = 2;
                // 
                // label2
@@ -106,21 +110,21 @@
                // txtOrder
                // 
                this.txtOrder.BackColor = System.Drawing.Color.White;
-               this.txtOrder.Location = new System.Drawing.Point(269, 578);
+               this.txtOrder.Location = new System.Drawing.Point(282, 578);
                this.txtOrder.Multiline = true;
                this.txtOrder.Name = "txtOrder";
                this.txtOrder.ReadOnly = true;
-               this.txtOrder.Size = new System.Drawing.Size(158, 38);
+               this.txtOrder.Size = new System.Drawing.Size(75, 38);
                this.txtOrder.TabIndex = 6;
                // 
                // txtTotal
                // 
                this.txtTotal.BackColor = System.Drawing.Color.White;
-               this.txtTotal.Location = new System.Drawing.Point(269, 652);
+               this.txtTotal.Location = new System.Drawing.Point(282, 652);
                this.txtTotal.Multiline = true;
                this.txtTotal.Name = "txtTotal";
                this.txtTotal.ReadOnly = true;
-               this.txtTotal.Size = new System.Drawing.Size(158, 38);
+               this.txtTotal.Size = new System.Drawing.Size(169, 38);
                this.txtTotal.TabIndex = 7;
                // 
                // btnPrint
@@ -143,12 +147,54 @@
                this.btnExcel.UseVisualStyleBackColor = true;
                this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
                // 
+               // btnPre
+               // 
+               this.btnPre.Location = new System.Drawing.Point(282, 411);
+               this.btnPre.Name = "btnPre";
+               this.btnPre.Size = new System.Drawing.Size(75, 40);
+               this.btnPre.TabIndex = 10;
+               this.btnPre.Text = "<=";
+               this.btnPre.UseVisualStyleBackColor = true;
+               this.btnPre.Click += new System.EventHandler(this.btnPre_Click);
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.Enabled = false;
+               this.btnCurrent.Location = new System.Drawing.Point(409, 411);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(75, 40);
+               this.btnCurrent.TabIndex = 11;
+               this.btnCurrent.UseVisualStyleBackColor = true;
+               // 
+               // btnNext
+               // 
+               this.btnNext.Location = new System.Drawing.Point(515, 411);
+               this.btnNext.Name = "btnNext";
+               this.btnNext.Size = new System.Drawing.Size(75, 40);
+               this.btnNext.TabIndex = 12;
+               this.btnNext.Text = "=>";
+               this.btnNext.UseVisualStyleBackColor = true;
+               this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+               // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.Enabled = false;
+               this.btnTotalPage.Location = new System.Drawing.Point(628, 411);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(75, 40);
+               this.btnTotalPage.TabIndex = 13;
+               this.btnTotalPage.UseVisualStyleBackColor = true;
+               // 
                // History
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
-               this.ClientSize = new System.Drawing.Size(1054, 723);
+               this.ClientSize = new System.Drawing.Size(1054, 744);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnNext);
+               this.Controls.Add(this.btnCurrent);
+               this.Controls.Add(this.btnPre);
                this.Controls.Add(this.btnExcel);
                this.Controls.Add(this.btnPrint);
                this.Controls.Add(this.txtTotal);
@@ -180,5 +226,9 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Button btnPre;
+        private System.Windows.Forms.Button btnCurrent;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnTotalPage;
     }
 }

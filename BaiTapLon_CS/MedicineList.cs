@@ -17,6 +17,9 @@ namespace BaiTapLon_CS
           int pageSize = 5;
           int page;
           int pageMax;
+          bool isList = false;
+          bool  isSearch=false;
+          string Subquery = "";
           public static int ID_Medicine;
           public static string Name_Medicine;
           public static string Image_Medicine;
@@ -34,8 +37,22 @@ namespace BaiTapLon_CS
                     da.Fill(dt);
                     count = dt.Rows[0][0].ToString();
                }
+               con.Close();
                return count;
 
+          }
+         public string getCountSearch(string query)
+          {
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               con.Close();
+               return count;
           }
           public void DisplayListView(string query)
           {
@@ -92,6 +109,8 @@ namespace BaiTapLon_CS
           }
           public MedicineList()
           {
+               isList = true;
+               isSearch = false;
                page = 1;
                InitializeComponent();
                string query ="SELECT TOP("+pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page-1) + ") * FROM dbo.Medicine";
@@ -108,7 +127,7 @@ namespace BaiTapLon_CS
                     pageMax = (pageMax / pageSize) + 1;
                }
                btnTotalPage.Text ="of "+pageMax.ToString();
-               con.Close();
+               
           }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,8 +147,10 @@ namespace BaiTapLon_CS
 
           private void btnSearch_Click(object sender, EventArgs e)
           {
+               isSearch = true;
+               isList = false;
                dgwMedicineList.DataSource = null;
-               var Subquery = "";
+               Subquery = "";
                var isIndex = true;
                if (txtID_Medicine.Text != "")
                {
@@ -181,23 +202,58 @@ namespace BaiTapLon_CS
                }
                if (Subquery == "")
                {
-                    string queryy = "SELECT TOP("+pageSize+")* FROM Medicine";
-                    DisplayListView(queryy);
+                    MessageBox.Show("Bạn chưa có nhập thông tin tìm kiếm gì hết nhé");
                }
                else
                {
-                    string query = "SELECT me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
+                    page = 1;
+                    btnPre.Enabled = false;
+                    string query = "SELECT COUNT(*) FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
+                    pageMax = int.Parse(getCountSearch(query));
+                    if (pageMax % pageSize == 0)
+                    {
+                         pageMax = pageMax / pageSize;
+                    }
+                    else
+                    {
+                         pageMax = (pageMax / pageSize) + 1;
+                    }
+                    if(pageMax==1)
+                    {
+                         btnNext.Enabled = false;
+                    }
+                    else
+                    {
+                         btnNext.Enabled = true;
+                    }
+                    btnCurrent.Text = page.ToString();
+                    btnTotalPage.Text = "of " + pageMax.ToString();
+                    query = "SELECT TOP("+pageSize+") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
                     DisplayListView(query);
                }
           }
 
           private void btnReset_Click(object sender, EventArgs e)
           {
+               page = 1;
                // listViewMedicine.Items.Clear();
                string query = "SELECT TOP(+"+pageSize+") * FROM dbo.Medicine";
                DisplayListView(query);
                btnPre.Enabled = false;
                //btnNext.Enabled = true;
+
+               btnPre.Enabled = false;
+               btnCurrent.Text = page.ToString();
+               pageMax = int.Parse(getCountMedicine());
+               if (pageMax % pageSize == 0)
+               {
+                    pageMax = pageMax / pageSize;
+               }
+               else
+               {
+                    pageMax = (pageMax / pageSize) + 1;
+               }
+               btnTotalPage.Text = "of " + pageMax.ToString();
           }
 
           private void listViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,6 +311,7 @@ namespace BaiTapLon_CS
 
           private void btnNext_Click(object sender, EventArgs e)
           {
+               if(isList)
                if (page < pageMax-1)
                {
                     page += 1;
@@ -273,28 +330,73 @@ namespace BaiTapLon_CS
                     DisplayListView(query);
                     btnCurrent.Text = page.ToString();
                }
+               else if(isSearch)
+               {
+                    if (page < pageMax - 1)
+                    {
+                         page += 1;
+                         string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnNext.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else
+                    {
+                         page += 1;
+                         btnNext.Enabled = false;
+                         btnPre.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
 
           }
 
           private void btnPre_Click(object sender, EventArgs e)
           {
-               if (page > 2)
+               if (isList)
                {
-                    page -= 1;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
-                    DisplayListView(query);
-                    btnPre.Enabled = true;
-                    btnCurrent.Text = page.ToString();
+                    if (page > 2)
+                    {
+                         page -= 1;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else if (page == 2)
+                    {
+                         page -= 1;
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize + ") * FROM dbo.Medicine ";
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
-               else if(page == 2)
+               else if(isSearch)
                {
-                    page -= 1;
-                    btnPre.Enabled = false;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize + ") * FROM dbo.Medicine ";
-                    DisplayListView(query);
-                    btnCurrent.Text = page.ToString();
+                    if (page > 2)
+                    {
+                         page -= 1;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else if (page == 2)
+                    {
+                         page -= 1;
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize + ") * FROM dbo.Medicine ";
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
           }
 

@@ -23,6 +23,63 @@ namespace BaiTapLon_CS
           bool month = false;
 
 
+          public string getCountInvoice(string query)
+          {
+             //  string query = "SELECT COUNT(*) FROM Invoice as inv,Invoice_Detail as inde where inv.ID_Invoice = inde.ID_Invoice and inv.ID_Manager="+Form1.ID_Manager;
+               con.Close();
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               con.Close();
+               return count;
+               
+
+          }
+          public string getCountToday()
+          {
+               string query = "SELECT  COUNT(*) FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               con.Close();
+               return count;
+
+
+          }
+
+
+          public string getCountMonth()
+          {
+               string query = "SELECT COUNT(*) FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+               con.Close();
+               con.Open();
+               string count;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    count = dt.Rows[0][0].ToString();
+               }
+               con.Close();
+               return count;
+
+
+          }
+
 
 
           string Subquery = "";
@@ -83,11 +140,13 @@ namespace BaiTapLon_CS
 
         private void btnAnalytics_Click(object sender, EventArgs e)
         {
+               page = 1;
                isAnalytic = true;
                today = false;
                month = false;
                Subquery ="";
                dgvAnalytics.DataSource = null;
+               
                
                var isIndex = true;
                if (txtNameManufacturer.Text != "")
@@ -144,12 +203,27 @@ namespace BaiTapLon_CS
 
                if (Subquery != "")
                {
-                    var query = "SELECT TOP("+ pageSize + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery+" and inde.ID_Manager = "+Form1.ID_Manager;;
+                    string query = "SELECT COUNT(*) FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+
+                    pageMax = int.Parse(getCountInvoice(query));
+                    if (pageMax % pageSize == 0)
+                    {
+                         pageMax = pageMax / pageSize;
+                    }
+                    else
+                    {
+                         pageMax = (pageMax / pageSize) + 1;
+                    }
+                    btnCurrent.Text = page.ToString();
+                    btnTotalPage.Text = "of " + pageMax.ToString();
+
+
+                    query = "SELECT inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
                     DisplayListView(query);
 
                     CultureInfo culture = new CultureInfo("en-US");
                     decimal val = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[5].Value)).ToString(), NumberStyles.AllowThousands);
-                    
+
                     txtTotal.Text = String.Format(culture, "{0:N0}", val);
                     if (dgvAnalytics.Rows.Count != 0)
                     {
@@ -159,9 +233,17 @@ namespace BaiTapLon_CS
                     {
                          txtAmount.Text = "0";
                     }
-                   
+
                     decimal value = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString(), NumberStyles.AllowThousands);
                     txtAmount_Product.Text = String.Format(culture, "{0:N0}", value);
+
+                    query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager +
+                              " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+                    
+                    
+                    DisplayListView(query);
+
+                    
                     
                }
                else
@@ -177,13 +259,25 @@ namespace BaiTapLon_CS
                today = true;
                month = false;
                Subquery = "";
-               dgvAnalytics.DataSource = null;
-               var query = "SELECT TOP(" + pageSize + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
-                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" +"'"+DateTime.Now.ToString("yyyy-MM-dd") +"'"+ ") and MONTH(inv.Time_Of_Purchase) = MONTH("+"'" + DateTime.Now.ToString("yyyy-MM-dd") +"'"+
-                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" +"'"+ DateTime.Now.ToString("yyyy-MM-dd") +"'"+ ") and inv.ID_Manager ="+Form1.ID_Manager;
+               page = 1;
+               btnPre.Enabled = false;
+               btnNext.Enabled = true;
+               btnCurrent.Text = page.ToString();
 
+               pageMax = int.Parse(getCountToday());
+               if (pageMax % pageSize == 0)
+               {
+                    pageMax = pageMax / pageSize;
+               }
+               else
+               {
+                    pageMax = (pageMax / pageSize) + 1;
+               }
+               btnTotalPage.Text = "of " + pageMax.ToString();
+               var query = "SELECT inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
                DisplayListView(query);
-
                CultureInfo culture = new CultureInfo("en-US");
                decimal val = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[5].Value)).ToString(), NumberStyles.AllowThousands);
 
@@ -196,7 +290,20 @@ namespace BaiTapLon_CS
                {
                     txtAmount.Text = "0";
                }
-               txtAmount_Product.Text= this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
+               txtAmount_Product.Text = this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
+
+               dgvAnalytics.DataSource = null;
+               query = "SELECT TOP("+pageSize*page+") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" +"'"+DateTime.Now.ToString("yyyy-MM-dd") +"'"+ ") and MONTH(inv.Time_Of_Purchase) = MONTH("+"'" + DateTime.Now.ToString("yyyy-MM-dd") +"'"+
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" +"'"+ DateTime.Now.ToString("yyyy-MM-dd") +"'"+ ") and inv.ID_Manager ="+Form1.ID_Manager+
+
+                    " EXCEPT SELECT TOP(" + pageSize * (page-1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+
+               DisplayListView(query);
+
+               
 
 
           }
@@ -206,8 +313,25 @@ namespace BaiTapLon_CS
                isAnalytic = false;
                today = false;
                month = true;
+               page = 1;
+               btnPre.Enabled = false;
+               pageMax = int.Parse(getCountMonth());
+               if (pageMax % pageSize == 0)
+               {
+                    pageMax = pageMax / pageSize;
+               }
+               else
+               {
+                    pageMax = (pageMax / pageSize) + 1;
+               }
+               btnCurrent.Text = page.ToString();
+               btnTotalPage.Text = "of " + pageMax.ToString();
+
                dgvAnalytics.DataSource = null;
-               var query = "SELECT TOP(" + pageSize + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+               var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+                    " EXCEPT SELECT TOP(" + pageSize * (page-1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
 
@@ -236,52 +360,184 @@ namespace BaiTapLon_CS
         {
 
         }
-
-          private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
           {
-               if (page > 2)
+               if (isAnalytic == true)
                {
-                    page -= 1;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
-                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
-                    btnPre.Enabled = true;
-                    btnCurrent.Text = page.ToString();
+                    if (page > 2)
+                    {
+                         page -= 1;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager +
+                                   " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else if (page == 2)
+                    {
+                         page -= 1;
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager +
+                                   " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }  
+               else if (today == true)
+               {
+                    if (page > 2)
+                    {
+                         page -= 1;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+
+                     " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else if (page == 2)
+                    {
+                         page -= 1;
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                         "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                         ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+
+                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                         "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                         ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
-               else if (page == 2)
+               else if(month==true)
                {
-                    page -= 1;
-                    btnPre.Enabled = false;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
-                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
-                    btnCurrent.Text = page.ToString();
+                    if (page > 2)
+                    {
+                         page -= 1;
+                         btnNext.Enabled = true;
+                         var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+                     " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else if (page == 2)
+                    {
+                         page -= 1;
+                         btnPre.Enabled = false;
+                         btnNext.Enabled = true;
+                         var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+                     " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
           }
-
           private void btnNext_Click(object sender, EventArgs e)
           {
-               if (page < pageMax - 1)
+               if (isAnalytic == true)
                {
-                    page += 1;
-                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
-                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
-                    btnPre.Enabled = true;
-                    btnNext.Enabled = true;
-                    btnCurrent.Text = page.ToString();
+                    if (page < pageMax - 1)
+                    {
+                         page += 1;
+                         string query = "SELECT TOP(" + pageSize*page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager +
+                              " EXCEPT SELECT TOP(" + pageSize*(page-1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnNext.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else
+                    {
+                         page += 1;
+                         btnNext.Enabled = false;
+                         btnPre.Enabled = true;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager +
+                               " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and " + Subquery + " and inde.ID_Manager = " + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
-               else
+               else if (today == true)
                {
-                    page += 1;
-                    btnNext.Enabled = false;
-                    btnPre.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
-                          " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
-                    btnCurrent.Text = page.ToString();
+                    if (page < pageMax - 1)
+                    {
+                         page += 1;
+                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+
+                    " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnNext.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else
+                    {
+                         page += 1;
+                         btnNext.Enabled = false;
+                         btnPre.Enabled = true;
+                         var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+
+                    " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
+               else if(month)
+               {
+                    if (page < pageMax - 1)
+                    {
+                         page += 1;
+                         var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+                     " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                     "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                     ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnPre.Enabled = true;
+                         btnNext.Enabled = true;
+                         btnCurrent.Text = page.ToString();
+                    }
+                    else
+                    {
+                         page += 1;
+                         btnNext.Enabled = false;
+                         btnPre.Enabled = true;
+                         var query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager +
+                    " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
+                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + Form1.ID_Manager;
+                         DisplayListView(query);
+                         btnCurrent.Text = page.ToString();
+                    }
                }
           }
      }

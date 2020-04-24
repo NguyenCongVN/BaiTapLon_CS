@@ -13,7 +13,7 @@ namespace BaiTapLon_CS
 {
      public partial class SearchOrder : Form
      {
-          int pageSize = 1;
+          int pageSize = 5;
           int page;
           string Subquery = "";
           int pageMax;

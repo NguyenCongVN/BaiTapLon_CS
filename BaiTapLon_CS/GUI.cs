@@ -112,5 +112,18 @@ namespace BaiTapLon_CS
           {
 
           }
-     }
+
+        private void xemThôngTinTrangCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               Info info = new Info();
+               info.ShowDialog();
+       
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               ChangePassword changePassword = new ChangePassword();
+               changePassword.ShowDialog();
+        }
+    }
 }

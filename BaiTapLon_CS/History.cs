@@ -17,13 +17,31 @@ namespace BaiTapLon_CS
 {
      public partial class History : Form
      {
+
+          int pageSize = 5;
+          int page;
+          int pageMax;
           public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
           SqlConnection con = new SqlConnection(connect);
-          private readonly object v1;
 
           public string getCount_Order()
           {
                string query = "SELECT Count(ID_Invoice) FROM Invoice as inv Where inv.ID_Manager = " + Form1.ID_Manager;
+               con.Close();
+               con.Open();
+               string ID_Order;
+               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
+               {
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    ID_Order = dt.Rows[0][0].ToString();
+               }
+               return ID_Order;
+
+          }
+          public string getCount_Order_Detail()
+          {
+               string query = "SELECT Count(*) FROM Invoice as inv,Invoice_Detail as inde Where inv.ID_Invoice = inde.ID_Invoice and inv.ID_Manager = " + Form1.ID_Manager;
                con.Close();
                con.Open();
                string ID_Order;
@@ -82,14 +100,35 @@ namespace BaiTapLon_CS
           public History()
           {
                InitializeComponent();
-               string query = "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer";
+               page = 1;
+               string query = "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
                DisplayListView(query);
-               int total = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[6].Value));
+               int total = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[7].Value));
                txtTotal.Text = total.ToString();
+
 
                txtOrder.Text = getCount_Order();
 
-               txtAmount_Product.Text = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[5].Value)).ToString();
+               txtAmount_Product.Text = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[6].Value)).ToString();
+
+               query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager="+Form1.ID_Manager
+                    + " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager ="+ Form1.ID_Manager;
+               DisplayListView(query);
+
+
+
+               pageMax = int.Parse(getCount_Order_Detail());
+               if (pageMax % pageSize == 0)
+               {
+                    pageMax = pageMax / pageSize;
+               }
+               else
+               {
+                    pageMax = (pageMax / pageSize) + 1;
+               }
+               btnCurrent.Text = page.ToString();
+               btnTotalPage.Text = "of " + pageMax.ToString();
+
           }
 
           private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -104,7 +143,8 @@ namespace BaiTapLon_CS
 
           private void btnExcel_Click(object sender, EventArgs e)
           {
-
+               string query = "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
+               DisplayListView(query);
 
 
                SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
@@ -139,15 +179,62 @@ namespace BaiTapLon_CS
                          excWsheet.Rows[i+3].Cells[j].Value = dgvHistory.Rows[i].Cells[j].Value;
                     }
                }
-               //stylizing my excel file look
                CellStyle style = new CellStyle(myExcelFile);
                style.HorizontalAlignment = HorizontalAlignmentStyle.Left;
                style.VerticalAlignment = VerticalAlignmentStyle.Center;
                style.Font.Color = Color.DarkRed;
                style.WrapText = true;
                style.Borders.SetBorders(MultipleBorders.Top| MultipleBorders.Left | MultipleBorders.Right| MultipleBorders.Bottom, System.Drawing.Color.Black,LineStyle.Thin);
-               myExcelFile.Save("C:\\Users\\PC\\Documents\\myFile.xls");
-               MessageBox.Show("Xuất file thành công");
+               myExcelFile.Save("C:\\Users\\PC\\Documents\\History"+DateTime.Now+".xls");
+               MessageBox.Show("Xuất file thành công+ tại C:\\Users\\PC\\Documents\\History"+DateTime.Now+".xls");
+          }
+
+          private void btnPre_Click(object sender, EventArgs e)
+          {
+               if (page > 2)
+               {
+                    page -= 1;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager
+                    + " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else if (page == 2)
+               {
+                    page -= 1;
+                    btnPre.Enabled = false;
+                    btnNext.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager
+                    + " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
+          }
+
+          private void btnNext_Click(object sender, EventArgs e)
+          {
+               if (page < pageMax - 1)
+               {
+                    page += 1;
+                    string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager
+                    + " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
+                    DisplayListView(query);
+                    btnPre.Enabled = true;
+                    btnNext.Enabled = true;
+                    btnCurrent.Text = page.ToString();
+               }
+               else
+               {
+                    page += 1;
+                    btnNext.Enabled = false;
+                    btnPre.Enabled = true;
+                    string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager
+                     + " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
+                    DisplayListView(query);
+                    btnCurrent.Text = page.ToString();
+               }
           }
      }
 }
