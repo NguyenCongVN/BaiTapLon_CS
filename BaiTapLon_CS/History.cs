@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BaiTapLon_CS.DAO;
 using GemBox.Spreadsheet;
 using Microsoft;
 
@@ -21,54 +22,10 @@ namespace BaiTapLon_CS
           int pageSize = 5;
           int page;
           int pageMax;
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
-
-          public string getCount_Order()
-          {
-               string query = "SELECT Count(ID_Invoice) FROM Invoice as inv Where inv.ID_Manager = " + Form1.ID_Manager;
-               con.Close();
-               con.Open();
-               string ID_Order;
-               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
-               {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    ID_Order = dt.Rows[0][0].ToString();
-               }
-               return ID_Order;
-
-          }
-          public string getCount_Order_Detail()
-          {
-               string query = "SELECT Count(*) FROM Invoice as inv,Invoice_Detail as inde Where inv.ID_Invoice = inde.ID_Invoice and inv.ID_Manager = " + Form1.ID_Manager;
-               con.Close();
-               con.Open();
-               string ID_Order;
-               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
-               {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    ID_Order = dt.Rows[0][0].ToString();
-               }
-               return ID_Order;
-
-          }
           public void DisplayListView(string query)
           {
-               try
-               {
-                    SqlCommand com = new SqlCommand();
-                    com.Connection = con;
-                    com.CommandText = query;
-                    con.Close();
-                    con.Open();
-                    SqlDataReader reader = com.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                         DataTable dt = new DataTable();
-                         dt.Load(reader);
-                         dgvHistory.DataSource = dt;
+                       
+                         dgvHistory.DataSource = DataProvider.Instance.DisplayListView(query);
                          dgvHistory.Columns[0].HeaderText = "Mã hóa đơn";
                          dgvHistory.Columns[1].HeaderText = "Họ tên";
                          dgvHistory.Columns[2].HeaderText = "Mã thuốc";
@@ -83,23 +40,13 @@ namespace BaiTapLon_CS
                          dgvHistory.Columns[7].DefaultCellStyle.Format = "n0";
                          dgvHistory.Columns[7].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
 
-                         con.Close();
-                    }
-                    else
-                    {
-                         MessageBox.Show("Chưa có dữ liệu cho danh mục bạn cần thống kê");
-                    }
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi " + e);
-               }
-
+                
 
           }
           public History()
           {
                InitializeComponent();
+               btnPre.Enabled = false;
                page = 1;
                string query = "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
                DisplayListView(query);
@@ -107,7 +54,7 @@ namespace BaiTapLon_CS
                txtTotal.Text = total.ToString();
 
 
-               txtOrder.Text = getCount_Order();
+               txtOrder.Text = HistoryDAO.Instance.getCountOrder();
 
                txtAmount_Product.Text = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[6].Value)).ToString();
 
@@ -117,7 +64,7 @@ namespace BaiTapLon_CS
 
 
 
-               pageMax = int.Parse(getCount_Order_Detail());
+               pageMax = int.Parse(HistoryDAO.Instance.getCount_Order_Detail());
                if (pageMax % pageSize == 0)
                {
                     pageMax = pageMax / pageSize;

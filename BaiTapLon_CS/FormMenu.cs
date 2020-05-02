@@ -45,5 +45,10 @@ namespace BaiTapLon_CS
         {
 
         }
+
+        private void pnMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

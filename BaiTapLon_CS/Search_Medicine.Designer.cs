@@ -86,6 +86,7 @@
                this.dgvSearchMedicine.RowTemplate.Height = 24;
                this.dgvSearchMedicine.Size = new System.Drawing.Size(692, 186);
                this.dgvSearchMedicine.TabIndex = 4;
+               this.dgvSearchMedicine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchMedicine_CellContentClick);
                this.dgvSearchMedicine.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSearchMedicine_MouseClick);
                // 
                // Search_Medicine

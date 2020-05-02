@@ -94,5 +94,10 @@ namespace BaiTapLon_CS
                this.Hide();
                
           }
-     }
+
+        private void dgvSearchMedicine_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }

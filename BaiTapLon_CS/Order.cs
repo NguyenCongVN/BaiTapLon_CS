@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,58 +15,12 @@ namespace BaiTapLon_CS
 {
      public partial class Order : Form
      {
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
-
-          public void DisplayListView(string query)
-          {
-              
-
-              
-               try
-               {
-                    SqlCommand com = new SqlCommand();
-                    com.Connection = con;
-                    com.CommandText = query;
-                    con.Close();
-                    
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
-
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi cú pháp rồi:"+e);
-                    return;
-               }
-              
-          }
-               public string getID_Order()
-          {
-               string query = "SELECT MAX(ID_Invoice) FROM Invoice";
-               con.Open();
-               string ID_Order;
-               using(SqlDataAdapter da = new SqlDataAdapter(query, connect))
-               {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    ID_Order = dt.Rows[0][0].ToString();
-               }
-               return ID_Order;
-
-          }
-          
-
-
+         
           public Order()
           {
                InitializeComponent();
                txtID_Manager.Text = Form1.ID_Manager;
                txtName_Manager.Text = Form1.Name_Manager;
-               txtSoldDate.Text = DateTime.Now.ToString();
-               txtID_Invoice.Text=(int.Parse(getID_Order().ToString())+1).ToString();
-               
           }
           public  void fillCustomer(string a,string b,string c,string d)
           {
@@ -155,7 +110,6 @@ namespace BaiTapLon_CS
                CultureInfo culture = new CultureInfo("en-US");
 
                Total.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
-             //  Total.Text = total.ToString();
                     txtID_Medicine.Text = "";
                     txtPrice.Text = "";
                     txtAmount.Text = "";
@@ -258,15 +212,16 @@ namespace BaiTapLon_CS
                {
                     if (txtID_Customer.Text != "")
                     {
-                         string query = "INSERT INTO Invoice (ID_Customer,Diagnostic,Time_Of_Purchase,ID_Manager,Remind,Note) VALUES(" +
+                         string id_invoice= "SELECT MAX(ID_Invoice) FROM Invoice";
+                         string query = "INSERT INTO Invoice (ID_Customer,Diagnostic,Time_Of_Purchase,ID_Manager,Remind) VALUES(" +
                               int.Parse(txtID_Customer.Text) + ",N'" + txtDiagnostic.Text + "'," + "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "',"
-                              + int.Parse(txtID_Manager.Text) + ",N'" + txtRemind.Text + "',N'" + txtNote.Text + "')";
-                         DisplayListView(query);
-
+                              + int.Parse(txtID_Manager.Text) + ",N'" + txtRemind.Text+"')";
+                       OrderDAO.Instance.AddOrder(query);
+                         string ID_Invoice = OrderDAO.Instance.getCountID_Invoice(id_invoice);
                          for (int i = 0; i < dgvInvoice.Rows.Count - 1; i++)
                          {
-                              string que = "INSERT Invoice_Detail( ID_Invoice ,ID_Medicine ,Cost ,Amount)VALUES(" + int.Parse(txtID_Invoice.Text) + "," + int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString()) + "," + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString()) + ")";
-                              DisplayListView(que); // lưu vào cơ sở dữ liệu
+                              string que = "INSERT Invoice_Detail( ID_Invoice ,ID_Medicine ,Cost ,Amount)VALUES("+ int.Parse(ID_Invoice)+"," + int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString()) + "," + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString()) + ")";
+                              OrderDAO.Instance.AddOrder(que); // lưu vào cơ sở dữ liệu
 
 
 
@@ -276,7 +231,6 @@ namespace BaiTapLon_CS
                          txtAddress_Order.Text = "";
                          txtDiagnostic.Text = "";
                          txtName_Customer_Order.Text = "";
-                         txtNote.Text = "";
                          txtRemind.Text = "";
                          txtPhoneOrder.Text = "";
                          txtAddress_Order.Text = "";

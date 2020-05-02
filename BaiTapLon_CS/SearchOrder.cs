@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,75 +18,33 @@ namespace BaiTapLon_CS
           int page;
           string Subquery = "";
           int pageMax;
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
-          public void DisplayListView(string query)
+          void searchMedicine_List_Search(string query)
           {
-               try
+               dgvOrder_Search.DataSource = DataProvider.Instance.DisplayListView(query);
+               if (dgvOrder_Search.DataSource != null)
                {
-                    SqlCommand com = new SqlCommand();
+                    dgvOrder_Search.Columns[0].Visible = false;
+                    dgvOrder_Search.Columns[1].HeaderText = "Tên KH";
+                    dgvOrder_Search.Columns[2].HeaderText = "Giới tính";
+                    dgvOrder_Search.Columns[3].HeaderText = "Địa chỉ";
+                    dgvOrder_Search.Columns[4].HeaderText = "Tuổi";
+                    dgvOrder_Search.Columns[5].HeaderText = "Số ĐT";
+                    dgvOrder_Search.Columns[6].HeaderText = "Mã HĐ";
+                    dgvOrder_Search.Columns[7].Visible = false;
+                    dgvOrder_Search.Columns[8].HeaderText = "Chuẩn đoán";
+                    dgvOrder_Search.Columns[9].HeaderText = "TG mua";
+                    dgvOrder_Search.Columns[10].HeaderText = "Mã NV";
 
-                    com.Connection = con;
-
-                    com.CommandText = query;
-                    con.Close();
-                    con.Open();
-                    SqlDataReader reader = com.ExecuteReader();
-                    if (reader.HasRows)
-
-                    {
-                         DataTable dt = new DataTable();
-                         dt.Load(reader);
-                         dgvOrder_Search.DataSource = dt;
-                         dgvOrder_Search.Columns[0].Visible = false;
-                         dgvOrder_Search.Columns[1].HeaderText = "Tên KH";
-                         dgvOrder_Search.Columns[2].HeaderText = "Giới tính";
-                         dgvOrder_Search.Columns[3].HeaderText = "Địa chỉ";
-                         dgvOrder_Search.Columns[4].HeaderText = "Tuổi";
-                         dgvOrder_Search.Columns[5].HeaderText = "Số ĐT";
-                         dgvOrder_Search.Columns[6].HeaderText = "Mã HĐ";
-                         dgvOrder_Search.Columns[7].Visible =false;
-                         dgvOrder_Search.Columns[8].HeaderText = "Chuẩn đoán";
-                         dgvOrder_Search.Columns[9].HeaderText = "TG mua";
-                         dgvOrder_Search.Columns[10].HeaderText = "Mã NV";
-                         dgvOrder_Search.Columns[12].Visible = false;
-                         dgvOrder_Search.Columns[11].Visible =false;
-
-
-
-                    }
-                    else
-                    {
-                         MessageBox.Show("Dữ liệu bạn vừa nhập vào không tìm thấy");
-                    }
-                    con.Close();
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi cú pháp rồi "+e);
-                    return;
+                    dgvOrder_Search.Columns[11].Visible = false;
                }
           }
-          public string getCountMedicine(string query)
-          {
-               con.Open();
-               string count;
-               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
-               {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    count = dt.Rows[0][0].ToString();
-               }
-               return count;
-
-          }
+      
           public SearchOrder()
           {
                InitializeComponent();
                btnPre.Enabled = false;
                btnNext.Enabled = false;
           }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -221,10 +180,10 @@ namespace BaiTapLon_CS
                }
                else
                {
-                    DisplayListView(query);
+                    searchMedicine_List_Search(query);
                     page = 1;
                     string q= "SELECT COUNT(*) FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    pageMax = int.Parse(getCountMedicine(q));
+                    pageMax = int.Parse(SearchOrderDAO.Instance.getCountMedicine(q));
                     if (pageMax % pageSize == 0)
                     {
                          pageMax = pageMax / pageSize;
@@ -276,7 +235,7 @@ namespace BaiTapLon_CS
                     btnNext.Enabled = true;
                     string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
                          " EXCEPT SELECT TOP(" + pageSize * (page-1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
+                    searchMedicine_List_Search(query);
                     btnPre.Enabled = true;
                     btnCurrent.Text = page.ToString();
                }
@@ -287,7 +246,7 @@ namespace BaiTapLon_CS
                     btnNext.Enabled = true;
                     string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer " +
                          " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
+                    searchMedicine_List_Search(query);
                     btnCurrent.Text = page.ToString();
                }
           }
@@ -299,7 +258,7 @@ namespace BaiTapLon_CS
                     page += 1;
                     string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
                          " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
+                    searchMedicine_List_Search(query);
                     btnPre.Enabled = true;
                     btnNext.Enabled = true;
                     btnCurrent.Text = page.ToString();
@@ -311,7 +270,7 @@ namespace BaiTapLon_CS
                     btnPre.Enabled = true;
                     string query = "SELECT TOP(" + pageSize * page + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer" +
                           " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ")* FROM Customer AS cu JOIN Invoice AS inv ON " + Subquery + " and cu.ID_Customer = inv.ID_Customer";
-                    DisplayListView(query);
+                    searchMedicine_List_Search(query);
                     btnCurrent.Text = page.ToString();
                }
           }

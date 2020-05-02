@@ -92,17 +92,15 @@
                // btnName
                // 
                this.btnName.Location = new System.Drawing.Point(203, 97);
-               this.btnName.Multiline = true;
                this.btnName.Name = "btnName";
-               this.btnName.Size = new System.Drawing.Size(218, 35);
+               this.btnName.Size = new System.Drawing.Size(218, 22);
                this.btnName.TabIndex = 7;
                // 
                // btnPhone
                // 
                this.btnPhone.Location = new System.Drawing.Point(203, 218);
-               this.btnPhone.Multiline = true;
                this.btnPhone.Name = "btnPhone";
-               this.btnPhone.Size = new System.Drawing.Size(218, 40);
+               this.btnPhone.Size = new System.Drawing.Size(218, 22);
                this.btnPhone.TabIndex = 8;
                // 
                // btnSex
@@ -132,17 +130,16 @@
                this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label6.Location = new System.Drawing.Point(196, 23);
                this.label6.Name = "label6";
-               this.label6.Size = new System.Drawing.Size(399, 39);
+               this.label6.Size = new System.Drawing.Size(384, 38);
                this.label6.TabIndex = 13;
                this.label6.Text = "THÔNG TIN TÀI KHOẢN";
                // 
                // btnDateWork
                // 
                this.btnDateWork.Location = new System.Drawing.Point(203, 294);
-               this.btnDateWork.Multiline = true;
                this.btnDateWork.Name = "btnDateWork";
                this.btnDateWork.ReadOnly = true;
-               this.btnDateWork.Size = new System.Drawing.Size(218, 35);
+               this.btnDateWork.Size = new System.Drawing.Size(218, 22);
                this.btnDateWork.TabIndex = 14;
                // 
                // picBoxUser
@@ -153,6 +150,7 @@
                this.picBoxUser.Size = new System.Drawing.Size(195, 137);
                this.picBoxUser.TabIndex = 0;
                this.picBoxUser.TabStop = false;
+               this.picBoxUser.Click += new System.EventHandler(this.picBoxUser_Click);
                // 
                // Info
                // 

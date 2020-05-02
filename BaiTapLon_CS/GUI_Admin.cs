@@ -26,5 +26,10 @@ namespace BaiTapLon_CS
           {
 
           }
-     }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

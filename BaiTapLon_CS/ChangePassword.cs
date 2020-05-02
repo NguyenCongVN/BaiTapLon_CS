@@ -16,30 +16,12 @@ namespace BaiTapLon_CS
      {
           public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
           SqlConnection con = new SqlConnection(connect);
+          string Password = null;
           public ChangePassword()
           {
                InitializeComponent();
           }
-          public void updateInfo(string query)
-          {
-               try
-               {
-                    SqlCommand com = new SqlCommand();
-                    com.Connection = con;
-                    com.CommandText = query;
-                    con.Close();
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Cập nhật thành công");
-
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi cú pháp rồi:" + e);
-                    return;
-               }
-          }
+          
           public string MaHoaMD5(string password)
           {
                MD5 mh = MD5.Create();
@@ -63,9 +45,24 @@ namespace BaiTapLon_CS
 
           private void button1_Click(object sender, EventArgs e)
           {
+               Password = DAO.ChangePasswordDAO.Instance.confirm();
                if(txtConfirmPassword.Text == txtNewPassword.Text)
                {
-                     
+                    string password = MaHoaMD5(txtCurrentPassword.Text);
+                    string newPassword = MaHoaMD5(txtNewPassword.Text);
+                     if (password == Password)
+                    {
+                         string query = "UPDATE Manager SET Password ='" + newPassword+"'";
+                         txtNewPassword.Text = "";
+                         txtCurrentPassword.Text = "";
+                         txtConfirmPassword.Text = "";
+                         txtCurrentPassword.Focus();
+                        DAO.ChangePasswordDAO.Instance.updateInfo(query);
+                    }
+                    else
+                    {
+                         MessageBox.Show("Đổi mật khẩu không thành công");
+                    }
                }
                else
 

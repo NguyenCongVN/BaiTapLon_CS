@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,31 +14,6 @@ namespace BaiTapLon_CS
 {
      public partial class Add_Customer : Form
      {
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
-
-          public void DisplayListView(string query)
-          {
-
-
-
-               try
-               {
-                    SqlCommand com = new SqlCommand();
-                    com.Connection = con;
-                    com.CommandText = query;
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
-
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi cú pháp rồi:" + e);
-                    return;
-               }
-
-          }
           public Add_Customer()
           {
                InitializeComponent();
@@ -75,10 +51,9 @@ namespace BaiTapLon_CS
                     MessageBox.Show("Chưa điền giới tính");
                     return;
                }
-
                string query = "INSERT Customer (Name_Customer,Address,Sex,Age,Phone)" +
  "VALUES(N'" +txtName_Customer.Text+ "',N'"+txtAddress.Text+"',"+cbTypeSex.SelectedIndex+","+txtAge.Text+",N'"+txtPhone.Text+"')";
-               DisplayListView(query);
+               AddCustomerDAO.Instance.AddCustomer(query);
                txtAddress.Text = "";
                txtAge.Text = "";
                txtName_Customer.Text = "";

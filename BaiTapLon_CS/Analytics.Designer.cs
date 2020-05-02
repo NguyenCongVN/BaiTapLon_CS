@@ -254,6 +254,7 @@
                this.dgvAnalytics.RowTemplate.Height = 24;
                this.dgvAnalytics.Size = new System.Drawing.Size(632, 253);
                this.dgvAnalytics.TabIndex = 5;
+               this.dgvAnalytics.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnalytics_CellContentClick);
                // 
                // btnExcel
                // 

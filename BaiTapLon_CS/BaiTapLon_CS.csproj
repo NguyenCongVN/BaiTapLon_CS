@@ -90,6 +90,15 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AddCustomerDAO.cs" />
+    <Compile Include="DAO\AnalyticsDAO.cs" />
+    <Compile Include="DAO\ChangePasswordDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HistoryDAO.cs" />
+    <Compile Include="DAO\InfoDAO.cs" />
+    <Compile Include="DAO\MedicineListDAO.cs" />
+    <Compile Include="DAO\OrderDAO.cs" />
+    <Compile Include="DAO\SearchOrderDAO.cs" />
     <Compile Include="ExportToExcel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -140,12 +149,6 @@
     <Compile Include="Medicine_Detail.Designer.cs">
       <DependentUpon>Medicine_Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Nav.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Nav.Designer.cs">
-      <DependentUpon>Nav.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +179,12 @@
     </Compile>
     <Compile Include="Search_Medicine.Designer.cs">
       <DependentUpon>Search_Medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tutorial.Designer.cs">
+      <DependentUpon>Tutorial.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Add_Customer.resx">
       <DependentUpon>Add_Customer.cs</DependentUpon>
@@ -210,9 +219,6 @@
     <EmbeddedResource Include="Medicine_Detail.resx">
       <DependentUpon>Medicine_Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nav.resx">
-      <DependentUpon>Nav.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Medicine.resx">
       <DependentUpon>Search_Medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tutorial.resx">
+      <DependentUpon>Tutorial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -280,5 +289,6 @@
   <ItemGroup>
     <None Include="Resources\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

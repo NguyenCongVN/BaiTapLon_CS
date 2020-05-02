@@ -46,7 +46,7 @@
                // 
                // panel1
                // 
-               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+               this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
                this.panel1.Controls.Add(this.cbTypeSex);
                this.panel1.Controls.Add(this.label6);
                this.panel1.Controls.Add(this.label1);
@@ -72,6 +72,7 @@
             "Nam"});
                this.cbTypeSex.Location = new System.Drawing.Point(257, 172);
                this.cbTypeSex.Name = "cbTypeSex";
+               this.cbTypeSex.RightToLeft = System.Windows.Forms.RightToLeft.No;
                this.cbTypeSex.Size = new System.Drawing.Size(121, 24);
                this.cbTypeSex.TabIndex = 11;
                this.cbTypeSex.Text = "Chọn";

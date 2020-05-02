@@ -43,12 +43,13 @@
                // 
                // pnMain
                // 
-               this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+               this.pnMain.BackColor = System.Drawing.Color.White;
                this.pnMain.ForeColor = System.Drawing.Color.Lime;
                this.pnMain.Location = new System.Drawing.Point(0, 3);
                this.pnMain.Name = "pnMain";
                this.pnMain.Size = new System.Drawing.Size(1202, 760);
                this.pnMain.TabIndex = 1;
+               this.pnMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnMain_Paint);
                // 
                // FormMenu
                // 

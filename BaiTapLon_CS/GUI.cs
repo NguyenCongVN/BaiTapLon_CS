@@ -125,5 +125,18 @@ namespace BaiTapLon_CS
                ChangePassword changePassword = new ChangePassword();
                changePassword.ShowDialog();
         }
+
+          private void chúThíchToolStripMenuItem_Click(object sender, EventArgs e)
+          {
+               Tutorial tutorial = new Tutorial();
+               tutorial.Show();
+          }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+               this.Hide();
+               Form1 form = new Form1();
+               form.Show();
+          }
     }
 }

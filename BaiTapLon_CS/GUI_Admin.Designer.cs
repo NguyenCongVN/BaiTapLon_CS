@@ -122,6 +122,7 @@
                this.panel2.Name = "panel2";
                this.panel2.Size = new System.Drawing.Size(912, 472);
                this.panel2.TabIndex = 2;
+               this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
                // 
                // adminToolStripMenuItem
                // 
@@ -157,13 +158,13 @@
                // đổiMậtKhẩuToolStripMenuItem
                // 
                this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-               this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+               this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
                this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
                // 
                // chỉnhSửaThôngTinToolStripMenuItem1
                // 
                this.chỉnhSửaThôngTinToolStripMenuItem1.Name = "chỉnhSửaThôngTinToolStripMenuItem1";
-               this.chỉnhSửaThôngTinToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+               this.chỉnhSửaThôngTinToolStripMenuItem1.Size = new System.Drawing.Size(220, 26);
                this.chỉnhSửaThôngTinToolStripMenuItem1.Text = "Chỉnh sửa thông tin";
                // 
                // menuStrip1

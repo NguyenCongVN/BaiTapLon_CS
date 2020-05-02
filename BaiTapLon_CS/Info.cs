@@ -13,38 +13,11 @@ namespace BaiTapLon_CS
 {
      public partial class Info : Form
      {
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
           Bitmap bitmap1;
           OpenFileDialog openFileDialog;
-          public void updateInfo(string query)
+          public void getInfo()
           {
-               try
-               {
-                    SqlCommand com = new SqlCommand();
-                    com.Connection = con;
-                    com.CommandText = query;
-                    con.Close();
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Cập nhật thành công");
-
-               }
-               catch (Exception e)
-               {
-                    MessageBox.Show("Lỗi cú pháp rồi:" + e);
-                    return;
-               }
-          }
-          public void getInfo(string query)
-          {
-               con.Open();
-               using (SqlDataAdapter da = new SqlDataAdapter(query, connect))
-               {
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    
+                     DataTable dt = DAO.InfoDAO.Instance.getInfo();
                     btnName.Text = dt.Rows[0][1].ToString();
                     string image = dt.Rows[0][2].ToString();
                     var n = dt.Rows[0][3].ToString();
@@ -70,14 +43,10 @@ namespace BaiTapLon_CS
                     picBoxUser.BackgroundImage = bitmap1;
          
                }
-               con.Close();
-
-          }
           public Info()
           {
-               InitializeComponent();
-               string query = "SELECT * FROM Manager WHERE ID_Manager =" + Form1.ID_Manager;
-               getInfo(query);
+              InitializeComponent();
+               getInfo();
 
           }
 
@@ -101,7 +70,7 @@ namespace BaiTapLon_CS
                {
                     query = "UPDATE Manager SET Name_Manager =N'" + btnName.Text + "', Phone = " + btnPhone.Text + " ,Sex ='" + sex+"'";
                }
-               updateInfo(query);
+               DAO.InfoDAO.Instance.updateInfo(query);
                
         }
 
@@ -118,5 +87,10 @@ namespace BaiTapLon_CS
                     picBoxUser.BackgroundImage=bitmap1;
                }
           }
-     }
+
+        private void picBoxUser_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

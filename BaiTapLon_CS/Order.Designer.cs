@@ -32,7 +32,6 @@
                this.label1 = new System.Windows.Forms.Label();
                this.splitContainer1 = new System.Windows.Forms.SplitContainer();
                this.groupBox1 = new System.Windows.Forms.GroupBox();
-               this.txtNote = new System.Windows.Forms.RichTextBox();
                this.txtRemind = new System.Windows.Forms.RichTextBox();
                this.txtDiagnostic = new System.Windows.Forms.RichTextBox();
                this.txtID_Manager = new System.Windows.Forms.TextBox();
@@ -41,9 +40,6 @@
                this.txtAddress_Order = new System.Windows.Forms.TextBox();
                this.txtName_Customer_Order = new System.Windows.Forms.TextBox();
                this.txtName_Manager = new System.Windows.Forms.TextBox();
-               this.txtSoldDate = new System.Windows.Forms.TextBox();
-               this.txtID_Invoice = new System.Windows.Forms.TextBox();
-               this.label8 = new System.Windows.Forms.Label();
                this.label18 = new System.Windows.Forms.Label();
                this.label7 = new System.Windows.Forms.Label();
                this.label17 = new System.Windows.Forms.Label();
@@ -52,8 +48,6 @@
                this.label10 = new System.Windows.Forms.Label();
                this.label5 = new System.Windows.Forms.Label();
                this.label4 = new System.Windows.Forms.Label();
-               this.label3 = new System.Windows.Forms.Label();
-               this.label2 = new System.Windows.Forms.Label();
                this.btnExit = new System.Windows.Forms.Button();
                this.printInvoice = new System.Windows.Forms.Button();
                this.cancelInvoice = new System.Windows.Forms.Button();
@@ -134,7 +128,6 @@
                // groupBox1
                // 
                this.groupBox1.BackColor = System.Drawing.Color.White;
-               this.groupBox1.Controls.Add(this.txtNote);
                this.groupBox1.Controls.Add(this.txtRemind);
                this.groupBox1.Controls.Add(this.txtDiagnostic);
                this.groupBox1.Controls.Add(this.txtID_Manager);
@@ -143,9 +136,6 @@
                this.groupBox1.Controls.Add(this.txtAddress_Order);
                this.groupBox1.Controls.Add(this.txtName_Customer_Order);
                this.groupBox1.Controls.Add(this.txtName_Manager);
-               this.groupBox1.Controls.Add(this.txtSoldDate);
-               this.groupBox1.Controls.Add(this.txtID_Invoice);
-               this.groupBox1.Controls.Add(this.label8);
                this.groupBox1.Controls.Add(this.label18);
                this.groupBox1.Controls.Add(this.label7);
                this.groupBox1.Controls.Add(this.label17);
@@ -154,8 +144,6 @@
                this.groupBox1.Controls.Add(this.label10);
                this.groupBox1.Controls.Add(this.label5);
                this.groupBox1.Controls.Add(this.label4);
-               this.groupBox1.Controls.Add(this.label3);
-               this.groupBox1.Controls.Add(this.label2);
                this.groupBox1.Location = new System.Drawing.Point(30, 91);
                this.groupBox1.Name = "groupBox1";
                this.groupBox1.Size = new System.Drawing.Size(1010, 200);
@@ -163,15 +151,6 @@
                this.groupBox1.TabStop = false;
                this.groupBox1.Text = "Thông tin chung";
                this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-               // 
-               // txtNote
-               // 
-               this.txtNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.txtNote.Location = new System.Drawing.Point(825, 129);
-               this.txtNote.Name = "txtNote";
-               this.txtNote.Size = new System.Drawing.Size(164, 40);
-               this.txtNote.TabIndex = 20;
-               this.txtNote.Text = "";
                // 
                // txtRemind
                // 
@@ -192,7 +171,7 @@
                // 
                // txtID_Manager
                // 
-               this.txtID_Manager.Location = new System.Drawing.Point(149, 110);
+               this.txtID_Manager.Location = new System.Drawing.Point(149, 41);
                this.txtID_Manager.Name = "txtID_Manager";
                this.txtID_Manager.ReadOnly = true;
                this.txtID_Manager.Size = new System.Drawing.Size(170, 22);
@@ -200,7 +179,7 @@
                // 
                // txtID_Customer
                // 
-               this.txtID_Customer.Location = new System.Drawing.Point(491, 28);
+               this.txtID_Customer.Location = new System.Drawing.Point(491, 30);
                this.txtID_Customer.Name = "txtID_Customer";
                this.txtID_Customer.ReadOnly = true;
                this.txtID_Customer.Size = new System.Drawing.Size(170, 22);
@@ -229,7 +208,7 @@
                // 
                // txtName_Customer_Order
                // 
-               this.txtName_Customer_Order.Location = new System.Drawing.Point(491, 67);
+               this.txtName_Customer_Order.Location = new System.Drawing.Point(491, 70);
                this.txtName_Customer_Order.Name = "txtName_Customer_Order";
                this.txtName_Customer_Order.ReadOnly = true;
                this.txtName_Customer_Order.Size = new System.Drawing.Size(170, 22);
@@ -238,39 +217,11 @@
                // 
                // txtName_Manager
                // 
-               this.txtName_Manager.Location = new System.Drawing.Point(149, 149);
+               this.txtName_Manager.Location = new System.Drawing.Point(149, 140);
                this.txtName_Manager.Name = "txtName_Manager";
                this.txtName_Manager.ReadOnly = true;
                this.txtName_Manager.Size = new System.Drawing.Size(170, 22);
                this.txtName_Manager.TabIndex = 11;
-               // 
-               // txtSoldDate
-               // 
-               this.txtSoldDate.Location = new System.Drawing.Point(149, 73);
-               this.txtSoldDate.Name = "txtSoldDate";
-               this.txtSoldDate.ReadOnly = true;
-               this.txtSoldDate.Size = new System.Drawing.Size(170, 22);
-               this.txtSoldDate.TabIndex = 9;
-               // 
-               // txtID_Invoice
-               // 
-               this.txtID_Invoice.Location = new System.Drawing.Point(149, 34);
-               this.txtID_Invoice.Name = "txtID_Invoice";
-               this.txtID_Invoice.ReadOnly = true;
-               this.txtID_Invoice.Size = new System.Drawing.Size(170, 22);
-               this.txtID_Invoice.TabIndex = 8;
-               // 
-               // label8
-               // 
-               this.label8.AutoSize = true;
-               this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label8.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label8.Location = new System.Drawing.Point(691, 144);
-               this.label8.Name = "label8";
-               this.label8.Size = new System.Drawing.Size(51, 18);
-               this.label8.TabIndex = 6;
-               this.label8.Text = "Chú ý";
-               this.label8.Click += new System.EventHandler(this.label8_Click);
                // 
                // label18
                // 
@@ -325,7 +276,7 @@
                this.label15.AutoSize = true;
                this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label15.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label15.Location = new System.Drawing.Point(337, 71);
+               this.label15.Location = new System.Drawing.Point(337, 70);
                this.label15.Name = "label15";
                this.label15.Size = new System.Drawing.Size(127, 18);
                this.label15.TabIndex = 5;
@@ -337,7 +288,7 @@
                this.label10.AutoSize = true;
                this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label10.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label10.Location = new System.Drawing.Point(337, 35);
+               this.label10.Location = new System.Drawing.Point(337, 32);
                this.label10.Name = "label10";
                this.label10.Size = new System.Drawing.Size(122, 18);
                this.label10.TabIndex = 4;
@@ -349,7 +300,7 @@
                this.label5.AutoSize = true;
                this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label5.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label5.Location = new System.Drawing.Point(21, 109);
+               this.label5.Location = new System.Drawing.Point(17, 45);
                this.label5.Name = "label5";
                this.label5.Size = new System.Drawing.Size(107, 18);
                this.label5.TabIndex = 3;
@@ -361,36 +312,12 @@
                this.label4.AutoSize = true;
                this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label4.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label4.Location = new System.Drawing.Point(16, 149);
+               this.label4.Location = new System.Drawing.Point(12, 144);
                this.label4.Name = "label4";
                this.label4.Size = new System.Drawing.Size(112, 18);
                this.label4.TabIndex = 2;
                this.label4.Text = "Tên nhân viên";
                this.label4.Click += new System.EventHandler(this.label4_Click);
-               // 
-               // label3
-               // 
-               this.label3.AutoSize = true;
-               this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label3.Location = new System.Drawing.Point(21, 71);
-               this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(78, 18);
-               this.label3.TabIndex = 1;
-               this.label3.Text = "Ngày bán";
-               this.label3.Click += new System.EventHandler(this.label3_Click);
-               // 
-               // label2
-               // 
-               this.label2.AutoSize = true;
-               this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label2.Location = new System.Drawing.Point(21, 32);
-               this.label2.Name = "label2";
-               this.label2.Size = new System.Drawing.Size(97, 18);
-               this.label2.TabIndex = 0;
-               this.label2.Text = "Mã hóa đơn";
-               this.label2.Click += new System.EventHandler(this.label2_Click);
                // 
                // btnExit
                // 
@@ -685,11 +612,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtName_Manager;
-        private System.Windows.Forms.TextBox txtID_Invoice;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -711,7 +635,6 @@
         private System.Windows.Forms.TextBox txtPhoneOrder;
         private System.Windows.Forms.TextBox txtAddress_Order;
         private System.Windows.Forms.TextBox txtName_Customer_Order;
-        private System.Windows.Forms.TextBox txtSoldDate;
         public System.Windows.Forms.TextBox txtID_Customer;
           private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
           private System.Windows.Forms.ToolStripMenuItem xóaGiỏHàng;
@@ -722,14 +645,12 @@
           private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
           private System.Windows.Forms.Label Total;
         private System.Windows.Forms.RichTextBox txtDiagnostic;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox txtNote;
         private System.Windows.Forms.RichTextBox txtRemind;
     }
 }

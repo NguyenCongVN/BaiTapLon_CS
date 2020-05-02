@@ -12,16 +12,16 @@ using System.Security.Cryptography;
 
 namespace BaiTapLon_CS
 {
-    public partial class Form1 : Form
+    public partial class Form1:Form
     {
           public static string ID_Manager;
           public static string Name_Manager;
 
           public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-
+          SqlConnection con = new SqlConnection(connect);
           List<string> name_Permission = new List<string>();
 
-          SqlConnection con = new SqlConnection(connect);
+          
           private string getID(string email, string pass) // Hàm kiểm tra ID
           {
                string id = "";
@@ -157,7 +157,7 @@ namespace BaiTapLon_CS
                               if (name == "admin")
                               {
                                    GUI_Admin gui_admin = new GUI_Admin();
-                                   this.Hide();
+                                  // this.Hide();
                                    gui_admin.Show();
                               }
                               else if (name == "employee")
