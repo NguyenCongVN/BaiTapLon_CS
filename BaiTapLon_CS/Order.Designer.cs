@@ -92,7 +92,7 @@
                this.label1.AutoSize = true;
                this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-               this.label1.Location = new System.Drawing.Point(313, 14);
+               this.label1.Location = new System.Drawing.Point(326, 30);
                this.label1.Name = "label1";
                this.label1.Size = new System.Drawing.Size(395, 39);
                this.label1.TabIndex = 1;
@@ -154,7 +154,7 @@
                // 
                // txtRemind
                // 
-               this.txtRemind.Location = new System.Drawing.Point(825, 73);
+               this.txtRemind.Location = new System.Drawing.Point(825, 119);
                this.txtRemind.Name = "txtRemind";
                this.txtRemind.Size = new System.Drawing.Size(164, 39);
                this.txtRemind.TabIndex = 19;
@@ -162,7 +162,7 @@
                // 
                // txtDiagnostic
                // 
-               this.txtDiagnostic.Location = new System.Drawing.Point(825, 28);
+               this.txtDiagnostic.Location = new System.Drawing.Point(825, 32);
                this.txtDiagnostic.Name = "txtDiagnostic";
                this.txtDiagnostic.Size = new System.Drawing.Size(164, 35);
                this.txtDiagnostic.TabIndex = 18;
@@ -171,7 +171,7 @@
                // 
                // txtID_Manager
                // 
-               this.txtID_Manager.Location = new System.Drawing.Point(149, 41);
+               this.txtID_Manager.Location = new System.Drawing.Point(149, 90);
                this.txtID_Manager.Name = "txtID_Manager";
                this.txtID_Manager.ReadOnly = true;
                this.txtID_Manager.Size = new System.Drawing.Size(170, 22);
@@ -179,7 +179,7 @@
                // 
                // txtID_Customer
                // 
-               this.txtID_Customer.Location = new System.Drawing.Point(491, 30);
+               this.txtID_Customer.Location = new System.Drawing.Point(149, 45);
                this.txtID_Customer.Name = "txtID_Customer";
                this.txtID_Customer.ReadOnly = true;
                this.txtID_Customer.Size = new System.Drawing.Size(170, 22);
@@ -190,7 +190,7 @@
                // 
                // txtPhoneOrder
                // 
-               this.txtPhoneOrder.Location = new System.Drawing.Point(491, 149);
+               this.txtPhoneOrder.Location = new System.Drawing.Point(491, 140);
                this.txtPhoneOrder.Name = "txtPhoneOrder";
                this.txtPhoneOrder.ReadOnly = true;
                this.txtPhoneOrder.Size = new System.Drawing.Size(170, 22);
@@ -199,7 +199,7 @@
                // 
                // txtAddress_Order
                // 
-               this.txtAddress_Order.Location = new System.Drawing.Point(491, 105);
+               this.txtAddress_Order.Location = new System.Drawing.Point(491, 90);
                this.txtAddress_Order.Name = "txtAddress_Order";
                this.txtAddress_Order.ReadOnly = true;
                this.txtAddress_Order.Size = new System.Drawing.Size(170, 22);
@@ -208,7 +208,7 @@
                // 
                // txtName_Customer_Order
                // 
-               this.txtName_Customer_Order.Location = new System.Drawing.Point(491, 70);
+               this.txtName_Customer_Order.Location = new System.Drawing.Point(491, 45);
                this.txtName_Customer_Order.Name = "txtName_Customer_Order";
                this.txtName_Customer_Order.ReadOnly = true;
                this.txtName_Customer_Order.Size = new System.Drawing.Size(170, 22);
@@ -228,7 +228,7 @@
                this.label18.AutoSize = true;
                this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label18.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label18.Location = new System.Drawing.Point(337, 149);
+               this.label18.Location = new System.Drawing.Point(337, 144);
                this.label18.Name = "label18";
                this.label18.Size = new System.Drawing.Size(84, 18);
                this.label18.TabIndex = 7;
@@ -240,7 +240,7 @@
                this.label7.AutoSize = true;
                this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label7.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label7.Location = new System.Drawing.Point(691, 88);
+               this.label7.Location = new System.Drawing.Point(696, 140);
                this.label7.Name = "label7";
                this.label7.Size = new System.Drawing.Size(72, 18);
                this.label7.TabIndex = 5;
@@ -252,7 +252,7 @@
                this.label17.AutoSize = true;
                this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label17.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label17.Location = new System.Drawing.Point(337, 109);
+               this.label17.Location = new System.Drawing.Point(337, 94);
                this.label17.Name = "label17";
                this.label17.Size = new System.Drawing.Size(60, 18);
                this.label17.TabIndex = 6;
@@ -264,7 +264,7 @@
                this.label6.AutoSize = true;
                this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label6.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label6.Location = new System.Drawing.Point(691, 31);
+               this.label6.Location = new System.Drawing.Point(696, 49);
                this.label6.Name = "label6";
                this.label6.Size = new System.Drawing.Size(98, 18);
                this.label6.TabIndex = 4;
@@ -276,7 +276,7 @@
                this.label15.AutoSize = true;
                this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label15.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label15.Location = new System.Drawing.Point(337, 70);
+               this.label15.Location = new System.Drawing.Point(337, 49);
                this.label15.Name = "label15";
                this.label15.Size = new System.Drawing.Size(127, 18);
                this.label15.TabIndex = 5;
@@ -288,7 +288,7 @@
                this.label10.AutoSize = true;
                this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label10.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label10.Location = new System.Drawing.Point(337, 32);
+               this.label10.Location = new System.Drawing.Point(12, 45);
                this.label10.Name = "label10";
                this.label10.Size = new System.Drawing.Size(122, 18);
                this.label10.TabIndex = 4;
@@ -300,7 +300,7 @@
                this.label5.AutoSize = true;
                this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.label5.ForeColor = System.Drawing.Color.RoyalBlue;
-               this.label5.Location = new System.Drawing.Point(17, 45);
+               this.label5.Location = new System.Drawing.Point(12, 94);
                this.label5.Name = "label5";
                this.label5.Size = new System.Drawing.Size(107, 18);
                this.label5.TabIndex = 3;
@@ -324,7 +324,7 @@
                this.btnExit.BackColor = System.Drawing.Color.White;
                this.btnExit.Location = new System.Drawing.Point(828, 348);
                this.btnExit.Name = "btnExit";
-               this.btnExit.Size = new System.Drawing.Size(110, 58);
+               this.btnExit.Size = new System.Drawing.Size(85, 58);
                this.btnExit.TabIndex = 9;
                this.btnExit.Text = "Thoát";
                this.btnExit.UseVisualStyleBackColor = false;
@@ -333,9 +333,9 @@
                // printInvoice
                // 
                this.printInvoice.BackColor = System.Drawing.Color.White;
-               this.printInvoice.Location = new System.Drawing.Point(557, 348);
+               this.printInvoice.Location = new System.Drawing.Point(601, 348);
                this.printInvoice.Name = "printInvoice";
-               this.printInvoice.Size = new System.Drawing.Size(115, 56);
+               this.printInvoice.Size = new System.Drawing.Size(90, 56);
                this.printInvoice.TabIndex = 8;
                this.printInvoice.Text = "In hóa đơn";
                this.printInvoice.UseVisualStyleBackColor = false;
@@ -344,9 +344,9 @@
                // cancelInvoice
                // 
                this.cancelInvoice.BackColor = System.Drawing.Color.White;
-               this.cancelInvoice.Location = new System.Drawing.Point(320, 348);
+               this.cancelInvoice.Location = new System.Drawing.Point(370, 348);
                this.cancelInvoice.Name = "cancelInvoice";
-               this.cancelInvoice.Size = new System.Drawing.Size(124, 58);
+               this.cancelInvoice.Size = new System.Drawing.Size(101, 58);
                this.cancelInvoice.TabIndex = 7;
                this.cancelInvoice.Text = "Hủy hóa đơn";
                this.cancelInvoice.UseVisualStyleBackColor = false;
@@ -357,7 +357,7 @@
                this.btnSaveData.BackColor = System.Drawing.Color.White;
                this.btnSaveData.Location = new System.Drawing.Point(125, 348);
                this.btnSaveData.Name = "btnSaveData";
-               this.btnSaveData.Size = new System.Drawing.Size(120, 58);
+               this.btnSaveData.Size = new System.Drawing.Size(102, 58);
                this.btnSaveData.TabIndex = 6;
                this.btnSaveData.Text = "Lưu hóa đơn";
                this.btnSaveData.UseVisualStyleBackColor = false;
@@ -527,9 +527,9 @@
                this.btnAddToInvoice.BackColor = System.Drawing.Color.White;
                this.btnAddToInvoice.FlatAppearance.BorderColor = System.Drawing.Color.White;
                this.btnAddToInvoice.ForeColor = System.Drawing.Color.Black;
-               this.btnAddToInvoice.Location = new System.Drawing.Point(825, 21);
+               this.btnAddToInvoice.Location = new System.Drawing.Point(836, 28);
                this.btnAddToInvoice.Name = "btnAddToInvoice";
-               this.btnAddToInvoice.Size = new System.Drawing.Size(131, 75);
+               this.btnAddToInvoice.Size = new System.Drawing.Size(83, 69);
                this.btnAddToInvoice.TabIndex = 5;
                this.btnAddToInvoice.Text = "THÊM";
                this.btnAddToInvoice.UseVisualStyleBackColor = false;
