@@ -417,6 +417,7 @@
                this.txtAmount.Name = "txtAmount";
                this.txtAmount.Size = new System.Drawing.Size(170, 22);
                this.txtAmount.TabIndex = 10;
+               this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
                // 
                // txtID_Medicine
                // 

@@ -26,21 +26,23 @@ namespace BaiTapLon_CS
           {
                        
                          dgvHistory.DataSource = DataProvider.Instance.DisplayListView(query);
-                         dgvHistory.Columns[0].HeaderText = "Mã hóa đơn";
-                         dgvHistory.Columns[1].HeaderText = "Họ tên";
-                         dgvHistory.Columns[2].HeaderText = "Mã thuốc";
-                         dgvHistory.Columns[3].HeaderText = "Tên thuốc";
+               if (dgvHistory.DataSource != null)
+               {
+                    dgvHistory.Columns[0].HeaderText = "Mã hóa đơn";
+                    dgvHistory.Columns[1].HeaderText = "Họ tên";
+                    dgvHistory.Columns[2].HeaderText = "Mã thuốc";
+                    dgvHistory.Columns[3].HeaderText = "Tên thuốc";
 
-                         dgvHistory.Columns[4].HeaderText = "Ngày bán";
-                         dgvHistory.Columns[5].HeaderText = "Giá";
-                         dgvHistory.Columns[6].HeaderText = "Số lượng";
-                         dgvHistory.Columns[7].HeaderText = "Thành tiền";
-                         dgvHistory.Columns[5].DefaultCellStyle.Format = "n0";
-                         dgvHistory.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
-                         dgvHistory.Columns[7].DefaultCellStyle.Format = "n0";
-                         dgvHistory.Columns[7].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
+                    dgvHistory.Columns[4].HeaderText = "Ngày bán";
+                    dgvHistory.Columns[5].HeaderText = "Giá";
+                    dgvHistory.Columns[6].HeaderText = "Số lượng";
+                    dgvHistory.Columns[7].HeaderText = "Thành tiền";
+                    dgvHistory.Columns[5].DefaultCellStyle.Format = "n0";
+                    dgvHistory.Columns[5].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
+                    dgvHistory.Columns[7].DefaultCellStyle.Format = "n0";
+                    dgvHistory.Columns[7].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
 
-                
+               }
 
           }
           public History()

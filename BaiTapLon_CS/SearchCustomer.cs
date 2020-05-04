@@ -21,11 +21,14 @@ namespace BaiTapLon_CS
 
                
                     dgvSearchCustomer.DataSource = DAO.SearchCustomerDAO.Instance.DisplayListView(query);
+               if (dgvSearchCustomer.DataSource != null)
+               {
                     dgvSearchCustomer.Columns[0].HeaderText = "Mã KH";
                     dgvSearchCustomer.Columns[1].HeaderText = "Tên KH";
                     dgvSearchCustomer.Columns[2].HeaderText = "Giới tính";
                     dgvSearchCustomer.Columns[3].HeaderText = "Địa chỉ";
                     dgvSearchCustomer.Columns[4].HeaderText = "Tuổi";
+               }
              
           }
           public SearchCustomer(sendData _sender)

@@ -17,10 +17,13 @@ namespace BaiTapLon_CS
           {
                          
                          dataGridView1.DataSource = DAO.Medicine_DetailDAO.Instance.DisplatListView(query);
-                         dataGridView1.Columns[0].HeaderText = "Ngày nhập";
-                         dataGridView1.Columns[1].HeaderText = "Ngày sản xuất";
-                         dataGridView1.Columns[2].HeaderText = "Hạn sử dụng";
-                         dataGridView1.Columns[3].HeaderText = "Số lượng";
+               if (dataGridView1.DataSource != null)
+               {
+                    dataGridView1.Columns[0].HeaderText = "Ngày nhập";
+                    dataGridView1.Columns[1].HeaderText = "Ngày sản xuất";
+                    dataGridView1.Columns[2].HeaderText = "Hạn sử dụng";
+                    dataGridView1.Columns[3].HeaderText = "Số lượng";
+               }
           }
           public Medicine_Detail(){
                InitializeComponent();

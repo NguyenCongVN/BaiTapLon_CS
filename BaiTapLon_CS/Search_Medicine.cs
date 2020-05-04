@@ -18,13 +18,16 @@ namespace BaiTapLon_CS
           public void DisplayListView(string query)
           {
                          dgvSearchMedicine.DataSource = DAO.Search_MedicineDAO.Instance.DisplayListView(query);
-                         dgvSearchMedicine.Columns[0].HeaderText = "Mã thuốc";
-                         dgvSearchMedicine.Columns[1].HeaderText = "Tên thuốc";
-                         dgvSearchMedicine.Columns[2].Visible = false;
-                         dgvSearchMedicine.Columns[3].HeaderText = "Xuất xứ";
-                         dgvSearchMedicine.Columns[4].HeaderText = "Đóng gói";
-                         dgvSearchMedicine.Columns[5].HeaderText = "Đơn vị";
-                         dgvSearchMedicine.Columns[6].HeaderText = "Số đăng ký";
+               if (dgvSearchMedicine.DataSource != null)
+               {
+                    dgvSearchMedicine.Columns[0].HeaderText = "Mã thuốc";
+                    dgvSearchMedicine.Columns[1].HeaderText = "Tên thuốc";
+                    dgvSearchMedicine.Columns[2].Visible = false;
+                    dgvSearchMedicine.Columns[3].HeaderText = "Xuất xứ";
+                    dgvSearchMedicine.Columns[4].HeaderText = "Đóng gói";
+                    dgvSearchMedicine.Columns[5].HeaderText = "Đơn vị";
+                    dgvSearchMedicine.Columns[6].HeaderText = "Số đăng ký";
+               }
           }
                public Search_Medicine(sendData _sendData)
                {
