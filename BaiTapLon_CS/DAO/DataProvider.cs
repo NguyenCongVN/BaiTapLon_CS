@@ -9,7 +9,7 @@ namespace BaiTapLon_CS.DAO
      class DataProvider
      {
           public static DataProvider instance;
-          public static string connect = @"Data Source=.\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
+          public static string connect = @"Data Source=localhost;Initial Catalog=BAITAPLON;Integrated Security=True";
           SqlConnection con = new SqlConnection(connect);
           public static DataProvider Instance
           {
