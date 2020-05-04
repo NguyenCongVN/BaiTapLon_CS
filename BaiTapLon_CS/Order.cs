@@ -19,8 +19,8 @@ namespace BaiTapLon_CS
           public Order()
           {
                InitializeComponent();
-               txtID_Manager.Text = Form1.ID_Manager;
-               txtName_Manager.Text = Form1.Name_Manager;
+               txtID_Manager.Text = LoginDAO.ID_Manager;
+               txtName_Manager.Text = LoginDAO.Name_Manager;
           }
           public  void fillCustomer(string a,string b,string c,string d)
           {

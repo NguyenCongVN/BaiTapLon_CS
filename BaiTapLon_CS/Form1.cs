@@ -15,73 +15,7 @@ namespace BaiTapLon_CS
     public partial class Form1:Form
     {
           public static string ID_Manager;
-          public static string Name_Manager;
-
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
           List<string> name_Permission = new List<string>();
-
-          
-          private string getID(string email, string pass) // Hàm kiểm tra ID
-          {
-               string id = "";
-               try
-               {
-                    con.Open();
-                    string query = "SELECT * FROM Manager WHERE Email='" + email + "' and Password='" + pass + "'";
-                    SqlDataAdapter da = new SqlDataAdapter(query, connect);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt != null)
-                    {
-                         foreach (DataRow dr in dt.Rows)
-                         {
-                              id = dr["ID_Manager"].ToString();
-                              Name_Manager = dr["Name_Manager"].ToString();
-                              ID_Manager = id;
-
-                         }
-                    }
-               }
-               catch (Exception)
-               {
-                    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-               }
-               finally
-               {
-                    con.Close();
-               }
-               return id;
-          }
-
-          private string getID_Permission(string ID) // lấy mã quyền của ID
-          {
-               string id_Permission = "";
-               try
-               {
-                    con.Open();
-                    string query = "SELECT * FROM Detail_Permission WHERE ID_Manager='" + ID +"'";
-                    SqlDataAdapter da = new SqlDataAdapter(query, connect);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt != null)
-                    {
-                         foreach (DataRow dr in dt.Rows)
-                         {
-                              id_Permission = dr["ID_Permission"].ToString();
-                         }
-                    }
-               }
-               catch (Exception)
-               {
-                    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-               }
-               finally
-               {
-                    con.Close();
-               }
-               return id_Permission;
-          }
           public string MaHoaMD5(string password)
           {
                MD5 mh = MD5.Create();
@@ -98,36 +32,6 @@ namespace BaiTapLon_CS
                }
                return sb.ToString();
           }
-
-          private List<string> getName_Permission(string ID_Permission) // lấy tên quyền của ID
-          {
-               List<string> key_Permisson = new List<string>();
-               try
-               {
-                    con.Open();
-                    string query = "SELECT * FROM Permission WHERE ID_Permission='" + ID_Permission + "'";
-                    SqlDataAdapter da = new SqlDataAdapter(query, connect);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    if (dt != null)
-                    {
-                         foreach (DataRow dr in dt.Rows)
-                         {
-                              key_Permisson.Add(dr["Key_Permission"].ToString());
-                         }
-                    }
-               }
-               catch (Exception)
-               {
-                    MessageBox.Show("Lỗi xảy ra khi truy vấn dữ liệu hoặc kết nối với server thất bại !");
-               }
-               finally
-               {
-                    con.Close();
-               }
-               return key_Permisson;
-          }
-
           public Form1()
         {
             InitializeComponent();
@@ -145,13 +49,13 @@ namespace BaiTapLon_CS
           private void BtnLogin_Click(object sender, EventArgs e)
           {
 
-               ID_Manager = getID(txtAccount.Text,MaHoaMD5(txtPassword.Text));
+               ID_Manager = DAO.LoginDAO.Instance.getID(txtAccount.Text,MaHoaMD5(txtPassword.Text));
                
                if (ID_Manager != "")    // Đăng nhập thành công
                {
                     if (radioBtnAdmin.Checked == true) // kiểm tra xem có phải đăng nhập với tư cách admin
                     {
-                         name_Permission = getName_Permission(getID_Permission(ID_Manager));
+                         name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager));
                          foreach (var name in name_Permission)
                          {
                               if (name == "admin")
@@ -169,7 +73,7 @@ namespace BaiTapLon_CS
                     }
                     else  // Ngược lại, kiểm tra đăng nhập với tư cách nhân viên
                     {
-                         name_Permission = getName_Permission(getID_Permission(ID_Manager)); 
+                         name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager)); 
                          foreach (var name in name_Permission)
                          {
                               if (name == "admin" || name =="employee" )

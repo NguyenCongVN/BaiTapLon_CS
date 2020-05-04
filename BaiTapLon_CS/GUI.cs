@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -105,7 +106,7 @@ namespace BaiTapLon_CS
 
           private void panel2_Paint_1(object sender, PaintEventArgs e)
           {
-               lbName.Text = Form1.Name_Manager;
+               lbName.Text = LoginDAO.Name_Manager;
           }
 
           private void pictureBox1_Click(object sender, EventArgs e)

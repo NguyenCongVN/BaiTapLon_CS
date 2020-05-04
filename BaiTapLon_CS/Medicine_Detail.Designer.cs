@@ -31,6 +31,7 @@
                this.dataGridView1 = new System.Windows.Forms.DataGridView();
                this.panel1 = new System.Windows.Forms.Panel();
                this.panel2 = new System.Windows.Forms.Panel();
+               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.label1 = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
                this.txtID_Medicine = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@
                this.label4 = new System.Windows.Forms.Label();
                this.label5 = new System.Windows.Forms.Label();
                this.txtAmount = new System.Windows.Forms.TextBox();
-               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
                this.panel1.SuspendLayout();
                this.panel2.SuspendLayout();
@@ -76,6 +76,18 @@
                this.panel2.Size = new System.Drawing.Size(216, 184);
                this.panel2.TabIndex = 2;
                this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+               // 
+               // pictureBox1
+               // 
+               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.paracetamol;
+               this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources._default;
+               this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+               this.pictureBox1.Name = "pictureBox1";
+               this.pictureBox1.Size = new System.Drawing.Size(210, 178);
+               this.pictureBox1.TabIndex = 0;
+               this.pictureBox1.TabStop = false;
+               this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
                // 
                // label1
                // 
@@ -150,16 +162,6 @@
                this.txtAmount.ReadOnly = true;
                this.txtAmount.Size = new System.Drawing.Size(214, 42);
                this.txtAmount.TabIndex = 9;
-               // 
-               // pictureBox1
-               // 
-               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.paracetamol;
-               this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-               this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(210, 178);
-               this.pictureBox1.TabIndex = 0;
-               this.pictureBox1.TabStop = false;
                // 
                // Medicine_Detail
                // 

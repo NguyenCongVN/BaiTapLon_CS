@@ -14,32 +14,19 @@ namespace BaiTapLon_CS
 
      public partial class SearchCustomer : Form
      {
-          public static string connect = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=BAITAPLON;Integrated Security=True";
-          SqlConnection con = new SqlConnection(connect);
-         
-          
           public delegate void sendData(string a,string b,string c,string d);
           public sendData sender;
           public void DisplayListView(string query)
           {
 
-               SqlCommand com = new SqlCommand();
-               com.Connection = con;
-               com.CommandText = query;
-               con.Open();
-               SqlDataReader reader = com.ExecuteReader();
-               if (reader.HasRows)
-               {
-                    DataTable dt = new DataTable();
-                    dt.Load(reader);
-                    dgvSearchCustomer.DataSource = dt;
+               
+                    dgvSearchCustomer.DataSource = DAO.SearchCustomerDAO.Instance.DisplayListView(query);
                     dgvSearchCustomer.Columns[0].HeaderText = "Mã KH";
                     dgvSearchCustomer.Columns[1].HeaderText = "Tên KH";
                     dgvSearchCustomer.Columns[2].HeaderText = "Giới tính";
                     dgvSearchCustomer.Columns[3].HeaderText = "Địa chỉ";
                     dgvSearchCustomer.Columns[4].HeaderText = "Tuổi";
-               }
-               con.Close();
+             
           }
           public SearchCustomer(sendData _sender)
           {
