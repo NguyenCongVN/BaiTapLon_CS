@@ -98,6 +98,9 @@ namespace BaiTapLon_CS
           
           private void btnAddToInvoice_Click(object sender, EventArgs e) // thêm
           {
+                   
+               if (txtID_Medicine.Text != "" && txtNameMedicine.Text != "" && txtAmount.Text != "" && txtPrice.Text != "")
+               {
                     var index = this.dgvInvoice.Rows.Count;
                     this.dgvInvoice.Rows.Add();
                     this.dgvInvoice.Rows[index - 1].Cells[0].Value = txtID_Medicine.Text;
@@ -107,14 +110,19 @@ namespace BaiTapLon_CS
                     this.dgvInvoice.Rows[index - 1].Cells[4].Value = int.Parse(txtAmount.Text) * decimal.Parse(txtPrice.Text);
                     decimal total = this.dgvInvoice.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value));
 
-               CultureInfo culture = new CultureInfo("en-US");
+                    CultureInfo culture = new CultureInfo("en-US");
 
-               Total.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
+                    Total.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
                     txtID_Medicine.Text = "";
                     txtPrice.Text = "";
                     txtAmount.Text = "";
                     txtNameMedicine.Text = "";
                     txtID_Medicine.Focus();
+               }
+               else
+               {
+                    MessageBox.Show("Mời bạn nhập dữ liệu của hóa đơn");
+               }
           }
 
           private void dgvInvoice_MouseClick(object sender, MouseEventArgs e)

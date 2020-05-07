@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,7 @@ namespace BaiTapLon_CS
           OpenFileDialog openFileDialog;
           public void getInfo()
           {
-                     DataTable dt = DAO.InfoDAO.Instance.getInfo();
+                     DataTable dt = InfoDAO.Instance.getInfo();
                     btnName.Text = dt.Rows[0][1].ToString();
                     string image = dt.Rows[0][2].ToString();
                     var n = dt.Rows[0][3].ToString();
@@ -64,13 +65,16 @@ namespace BaiTapLon_CS
                string query;
                if (openFileDialog != null)
                {
-                    query= "UPDATE Manager SET Name_Manager =N'" + btnName.Text + "', Phone = N'" + btnPhone.Text + "' ,Sex ='" + sex + "',"+"Image='"+ openFileDialog.FileName+"'";
-               }else
+                    query= "UPDATE Manager SET Name_Manager = N'" + btnName.Text + "', Phone = N'" + btnPhone.Text + "',Sex ='" + sex + "',"+"Image='"+ openFileDialog.FileName+"' where ID_Manager ="+LoginDAO.ID_Manager;
+               }
+               else
 
                {
-                    query = "UPDATE Manager SET Name_Manager =N'" + btnName.Text + "', Phone = " + btnPhone.Text + " ,Sex ='" + sex+"'";
+                    query = "UPDATE Manager SET Name_Manager =N'" + btnName.Text + "', Phone = N'" + btnPhone.Text + "',Sex ='" + sex+"'WHERE ID_Manager ="+LoginDAO.ID_Manager;
                }
-               DAO.InfoDAO.Instance.updateInfo(query);
+               InfoDAO.Instance.updateInfo(query);
+               MessageBox.Show("Cập nhật dữ liệu thành công");
+               this.Hide();
                
         }
 
@@ -79,7 +83,6 @@ namespace BaiTapLon_CS
                openFileDialog = new OpenFileDialog();
                openFileDialog.Filter = "Image Files | *.jpg";
                DialogResult result = openFileDialog.ShowDialog();
-               // if a file is selected
                if (result == DialogResult.OK)
                {
                     bitmap1 = new Bitmap(openFileDialog.FileName);

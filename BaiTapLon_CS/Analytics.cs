@@ -134,7 +134,7 @@ namespace BaiTapLon_CS
                {
                     string query = "SELECT COUNT(*) FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                          " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager;
-                    pageMax = int.Parse(DAO.AnalyticsDAO.Instance.getCountInvoice(query));
+                    pageMax = int.Parse(AnalyticsDAO.Instance.getCountInvoice(query));
                     if (pageMax % pageSize == 0)
                     {
                          pageMax = pageMax / pageSize;
@@ -390,7 +390,7 @@ namespace BaiTapLon_CS
                          page += 1;
                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager +
-                           " EXCEPT SELECT TOP(" + (pageSize - 1) * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
+                           " EXCEPT SELECT TOP(" + pageSize * (page-1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager;
                          LoadAnalytics(query);
                          btnPre.Enabled = true;
@@ -404,7 +404,7 @@ namespace BaiTapLon_CS
                          btnPre.Enabled = true;
                         string query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager +
-                           " EXCEPT SELECT TOP(" + (pageSize - 1) * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
+                           " EXCEPT SELECT TOP(" + pageSize*(page-1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager;
                          LoadAnalytics(query);
                          btnCurrent.Text = page.ToString();
@@ -478,9 +478,7 @@ namespace BaiTapLon_CS
 
         private void dgvAnalytics_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
-
           private void cboxManufacturer_SelectedIndexChanged(object sender, EventArgs e)
           {
                cbCategory.Enabled = true;

@@ -73,8 +73,7 @@
                this.cbTypeSearch.Items.AddRange(new object[] {
             "Mã khách hàng",
             "Tên khách hàng",
-            "Số điện thoại",
-            "Email"});
+            "Số điện thoại"});
                this.cbTypeSearch.Location = new System.Drawing.Point(155, 57);
                this.cbTypeSearch.Name = "cbTypeSearch";
                this.cbTypeSearch.Size = new System.Drawing.Size(165, 24);

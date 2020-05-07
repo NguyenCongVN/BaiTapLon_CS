@@ -309,6 +309,7 @@
                this.cboxManufacturer.Name = "cboxManufacturer";
                this.cboxManufacturer.Size = new System.Drawing.Size(250, 24);
                this.cboxManufacturer.TabIndex = 27;
+               this.cboxManufacturer.Text = "Nhà sản xuất";
                this.cboxManufacturer.SelectedIndexChanged += new System.EventHandler(this.cboxManufacturer_SelectedIndexChanged);
                // 
                // label10
@@ -332,6 +333,7 @@
                this.cbCategory.Name = "cbCategory";
                this.cbCategory.Size = new System.Drawing.Size(250, 24);
                this.cbCategory.TabIndex = 29;
+               this.cbCategory.Text = "Danh mục";
                // 
                // Analytics
                // 

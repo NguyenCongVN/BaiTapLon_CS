@@ -34,7 +34,6 @@ namespace BaiTapLon_CS.DAO
                     SqlCommand com = new SqlCommand();
                     com.Connection = con;
                     com.CommandText = query;
-                    con.Close();
                     con.Open();
                     SqlDataReader reader = com.ExecuteReader();
                     DataTable dt = new DataTable();

@@ -59,17 +59,12 @@ namespace BaiTapLon_CS
                }
                if (cbTypeSearch.SelectedIndex == 1) // tìm kiếm theo họ tên 
                {
-                    string query = "SELECT * FROM Customer WHERE  Name_Customer LIKE " + "N'%" + txtSearchCustomer.Text + "%'";
+                    string query = "SELECT * FROM Customer WHERE  LOWER(Name_Customer) LIKE N'%"+txtSearchCustomer.Text.ToLower()+"%'";
                     DisplayListView(query);
                }
-               if (cbTypeSearch.SelectedIndex == 2) // tìm kiếm theo địa chỉ
+               if (cbTypeSearch.SelectedIndex == 2) // tìm kiếm theo sdt
                {
-                    string query = "SELECT * FROM Customer WHERE  Phone LIKE " + "N'%" + txtSearchCustomer.Text + "%'";
-                    DisplayListView(query);
-               }
-               if (cbTypeSearch.SelectedIndex == 3) // tìm kiếm theo địa chỉ
-               {
-                    string query = "SELECT * FROM Customer WHERE  Email LIKE " + "N'%" + txtSearchCustomer.Text + "%'";
+                    string query = "SELECT * FROM Customer WHERE  Phone = " + txtSearchCustomer.Text;
                     DisplayListView(query);
                }
           }

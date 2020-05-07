@@ -53,8 +53,10 @@ namespace BaiTapLon_CS
                string query = "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager;
                DisplayListView(query);
                int total = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[7].Value));
-               txtTotal.Text = total.ToString();
+       
+               CultureInfo culture = new CultureInfo("en-US");
 
+               txtTotal.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
 
                txtOrder.Text = HistoryDAO.Instance.getCountOrder();
 

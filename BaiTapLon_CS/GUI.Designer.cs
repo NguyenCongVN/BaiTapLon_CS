@@ -70,7 +70,7 @@
                this.panel1.ForeColor = System.Drawing.SystemColors.Control;
                this.panel1.Location = new System.Drawing.Point(0, 28);
                this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(258, 1027);
+               this.panel1.Size = new System.Drawing.Size(258, 768);
                this.panel1.TabIndex = 2;
                this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
                // 
@@ -172,9 +172,9 @@
                // 
                this.pnlContain.BackColor = System.Drawing.Color.White;
                this.pnlContain.Controls.Add(this.lbName_Manager);
-               this.pnlContain.Location = new System.Drawing.Point(300, 41);
+               this.pnlContain.Location = new System.Drawing.Point(297, 41);
                this.pnlContain.Name = "pnlContain";
-               this.pnlContain.Size = new System.Drawing.Size(1192, 749);
+               this.pnlContain.Size = new System.Drawing.Size(1195, 749);
                this.pnlContain.TabIndex = 3;
                this.pnlContain.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
                // 
@@ -195,7 +195,7 @@
                this.panel2.Controls.Add(this.label2);
                this.panel2.Location = new System.Drawing.Point(297, 12);
                this.panel2.Name = "panel2";
-               this.panel2.Size = new System.Drawing.Size(1195, 34);
+               this.panel2.Size = new System.Drawing.Size(1195, 39);
                this.panel2.TabIndex = 4;
                this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
                // 
@@ -246,7 +246,7 @@
             this.chúThíchToolStripMenuItem});
                this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                this.menuStrip1.Name = "menuStrip1";
-               this.menuStrip1.Size = new System.Drawing.Size(1924, 28);
+               this.menuStrip1.Size = new System.Drawing.Size(1491, 28);
                this.menuStrip1.TabIndex = 5;
                this.menuStrip1.Text = "menuStrip1";
                // 
@@ -292,7 +292,7 @@
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(1924, 1055);
+               this.ClientSize = new System.Drawing.Size(1491, 796);
                this.Controls.Add(this.panel2);
                this.Controls.Add(this.pnlContain);
                this.Controls.Add(this.panel1);
