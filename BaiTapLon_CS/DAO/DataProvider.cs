@@ -46,7 +46,6 @@ namespace BaiTapLon_CS.DAO
                     }
                     else
                     {
-                         MessageBox.Show("Dữ liệu bạn tìm không có, vui lòng thử lại");
                          con.Close();
                          return null;
                     }

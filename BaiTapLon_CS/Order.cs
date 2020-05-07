@@ -338,5 +338,16 @@ namespace BaiTapLon_CS
                if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                     e.Handled = true;
           }
+
+          private void txtPrice_TextChanged(object sender, EventArgs e)
+          {
+
+          }
+
+          private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+          {
+               if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                    e.Handled = true;
+          }
      }
 }

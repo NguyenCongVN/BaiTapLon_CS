@@ -402,6 +402,8 @@
                this.txtPrice.Name = "txtPrice";
                this.txtPrice.Size = new System.Drawing.Size(170, 22);
                this.txtPrice.TabIndex = 12;
+               this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+               this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
                // 
                // txtNameMedicine
                // 

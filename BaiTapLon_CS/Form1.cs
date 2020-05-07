@@ -42,7 +42,7 @@ namespace BaiTapLon_CS
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
+       {
 
         }
 

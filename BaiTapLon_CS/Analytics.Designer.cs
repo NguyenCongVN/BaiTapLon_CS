@@ -45,7 +45,6 @@
                this.txtAmount_Product = new System.Windows.Forms.TextBox();
                this.txtAmount = new System.Windows.Forms.TextBox();
                this.txtTotal = new System.Windows.Forms.TextBox();
-               this.txtNameManufacturer = new System.Windows.Forms.TextBox();
                this.label8 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
                this.dgvAnalytics = new System.Windows.Forms.DataGridView();
@@ -54,6 +53,9 @@
                this.btnCurrent = new System.Windows.Forms.Button();
                this.btnNext = new System.Windows.Forms.Button();
                this.btnTotalPage = new System.Windows.Forms.Button();
+               this.cboxManufacturer = new System.Windows.Forms.ComboBox();
+               this.label10 = new System.Windows.Forms.Label();
+               this.cbCategory = new System.Windows.Forms.ComboBox();
                ((System.ComponentModel.ISupportInitialize)(this.dgvAnalytics)).BeginInit();
                this.SuspendLayout();
                // 
@@ -88,10 +90,10 @@
                // 
                // txtNameProduct
                // 
-               this.txtNameProduct.Location = new System.Drawing.Point(222, 233);
+               this.txtNameProduct.Location = new System.Drawing.Point(222, 298);
                this.txtNameProduct.Multiline = true;
                this.txtNameProduct.Name = "txtNameProduct";
-               this.txtNameProduct.Size = new System.Drawing.Size(296, 37);
+               this.txtNameProduct.Size = new System.Drawing.Size(250, 37);
                this.txtNameProduct.TabIndex = 4;
                // 
                // btnToday
@@ -170,7 +172,7 @@
                // 
                // btnAnalytics
                // 
-               this.btnAnalytics.Location = new System.Drawing.Point(579, 278);
+               this.btnAnalytics.Location = new System.Drawing.Point(579, 288);
                this.btnAnalytics.Name = "btnAnalytics";
                this.btnAnalytics.Size = new System.Drawing.Size(92, 54);
                this.btnAnalytics.TabIndex = 14;
@@ -216,18 +218,10 @@
                this.txtTotal.Size = new System.Drawing.Size(147, 50);
                this.txtTotal.TabIndex = 18;
                // 
-               // txtNameManufacturer
-               // 
-               this.txtNameManufacturer.Location = new System.Drawing.Point(222, 295);
-               this.txtNameManufacturer.Multiline = true;
-               this.txtNameManufacturer.Name = "txtNameManufacturer";
-               this.txtNameManufacturer.Size = new System.Drawing.Size(296, 37);
-               this.txtNameManufacturer.TabIndex = 19;
-               // 
                // label8
                // 
                this.label8.AutoSize = true;
-               this.label8.Location = new System.Drawing.Point(68, 253);
+               this.label8.Location = new System.Drawing.Point(68, 318);
                this.label8.Name = "label8";
                this.label8.Size = new System.Drawing.Size(99, 17);
                this.label8.TabIndex = 20;
@@ -236,7 +230,7 @@
                // label9
                // 
                this.label9.AutoSize = true;
-               this.label9.Location = new System.Drawing.Point(68, 315);
+               this.label9.Location = new System.Drawing.Point(68, 195);
                this.label9.Name = "label9";
                this.label9.Size = new System.Drawing.Size(91, 17);
                this.label9.TabIndex = 21;
@@ -304,12 +298,50 @@
                this.btnTotalPage.TabIndex = 26;
                this.btnTotalPage.UseVisualStyleBackColor = true;
                // 
+               // cboxManufacturer
+               // 
+               this.cboxManufacturer.FormattingEnabled = true;
+               this.cboxManufacturer.Items.AddRange(new object[] {
+            "Công ty TNHH Traphaco Thanh Hóa",
+            "Công ty Thuốc Hà Nội",
+            "Công ty cổ phần dược Hà Nội"});
+               this.cboxManufacturer.Location = new System.Drawing.Point(222, 192);
+               this.cboxManufacturer.Name = "cboxManufacturer";
+               this.cboxManufacturer.Size = new System.Drawing.Size(250, 24);
+               this.cboxManufacturer.TabIndex = 27;
+               this.cboxManufacturer.SelectedIndexChanged += new System.EventHandler(this.cboxManufacturer_SelectedIndexChanged);
+               // 
+               // label10
+               // 
+               this.label10.AutoSize = true;
+               this.label10.Location = new System.Drawing.Point(68, 257);
+               this.label10.Name = "label10";
+               this.label10.Size = new System.Drawing.Size(72, 17);
+               this.label10.TabIndex = 28;
+               this.label10.Text = "Danh mục";
+               // 
+               // cbCategory
+               // 
+               this.cbCategory.Enabled = false;
+               this.cbCategory.FormattingEnabled = true;
+               this.cbCategory.Items.AddRange(new object[] {
+            "Công ty TNHH Traphaco Thanh Hóa",
+            "Công ty Thuốc Hà Nội",
+            "Công ty cổ phần dược Hà Nội"});
+               this.cbCategory.Location = new System.Drawing.Point(222, 250);
+               this.cbCategory.Name = "cbCategory";
+               this.cbCategory.Size = new System.Drawing.Size(250, 24);
+               this.cbCategory.TabIndex = 29;
+               // 
                // Analytics
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1362, 833);
+               this.Controls.Add(this.cbCategory);
+               this.Controls.Add(this.label10);
+               this.Controls.Add(this.cboxManufacturer);
                this.Controls.Add(this.btnTotalPage);
                this.Controls.Add(this.btnNext);
                this.Controls.Add(this.btnCurrent);
@@ -317,7 +349,6 @@
                this.Controls.Add(this.btnExcel);
                this.Controls.Add(this.label9);
                this.Controls.Add(this.label8);
-               this.Controls.Add(this.txtNameManufacturer);
                this.Controls.Add(this.txtTotal);
                this.Controls.Add(this.txtAmount);
                this.Controls.Add(this.txtAmount_Product);
@@ -365,7 +396,6 @@
         private System.Windows.Forms.TextBox txtAmount_Product;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtNameManufacturer;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvAnalytics;
@@ -374,5 +404,8 @@
         private System.Windows.Forms.Button btnCurrent;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnTotalPage;
+        private System.Windows.Forms.ComboBox cboxManufacturer;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbCategory;
     }
 }
