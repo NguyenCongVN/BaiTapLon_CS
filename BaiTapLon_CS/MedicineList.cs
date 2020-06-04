@@ -15,7 +15,7 @@ namespace BaiTapLon_CS
 {
      public partial class MedicineList : Form
      {
-          int pageSize = 5;
+          int pageSize = 8;
           int page;
           int pageMax;
           bool isList = false;
@@ -358,6 +358,11 @@ namespace BaiTapLon_CS
                {
                     e.Handled = true;
                }
+          }
+
+          private void label3_Click(object sender, EventArgs e)
+          {
+
           }
      }
 }

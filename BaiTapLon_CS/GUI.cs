@@ -17,10 +17,11 @@ namespace BaiTapLon_CS
           
 
           public GUI()
-        {
+          {
             InitializeComponent();
             openFormInPanel(new FormMenu());
-        }
+               pnComponent.Visible = false;
+          }
          private void openFormInPanel(object FormChild)
           {
                
@@ -35,36 +36,30 @@ namespace BaiTapLon_CS
                this.pnlContain.Tag = fc;
                fc.Show();
           }
-          private void BtnListProduct_Click(object sender, EventArgs e)
-        {
-               openFormInPanel(new MedicineList());
-              
-          }
-
-        private void pnMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
                openFormInPanel(new SearchOrder());
+               pnComponent.Visible = true;
+               pnComponent.Top = button4.Top+24;
+               pnComponent.Height = button4.Height;
           }
 
           private void button2_Click(object sender, EventArgs e)
           {
+               pnComponent.Visible = true;
                openFormInPanel(new Add_Customer());
-                
+               pnComponent.Top = button2.Top+24;
+               pnComponent.Height = button2.Height;
+
           }
 
         private void productList_Click(object sender, EventArgs e)
         {
+               pnComponent.Visible = true;
                openFormInPanel(new MedicineList());
+               pnComponent.Top = productList.Top+24;
+               pnComponent.Height = productList.Height;
           }
 
           private void btnExit_Click(object sender, EventArgs e)
@@ -76,32 +71,28 @@ namespace BaiTapLon_CS
 
           private void button10_Click(object sender, EventArgs e)
           {
+               pnComponent.Visible = true;
                openFormInPanel(new Order());
-          }
-
-          private void label2_Click(object sender, EventArgs e)
-          {
+               pnComponent.Top = button6.Top+24;
+               pnComponent.Height = button6.Height;
 
           }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-               
-        }
-
-          private void panel1_Paint(object sender, PaintEventArgs e)
-          {
-
-          }
-
+          
         private void button5_Click(object sender, EventArgs e)
         {
+               pnComponent.Visible = true;
                openFormInPanel(new Analytics());
-        }
+               pnComponent.Top = button5.Top+24;
+               pnComponent.Height = button5.Height;
+          }
 
           private void button7_Click(object sender, EventArgs e)
           {
+               pnComponent.Visible = true;
                openFormInPanel(new History());
+               pnComponent.Top = button7.Top+24;
+               pnComponent.Height = button7.Height;
           }
 
           private void panel2_Paint_1(object sender, PaintEventArgs e)
@@ -109,10 +100,7 @@ namespace BaiTapLon_CS
                lbName.Text = LoginDAO.Name_Manager;
           }
 
-          private void pictureBox1_Click(object sender, EventArgs e)
-          {
-
-          }
+        
 
         private void xemThôngTinTrangCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -135,9 +123,19 @@ namespace BaiTapLon_CS
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-               this.Hide();
-               Form1 form = new Form1();
-               form.Show();
+             DialogResult result = MessageBox.Show("Bạn có chắc đăng xuất hay không ?", "OK", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+               if (result == DialogResult.Yes)
+               {
+                    
+                    this.Hide();
+                    Form1 form = new Form1();
+                    form.Show();
+               }
           }
+
+        private void GUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

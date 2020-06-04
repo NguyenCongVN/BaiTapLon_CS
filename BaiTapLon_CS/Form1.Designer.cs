@@ -32,23 +32,25 @@
                this.txtPassword = new System.Windows.Forms.TextBox();
                this.label1 = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
-               this.btnLogin = new System.Windows.Forms.Button();
                this.label3 = new System.Windows.Forms.Label();
-               this.btnExit = new System.Windows.Forms.Button();
                this.radioBtnAdmin = new System.Windows.Forms.RadioButton();
                this.radioBtnCashier = new System.Windows.Forms.RadioButton();
+               this.btnExit = new System.Windows.Forms.Button();
+               this.btnLogin = new System.Windows.Forms.Button();
+               this.panel1 = new System.Windows.Forms.Panel();
+               this.panel1.SuspendLayout();
                this.SuspendLayout();
                // 
                // txtAccount
                // 
-               this.txtAccount.Location = new System.Drawing.Point(187, 192);
+               this.txtAccount.Location = new System.Drawing.Point(133, 221);
                this.txtAccount.Name = "txtAccount";
                this.txtAccount.Size = new System.Drawing.Size(254, 22);
                this.txtAccount.TabIndex = 2;
                // 
                // txtPassword
                // 
-               this.txtPassword.Location = new System.Drawing.Point(187, 251);
+               this.txtPassword.Location = new System.Drawing.Point(133, 313);
                this.txtPassword.Name = "txtPassword";
                this.txtPassword.Size = new System.Drawing.Size(254, 22);
                this.txtPassword.TabIndex = 3;
@@ -58,7 +60,7 @@
                // label1
                // 
                this.label1.AutoSize = true;
-               this.label1.Location = new System.Drawing.Point(86, 195);
+               this.label1.Location = new System.Drawing.Point(101, 190);
                this.label1.Name = "label1";
                this.label1.Size = new System.Drawing.Size(71, 17);
                this.label1.TabIndex = 4;
@@ -67,47 +69,27 @@
                // label2
                // 
                this.label2.AutoSize = true;
-               this.label2.Location = new System.Drawing.Point(89, 251);
+               this.label2.Location = new System.Drawing.Point(101, 274);
                this.label2.Name = "label2";
                this.label2.Size = new System.Drawing.Size(66, 17);
                this.label2.TabIndex = 5;
                this.label2.Text = "Mật khẩu";
                // 
-               // btnLogin
-               // 
-               this.btnLogin.AutoSize = true;
-               this.btnLogin.Location = new System.Drawing.Point(138, 320);
-               this.btnLogin.Name = "btnLogin";
-               this.btnLogin.Size = new System.Drawing.Size(123, 45);
-               this.btnLogin.TabIndex = 6;
-               this.btnLogin.Text = "Đăng Nhập";
-               this.btnLogin.UseVisualStyleBackColor = true;
-               this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
-               // 
                // label3
                // 
                this.label3.AutoSize = true;
                this.label3.Font = new System.Drawing.Font("Matura MT Script Capitals", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label3.Location = new System.Drawing.Point(131, 73);
+               this.label3.ForeColor = System.Drawing.Color.White;
+               this.label3.Location = new System.Drawing.Point(147, 43);
                this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(310, 39);
+               this.label3.Size = new System.Drawing.Size(221, 39);
                this.label3.TabIndex = 7;
-               this.label3.Text = "Quản Lí Nhà Thuốc";
-               // 
-               // btnExit
-               // 
-               this.btnExit.Location = new System.Drawing.Point(318, 320);
-               this.btnExit.Name = "btnExit";
-               this.btnExit.Size = new System.Drawing.Size(123, 45);
-               this.btnExit.TabIndex = 8;
-               this.btnExit.Text = "Thoát";
-               this.btnExit.UseVisualStyleBackColor = true;
-               this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+               this.label3.Text = "ĐĂNG NHẬP";
                // 
                // radioBtnAdmin
                // 
                this.radioBtnAdmin.AutoSize = true;
-               this.radioBtnAdmin.Location = new System.Drawing.Point(339, 149);
+               this.radioBtnAdmin.Location = new System.Drawing.Point(288, 149);
                this.radioBtnAdmin.Name = "radioBtnAdmin";
                this.radioBtnAdmin.Size = new System.Drawing.Size(68, 21);
                this.radioBtnAdmin.TabIndex = 1;
@@ -118,7 +100,7 @@
                // radioBtnCashier
                // 
                this.radioBtnCashier.AutoSize = true;
-               this.radioBtnCashier.Location = new System.Drawing.Point(174, 149);
+               this.radioBtnCashier.Location = new System.Drawing.Point(166, 149);
                this.radioBtnCashier.Name = "radioBtnCashier";
                this.radioBtnCashier.Size = new System.Drawing.Size(77, 21);
                this.radioBtnCashier.TabIndex = 0;
@@ -126,14 +108,51 @@
                this.radioBtnCashier.Text = "Cashier";
                this.radioBtnCashier.UseVisualStyleBackColor = true;
                // 
+               // btnExit
+               // 
+               this.btnExit.Image = global::BaiTapLon_CS.Properties.Resources.exit;
+               this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.btnExit.Location = new System.Drawing.Point(299, 379);
+               this.btnExit.Name = "btnExit";
+               this.btnExit.Size = new System.Drawing.Size(111, 45);
+               this.btnExit.TabIndex = 8;
+               this.btnExit.Text = "Thoát";
+               this.btnExit.UseVisualStyleBackColor = true;
+               this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+               // 
+               // btnLogin
+               // 
+               this.btnLogin.AutoSize = true;
+               this.btnLogin.Image = global::BaiTapLon_CS.Properties.Resources.Login_in_icon;
+               this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.btnLogin.Location = new System.Drawing.Point(133, 379);
+               this.btnLogin.Name = "btnLogin";
+               this.btnLogin.Size = new System.Drawing.Size(123, 45);
+               this.btnLogin.TabIndex = 6;
+               this.btnLogin.Text = "Đăng Nhập";
+               this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.btnLogin.UseVisualStyleBackColor = true;
+               this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+               // 
+               // panel1
+               // 
+               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(94)))), ((int)(((byte)(242)))));
+               this.panel1.Controls.Add(this.label3);
+               this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panel1.Location = new System.Drawing.Point(0, 0);
+               this.panel1.Name = "panel1";
+               this.panel1.Size = new System.Drawing.Size(548, 117);
+               this.panel1.TabIndex = 9;
+               // 
                // Form1
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.AutoSize = true;
-               this.ClientSize = new System.Drawing.Size(638, 450);
+               this.BackColor = System.Drawing.Color.White;
+               this.ClientSize = new System.Drawing.Size(548, 475);
+               this.Controls.Add(this.panel1);
                this.Controls.Add(this.btnExit);
-               this.Controls.Add(this.label3);
                this.Controls.Add(this.btnLogin);
                this.Controls.Add(this.label2);
                this.Controls.Add(this.label1);
@@ -141,10 +160,13 @@
                this.Controls.Add(this.txtAccount);
                this.Controls.Add(this.radioBtnAdmin);
                this.Controls.Add(this.radioBtnCashier);
+               this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
                this.Name = "Form1";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-               this.Text = "Form1";
+               this.Text = "Đăng nhập";
                this.Load += new System.EventHandler(this.Form1_Load);
+               this.panel1.ResumeLayout(false);
+               this.panel1.PerformLayout();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -160,6 +182,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.RadioButton radioBtnAdmin;
         private System.Windows.Forms.RadioButton radioBtnCashier;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

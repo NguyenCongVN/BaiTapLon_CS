@@ -57,6 +57,12 @@
     <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialMenu, Version=0.0.4.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialMenu.0.0.4.5\lib\net46\MaterialMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Core" />
@@ -103,7 +109,6 @@
     <Compile Include="DAO\SearchCustomerDAO.cs" />
     <Compile Include="DAO\SearchOrderDAO.cs" />
     <Compile Include="DAO\Search_MedicineDAO.cs" />
-    <Compile Include="ExportToExcel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,12 +127,6 @@
     </Compile>
     <Compile Include="GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_Admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI_Admin.Designer.cs">
-      <DependentUpon>GUI_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="History.cs">
       <SubType>Form</SubType>
@@ -207,9 +206,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI_Admin.resx">
-      <DependentUpon>GUI_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="History.resx">
       <DependentUpon>History.cs</DependentUpon>
@@ -294,7 +290,35 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Login-in-icon.png" />
+    <None Include="Resources\the-nhan-vien-nha-thuoc-2-1024x682.jpg" />
+    <None Include="Resources\medicine.png" />
+    <None Include="Resources\Reset-icon.png" />
+    <None Include="Resources\month.png" />
+    <None Include="Resources\today.png" />
+    <None Include="Resources\next2.png" />
+    <None Include="Resources\previous.png" />
+    <None Include="Resources\next1.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\search-pointer-icon.png" />
+    <None Include="Resources\Import-export-icon.png" />
+    <None Include="Resources\list_product3.png" />
+    <None Include="Resources\list_product2.png" />
+    <None Include="Resources\list_product1.png" />
     <None Include="Resources\default.jpg" />
+    <None Include="Resources\chrome-app-list-icon.png" />
+    <None Include="Resources\Actions-list-add-user-icon.png" />
+    <None Include="Resources\Actions-list-add-user-icon %281%29.png" />
+    <None Include="Resources\Checklist-icon.png" />
+    <None Include="Resources\Checklist-icon %281%29.png" />
+    <None Include="Resources\Actions-list-add-user-icon %282%29.png" />
+    <None Include="Resources\Actions-view-statistics-icon.png" />
+    <None Include="Resources\Actions-history-clear-icon.png" />
+    <None Include="Resources\arrow-next-3-icon.png" />
+    <None Include="Resources\analyist.png" />
+    <None Include="Resources\analyist1.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\exit.png" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

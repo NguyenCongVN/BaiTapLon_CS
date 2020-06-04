@@ -60,9 +60,9 @@ namespace BaiTapLon_CS
                          {
                               if (name == "admin")
                               {
-                                   GUI_Admin gui_admin = new GUI_Admin();
+                                 //  GUI_Admin gui_admin = new GUI_Admin();
                                   // this.Hide();
-                                   gui_admin.Show();
+                                  // gui_admin.Show();
                               }
                               else if (name == "employee")
                               {
