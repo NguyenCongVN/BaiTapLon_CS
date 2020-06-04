@@ -104,6 +104,7 @@
                this.Name = "Search_Medicine";
                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                this.Text = "Search_Medicine";
+               this.TopMost = true;
                ((System.ComponentModel.ISupportInitialize)(this.dgvSearchMedicine)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();

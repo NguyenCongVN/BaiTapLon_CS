@@ -45,18 +45,18 @@
                this.label8 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
                this.dgvAnalytics = new System.Windows.Forms.DataGridView();
-               this.btnExcel = new System.Windows.Forms.Button();
                this.btnCurrent = new System.Windows.Forms.Button();
                this.btnTotalPage = new System.Windows.Forms.Button();
                this.cboxManufacturer = new System.Windows.Forms.ComboBox();
                this.label10 = new System.Windows.Forms.Label();
                this.cbCategory = new System.Windows.Forms.ComboBox();
+               this.panel1 = new System.Windows.Forms.Panel();
                this.btnNext = new System.Windows.Forms.Button();
                this.btnPre = new System.Windows.Forms.Button();
+               this.btnExcel = new System.Windows.Forms.Button();
                this.btnAnalytics = new System.Windows.Forms.Button();
                this.btnMonth = new System.Windows.Forms.Button();
                this.btnToday = new System.Windows.Forms.Button();
-               this.panel1 = new System.Windows.Forms.Panel();
                ((System.ComponentModel.ISupportInitialize)(this.dgvAnalytics)).BeginInit();
                this.panel1.SuspendLayout();
                this.SuspendLayout();
@@ -163,9 +163,9 @@
                this.label7.AutoSize = true;
                this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 19.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.label7.ForeColor = System.Drawing.Color.White;
-               this.label7.Location = new System.Drawing.Point(529, 40);
+               this.label7.Location = new System.Drawing.Point(446, 35);
                this.label7.Name = "label7";
-               this.label7.Size = new System.Drawing.Size(350, 41);
+               this.label7.Size = new System.Drawing.Size(338, 40);
                this.label7.TabIndex = 15;
                this.label7.Text = "PHÂN TÍCH BÁN HÀNG";
                // 
@@ -233,30 +233,19 @@
                this.dgvAnalytics.TabIndex = 5;
                this.dgvAnalytics.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnalytics_CellContentClick);
                // 
-               // btnExcel
-               // 
-               this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-               this.btnExcel.Location = new System.Drawing.Point(808, 622);
-               this.btnExcel.Name = "btnExcel";
-               this.btnExcel.Size = new System.Drawing.Size(121, 47);
-               this.btnExcel.TabIndex = 22;
-               this.btnExcel.Text = "Xuất Excel";
-               this.btnExcel.UseVisualStyleBackColor = false;
-               this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-               // 
                // btnCurrent
                // 
                this.btnCurrent.Enabled = false;
                this.btnCurrent.Location = new System.Drawing.Point(272, 628);
                this.btnCurrent.Name = "btnCurrent";
-               this.btnCurrent.Size = new System.Drawing.Size(37, 41);
+               this.btnCurrent.Size = new System.Drawing.Size(52, 41);
                this.btnCurrent.TabIndex = 24;
                this.btnCurrent.UseVisualStyleBackColor = true;
                // 
                // btnTotalPage
                // 
                this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.Location = new System.Drawing.Point(481, 628);
+               this.btnTotalPage.Location = new System.Drawing.Point(414, 628);
                this.btnTotalPage.Name = "btnTotalPage";
                this.btnTotalPage.Size = new System.Drawing.Size(75, 41);
                this.btnTotalPage.TabIndex = 26;
@@ -300,9 +289,20 @@
                this.cbCategory.TabIndex = 29;
                this.cbCategory.Text = "Danh mục";
                // 
+               // panel1
+               // 
+               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+               this.panel1.Controls.Add(this.label7);
+               this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panel1.Location = new System.Drawing.Point(0, 0);
+               this.panel1.Name = "panel1";
+               this.panel1.Size = new System.Drawing.Size(1254, 91);
+               this.panel1.TabIndex = 30;
+               // 
                // btnNext
                // 
                this.btnNext.FlatAppearance.BorderSize = 0;
+               this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.btnNext.Image = global::BaiTapLon_CS.Properties.Resources.next2;
                this.btnNext.Location = new System.Drawing.Point(341, 628);
                this.btnNext.Name = "btnNext";
@@ -313,6 +313,8 @@
                // 
                // btnPre
                // 
+               this.btnPre.FlatAppearance.BorderSize = 0;
+               this.btnPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.btnPre.Image = global::BaiTapLon_CS.Properties.Resources.previous;
                this.btnPre.Location = new System.Drawing.Point(184, 628);
                this.btnPre.Name = "btnPre";
@@ -320,6 +322,20 @@
                this.btnPre.TabIndex = 23;
                this.btnPre.UseVisualStyleBackColor = true;
                this.btnPre.Click += new System.EventHandler(this.button1_Click);
+               // 
+               // btnExcel
+               // 
+               this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+               this.btnExcel.Image = global::BaiTapLon_CS.Properties.Resources.Export_To_File_icon;
+               this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.btnExcel.Location = new System.Drawing.Point(808, 622);
+               this.btnExcel.Name = "btnExcel";
+               this.btnExcel.Size = new System.Drawing.Size(134, 47);
+               this.btnExcel.TabIndex = 22;
+               this.btnExcel.Text = "Xuất Excel";
+               this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.btnExcel.UseVisualStyleBackColor = false;
+               this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
                // 
                // btnAnalytics
                // 
@@ -363,22 +379,12 @@
                this.btnToday.UseVisualStyleBackColor = true;
                this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
                // 
-               // panel1
-               // 
-               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
-               this.panel1.Controls.Add(this.label7);
-               this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-               this.panel1.Location = new System.Drawing.Point(0, 0);
-               this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(1362, 91);
-               this.panel1.TabIndex = 30;
-               // 
                // Analytics
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-               this.ClientSize = new System.Drawing.Size(1362, 725);
+               this.ClientSize = new System.Drawing.Size(1254, 725);
                this.Controls.Add(this.panel1);
                this.Controls.Add(this.cbCategory);
                this.Controls.Add(this.label10);

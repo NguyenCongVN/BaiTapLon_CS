@@ -21,6 +21,7 @@ namespace BaiTapLon_CS
             InitializeComponent();
             openFormInPanel(new FormMenu());
                pnComponent.Visible = false;
+               label5.Text = "TIỆM THUỐC NHÓM 1";
           }
          private void openFormInPanel(object FormChild)
           {
@@ -43,6 +44,7 @@ namespace BaiTapLon_CS
                pnComponent.Visible = true;
                pnComponent.Top = button4.Top+24;
                pnComponent.Height = button4.Height;
+               label5.Text = "TÌM KIẾM HÓA ĐƠN";
           }
 
           private void button2_Click(object sender, EventArgs e)
@@ -51,6 +53,7 @@ namespace BaiTapLon_CS
                openFormInPanel(new Add_Customer());
                pnComponent.Top = button2.Top+24;
                pnComponent.Height = button2.Height;
+               label5.Text = "THÊM KHÁCH HÀNG";
 
           }
 
@@ -60,6 +63,7 @@ namespace BaiTapLon_CS
                openFormInPanel(new MedicineList());
                pnComponent.Top = productList.Top+24;
                pnComponent.Height = productList.Height;
+               label5.Text = "DANH SÁCH SẢN PHẨM";
           }
 
           private void btnExit_Click(object sender, EventArgs e)
@@ -75,6 +79,7 @@ namespace BaiTapLon_CS
                openFormInPanel(new Order());
                pnComponent.Top = button6.Top+24;
                pnComponent.Height = button6.Height;
+               label5.Text = "CHI TIẾT ĐƠN HÀNG";
 
           }
 
@@ -85,6 +90,7 @@ namespace BaiTapLon_CS
                openFormInPanel(new Analytics());
                pnComponent.Top = button5.Top+24;
                pnComponent.Height = button5.Height;
+               label5.Text = "PHÂN TÍCH BÁN HÀNG";
           }
 
           private void button7_Click(object sender, EventArgs e)
@@ -93,6 +99,7 @@ namespace BaiTapLon_CS
                openFormInPanel(new History());
                pnComponent.Top = button7.Top+24;
                pnComponent.Height = button7.Height;
+               label5.Text = "LỊCH SỬ BÁN HÀNG";
           }
 
           private void panel2_Paint_1(object sender, PaintEventArgs e)

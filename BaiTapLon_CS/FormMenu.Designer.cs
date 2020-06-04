@@ -36,9 +36,9 @@
                // 
                this.pnControl.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.the_nhan_vien_nha_thuoc_2_1024x682;
                this.pnControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.pnControl.Location = new System.Drawing.Point(12, 110);
+               this.pnControl.Location = new System.Drawing.Point(12, 89);
                this.pnControl.Name = "pnControl";
-               this.pnControl.Size = new System.Drawing.Size(1167, 625);
+               this.pnControl.Size = new System.Drawing.Size(1167, 646);
                this.pnControl.TabIndex = 0;
                // 
                // label1
@@ -55,7 +55,7 @@
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(1220, 780);
+               this.ClientSize = new System.Drawing.Size(1187, 769);
                this.Controls.Add(this.label1);
                this.Controls.Add(this.pnControl);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

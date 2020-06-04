@@ -38,19 +38,20 @@
                this.txtName_Customer = new System.Windows.Forms.TextBox();
                this.txtPhone = new System.Windows.Forms.TextBox();
                this.dgvOrder_Search = new System.Windows.Forms.DataGridView();
-               this.label6 = new System.Windows.Forms.Label();
-               this.btnSearch = new System.Windows.Forms.Button();
                this.timeOrderSearch = new System.Windows.Forms.DateTimePicker();
-               this.btnPre = new System.Windows.Forms.Button();
                this.btnCurrent = new System.Windows.Forms.Button();
-               this.btnNext = new System.Windows.Forms.Button();
                this.btnTotalPage = new System.Windows.Forms.Button();
+               this.panel1 = new System.Windows.Forms.Panel();
+               this.btnNext = new System.Windows.Forms.Button();
+               this.btnPre = new System.Windows.Forms.Button();
+               this.btnSearch = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvOrder_Search)).BeginInit();
                this.SuspendLayout();
                // 
                // label1
                // 
                this.label1.AutoSize = true;
+               this.label1.ForeColor = System.Drawing.Color.White;
                this.label1.Location = new System.Drawing.Point(65, 177);
                this.label1.Name = "label1";
                this.label1.Size = new System.Drawing.Size(83, 17);
@@ -61,6 +62,7 @@
                // label2
                // 
                this.label2.AutoSize = true;
+               this.label2.ForeColor = System.Drawing.Color.White;
                this.label2.Location = new System.Drawing.Point(65, 311);
                this.label2.Name = "label2";
                this.label2.Size = new System.Drawing.Size(67, 17);
@@ -71,6 +73,7 @@
                // label4
                // 
                this.label4.AutoSize = true;
+               this.label4.ForeColor = System.Drawing.Color.White;
                this.label4.Location = new System.Drawing.Point(519, 177);
                this.label4.Name = "label4";
                this.label4.Size = new System.Drawing.Size(105, 17);
@@ -81,6 +84,7 @@
                // label5
                // 
                this.label5.AutoSize = true;
+               this.label5.ForeColor = System.Drawing.Color.White;
                this.label5.Location = new System.Drawing.Point(513, 239);
                this.label5.Name = "label5";
                this.label5.Size = new System.Drawing.Size(111, 17);
@@ -91,6 +95,7 @@
                // label7
                // 
                this.label7.AutoSize = true;
+               this.label7.ForeColor = System.Drawing.Color.White;
                this.label7.Location = new System.Drawing.Point(519, 311);
                this.label7.Name = "label7";
                this.label7.Size = new System.Drawing.Size(91, 17);
@@ -146,27 +151,6 @@
                this.dgvOrder_Search.Size = new System.Drawing.Size(958, 243);
                this.dgvOrder_Search.TabIndex = 14;
                // 
-               // label6
-               // 
-               this.label6.AutoSize = true;
-               this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label6.ForeColor = System.Drawing.Color.Red;
-               this.label6.Location = new System.Drawing.Point(360, 47);
-               this.label6.Name = "label6";
-               this.label6.Size = new System.Drawing.Size(332, 40);
-               this.label6.TabIndex = 15;
-               this.label6.Text = "TÌM KIẾM HÓA ĐƠN";
-               // 
-               // btnSearch
-               // 
-               this.btnSearch.Location = new System.Drawing.Point(915, 205);
-               this.btnSearch.Name = "btnSearch";
-               this.btnSearch.Size = new System.Drawing.Size(111, 80);
-               this.btnSearch.TabIndex = 16;
-               this.btnSearch.Text = "Tìm kiếm";
-               this.btnSearch.UseVisualStyleBackColor = true;
-               this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-               // 
                // timeOrderSearch
                // 
                this.timeOrderSearch.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -176,34 +160,14 @@
                this.timeOrderSearch.TabIndex = 17;
                this.timeOrderSearch.Value = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
                // 
-               // btnPre
-               // 
-               this.btnPre.Location = new System.Drawing.Point(262, 645);
-               this.btnPre.Name = "btnPre";
-               this.btnPre.Size = new System.Drawing.Size(67, 43);
-               this.btnPre.TabIndex = 18;
-               this.btnPre.Text = "<=";
-               this.btnPre.UseVisualStyleBackColor = true;
-               this.btnPre.Click += new System.EventHandler(this.button1_Click);
-               // 
                // btnCurrent
                // 
                this.btnCurrent.Enabled = false;
-               this.btnCurrent.Location = new System.Drawing.Point(386, 645);
+               this.btnCurrent.Location = new System.Drawing.Point(454, 645);
                this.btnCurrent.Name = "btnCurrent";
                this.btnCurrent.Size = new System.Drawing.Size(67, 43);
                this.btnCurrent.TabIndex = 19;
                this.btnCurrent.UseVisualStyleBackColor = true;
-               // 
-               // btnNext
-               // 
-               this.btnNext.Location = new System.Drawing.Point(497, 645);
-               this.btnNext.Name = "btnNext";
-               this.btnNext.Size = new System.Drawing.Size(67, 43);
-               this.btnNext.TabIndex = 20;
-               this.btnNext.Text = "=>";
-               this.btnNext.UseVisualStyleBackColor = true;
-               this.btnNext.Click += new System.EventHandler(this.button3_Click);
                // 
                // btnTotalPage
                // 
@@ -214,18 +178,68 @@
                this.btnTotalPage.TabIndex = 21;
                this.btnTotalPage.UseVisualStyleBackColor = true;
                // 
+               // panel1
+               // 
+               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(30)))));
+               this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panel1.Location = new System.Drawing.Point(0, 0);
+               this.panel1.Name = "panel1";
+               this.panel1.Size = new System.Drawing.Size(1121, 100);
+               this.panel1.TabIndex = 22;
+               // 
+               // btnNext
+               // 
+               this.btnNext.FlatAppearance.BorderSize = 0;
+               this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.btnNext.Image = global::BaiTapLon_CS.Properties.Resources.next2;
+               this.btnNext.Location = new System.Drawing.Point(516, 645);
+               this.btnNext.Name = "btnNext";
+               this.btnNext.Size = new System.Drawing.Size(67, 43);
+               this.btnNext.TabIndex = 20;
+               this.btnNext.UseVisualStyleBackColor = true;
+               this.btnNext.Click += new System.EventHandler(this.button3_Click);
+               // 
+               // btnPre
+               // 
+               this.btnPre.FlatAppearance.BorderSize = 0;
+               this.btnPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.btnPre.Image = global::BaiTapLon_CS.Properties.Resources.previous;
+               this.btnPre.Location = new System.Drawing.Point(373, 645);
+               this.btnPre.Name = "btnPre";
+               this.btnPre.Size = new System.Drawing.Size(67, 43);
+               this.btnPre.TabIndex = 18;
+               this.btnPre.UseVisualStyleBackColor = true;
+               this.btnPre.Click += new System.EventHandler(this.button1_Click);
+               // 
+               // btnSearch
+               // 
+               this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
+               this.btnSearch.FlatAppearance.BorderSize = 0;
+               this.btnSearch.ForeColor = System.Drawing.Color.White;
+               this.btnSearch.Image = global::BaiTapLon_CS.Properties.Resources.plasma_search_icon;
+               this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.btnSearch.Location = new System.Drawing.Point(966, 253);
+               this.btnSearch.Name = "btnSearch";
+               this.btnSearch.Size = new System.Drawing.Size(111, 80);
+               this.btnSearch.TabIndex = 16;
+               this.btnSearch.Text = "Tìm kiếm";
+               this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.btnSearch.UseVisualStyleBackColor = false;
+               this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+               // 
                // SearchOrder
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(40)))));
                this.ClientSize = new System.Drawing.Size(1121, 809);
+               this.Controls.Add(this.panel1);
                this.Controls.Add(this.btnTotalPage);
                this.Controls.Add(this.btnNext);
                this.Controls.Add(this.btnCurrent);
                this.Controls.Add(this.btnPre);
                this.Controls.Add(this.timeOrderSearch);
                this.Controls.Add(this.btnSearch);
-               this.Controls.Add(this.label6);
                this.Controls.Add(this.dgvOrder_Search);
                this.Controls.Add(this.txtPhone);
                this.Controls.Add(this.txtName_Customer);
@@ -236,6 +250,7 @@
                this.Controls.Add(this.label4);
                this.Controls.Add(this.label2);
                this.Controls.Add(this.label1);
+               this.ForeColor = System.Drawing.Color.White;
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                this.Name = "SearchOrder";
                this.Text = "SearchOrder";
@@ -257,12 +272,12 @@
         private System.Windows.Forms.TextBox txtName_Customer;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.DataGridView dgvOrder_Search;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DateTimePicker timeOrderSearch;
         private System.Windows.Forms.Button btnPre;
         private System.Windows.Forms.Button btnCurrent;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnTotalPage;
+        private System.Windows.Forms.Panel panel1;
     }
 }

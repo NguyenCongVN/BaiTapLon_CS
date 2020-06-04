@@ -45,14 +45,14 @@
                // 
                this.txtAccount.Location = new System.Drawing.Point(133, 221);
                this.txtAccount.Name = "txtAccount";
-               this.txtAccount.Size = new System.Drawing.Size(254, 22);
+               this.txtAccount.Size = new System.Drawing.Size(303, 22);
                this.txtAccount.TabIndex = 2;
                // 
                // txtPassword
                // 
                this.txtPassword.Location = new System.Drawing.Point(133, 313);
                this.txtPassword.Name = "txtPassword";
-               this.txtPassword.Size = new System.Drawing.Size(254, 22);
+               this.txtPassword.Size = new System.Drawing.Size(303, 22);
                this.txtPassword.TabIndex = 3;
                this.txtPassword.UseSystemPasswordChar = true;
                this.txtPassword.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
@@ -114,7 +114,7 @@
                this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.btnExit.Location = new System.Drawing.Point(299, 379);
                this.btnExit.Name = "btnExit";
-               this.btnExit.Size = new System.Drawing.Size(111, 45);
+               this.btnExit.Size = new System.Drawing.Size(137, 45);
                this.btnExit.TabIndex = 8;
                this.btnExit.Text = "Thoát";
                this.btnExit.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
                this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.btnLogin.Location = new System.Drawing.Point(133, 379);
                this.btnLogin.Name = "btnLogin";
-               this.btnLogin.Size = new System.Drawing.Size(123, 45);
+               this.btnLogin.Size = new System.Drawing.Size(141, 45);
                this.btnLogin.TabIndex = 6;
                this.btnLogin.Text = "Đăng Nhập";
                this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

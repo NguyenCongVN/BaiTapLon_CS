@@ -203,9 +203,29 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Export_To_File_icon {
+            get {
+                object obj = ResourceManager.GetObject("Export-To-File-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap find {
             get {
                 object obj = ResourceManager.GetObject("find", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap find111 {
+            get {
+                object obj = ResourceManager.GetObject("find111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -346,6 +366,16 @@ namespace BaiTapLon_CS.Properties {
         internal static System.Drawing.Bitmap paracetamol {
             get {
                 object obj = ResourceManager.GetObject("paracetamol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plasma_search_icon {
+            get {
+                object obj = ResourceManager.GetObject("plasma-search-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

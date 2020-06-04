@@ -15,7 +15,7 @@ namespace BaiTapLon_CS
 {
      public partial class MedicineList : Form
      {
-          int pageSize = 8;
+          int pageSize = 9;
           int page;
           int pageMax;
           bool isList = false;
@@ -213,7 +213,6 @@ namespace BaiTapLon_CS
                ID_Medicine = int.Parse(dgwMedicineList.Rows[row].Cells[0].Value.ToString());
                Name_Medicine = dgwMedicineList.Rows[row].Cells[1].Value.ToString();
                Image_Medicine= dgwMedicineList.Rows[row].Cells[2].Value.ToString();
-
                // Image_Medicine=dgwMedicineList.Rows[row].Cells[2].Value.ToString();
                Medicine_Detail mede = new Medicine_Detail();
                mede.Show();

@@ -15,7 +15,7 @@ namespace BaiTapLon_CS
      {
           public void DisplayListView(string query)
           {
-                         
+              
                          dataGridView1.DataSource = DAO.Medicine_DetailDAO.Instance.DisplatListView(query);
                if (dataGridView1.DataSource != null)
                {
@@ -25,7 +25,9 @@ namespace BaiTapLon_CS
                     dataGridView1.Columns[3].HeaderText = "Số lượng";
                }
           }
+
           public Medicine_Detail(){
+               Hide();
                InitializeComponent();
                txtID_Medicine.Text = MedicineList.ID_Medicine.ToString();
                txtName_Medicine.Text = MedicineList.Name_Medicine;

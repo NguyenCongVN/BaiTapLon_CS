@@ -28,9 +28,9 @@
           /// </summary>
           private void InitializeComponent()
           {
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
                this.panel2 = new System.Windows.Forms.Panel();
                this.dgwMedicineList = new System.Windows.Forms.DataGridView();
-               this.label11 = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
                this.label3 = new System.Windows.Forms.Label();
                this.label4 = new System.Windows.Forms.Label();
@@ -62,31 +62,35 @@
                // 
                this.dgwMedicineList.AllowUserToOrderColumns = true;
                this.dgwMedicineList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-               this.dgwMedicineList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+               this.dgwMedicineList.BackgroundColor = System.Drawing.Color.White;
+               this.dgwMedicineList.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgwMedicineList.ColumnHeadersHeight = 29;
                this.dgwMedicineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+               dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+               dataGridViewCellStyle1.Format = "g";
+               dataGridViewCellStyle1.NullValue = null;
+               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle1;
                this.dgwMedicineList.Dock = System.Windows.Forms.DockStyle.Fill;
+               this.dgwMedicineList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
                this.dgwMedicineList.GridColor = System.Drawing.Color.Black;
                this.dgwMedicineList.Location = new System.Drawing.Point(0, 0);
                this.dgwMedicineList.Name = "dgwMedicineList";
+               this.dgwMedicineList.ReadOnly = true;
                this.dgwMedicineList.RowHeadersWidth = 51;
                this.dgwMedicineList.RowTemplate.Height = 24;
+               this.dgwMedicineList.ScrollBars = System.Windows.Forms.ScrollBars.None;
                this.dgwMedicineList.Size = new System.Drawing.Size(1063, 322);
                this.dgwMedicineList.TabIndex = 0;
+               this.dgwMedicineList.UseWaitCursor = true;
+               this.dgwMedicineList.VirtualMode = true;
                this.dgwMedicineList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMedicineList_CellContentClick);
                this.dgwMedicineList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgwMedicineList_MouseClick);
-               // 
-               // label11
-               // 
-               this.label11.AutoSize = true;
-               this.label11.BackColor = System.Drawing.Color.Transparent;
-               this.label11.Font = new System.Drawing.Font("Mistral", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label11.ForeColor = System.Drawing.Color.White;
-               this.label11.Location = new System.Drawing.Point(444, 63);
-               this.label11.Name = "label11";
-               this.label11.Size = new System.Drawing.Size(305, 39);
-               this.label11.TabIndex = 19;
-               this.label11.Text = "DANH SÁCH SẢN PHẨM";
                // 
                // label2
                // 
@@ -277,7 +281,7 @@
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(20)))), ((int)(((byte)(90)))));
+               this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
                this.ClientSize = new System.Drawing.Size(1168, 765);
                this.Controls.Add(this.btnTotalPage);
                this.Controls.Add(this.btnCurrent);
@@ -291,7 +295,6 @@
                this.Controls.Add(this.label4);
                this.Controls.Add(this.label3);
                this.Controls.Add(this.label2);
-               this.Controls.Add(this.label11);
                this.Controls.Add(this.panel2);
                this.Controls.Add(this.btnReset);
                this.Controls.Add(this.btnSearch);
@@ -313,7 +316,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgwMedicineList;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

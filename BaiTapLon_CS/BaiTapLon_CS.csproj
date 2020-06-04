@@ -290,6 +290,7 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\plasma-search-icon.png" />
     <None Include="Resources\Login-in-icon.png" />
     <None Include="Resources\the-nhan-vien-nha-thuoc-2-1024x682.jpg" />
     <None Include="Resources\medicine.png" />
@@ -319,6 +320,8 @@
     <None Include="Resources\analyist1.png" />
     <None Include="Resources\find.png" />
     <None Include="Resources\exit.png" />
+    <None Include="Resources\find111.png" />
+    <None Include="Resources\Export-To-File-icon.png" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
