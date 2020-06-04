@@ -144,5 +144,29 @@ namespace BaiTapLon_CS
         {
 
         }
+
+          int x = 25; int y = 8;int a = 1;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+               try
+               {
+                    x += a;
+                    lbText.Location = new Point(x, y);
+                    if (x >= 550)
+                    {
+                         a =-1;
+                    }
+                    if (x <= 25)
+                    {
+                         a = 1;
+                    }
+
+               }
+               catch (Exception)
+               {
+
+                    throw;
+               }
+        }
     }
 }

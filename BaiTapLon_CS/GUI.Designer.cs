@@ -38,8 +38,7 @@
                this.button4 = new System.Windows.Forms.Button();
                this.button2 = new System.Windows.Forms.Button();
                this.panel2 = new System.Windows.Forms.Panel();
-               this.label4 = new System.Windows.Forms.Label();
-               this.label3 = new System.Windows.Forms.Label();
+               this.lbText = new System.Windows.Forms.Label();
                this.lbName = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
                this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -52,7 +51,6 @@
                this.lbName_Manager = new System.Windows.Forms.Label();
                this.pnlContain = new System.Windows.Forms.Panel();
                this.timer1 = new System.Windows.Forms.Timer(this.components);
-               this.timer2 = new System.Windows.Forms.Timer(this.components);
                this.pnComponent = new System.Windows.Forms.Panel();
                this.panel3 = new System.Windows.Forms.Panel();
                this.label5 = new System.Windows.Forms.Label();
@@ -75,9 +73,9 @@
                this.panel1.Controls.Add(this.button2);
                this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
                this.panel1.ForeColor = System.Drawing.SystemColors.Control;
-               this.panel1.Location = new System.Drawing.Point(0, 30);
+               this.panel1.Location = new System.Drawing.Point(0, 28);
                this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(272, 797);
+               this.panel1.Size = new System.Drawing.Size(272, 799);
                this.panel1.TabIndex = 2;
                // 
                // label1
@@ -201,40 +199,28 @@
                // panel2
                // 
                this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(30)))));
-               this.panel2.Controls.Add(this.label4);
-               this.panel2.Controls.Add(this.label3);
+               this.panel2.Controls.Add(this.lbText);
                this.panel2.Controls.Add(this.lbName);
                this.panel2.Controls.Add(this.label2);
                this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
                this.panel2.ForeColor = System.Drawing.Color.White;
-               this.panel2.Location = new System.Drawing.Point(272, 30);
+               this.panel2.Location = new System.Drawing.Point(272, 28);
                this.panel2.Name = "panel2";
                this.panel2.Size = new System.Drawing.Size(1179, 29);
                this.panel2.TabIndex = 4;
                this.panel2.Tag = "..";
                this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
                // 
-               // label4
+               // lbText
                // 
-               this.label4.AutoSize = true;
-               this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label4.ForeColor = System.Drawing.Color.White;
-               this.label4.Location = new System.Drawing.Point(105, 3);
-               this.label4.Name = "label4";
-               this.label4.Size = new System.Drawing.Size(85, 24);
-               this.label4.TabIndex = 3;
-               this.label4.Text = "Phiêu Lê";
-               // 
-               // label3
-               // 
-               this.label3.AutoSize = true;
-               this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.label3.ForeColor = System.Drawing.Color.White;
-               this.label3.Location = new System.Drawing.Point(22, 8);
-               this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(77, 17);
-               this.label3.TabIndex = 2;
-               this.label3.Text = "Code by :";
+               this.lbText.AutoSize = true;
+               this.lbText.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               this.lbText.ForeColor = System.Drawing.Color.White;
+               this.lbText.Location = new System.Drawing.Point(25, 8);
+               this.lbText.Name = "lbText";
+               this.lbText.Size = new System.Drawing.Size(146, 17);
+               this.lbText.TabIndex = 2;
+               this.lbText.Text = "Code by : Phiêu Lê";
                // 
                // lbName
                // 
@@ -263,7 +249,7 @@
             this.chúThíchToolStripMenuItem});
                this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                this.menuStrip1.Name = "menuStrip1";
-               this.menuStrip1.Size = new System.Drawing.Size(1451, 30);
+               this.menuStrip1.Size = new System.Drawing.Size(1451, 28);
                this.menuStrip1.TabIndex = 5;
                this.menuStrip1.Text = "menuStrip1";
                // 
@@ -274,7 +260,7 @@
             this.đổiMậtKhẩuToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
                this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-               this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+               this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
                this.thôngTinToolStripMenuItem.Text = "Chức năng";
                // 
                // xemThôngTinTrangCáNhânToolStripMenuItem
@@ -301,7 +287,7 @@
                // chúThíchToolStripMenuItem
                // 
                this.chúThíchToolStripMenuItem.Name = "chúThíchToolStripMenuItem";
-               this.chúThíchToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+               this.chúThíchToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
                this.chúThíchToolStripMenuItem.Text = "Hướng dẫn sử dụng";
                this.chúThíchToolStripMenuItem.Click += new System.EventHandler(this.chúThíchToolStripMenuItem_Click);
                // 
@@ -319,10 +305,16 @@
                this.pnlContain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
                this.pnlContain.Controls.Add(this.lbName_Manager);
                this.pnlContain.Dock = System.Windows.Forms.DockStyle.Fill;
-               this.pnlContain.Location = new System.Drawing.Point(272, 30);
+               this.pnlContain.Location = new System.Drawing.Point(272, 28);
                this.pnlContain.Name = "pnlContain";
-               this.pnlContain.Size = new System.Drawing.Size(1179, 797);
+               this.pnlContain.Size = new System.Drawing.Size(1179, 799);
                this.pnlContain.TabIndex = 3;
+               // 
+               // timer1
+               // 
+               this.timer1.Enabled = true;
+               this.timer1.Interval = 50;
+               this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
                // 
                // pnComponent
                // 
@@ -337,7 +329,7 @@
                this.panel3.BackColor = System.Drawing.SystemColors.Desktop;
                this.panel3.Controls.Add(this.label5);
                this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-               this.panel3.Location = new System.Drawing.Point(272, 59);
+               this.panel3.Location = new System.Drawing.Point(272, 57);
                this.panel3.Name = "panel3";
                this.panel3.Size = new System.Drawing.Size(1179, 79);
                this.panel3.TabIndex = 7;
@@ -349,7 +341,7 @@
                this.label5.ForeColor = System.Drawing.Color.White;
                this.label5.Location = new System.Drawing.Point(440, 20);
                this.label5.Name = "label5";
-               this.label5.Size = new System.Drawing.Size(122, 45);
+               this.label5.Size = new System.Drawing.Size(119, 44);
                this.label5.TabIndex = 0;
                this.label5.Text = "NHÃN";
                // 
@@ -366,7 +358,7 @@
                this.Controls.Add(this.menuStrip1);
                this.MainMenuStrip = this.menuStrip1;
                this.Name = "GUI";
-               this.Text = "QUẢN LÝ HIỆU THUỐC";
+               this.Text = "QUẢN LÍ HIỆU THUỐC";
                this.TopMost = true;
                this.Load += new System.EventHandler(this.GUI_Load);
                this.panel1.ResumeLayout(false);
@@ -404,12 +396,10 @@
         private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chúThíchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbText;
         private System.Windows.Forms.Label lbName_Manager;
         private System.Windows.Forms.Panel pnlContain;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Panel pnComponent;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
