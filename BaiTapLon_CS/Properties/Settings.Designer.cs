@@ -26,8 +26,8 @@ namespace BaiTapLon_CS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI\\SQLEXPRESS;Initial Catalog=QuanLyBanThuoc;Integrated Security=Tru" +
-            "e")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-UVAK1UK;Initial Catalog=BAITAPLON;Persist Security Info=True;" +
+            "User ID=sa;Password=Hocngaydi123")]
         public string QuanLyBanThuocConnectionString {
             get {
                 return ((string)(this["QuanLyBanThuocConnectionString"]));
