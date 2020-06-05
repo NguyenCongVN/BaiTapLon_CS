@@ -223,7 +223,7 @@
                // 
                // btnNext
                // 
-               this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(20)))), ((int)(((byte)(90)))));
+               this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
                this.btnNext.FlatAppearance.BorderSize = 0;
                this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.btnNext.ForeColor = System.Drawing.Color.White;
@@ -237,7 +237,7 @@
                // 
                // btnPre
                // 
-               this.btnPre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(20)))), ((int)(((byte)(90)))));
+               this.btnPre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
                this.btnPre.FlatAppearance.BorderSize = 0;
                this.btnPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.btnPre.ForeColor = System.Drawing.Color.White;

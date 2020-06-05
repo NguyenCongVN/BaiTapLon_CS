@@ -28,6 +28,8 @@
           /// </summary>
           private void InitializeComponent()
           {
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
                this.label1 = new System.Windows.Forms.Label();
                this.label2 = new System.Windows.Forms.Label();
                this.label3 = new System.Windows.Forms.Label();
@@ -223,13 +225,29 @@
                // 
                this.dgvAnalytics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvAnalytics.BackgroundColor = System.Drawing.Color.White;
+               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+               dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dgvAnalytics.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
                this.dgvAnalytics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dgvAnalytics.DefaultCellStyle = dataGridViewCellStyle2;
                this.dgvAnalytics.Location = new System.Drawing.Point(51, 371);
                this.dgvAnalytics.Name = "dgvAnalytics";
                this.dgvAnalytics.ReadOnly = true;
                this.dgvAnalytics.RowHeadersWidth = 51;
                this.dgvAnalytics.RowTemplate.Height = 24;
-               this.dgvAnalytics.Size = new System.Drawing.Size(632, 224);
+               this.dgvAnalytics.Size = new System.Drawing.Size(708, 224);
                this.dgvAnalytics.TabIndex = 5;
                this.dgvAnalytics.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnalytics_CellContentClick);
                // 
@@ -262,7 +280,7 @@
                this.cboxManufacturer.Name = "cboxManufacturer";
                this.cboxManufacturer.Size = new System.Drawing.Size(250, 24);
                this.cboxManufacturer.TabIndex = 27;
-               this.cboxManufacturer.Text = "Nhà sản xuất";
+               this.cboxManufacturer.Text = "Lựa chọn";
                this.cboxManufacturer.SelectedIndexChanged += new System.EventHandler(this.cboxManufacturer_SelectedIndexChanged);
                // 
                // label10

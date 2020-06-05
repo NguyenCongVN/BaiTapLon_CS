@@ -16,20 +16,20 @@ namespace BaiTapLon_CS
      public partial class Analytics : Form
      {
           int page;
-          int pageSize = 5;
+          int pageSize = 6;
           int pageMax;
 
           bool isAnalytic = false;
           bool today = false;
           bool month = false;
-
+          bool isEnter = false;
 
           string Subquery = "";
          
           void LoadAnalytics(string query)
           {
                dgvAnalytics.DataSource = null;
-               dgvAnalytics.DataSource = DAO.DataProvider.Instance.DisplayListView(query);
+               dgvAnalytics.DataSource = DataProvider.Instance.DisplayListView(query);
                if (dgvAnalytics.DataSource != null)
                {
                     dgvAnalytics.Columns[0].HeaderText = "Mã hóa đơn";
@@ -57,31 +57,34 @@ namespace BaiTapLon_CS
 
         private void btnAnalytics_Click(object sender, EventArgs e)
         {
+
                page = 1;
                isAnalytic = true;
                today = false;
                month = false;
                Subquery ="";
                dgvAnalytics.DataSource = null;
-               
-               
+
+               btnNext.Enabled = true;
+               btnPre.Enabled = false;
                var isIndex = true;
                if (cboxManufacturer.SelectedIndex != -1)
                {
-
-                    if (isIndex == true)
-                    {
-                         Subquery += "man.Name_Manufacturer = N'" +cboxManufacturer.Text+"'";
-                         isIndex = false;
-                    }
-                    else
-                    {
-                         Subquery += " and man.Name_Manufacturer = N'" + cboxManufacturer.Text+"'";
-                    }
+                    isEnter = true;
+                         if (isIndex == true)
+                         {
+                              Subquery += "man.Name_Manufacturer = N'" + cboxManufacturer.Text + "'";
+                              isIndex = false;
+                         }
+                         else
+                         {
+                              Subquery += " and man.Name_Manufacturer = N'" + cboxManufacturer.Text + "'";
+                         }
                }
                if(cbCategory.SelectedIndex != -1 && cbCategory.SelectedIndex != 0)
                {
-                         if (isIndex == true)
+                    isEnter = true;
+                    if (isIndex == true)
                          {
                               Subquery += "cat.Name_Category = N'" + cbCategory.Text + "'";
                               isIndex = false;
@@ -90,10 +93,10 @@ namespace BaiTapLon_CS
                          {
                               Subquery += " and cat.Name_Category = N'" + cbCategory.Text + "'";
                          }
-                    }
-           
+               }
                if (txtNameProduct.Text != "")
                {
+                    isEnter = true;
                     if (isIndex == true)
                     {
                          Subquery += "me.Name_Medicine LIKE N'%" + txtNameProduct.Text + "%'";
@@ -106,8 +109,9 @@ namespace BaiTapLon_CS
 
                }
                var aDate = new DateTime(2020, 1, 1, 0, 0, 0);
-               if (dateTimeTo.Value != aDate)
+               if (dateTimeFrom.Value != aDate)
                {
+                    isEnter = true;
                     if (isIndex == true)
                     {
                          Subquery += "inde.Time_Of_Purchase <= '" + dateTimeTo.Value+"'";
@@ -118,20 +122,21 @@ namespace BaiTapLon_CS
                          Subquery += " and inde.Time_Of_Purchase <='" + dateTimeTo.Value+"'";
                     }
                }
-               if(dateTimeFrom.Value <= dateTimeTo.Value)
+               
+               if(isEnter)
                {
-                    if (isIndex == true)
+                    if (dateTimeFrom.Value <= dateTimeTo.Value)
                     {
-                         Subquery += "inde.Time_Of_Purchase >= '" + dateTimeFrom.Value+"'";
-                         isIndex = false;
+                         if (isIndex == true)
+                         {
+                              Subquery += " inde.Time_Of_Purchase >= '" + dateTimeFrom.Value + "'";
+                              isIndex = false;
+                         }
+                         else
+                         {
+                              Subquery += " and inde.Time_Of_Purchase >= '" + dateTimeFrom.Value + "'";
+                         }
                     }
-                    else
-                    {
-                         Subquery += " and inde.Time_Of_Purchase >= '" + dateTimeFrom.Value+"'";
-                    }
-               }
-               if (Subquery != "")
-               {
                     string query = "SELECT COUNT(*) FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                          " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager;
                     pageMax = int.Parse(AnalyticsDAO.Instance.getCountInvoice(query));
@@ -165,16 +170,12 @@ namespace BaiTapLon_CS
 
                     decimal value = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString(), NumberStyles.AllowThousands);
                     txtAmount_Product.Text = String.Format(culture, "{0:N0}", value);
-
+                    dgvAnalytics.DataSource = null;
                     query = "SELECT TOP(" + pageSize * page + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager +
                            " EXCEPT SELECT TOP(" + pageSize * (page-1) + ") inv.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost* inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                            " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager;
-                  
-                    LoadAnalytics(query);
-
-                    
-                    
+                    LoadAnalytics(query); 
                }
                else
                {
