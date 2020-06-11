@@ -549,7 +549,7 @@ namespace BaiTapLon_CS.Helper
                 string query = "select ID_Import from Import where ID_Manager = @idManager order by Import_Date desc";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("idManager", 1);
-                sqlCommand.Parameters.AddWithValue("date", medicine.Import_Date);
+                //sqlCommand.Parameters.AddWithValue("date", medicine.Import_Date);
                 idImport = (int)sqlCommand.ExecuteScalar();
             }
             //Insert Import Detail

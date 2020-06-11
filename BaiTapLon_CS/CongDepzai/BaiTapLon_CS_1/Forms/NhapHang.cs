@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Web.UI;
 using System.Windows.Forms;
 
 namespace BaiTapLon_CS.Forms
@@ -13,11 +14,14 @@ namespace BaiTapLon_CS.Forms
     {
         private int i = 1;
 
-        public List<Medicine> listToAdd = new List<Medicine>();
+        private int iteratorAdd = 1;
+
+        public List<Tuple<Medicine , int>> listToAdd = new List<Tuple<Medicine, int>>();
 
         public NhapHang()
         {
             InitializeComponent();
+            ListNhapHang.Columns[5].Width = 0;
             ListShow.Items.Clear();
             List<Medicine> medicines = MedicineHelper.GetMedicines();
             int i = 0;
@@ -34,9 +38,32 @@ namespace BaiTapLon_CS.Forms
             ToolStripMenuItem itemXoa = new ToolStripMenuItem();
             itemXoa.Name = "XoaSanPham";
             itemXoa.Text = "Xóa Sản Phẩm";
-            //itemXoa.Click += ItemXoa_Click;
+            itemXoa.Click += ItemXoa_Click;
             contextMenuStripListShow.Items.Add(itemXoa);
-            ListShow.ContextMenuStrip = contextMenuStripListShow;
+            ListNhapHang.ContextMenuStrip = contextMenuStripListShow;
+        }
+
+        private void ItemXoa_Click(object sender , EventArgs e)
+        {
+            int idXoa = -1;
+            try
+            {
+                idXoa = int.Parse(ListNhapHang.SelectedItems[0].SubItems[5].Text);
+                foreach (var medicine in listToAdd)
+                {
+                    if (medicine.Item2 == idXoa)
+                    {
+                        listToAdd.Remove(medicine);
+                        break;
+                    }
+                }
+                ListNhapHang.SelectedItems[0].Remove();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Ma xoa san pham khong hop le");
+            }
+            
         }
 
         private void ButtonThemVaoDanhSach_Click(object sender, EventArgs e)
@@ -222,13 +249,17 @@ namespace BaiTapLon_CS.Forms
                 Debug.WriteLine(ex.ToString());
             }
 
-            listToAdd.Add(medicine1);
+            listToAdd.Add(new Tuple<Medicine,int>(medicine1 , iteratorAdd));
+
+            
 
             ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , medicine1.ID_Medicine.ToString() ,
                     medicine1.Name_Medicine ,
                     medicine1.Remain_Amount.ToString() ,
-                    medicine1.Expiry_Date.ToString()});
+                    medicine1.Expiry_Date.ToString() , iteratorAdd.ToString()});
             ListNhapHang.Items.Add(listViewItem);
+            iteratorAdd++;
+            i++;
         }
 
         private void NhapHang_Load(object sender, EventArgs e)
@@ -292,7 +323,7 @@ namespace BaiTapLon_CS.Forms
         {
             foreach (var x in listToAdd)
             {
-                MedicineHelper.ImportMedicine(x);
+                MedicineHelper.ImportMedicine(x.Item1);
             }
             this.Dispose();
         }
