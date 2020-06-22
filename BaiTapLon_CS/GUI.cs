@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.DAO;
+using MedicineShopManagement.UserControls;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,9 +13,11 @@ namespace BaiTapLon_CS
         public GUI()
         {
             InitializeComponent();
-            openFormInPanel(new FormMenu());
+            openFormInPanel(new DashBoard());
             pnComponent.Visible = false;
             label5.Text = "TIỆM THUỐC NHÓM 1";
+            time.Text ="Đồng hồ: "+DateTime.Now.Hour+":"+DateTime.Now.Minute+":"+DateTime.Now.Second;
+               
         }
         private void openFormInPanel(object FormChild)
         {
@@ -163,5 +166,18 @@ namespace BaiTapLon_CS
                 throw;
             }
         }
+
+          private void timer2_Tick(object sender, EventArgs e)
+          {
+               time.Text = "Đồng hồ: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+          }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+               openFormInPanel(new DashBoard());
+               pnComponent.Visible = false;
+               label5.Text = "TIỆM THUỐC NHÓM 1";
+               time.Text = "Đồng hồ: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+          }
     }
 }

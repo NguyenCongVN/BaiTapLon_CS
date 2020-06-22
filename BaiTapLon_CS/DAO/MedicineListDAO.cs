@@ -21,7 +21,7 @@
         }
         public string getCountMedicine()
         {
-            string query = "SELECT COUNT(*) FROM Medicine";
+            string query = "EXEC countMedicine";
             string value = DataProvider.Instance.DisplayListView(query).Rows[0][0].ToString();
             return value;
         }
@@ -31,5 +31,7 @@
             string value = DataProvider.Instance.DisplayListView(query).Rows[0][0].ToString();
             return value;
         }
+          
+
     }
 }

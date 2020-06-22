@@ -24,7 +24,6 @@ namespace BaiTapLon_CS.DAO
                 instance = value;
             }
         }
-
         public DataTable DisplayListView(string query)
         {
             try

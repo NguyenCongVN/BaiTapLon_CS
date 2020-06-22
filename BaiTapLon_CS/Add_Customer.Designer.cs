@@ -45,7 +45,7 @@
                // 
                // panel1
                // 
-               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+               this.panel1.BackColor = System.Drawing.Color.White;
                this.panel1.Controls.Add(this.btnSave);
                this.panel1.Controls.Add(this.cbTypeSex);
                this.panel1.Controls.Add(this.label6);
@@ -58,24 +58,22 @@
                this.panel1.Controls.Add(this.label3);
                this.panel1.Controls.Add(this.label2);
                this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+               this.panel1.ForeColor = System.Drawing.Color.Black;
                this.panel1.Location = new System.Drawing.Point(0, 0);
                this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(1224, 775);
+               this.panel1.Size = new System.Drawing.Size(1224, 769);
                this.panel1.TabIndex = 0;
                // 
                // btnSave
                // 
-               this.btnSave.AutoSize = true;
-               this.btnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-               this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+               this.btnSave.BackColor = System.Drawing.Color.White;
                this.btnSave.Depth = 0;
-               this.btnSave.ForeColor = System.Drawing.Color.Red;
-               this.btnSave.Icon = null;
-               this.btnSave.Location = new System.Drawing.Point(541, 598);
+               this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+               this.btnSave.Location = new System.Drawing.Point(590, 649);
                this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
                this.btnSave.Name = "btnSave";
                this.btnSave.Primary = true;
-               this.btnSave.Size = new System.Drawing.Size(55, 36);
+               this.btnSave.Size = new System.Drawing.Size(153, 40);
                this.btnSave.TabIndex = 13;
                this.btnSave.Text = "LƯU";
                this.btnSave.UseVisualStyleBackColor = false;
@@ -87,7 +85,7 @@
                this.cbTypeSex.Items.AddRange(new object[] {
             "Nữ",
             "Nam"});
-               this.cbTypeSex.Location = new System.Drawing.Point(532, 264);
+               this.cbTypeSex.Location = new System.Drawing.Point(549, 295);
                this.cbTypeSex.Name = "cbTypeSex";
                this.cbTypeSex.RightToLeft = System.Windows.Forms.RightToLeft.No;
                this.cbTypeSex.Size = new System.Drawing.Size(234, 24);
@@ -97,8 +95,8 @@
                // label6
                // 
                this.label6.AutoSize = true;
-               this.label6.ForeColor = System.Drawing.Color.White;
-               this.label6.Location = new System.Drawing.Point(368, 271);
+               this.label6.ForeColor = System.Drawing.Color.Black;
+               this.label6.Location = new System.Drawing.Point(385, 302);
                this.label6.Name = "label6";
                this.label6.Size = new System.Drawing.Size(60, 17);
                this.label6.TabIndex = 10;
@@ -106,7 +104,7 @@
                // 
                // txtPhone
                // 
-               this.txtPhone.Location = new System.Drawing.Point(532, 469);
+               this.txtPhone.Location = new System.Drawing.Point(549, 500);
                this.txtPhone.Multiline = true;
                this.txtPhone.Name = "txtPhone";
                this.txtPhone.Size = new System.Drawing.Size(234, 34);
@@ -115,7 +113,7 @@
                // 
                // txtAddress
                // 
-               this.txtAddress.Location = new System.Drawing.Point(532, 394);
+               this.txtAddress.Location = new System.Drawing.Point(549, 425);
                this.txtAddress.Multiline = true;
                this.txtAddress.Name = "txtAddress";
                this.txtAddress.Size = new System.Drawing.Size(234, 38);
@@ -123,7 +121,7 @@
                // 
                // txtAge
                // 
-               this.txtAge.Location = new System.Drawing.Point(532, 328);
+               this.txtAge.Location = new System.Drawing.Point(549, 359);
                this.txtAge.Multiline = true;
                this.txtAge.Name = "txtAge";
                this.txtAge.Size = new System.Drawing.Size(234, 39);
@@ -132,7 +130,7 @@
                // 
                // txtName_Customer
                // 
-               this.txtName_Customer.Location = new System.Drawing.Point(532, 186);
+               this.txtName_Customer.Location = new System.Drawing.Point(549, 217);
                this.txtName_Customer.Multiline = true;
                this.txtName_Customer.Name = "txtName_Customer";
                this.txtName_Customer.Size = new System.Drawing.Size(234, 36);
@@ -141,8 +139,8 @@
                // label5
                // 
                this.label5.AutoSize = true;
-               this.label5.ForeColor = System.Drawing.Color.White;
-               this.label5.Location = new System.Drawing.Point(370, 350);
+               this.label5.ForeColor = System.Drawing.Color.Black;
+               this.label5.Location = new System.Drawing.Point(387, 381);
                this.label5.Name = "label5";
                this.label5.Size = new System.Drawing.Size(67, 17);
                this.label5.TabIndex = 4;
@@ -151,8 +149,8 @@
                // label4
                // 
                this.label4.AutoSize = true;
-               this.label4.ForeColor = System.Drawing.Color.White;
-               this.label4.Location = new System.Drawing.Point(377, 415);
+               this.label4.ForeColor = System.Drawing.Color.Black;
+               this.label4.Location = new System.Drawing.Point(394, 446);
                this.label4.Name = "label4";
                this.label4.Size = new System.Drawing.Size(51, 17);
                this.label4.TabIndex = 3;
@@ -161,8 +159,8 @@
                // label3
                // 
                this.label3.AutoSize = true;
-               this.label3.ForeColor = System.Drawing.Color.White;
-               this.label3.Location = new System.Drawing.Point(370, 486);
+               this.label3.ForeColor = System.Drawing.Color.Black;
+               this.label3.Location = new System.Drawing.Point(387, 517);
                this.label3.Name = "label3";
                this.label3.Size = new System.Drawing.Size(91, 17);
                this.label3.TabIndex = 2;
@@ -171,8 +169,8 @@
                // label2
                // 
                this.label2.AutoSize = true;
-               this.label2.ForeColor = System.Drawing.Color.White;
-               this.label2.Location = new System.Drawing.Point(368, 205);
+               this.label2.ForeColor = System.Drawing.Color.Black;
+               this.label2.Location = new System.Drawing.Point(385, 236);
                this.label2.Name = "label2";
                this.label2.Size = new System.Drawing.Size(69, 17);
                this.label2.TabIndex = 1;

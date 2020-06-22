@@ -128,6 +128,7 @@
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
                this.Name = "ChangePassword";
                this.Text = "ĐỔI MẬT KHẨU";
+               this.TopMost = true;
                this.Load += new System.EventHandler(this.ChangePassword_Load);
                this.ResumeLayout(false);
                this.PerformLayout();

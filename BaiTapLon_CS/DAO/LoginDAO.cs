@@ -28,7 +28,7 @@ namespace BaiTapLon_CS.DAO
         {
             string id = "";
             string query = "SELECT * FROM Manager WHERE Email='" + email + "' and Password='" + password + "'";
-            DataTable dt = DAO.DataProvider.Instance.DisplayListView(query);
+            DataTable dt = DataProvider.Instance.DisplayListView(query);
             if (dt != null)
             {
                 foreach (DataRow dr in dt.Rows)
