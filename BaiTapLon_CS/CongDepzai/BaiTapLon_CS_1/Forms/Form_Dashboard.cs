@@ -1,4 +1,5 @@
-﻿using BaiTapLon_CS.Forms.Control;
+﻿using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control;
+using BaiTapLon_CS.Forms.Control;
 using MedicineShopManagement.UserControls;
 using System;
 using System.Windows.Forms;
@@ -121,6 +122,13 @@ namespace MedicineShopManagement.Forms
         {
             DateTime dt = DateTime.Now;
             labelTime.Text = dt.ToString("HH:MM:ss");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(button1);
+            ShowStatistic us = new ShowStatistic();
+            AddControlsToPanel(us);
         }
     }
 }

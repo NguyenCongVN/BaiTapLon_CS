@@ -13,18 +13,26 @@ namespace MedicineShopManagement.UserControls
 
         private void btnAddNewBooks_Click(object sender, EventArgs e)
         {
-            using (Form_AddNewBook abn = new Form_AddNewBook())
-            {
-                abn.ShowDialog();
-            }
+            //using (Form_AddNewBook abn = new Form_AddNewBook())
+            //{
+            //    abn.ShowDialog();
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (Form_AddStock ads = new Form_AddStock())
-            {
-                ads.ShowDialog();
-            }
+            //using (Form_AddStock ads = new Form_AddStock())
+            //{
+            //    ads.ShowDialog();
+            //}
+        }
+
+        private void UC_PurchaseDetails_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    //int Id = listView
+            //}
         }
     }
 }

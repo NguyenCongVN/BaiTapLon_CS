@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowMedicines));
             this.PanelSanPham = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TextBoxTimKiem = new System.Windows.Forms.TextBox();
@@ -50,19 +54,25 @@
             this.BoxNgayhethan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ImageShow = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bAITAPLONDataSet = new BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.BAITAPLONDataSet();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
+            this.categoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.labelGiaNhap = new System.Windows.Forms.Label();
             this.PanelSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageShow)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageShow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelSanPham
             // 
             this.PanelSanPham.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelSanPham.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PanelSanPham.Controls.Add(this.labelGiaNhap);
             this.PanelSanPham.Controls.Add(this.panel1);
             this.PanelSanPham.Controls.Add(this.label4);
             this.PanelSanPham.Controls.Add(this.label3);
@@ -85,6 +95,37 @@
             this.PanelSanPham.Padding = new System.Windows.Forms.Padding(3);
             this.PanelSanPham.Size = new System.Drawing.Size(985, 580);
             this.PanelSanPham.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(42, 145);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(148, 63);
+            this.panel1.TabIndex = 16;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 54);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.panel1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(55, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nhập Hàng";
+            this.label1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // label4
             // 
@@ -110,6 +151,7 @@
             this.TextBoxTimKiem.Name = "TextBoxTimKiem";
             this.TextBoxTimKiem.Size = new System.Drawing.Size(157, 22);
             this.TextBoxTimKiem.TabIndex = 13;
+            this.TextBoxTimKiem.TextChanged += new System.EventHandler(this.TextBoxTimKiem_TextChanged);
             // 
             // ButtonSuaThongTinHang
             // 
@@ -134,20 +176,21 @@
             // LabelMaDangKi
             // 
             this.LabelMaDangKi.AutoSize = true;
-            this.LabelMaDangKi.Location = new System.Drawing.Point(628, 511);
+            this.LabelMaDangKi.Location = new System.Drawing.Point(628, 542);
             this.LabelMaDangKi.Name = "LabelMaDangKi";
             this.LabelMaDangKi.Size = new System.Drawing.Size(79, 16);
             this.LabelMaDangKi.TabIndex = 10;
             this.LabelMaDangKi.Text = "Mã Đăng Kí:";
+            this.LabelMaDangKi.Click += new System.EventHandler(this.LabelMaDangKi_Click);
             // 
             // LabelGiaThanh
             // 
             this.LabelGiaThanh.AutoSize = true;
             this.LabelGiaThanh.Location = new System.Drawing.Point(628, 473);
             this.LabelGiaThanh.Name = "LabelGiaThanh";
-            this.LabelGiaThanh.Size = new System.Drawing.Size(73, 16);
+            this.LabelGiaThanh.Size = new System.Drawing.Size(80, 16);
             this.LabelGiaThanh.TabIndex = 9;
-            this.LabelGiaThanh.Text = "Giá Thành:";
+            this.LabelGiaThanh.Text = "Giá Bán Ra:";
             // 
             // LabelSoLuongTrongMoiGoi
             // 
@@ -187,12 +230,12 @@
             // 
             // ComboBoxChonLoai
             // 
-            this.ComboBoxChonLoai.DisplayMember = "Name_Category";
             this.ComboBoxChonLoai.FormattingEnabled = true;
             this.ComboBoxChonLoai.Location = new System.Drawing.Point(123, 247);
             this.ComboBoxChonLoai.Name = "ComboBoxChonLoai";
-            this.ComboBoxChonLoai.Size = new System.Drawing.Size(101, 24);
+            this.ComboBoxChonLoai.Size = new System.Drawing.Size(152, 24);
             this.ComboBoxChonLoai.TabIndex = 4;
+            this.ComboBoxChonLoai.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChonLoai_SelectedIndexChanged);
             // 
             // ListShow
             // 
@@ -261,34 +304,33 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Danh Mục Sản Phẩm";
             // 
-            // panel1
+            // bAITAPLONDataSet
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(42, 145);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(148, 63);
-            this.panel1.TabIndex = 16;
+            this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
+            this.bAITAPLONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
+            // categoryBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhập Hàng";
-            this.label1.Click += new System.EventHandler(this.ButtonNhapHang_Click);
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.bAITAPLONDataSet;
             // 
-            // pictureBox1
+            // categoryTableAdapter
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 54);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoryBindingSource1
+            // 
+            this.categoryBindingSource1.DataMember = "Category";
+            this.categoryBindingSource1.DataSource = this.bAITAPLONDataSet;
+            // 
+            // labelGiaNhap
+            // 
+            this.labelGiaNhap.AutoSize = true;
+            this.labelGiaNhap.Location = new System.Drawing.Point(628, 507);
+            this.labelGiaNhap.Name = "labelGiaNhap";
+            this.labelGiaNhap.Size = new System.Drawing.Size(94, 16);
+            this.labelGiaNhap.TabIndex = 17;
+            this.labelGiaNhap.Text = "Giá Nhập Kho:";
             // 
             // ShowMedicines
             // 
@@ -299,10 +341,13 @@
             this.Size = new System.Drawing.Size(985, 580);
             this.PanelSanPham.ResumeLayout(false);
             this.PanelSanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageShow)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageShow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +378,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private CongDepzai.BaiTapLon_CS_1.BAITAPLONDataSet bAITAPLONDataSet;
+        private CongDepzai.BaiTapLon_CS_1.BAITAPLONDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
+        private System.Windows.Forms.BindingSource categoryBindingSource1;
+        private System.Windows.Forms.Label labelGiaNhap;
     }
 }

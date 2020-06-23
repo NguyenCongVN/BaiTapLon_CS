@@ -116,17 +116,25 @@
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\BoolClass.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Category.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\ComboBoxItem.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\CustomerStatistic.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\EventArgsForMedicine.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Expense.cs" />
-    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\ImportDetail.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\GetValueClass.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\ImportHistory.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Invoice.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\InvoiceDetail.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Manager.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\ManagerStatistic.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Manufacturer.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Medicine.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\MedicineInvoiceDetail.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\MedicineStatistic.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\RevenueInMonth.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\StatisticCustomer.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\StatisticEmployee.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\StatisticMedicine.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Class\Top1Statistic.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangeInformationManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +146,12 @@
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangeInformationMedicine.Designer.cs">
       <DependentUpon>ChangeInformationMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\CategoryListBoxControl.cs">
       <SubType>UserControl</SubType>
@@ -159,6 +173,12 @@
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\ShowMedicines.Designer.cs">
       <DependentUpon>ShowMedicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\ShowStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\ShowStatistic.Designer.cs">
+      <DependentUpon>ShowStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\UC_Home.cs">
       <SubType>UserControl</SubType>
@@ -202,18 +222,6 @@
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddExpense.designer.cs">
       <DependentUpon>Form_AddExpense.cs</DependentUpon>
     </Compile>
-    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddNewBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddNewBook.designer.cs">
-      <DependentUpon>Form_AddNewBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddStock.designer.cs">
-      <DependentUpon>Form_AddStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,11 +240,29 @@
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\NhapHang.Designer.cs">
       <DependentUpon>NhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowInvoiceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowInvoiceDetail.Designer.cs">
+      <DependentUpon>ShowInvoiceDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowTheImportHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowTheImportHistoryForm.Designer.cs">
       <DependentUpon>ShowTheImportHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemCongTy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemCongTy.Designer.cs">
+      <DependentUpon>ThemCongTy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemLoaiHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemLoaiHang.Designer.cs">
+      <DependentUpon>ThemLoaiHang.cs</DependentUpon>
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemNhanVienForm.cs">
       <SubType>Form</SubType>
@@ -252,6 +278,7 @@
     </Compile>
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Helper\ChangeBitmapHelper.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Helper\ExtensionHelper.cs" />
+    <Compile Include="CongDepzai\BaiTapLon_CS_1\Helper\InvoiceHelper.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Helper\MedicineHelper.cs" />
     <Compile Include="CongDepzai\BaiTapLon_CS_1\Helper\ThongKeHelper.cs" />
     <Compile Include="DAO\AddCustomerDAO.cs" />
@@ -362,6 +389,9 @@
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangeInformationMedicine.resx">
       <DependentUpon>ChangeInformationMedicine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\CategoryListBoxControl.resx">
       <DependentUpon>CategoryListBoxControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +400,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\ShowMedicines.resx">
       <DependentUpon>ShowMedicines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\ShowStatistic.resx">
+      <DependentUpon>ShowStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Control\UC_Home.resx">
       <DependentUpon>UC_Home.cs</DependentUpon>
@@ -392,12 +425,6 @@
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddExpense.resx">
       <DependentUpon>Form_AddExpense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddNewBook.resx">
-      <DependentUpon>Form_AddNewBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_AddStock.resx">
-      <DependentUpon>Form_AddStock.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\Form_Dashboard.resx">
       <DependentUpon>Form_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,8 +434,17 @@
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\NhapHang.resx">
       <DependentUpon>NhapHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowInvoiceDetail.resx">
+      <DependentUpon>ShowInvoiceDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ShowTheImportHistoryForm.resx">
       <DependentUpon>ShowTheImportHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemCongTy.resx">
+      <DependentUpon>ThemCongTy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemLoaiHang.resx">
+      <DependentUpon>ThemLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemNhanVienForm.resx">
       <DependentUpon>ThemNhanVienForm.cs</DependentUpon>
@@ -556,12 +592,28 @@
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_480px.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_48px_2.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_96px.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_graph_50px_1.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_manager_50px.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_user_male_24px_1.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_graph_50px.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_nurse_male_40px.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_40px.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_64px.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_80px_1.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_user_50px_1.png" />
+    <None Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_user_100px.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\LookupIcon.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\Shopping-Cart2.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\TaskIcon.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Manager Image\Viet.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Medicine Image\PanadolExtra.jfif" />
+    <None Include="Resources\Cong_Image.bmp" />
+    <None Include="Resources\icons8_manager_100px.png" />
+    <None Include="Resources\icons8_pill_240px.png" />
+    <None Include="Resources\icons8_pill_80px_1.png" />
+    <None Include="Resources\icons8_pill_50px_1.png" />
+    <None Include="Resources\icons8_pill_40px.png" />
+    <None Include="Resources\icons8_pill_40px_1.png" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

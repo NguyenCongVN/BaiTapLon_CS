@@ -13,7 +13,7 @@ namespace BaiTapLon_CS.Helper
         public static List<Medicine> GetMedicines()
         {
             List<Medicine> medicines = new List<Medicine>();
-            string query = "exec FindTheCurreentAmount";
+            string query = "exec FindTheCurrentAmount_v2";
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection))
@@ -36,7 +36,13 @@ namespace BaiTapLon_CS.Helper
                                     Unit = item.Field<string>("Unit"),
                                     Registration_Number = item.Field<string>("Registration_Number"),
                                     Remain_Amount = item.Field<int?>("Current Amount"),
-                                    Source = item.Field<string>("Source")
+                                    Source = item.Field<string>("Source"),
+                                    Max_Date_Of_Manufacture = item.Field<DateTime>("Max_Date_Of_Manu"),
+                                    Min_Date_Of_Manufacture = item.Field<DateTime>("Min_Date_Of_Manu"),
+                                    Max_Expiry = item.Field<DateTime>("Max_Expiry"),
+                                    Min_Expiry = item.Field<DateTime>("Min_Expiry"),
+                                    Max_Import_Cost = item.Field<decimal>("Max_Import_Cost"),
+                                    Min_Import_Cost = item.Field<decimal>("Min_Import_Cost")
                                 };
                                 medicines.Add(medicine);
                             }
@@ -52,33 +58,10 @@ namespace BaiTapLon_CS.Helper
         }
 
 
-
-
         public static List<Medicine> GetMedicinesWithCategory(int categoryId)
         {
             List<Medicine> medicines = new List<Medicine>();
-            string query = "select medicine.*," +
-"import_Detail.Date_Of_Manufacture,import_Detail.Expiry_Date," +
-"(Import_Detail.Amount - detail.Amount) as 'Current Amount'," +
-" category.Name_Category,category.ID_Category," +
-" manufacturer.Name_Manufacturer," +
-" import.Import_Date " +
-"from Medicine medicine left join Import_Detail import_Detail " +
-"on medicine.ID_Medicine = import_Detail.ID_Medicine " +
-"left join Import import " +
-"on import.ID_Import = import_Detail.ID_Import " +
-"left join Invoice_Detail detail " +
-"on detail.ID_Medicine = medicine.ID_Medicine " +
-"left join Category_Detail category_Detail " +
-"on category_Detail.ID_Medicine = medicine.ID_Medicine " +
-"left join Category category " +
-"on category.ID_Category = category_Detail.ID_Category " +
-"left join Manufacturer_Detail manu_Detail " +
-"on manu_Detail.ID_Category = category.ID_Category " +
-"left join Manufacturer manufacturer " +
-"on manufacturer.ID_Manufacturer = manu_Detail.ID_Manufacturer " +
-"where category.ID_Category = @value " +
-"order by ID_Medicine";
+            string query = "exec FindTheCurreentAmountWithCategory @value";
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 sqlConnection.Open();
@@ -100,35 +83,20 @@ namespace BaiTapLon_CS.Helper
                                     ID_Medicine = item.Field<int>("ID_Medicine"),
                                     Name_Medicine = item.Field<string>("Name_Medicine"),
                                     Image_Medicine = item.Field<string>("Image_Medicine"),
-                                    ID_Category = new List<int?> { item.Field<int?>("ID_Category") },
                                     Cost = item.Field<decimal?>("Cost"),
-                                    Date_Of_Manufacture = item.Field<DateTime?>("Date_Of_Manufacture"),
-                                    Expiry_Date = item.Field<DateTime?>("Expiry_Date"),
-                                    Name_Category = new List<string> { item.Field<string>("Name_Category") },
                                     Packing = item.Field<string>("Packing"),
                                     Unit = item.Field<string>("Unit"),
                                     Registration_Number = item.Field<string>("Registration_Number"),
-                                    Import_Date = item.Field<DateTime?>("Import_Date"),
                                     Remain_Amount = item.Field<int?>("Current Amount"),
                                     Source = item.Field<string>("Source"),
-                                    //Name_Manufacturer = item.Field<string>("Name_Manufacturer")
+                                    Max_Date_Of_Manufacture = item.Field<DateTime>("Max_Date_Of_Manu"),
+                                    Min_Date_Of_Manufacture = item.Field<DateTime>("Min_Date_Of_Manu"),
+                                    Max_Expiry = item.Field<DateTime>("Max_Expiry"),
+                                    Min_Expiry = item.Field<DateTime>("Min_Expiry"),
+                                    Max_Import_Cost = item.Field<decimal>("Max_Import_Cost"),
+                                    Min_Import_Cost = item.Field<decimal>("Min_Import_Cost")
                                 };
                                 medicines.Add(medicine);
-                            }
-                            else
-                            {
-                                if (!medicine.ID_Category.Contains(item.Field<int?>("ID_Category")))
-                                {
-                                    medicine.Name_Category.Add(item.Field<string>("Name_Category"));
-                                    medicine.ID_Category.Add(item.Field<int?>("ID_Category"));
-                                }
-
-                                if (!medicine.ID_Manufacturer.Contains(item.Field<int?>("ID_Manufacturer")))
-                                {
-                                    medicine.Name_Manufacturer.Add(item.Field<string>("Name_Manufacturer"));
-                                    medicine.ID_Category.Add(item.Field<int?>("ID_Manufacturer"));
-                                }
-
                             }
                         }
                         catch (Exception e)
@@ -144,28 +112,7 @@ namespace BaiTapLon_CS.Helper
         public static Medicine GetMedicineWithId(int Id)
         {
             Medicine medicine = null;
-            string query = "select medicine.*," +
-"import_Detail.Date_Of_Manufacture,import_Detail.Expiry_Date," +
-"(Import_Detail.Amount - detail.Amount) as 'Current Amount'," +
-" category.Name_Category,category.ID_Category," +
-" manufacturer.Name_Manufacturer," +
-" import.Import_Date," +
-" manufacturer.ID_Manufacturer " +
-"from Medicine medicine left join Import_Detail import_Detail " +
-"on medicine.ID_Medicine = import_Detail.ID_Medicine " +
-"left join Import import " +
-"on import.ID_Import = import_Detail.ID_Import " +
-"left join Invoice_Detail detail " +
-"on detail.ID_Medicine = medicine.ID_Medicine " +
-"left join Category_Detail category_Detail " +
-"on category_Detail.ID_Medicine = medicine.ID_Medicine " +
-"left join Category category " +
-"on category.ID_Category = category_Detail.ID_Category " +
-"left join Manufacturer_Detail manu_Detail " +
-"on manu_Detail.ID_Category = category.ID_Category " +
-"left join Manufacturer manufacturer " +
-"on manufacturer.ID_Manufacturer = manu_Detail.ID_Manufacturer " +
-"where medicine.ID_Medicine = @value";
+            string query = "exec FindTheCurreentAmount_v2_SpecifiedID @value";
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
@@ -185,46 +132,19 @@ namespace BaiTapLon_CS.Helper
                                     ID_Medicine = item.Field<int>("ID_Medicine"),
                                     Name_Medicine = item.Field<string>("Name_Medicine"),
                                     Image_Medicine = item.Field<string>("Image_Medicine"),
-                                    ID_Category = new List<int?> { item.Field<int?>("ID_Category") },
                                     Cost = item.Field<decimal?>("Cost"),
-                                    Date_Of_Manufacture = item.Field<DateTime?>("Date_Of_Manufacture"),
-                                    Expiry_Date = item.Field<DateTime?>("Expiry_Date"),
-                                    Name_Category = new List<string> { item.Field<string>("Name_Category") },
                                     Packing = item.Field<string>("Packing"),
                                     Unit = item.Field<string>("Unit"),
                                     Registration_Number = item.Field<string>("Registration_Number"),
-                                    Import_Date = item.Field<DateTime?>("Import_Date"),
                                     Remain_Amount = item.Field<int?>("Current Amount"),
                                     Source = item.Field<string>("Source"),
-                                    Name_Manufacturer = new List<string>() { item.Field<string>("Name_Manufacturer") },
-                                    ID_Manufacturer = new List<int?>() { item.Field<int?>("ID_Manufacturer") }
+                                    Max_Date_Of_Manufacture = item.Field<DateTime>("Max_Date_Of_Manu"),
+                                    Min_Date_Of_Manufacture = item.Field<DateTime>("Min_Date_Of_Manu"),
+                                    Max_Expiry = item.Field<DateTime>("Max_Expiry"),
+                                    Min_Expiry = item.Field<DateTime>("Min_Expiry"),
+                                    Max_Import_Cost = item.Field<decimal>("Max_Import_Cost"),
+                                    Min_Import_Cost = item.Field<decimal>("Min_Import_Cost")
                                 };
-                            }
-                            else
-                            {
-                                if (!medicine.ID_Category.Contains(item.Field<int?>("ID_Category")))
-                                {
-                                    medicine.Name_Category.Add(item.Field<string>("Name_Category"));
-                                    medicine.ID_Category.Add(item.Field<int?>("ID_Category"));
-                                }
-
-                                try
-                                {
-                                    if (!medicine.ID_Manufacturer.Contains(item.Field<int?>("ID_Manufacturer")))
-                                    {
-                                        medicine.Name_Manufacturer.Add(item.Field<string>("Name_Manufacturer"));
-                                        medicine.ID_Category.Add(item.Field<int?>("ID_Manufacturer"));
-                                    }
-                                }
-                                catch (Exception e)
-                                {
-                                    Debug.WriteLine(e.ToString());
-                                }
-
-                                if (item.Field<int?>("ID_Manufacturer") != null)
-                                {
-                                    medicine.Remain_Amount += item.Field<int?>("Current Amount");
-                                }
                             }
                         }
                         catch (Exception e)
@@ -296,7 +216,6 @@ namespace BaiTapLon_CS.Helper
             }
         }
 
-
         public static void UpdateImage(int Id, string path)
         {
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
@@ -312,13 +231,7 @@ namespace BaiTapLon_CS.Helper
 
         public static List<Category> GetCategoryOfTheMedicine(int Id)
         {
-            string query = "select Category.Name_Category, Category.ID_Category " +
-"from Category category inner " +
-"join Category_Detail cate_detail " +
-"on category.ID_Category = cate_detail.ID_Category " +
-"inner join Medicine medicine " +
-"on medicine.ID_Medicine = cate_detail.ID_Medicine " +
-"where medicine.ID_Medicine = @value";
+            string query = "exec GetCategoryFromMedicine @value";
             List<Category> categories = new List<Category>();
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
@@ -490,7 +403,7 @@ namespace BaiTapLon_CS.Helper
                         using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
                         {
                             sqlConnection.Open();
-                            string query = "insert into Category_Detail values (@idCategory,@idMedicine)";
+                            string query = "exec InsertImportDetail @idCategory,@idMedicine";
                             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                             sqlCommand.Parameters.AddWithValue("idCategory", x);
                             sqlCommand.Parameters.AddWithValue("idMedicine", medicine.ID_Medicine);
@@ -515,7 +428,7 @@ namespace BaiTapLon_CS.Helper
                         using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
                         {
                             sqlConnection.Open();
-                            string query = "insert into Manufacturer_Detail values (@idManufacturer,@idCategory)";
+                            string query = "exec InsertManuFacturerDetail @idManufacturer,@idCategory";
                             SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                             sqlCommand.Parameters.AddWithValue("idManufacturer", x.Value);
                             sqlCommand.Parameters.AddWithValue("idCategory", medicine.ID_Category[0]);
@@ -534,7 +447,7 @@ namespace BaiTapLon_CS.Helper
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 sqlConnection.Open();
-                string query = "insert into Import values (@idManager,getdate(),null)";
+                string query = "exec InsertImport @idManager";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 // Have to modify later
@@ -546,7 +459,7 @@ namespace BaiTapLon_CS.Helper
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 sqlConnection.Open();
-                string query = "select ID_Import from Import where ID_Manager = @idManager order by Import_Date desc";
+                string query = "exec GetIdImport @idManager";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("idManager", 1);
                 //sqlCommand.Parameters.AddWithValue("date", medicine.Import_Date);
@@ -556,8 +469,7 @@ namespace BaiTapLon_CS.Helper
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 sqlConnection.Open();
-                string query = "insert into Import_Detail values (@idImport,@idMedicine,@dateOfManufacturer," +
-                    "@expriryDate,@cost,@amount)";
+                string query = "exec InsertImportDetail1 @idImport,@idMedicine,@dateOfManufacturer,@expriryDate,@cost,@amount";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("idImport", idImport);
                 sqlCommand.Parameters.AddWithValue("idMedicine", medicine.ID_Medicine);
@@ -571,16 +483,7 @@ namespace BaiTapLon_CS.Helper
 
         public static List<ImportHistory> GetImportHistory(int id)
         {
-            string query = "select import.Import_Date, " +
-    "detail.Date_Of_Manufacture, " +
-    "detail.Expiry_Date, " +
-    "import.ID_Import " +
-    "from Import import " +
-    "inner join Import_Detail detail " +
-    "on import.ID_Import = detail.ID_Import " +
-    "inner join Medicine medicine " +
-    "on detail.ID_Medicine = medicine.ID_Medicine " +
-    "where medicine.ID_Medicine = @value";
+            string query = "exec GetImportHistory @value";
             List<ImportHistory> histories = new List<ImportHistory>();
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {

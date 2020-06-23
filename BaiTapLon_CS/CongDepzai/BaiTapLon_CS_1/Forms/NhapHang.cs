@@ -1,11 +1,13 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms;
+using BaiTapLon_CS.Forms.Control;
 using BaiTapLon_CS.Helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Web.UI;
 using System.Windows.Forms;
 
 namespace BaiTapLon_CS.Forms
@@ -16,11 +18,13 @@ namespace BaiTapLon_CS.Forms
 
         private int iteratorAdd = 1;
 
-        public List<Tuple<Medicine , int>> listToAdd = new List<Tuple<Medicine, int>>();
+        public List<Tuple<Medicine, int>> listToAdd = new List<Tuple<Medicine, int>>();
 
         public NhapHang()
         {
             InitializeComponent();
+            InitilizeManufaturerComboBox();
+            ShowMedicines.InitComboBoxCategory(ComboBoxChonLoai);
             ListNhapHang.Columns[5].Width = 0;
             ListShow.Items.Clear();
             List<Medicine> medicines = MedicineHelper.GetMedicines();
@@ -43,7 +47,7 @@ namespace BaiTapLon_CS.Forms
             ListNhapHang.ContextMenuStrip = contextMenuStripListShow;
         }
 
-        private void ItemXoa_Click(object sender , EventArgs e)
+        private void ItemXoa_Click(object sender, EventArgs e)
         {
             int idXoa = -1;
             try
@@ -63,7 +67,7 @@ namespace BaiTapLon_CS.Forms
             {
                 Debug.WriteLine("Ma xoa san pham khong hop le");
             }
-            
+
         }
 
         private void ButtonThemVaoDanhSach_Click(object sender, EventArgs e)
@@ -74,13 +78,20 @@ namespace BaiTapLon_CS.Forms
             themSanPhamForm.ShowDialog();
             if (boolClass.isChanged == true)
             {
-                medicine = themSanPhamForm.medicine;
-                ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , medicine.ID_Medicine.ToString() ,
-                    medicine.Name_Medicine ,
-                    medicine.Remain_Amount.ToString()
-                   });
-                ListShow.Items.Add(listViewItem);
+                ListShow.Items.Clear();
+                List<Medicine> medicines = MedicineHelper.GetMedicines();
+                int i = 0;
+                foreach (var item in medicines)
+                {
+                    ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.ID_Medicine.ToString() ,
+                    item.Name_Medicine ,
+                    item.Remain_Amount.ToString() ,
+                    item.Expiry_Date.ToString()});
+                    ListShow.Items.Add(listViewItem);
+                    i++;
+                }
             }
+            ShowMedicines.InitComboBoxCategory(ComboBoxChonLoai);
         }
 
         private void ListShow_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,9 +260,9 @@ namespace BaiTapLon_CS.Forms
                 Debug.WriteLine(ex.ToString());
             }
 
-            listToAdd.Add(new Tuple<Medicine,int>(medicine1 , iteratorAdd));
+            listToAdd.Add(new Tuple<Medicine, int>(medicine1, iteratorAdd));
 
-            
+
 
             ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , medicine1.ID_Medicine.ToString() ,
                     medicine1.Name_Medicine ,
@@ -277,7 +288,7 @@ namespace BaiTapLon_CS.Forms
             try
             {
                 int idCategory = 0;
-                idCategory = (ComboBoxChonLoai.SelectedItem as DataRowView).Row.Field<int>("ID_Category");
+                idCategory = (ComboBoxChonLoai.SelectedItem as ComboBoxItem).Value;
                 ListShow.Items.Clear();
 
                 using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
@@ -291,7 +302,7 @@ namespace BaiTapLon_CS.Forms
                             ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.ID_Medicine.ToString() ,
                     item.Name_Medicine ,
                     item.Remain_Amount.ToString() ,
-                    item.Expiry_Date.ToString()});
+                    item.Min_Expiry.Value.ToShortDateString() + " - " + item.Max_Expiry.Value.ToShortDateString() });
                             ListShow.Items.Add(listViewItem);
                             i++;
                         }
@@ -305,17 +316,16 @@ namespace BaiTapLon_CS.Forms
                             ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.ID_Medicine.ToString() ,
                     item.Name_Medicine ,
                     item.Remain_Amount.ToString() ,
-                    item.Expiry_Date.ToString()});
+                    item.Min_Expiry.Value.ToShortDateString() + " - " + item.Max_Expiry.Value.ToShortDateString()});
                             ListShow.Items.Add(listViewItem);
                             i++;
                         }
                     }
-
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.StackTrace);
+
             }
         }
 
@@ -326,6 +336,56 @@ namespace BaiTapLon_CS.Forms
                 MedicineHelper.ImportMedicine(x.Item1);
             }
             this.Dispose();
+        }
+
+        private void TextBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            ListShow.Items.Clear();
+            List<Medicine> medicines = MedicineHelper.GetMedicines();
+            int i = 0;
+            foreach (var item in medicines)
+            {
+                ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.ID_Medicine.ToString() ,
+                    item.Name_Medicine ,
+                    item.Remain_Amount.ToString() ,
+                    item.Min_Expiry.Value.ToShortDateString() + " - " + item.Max_Expiry.Value.ToShortDateString() });
+                ListShow.Items.Add(listViewItem);
+            }
+            foreach (ListViewItem item in ListShow.Items)
+            {
+                if (!item.SubItems[2].Text.ToLower().Contains(TextBoxTimKiem.Text.ToLower()))
+                    ListShow.Items.Remove(item);
+            }
+        }
+
+        private void buttonThemCongTy_Click(object sender, EventArgs e)
+        {
+            BoolClass boolClass = new BoolClass { isChanged = false };
+            ThemCongTy themCongTy = new ThemCongTy(boolClass);
+            themCongTy.ShowDialog();
+            if(boolClass.isChanged = true)
+            {
+                InitilizeManufaturerComboBox();
+            }
+        }
+
+        private void InitilizeManufaturerComboBox()
+        {
+            ComboBoxCongty.Items.Clear();
+            using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
+            {
+                string query = "select * from Manufacturer";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        ComboBoxItem item = new ComboBoxItem { Text = row.Field<string>("Name_Manufacturer"), Value = row.Field<int>("ID_Manufacturer") };
+                        ComboBoxCongty.Items.Add(item);
+                    }
+                }
+            }
         }
     }
 }

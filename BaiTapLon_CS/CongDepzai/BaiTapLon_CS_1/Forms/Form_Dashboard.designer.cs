@@ -32,18 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dashboard));
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelSide = new System.Windows.Forms.Panel();
-            this.btnViewSales = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.btnExpense = new System.Windows.Forms.Button();
-            this.btnShowMedicines = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,16 +45,26 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.panelControls = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnViewSales = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.btnExpense = new System.Windows.Forms.Button();
+            this.btnShowMedicines = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.panelLeft.Controls.Add(this.button1);
             this.panelLeft.Controls.Add(this.panelSide);
             this.panelLeft.Controls.Add(this.btnViewSales);
             this.panelLeft.Controls.Add(this.btnUsers);
@@ -84,91 +86,6 @@
             this.panelSide.Size = new System.Drawing.Size(7, 60);
             this.panelSide.TabIndex = 1;
             // 
-            // btnViewSales
-            // 
-            this.btnViewSales.FlatAppearance.BorderSize = 0;
-            this.btnViewSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewSales.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewSales.ForeColor = System.Drawing.Color.White;
-            this.btnViewSales.Image = ((System.Drawing.Image)(resources.GetObject("btnViewSales.Image")));
-            this.btnViewSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewSales.Location = new System.Drawing.Point(6, 401);
-            this.btnViewSales.Name = "btnViewSales";
-            this.btnViewSales.Size = new System.Drawing.Size(203, 60);
-            this.btnViewSales.TabIndex = 2;
-            this.btnViewSales.Text = "     Đơn hàng";
-            this.btnViewSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnViewSales.UseVisualStyleBackColor = true;
-            this.btnViewSales.Click += new System.EventHandler(this.btnViewSales_Click);
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.FlatAppearance.BorderSize = 0;
-            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.ForeColor = System.Drawing.Color.White;
-            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
-            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(6, 337);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(203, 60);
-            this.btnUsers.TabIndex = 2;
-            this.btnUsers.Text = "     Nhân Viên";
-            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
-            // 
-            // btnExpense
-            // 
-            this.btnExpense.FlatAppearance.BorderSize = 0;
-            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpense.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpense.ForeColor = System.Drawing.Color.White;
-            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
-            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExpense.Location = new System.Drawing.Point(6, 271);
-            this.btnExpense.Name = "btnExpense";
-            this.btnExpense.Size = new System.Drawing.Size(203, 60);
-            this.btnExpense.TabIndex = 2;
-            this.btnExpense.Text = "     Chi Phí";
-            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExpense.UseVisualStyleBackColor = true;
-            this.btnExpense.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnShowMedicines
-            // 
-            this.btnShowMedicines.FlatAppearance.BorderSize = 0;
-            this.btnShowMedicines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMedicines.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowMedicines.ForeColor = System.Drawing.Color.White;
-            this.btnShowMedicines.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMedicines.Image")));
-            this.btnShowMedicines.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowMedicines.Location = new System.Drawing.Point(12, 205);
-            this.btnShowMedicines.Name = "btnShowMedicines";
-            this.btnShowMedicines.Size = new System.Drawing.Size(203, 60);
-            this.btnShowMedicines.TabIndex = 2;
-            this.btnShowMedicines.Text = "     Xem Thuốc";
-            this.btnShowMedicines.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShowMedicines.UseVisualStyleBackColor = true;
-            this.btnShowMedicines.Click += new System.EventHandler(this.btnSaleBooks_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.FlatAppearance.BorderSize = 0;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(11, 140);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(203, 60);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "     Trang Chủ";
-            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.button8);
@@ -180,23 +97,6 @@
             this.panel3.Size = new System.Drawing.Size(215, 140);
             this.panel3.TabIndex = 0;
             // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(173, 8);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(38, 29);
-            this.button8.TabIndex = 2;
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -207,16 +107,6 @@
             this.label2.Size = new System.Drawing.Size(148, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Quản Lý Bán Thuốc";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(89, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // panel4
             // 
@@ -238,24 +128,6 @@
             this.label4.Size = new System.Drawing.Size(156, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Quản Lý Bán Thuốc";
-            // 
-            // button9
-            // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(941, 0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(44, 48);
-            this.button9.TabIndex = 2;
-            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // panel2
             // 
@@ -344,6 +216,153 @@
             this.panelControls.Size = new System.Drawing.Size(985, 580);
             this.panelControls.TabIndex = 2;
             // 
+            // button9
+            // 
+            this.button9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button9.Location = new System.Drawing.Point(941, 0);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(44, 48);
+            this.button9.TabIndex = 2;
+            this.button9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(6, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 59);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "     Thống Kê";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnViewSales
+            // 
+            this.btnViewSales.FlatAppearance.BorderSize = 0;
+            this.btnViewSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewSales.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewSales.ForeColor = System.Drawing.Color.White;
+            this.btnViewSales.Image = ((System.Drawing.Image)(resources.GetObject("btnViewSales.Image")));
+            this.btnViewSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewSales.Location = new System.Drawing.Point(6, 401);
+            this.btnViewSales.Name = "btnViewSales";
+            this.btnViewSales.Size = new System.Drawing.Size(203, 60);
+            this.btnViewSales.TabIndex = 2;
+            this.btnViewSales.Text = "     Đơn hàng";
+            this.btnViewSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnViewSales.UseVisualStyleBackColor = true;
+            this.btnViewSales.Click += new System.EventHandler(this.btnViewSales_Click);
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.FlatAppearance.BorderSize = 0;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.White;
+            this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(6, 337);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(203, 60);
+            this.btnUsers.TabIndex = 2;
+            this.btnUsers.Text = "     Nhân Viên";
+            this.btnUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            // 
+            // btnExpense
+            // 
+            this.btnExpense.FlatAppearance.BorderSize = 0;
+            this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpense.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExpense.ForeColor = System.Drawing.Color.White;
+            this.btnExpense.Image = ((System.Drawing.Image)(resources.GetObject("btnExpense.Image")));
+            this.btnExpense.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExpense.Location = new System.Drawing.Point(6, 271);
+            this.btnExpense.Name = "btnExpense";
+            this.btnExpense.Size = new System.Drawing.Size(203, 60);
+            this.btnExpense.TabIndex = 2;
+            this.btnExpense.Text = "     Chi Phí";
+            this.btnExpense.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExpense.UseVisualStyleBackColor = true;
+            this.btnExpense.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnShowMedicines
+            // 
+            this.btnShowMedicines.FlatAppearance.BorderSize = 0;
+            this.btnShowMedicines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowMedicines.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowMedicines.ForeColor = System.Drawing.Color.White;
+            this.btnShowMedicines.Image = global::BaiTapLon_CS.Properties.Resources.icons8_pill_40px_1;
+            this.btnShowMedicines.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShowMedicines.Location = new System.Drawing.Point(3, 205);
+            this.btnShowMedicines.Name = "btnShowMedicines";
+            this.btnShowMedicines.Size = new System.Drawing.Size(203, 60);
+            this.btnShowMedicines.TabIndex = 2;
+            this.btnShowMedicines.Text = "     Xem Thuốc";
+            this.btnShowMedicines.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShowMedicines.UseVisualStyleBackColor = true;
+            this.btnShowMedicines.Click += new System.EventHandler(this.btnSaleBooks_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(11, 140);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(203, 60);
+            this.btnHome.TabIndex = 2;
+            this.btnHome.Text = "     Trang Chủ";
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(173, 8);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(38, 29);
+            this.button8.TabIndex = 2;
+            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(89, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form_Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -362,11 +381,11 @@
             this.panelLeft.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,5 +415,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControls;
+        private System.Windows.Forms.Button button1;
     }
 }

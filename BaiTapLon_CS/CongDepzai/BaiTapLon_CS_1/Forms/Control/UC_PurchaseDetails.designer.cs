@@ -290,6 +290,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_PurchaseDetails";
             this.Size = new System.Drawing.Size(985, 580);
+            this.Click += new System.EventHandler(this.UC_PurchaseDetails_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);

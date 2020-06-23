@@ -14,7 +14,7 @@ namespace BaiTapLon_CS
         public static string connect =
          ConfigurationManager.ConnectionStrings["BaiTapLon_CS.Properties.Settings.QuanLyBanThuocConnectionString"].ConnectionString;
         private List<string> name_Permission = new List<string>();
-        public string MaHoaMD5(string password)
+        public static string MaHoaMD5(string password)
         {
             MD5 mh = MD5.Create();
             //Chuyển kiểu chuổi thành kiểu byte

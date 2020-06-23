@@ -33,8 +33,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TextBoxTimKiem = new System.Windows.Forms.TextBox();
             this.ComboBoxChonLoai = new System.Windows.Forms.ComboBox();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bAITAPLONDataSet = new BaiTapLon_CS.BAITAPLONDataSet();
             this.ListShow = new System.Windows.Forms.ListView();
             this.BoxStt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BoxId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,6 +44,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonXacNhan = new System.Windows.Forms.Button();
             this.ButtonHuy = new System.Windows.Forms.Button();
@@ -62,14 +61,11 @@
             this.LabelXuatXu = new System.Windows.Forms.Label();
             this.ButtonThemVaoDanhSach = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.categoryTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
             this.textBoxSoLuong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.ComboBoxCongty = new System.Windows.Forms.ComboBox();
             this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bAITAPLONDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.manufacturerTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.ManufacturerTableAdapter();
             this.buttonThemCongTy = new System.Windows.Forms.Button();
             this.LabelNgayHetHan = new System.Windows.Forms.Label();
             this.TextBoxNgaySuDung = new System.Windows.Forms.TextBox();
@@ -78,11 +74,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
+            this.bAITAPLONDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bAITAPLONDataSet = new BaiTapLon_CS.BAITAPLONDataSet();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
+            this.manufacturerTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.ManufacturerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -109,28 +109,16 @@
             this.TextBoxTimKiem.Name = "TextBoxTimKiem";
             this.TextBoxTimKiem.Size = new System.Drawing.Size(157, 20);
             this.TextBoxTimKiem.TabIndex = 18;
+            this.TextBoxTimKiem.TextChanged += new System.EventHandler(this.TextBoxTimKiem_TextChanged);
             // 
             // ComboBoxChonLoai
             // 
-            this.ComboBoxChonLoai.DataSource = this.categoryBindingSource;
-            this.ComboBoxChonLoai.DisplayMember = "Name_Category";
             this.ComboBoxChonLoai.FormattingEnabled = true;
             this.ComboBoxChonLoai.Location = new System.Drawing.Point(77, 38);
             this.ComboBoxChonLoai.Name = "ComboBoxChonLoai";
             this.ComboBoxChonLoai.Size = new System.Drawing.Size(101, 21);
             this.ComboBoxChonLoai.TabIndex = 17;
-            this.ComboBoxChonLoai.ValueMember = "ID_Category";
             this.ComboBoxChonLoai.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChonLoai_SelectedValueChanged);
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataMember = "Category";
-            this.categoryBindingSource.DataSource = this.bAITAPLONDataSet;
-            // 
-            // bAITAPLONDataSet
-            // 
-            this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
-            this.bAITAPLONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ListShow
             // 
@@ -185,7 +173,7 @@
             this.ListNhapHang.FullRowSelect = true;
             this.ListNhapHang.GridLines = true;
             this.ListNhapHang.HideSelection = false;
-            this.ListNhapHang.Location = new System.Drawing.Point(501, 38);
+            this.ListNhapHang.Location = new System.Drawing.Point(501, 41);
             this.ListNhapHang.Name = "ListNhapHang";
             this.ListNhapHang.Size = new System.Drawing.Size(442, 366);
             this.ListNhapHang.TabIndex = 21;
@@ -220,6 +208,10 @@
             this.columnHeader5.Text = "Ngày Hết Hạn";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 136;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "IdAdd";
             // 
             // label1
             // 
@@ -360,10 +352,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // categoryTableAdapter
-            // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
-            // 
             // textBoxSoLuong
             // 
             this.textBoxSoLuong.Location = new System.Drawing.Point(368, 211);
@@ -391,28 +379,16 @@
             // 
             // ComboBoxCongty
             // 
-            this.ComboBoxCongty.DataSource = this.manufacturerBindingSource;
-            this.ComboBoxCongty.DisplayMember = "Name_Manufacturer";
             this.ComboBoxCongty.FormattingEnabled = true;
             this.ComboBoxCongty.Location = new System.Drawing.Point(188, 474);
             this.ComboBoxCongty.Name = "ComboBoxCongty";
             this.ComboBoxCongty.Size = new System.Drawing.Size(93, 21);
             this.ComboBoxCongty.TabIndex = 66;
-            this.ComboBoxCongty.ValueMember = "ID_Manufacturer";
             // 
             // manufacturerBindingSource
             // 
             this.manufacturerBindingSource.DataMember = "Manufacturer";
             this.manufacturerBindingSource.DataSource = this.bAITAPLONDataSetBindingSource;
-            // 
-            // bAITAPLONDataSetBindingSource
-            // 
-            this.bAITAPLONDataSetBindingSource.DataSource = this.bAITAPLONDataSet;
-            this.bAITAPLONDataSetBindingSource.Position = 0;
-            // 
-            // manufacturerTableAdapter
-            // 
-            this.manufacturerTableAdapter.ClearBeforeFill = true;
             // 
             // buttonThemCongTy
             // 
@@ -422,6 +398,7 @@
             this.buttonThemCongTy.TabIndex = 67;
             this.buttonThemCongTy.Text = "Thêm Công Ty";
             this.buttonThemCongTy.UseVisualStyleBackColor = true;
+            this.buttonThemCongTy.Click += new System.EventHandler(this.buttonThemCongTy_Click);
             // 
             // LabelNgayHetHan
             // 
@@ -481,9 +458,28 @@
             this.label7.TabIndex = 55;
             this.label7.Text = "Tháng";
             // 
-            // columnHeader6
+            // bAITAPLONDataSetBindingSource
             // 
-            this.columnHeader6.Text = "IdAdd";
+            this.bAITAPLONDataSetBindingSource.DataSource = this.bAITAPLONDataSet;
+            this.bAITAPLONDataSetBindingSource.Position = 0;
+            // 
+            // bAITAPLONDataSet
+            // 
+            this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
+            this.bAITAPLONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.bAITAPLONDataSet;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // manufacturerTableAdapter
+            // 
+            this.manufacturerTableAdapter.ClearBeforeFill = true;
             // 
             // NhapHang
             // 
@@ -527,10 +523,10 @@
             this.Name = "NhapHang";
             this.Text = "NhapHang";
             this.Load += new System.EventHandler(this.NhapHang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
