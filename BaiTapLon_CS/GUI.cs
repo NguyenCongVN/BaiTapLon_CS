@@ -33,21 +33,20 @@ namespace BaiTapLon_CS
             this.pnlContain.Tag = fc;
             fc.Show();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            openFormInPanel(new SearchOrder());
-            pnComponent.Visible = true;
-            pnComponent.Top = button4.Top + 24;
-            pnComponent.Height = button4.Height;
-            label5.Text = "TÌM KIẾM HÓA ĐƠN";
+               pnComponent.Visible = true;
+               openFormInPanel(new SearchOrder());
+               pnComponent.Top = button4.Top + 27;
+               pnComponent.Height = button4.Height;
+               label5.Text = "TÌM KIẾM HÓA ĐƠN";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             pnComponent.Visible = true;
             openFormInPanel(new Add_Customer());
-            pnComponent.Top = button2.Top + 24;
+            pnComponent.Top = button2.Top + 27;
             pnComponent.Height = button2.Height;
             label5.Text = "THÊM KHÁCH HÀNG";
 
@@ -57,34 +56,30 @@ namespace BaiTapLon_CS
         {
             pnComponent.Visible = true;
             openFormInPanel(new MedicineList());
-            pnComponent.Top = productList.Top + 24;
+            pnComponent.Top = productList.Top + 27;
             pnComponent.Height = productList.Height;
             label5.Text = "DANH SÁCH SẢN PHẨM";
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 form = new Form1();
             form.Show();
         }
-
         private void button10_Click(object sender, EventArgs e)
         {
             pnComponent.Visible = true;
             openFormInPanel(new Order());
-            pnComponent.Top = button6.Top + 24;
+            pnComponent.Top = button6.Top + 27;
             pnComponent.Height = button6.Height;
             label5.Text = "CHI TIẾT ĐƠN HÀNG";
 
         }
-
-
         private void button5_Click(object sender, EventArgs e)
         {
             pnComponent.Visible = true;
             openFormInPanel(new Analytics());
-            pnComponent.Top = button5.Top + 24;
+            pnComponent.Top = button5.Top + 27;
             pnComponent.Height = button5.Height;
             label5.Text = "PHÂN TÍCH BÁN HÀNG";
         }
@@ -93,7 +88,7 @@ namespace BaiTapLon_CS
         {
             pnComponent.Visible = true;
             openFormInPanel(new History());
-            pnComponent.Top = button7.Top + 24;
+            pnComponent.Top = button7.Top + 27;
             pnComponent.Height = button7.Height;
             label5.Text = "LỊCH SỬ BÁN HÀNG";
         }
@@ -102,16 +97,11 @@ namespace BaiTapLon_CS
         {
             lbName.Text = LoginDAO.Name_Manager;
         }
-
-
-
         private void xemThôngTinTrangCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Info info = new Info();
             info.ShowDialog();
-
         }
-
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangePassword changePassword = new ChangePassword();
@@ -126,21 +116,18 @@ namespace BaiTapLon_CS
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc đăng xuất hay không ?", "OK", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có chắc đăng xuất hay không ?", "ĐĂNG XUẤT", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
                 this.Hide();
                 Form1 form = new Form1();
                 form.Show();
             }
         }
-
         private void GUI_Load(object sender, EventArgs e)
         {
 
         }
-
         private int x = 25;
         private int y = 8;
         private int a = 1;
@@ -166,12 +153,10 @@ namespace BaiTapLon_CS
                 throw;
             }
         }
-
           private void timer2_Tick(object sender, EventArgs e)
           {
                time.Text = "Đồng hồ: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
           }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
                openFormInPanel(new DashBoard());
@@ -179,5 +164,18 @@ namespace BaiTapLon_CS
                label5.Text = "TIỆM THUỐC NHÓM 1";
                time.Text = "Đồng hồ: " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
           }
-    }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+               openFormInPanel(new Statistic());
+               pnComponent.Visible = true;
+               pnComponent.Top = button1.Top + 27;
+               pnComponent.Height = button1.Height;
+               label5.Text = "THỐNG KÊ BÁN HÀNG";
+          }
+
+          private void btnExit_Click_1(object sender, EventArgs e)
+          {
+               Application.Exit();
+          }
+     }
 }

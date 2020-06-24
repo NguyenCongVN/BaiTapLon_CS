@@ -28,9 +28,10 @@
           /// </summary>
           private void InitializeComponent()
           {
-               System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-               System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-               System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+               this.components = new System.ComponentModel.Container();
+               System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+               System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+               System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
                this.pictureBox5 = new System.Windows.Forms.PictureBox();
                this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -56,6 +57,9 @@
                this.label14 = new System.Windows.Forms.Label();
                this.totalMedicine = new System.Windows.Forms.Label();
                this.saled = new System.Windows.Forms.Label();
+               this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+               this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+               this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -225,19 +229,20 @@
                // 
                // chart1
                // 
-               chartArea2.Name = "ChartArea1";
-               this.chart1.ChartAreas.Add(chartArea2);
-               legend2.Name = "Legend1";
-               this.chart1.Legends.Add(legend2);
+               chartArea1.Name = "ChartArea1";
+               this.chart1.ChartAreas.Add(chartArea1);
+               legend1.Name = "Legend1";
+               this.chart1.Legends.Add(legend1);
                this.chart1.Location = new System.Drawing.Point(52, 389);
                this.chart1.Name = "chart1";
-               series2.ChartArea = "ChartArea1";
-               series2.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               series2.Legend = "Legend1";
-               series2.Name = "week";
-               this.chart1.Series.Add(series2);
+               series1.ChartArea = "ChartArea1";
+               series1.Font = new System.Drawing.Font("Myanmar Text", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               series1.Legend = "Legend1";
+               series1.Name = "week";
+               this.chart1.Series.Add(series1);
                this.chart1.Size = new System.Drawing.Size(589, 300);
                this.chart1.TabIndex = 18;
+               this.chart1.Click += new System.EventHandler(this.chart1_Click);
                // 
                // label10
                // 
@@ -319,7 +324,7 @@
                this.totalMedicine.AutoSize = true;
                this.totalMedicine.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.totalMedicine.ForeColor = System.Drawing.Color.MediumSeaGreen;
-               this.totalMedicine.Location = new System.Drawing.Point(900, 510);
+               this.totalMedicine.Location = new System.Drawing.Point(871, 510);
                this.totalMedicine.Name = "totalMedicine";
                this.totalMedicine.Size = new System.Drawing.Size(147, 52);
                this.totalMedicine.TabIndex = 26;
@@ -335,6 +340,21 @@
                this.saled.Size = new System.Drawing.Size(88, 71);
                this.saled.TabIndex = 27;
                this.saled.Text = "17";
+               // 
+               // bunifuElipse1
+               // 
+               this.bunifuElipse1.ElipseRadius = 35;
+               this.bunifuElipse1.TargetControl = this.pictureBox4;
+               // 
+               // bunifuElipse2
+               // 
+               this.bunifuElipse2.ElipseRadius = 35;
+               this.bunifuElipse2.TargetControl = this.pictureBox1;
+               // 
+               // bunifuElipse3
+               // 
+               this.bunifuElipse3.ElipseRadius = 35;
+               this.bunifuElipse3.TargetControl = this.pictureBox6;
                // 
                // DashBoard
                // 
@@ -406,5 +426,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label totalMedicine;
         private System.Windows.Forms.Label saled;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse3;
     }
 }

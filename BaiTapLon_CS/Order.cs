@@ -110,12 +110,12 @@ namespace BaiTapLon_CS
                     if (txtID_Customer.Text != "")
                     {
                          string id_invoice = "SELECT MAX(ID_Invoice) FROM Invoice";
-                         string query ="EXEC dbo.addInvoice @ID_Customer ="+int.Parse(txtID_Customer.Text)+",@Diagnostic= N'" + txtDiagnostic.Text + ",+N',@Time_Of_Purchase ='DateTime.Now.ToString(yyyy-MM-dd HH:mm:ss)',@ID_Manager ="+int.Parse(txtID_Manager.Text)+",@Remind=N'"+txtRemind.Text+"'";
+                         string query ="EXEC dbo.addInvoice @ID_Customer ="+int.Parse(txtID_Customer.Text)+",@Diagnostic= N'" + txtDiagnostic.Text + "',@Time_Of_Purchase ='"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") +"',@ID_Manager ="+int.Parse(txtID_Manager.Text)+",@Remind=N'"+txtRemind.Text+"'";
                          OrderDAO.Instance.AddOrder(query);
                          string ID_Invoice = OrderDAO.Instance.getCountID_Invoice(id_invoice);
                          for (int i = 0; i < dgvInvoice.Rows.Count; i++)
                          {
-                              string que = "INSERT Invoice_Detail( ID_Invoice ,ID_Medicine ,Cost ,Amount)VALUES(" + int.Parse(ID_Invoice) + "," + int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString()) + "," + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + "," + int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString()) + ")";
+                              string que = "EXEC dbo.addInvoiceDetail @ID_Invoice ="+ int.Parse(ID_Invoice) +",@ID_Medicine = "+ int.Parse(this.dgvInvoice.Rows[i].Cells[0].Value.ToString())+",@Cost =" + decimal.Parse(dgvInvoice.Rows[i].Cells[3].Value.ToString()) + ",@Amount ="+ int.Parse(dgvInvoice.Rows[i].Cells[2].Value.ToString());
                               OrderDAO.Instance.AddOrder(que); // lưu vào cơ sở dữ liệu
                          }
                          dgvInvoice.Rows.Clear();

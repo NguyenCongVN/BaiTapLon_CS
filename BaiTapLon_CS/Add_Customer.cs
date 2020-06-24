@@ -65,7 +65,9 @@ namespace BaiTapLon_CS
                 MessageBox.Show("Chưa điền giới tính");
                 return;
             }
-            string query = "EXEC dbo.addCustomer @nameCustomer = N'"+ txtName_Customer.Text + "',@address = N'"+ txtAddress.Text + "',@sex = "+ cbTypeSex.SelectedIndex + ",@birthday ="+ txtAge.Text + ",@phone = N'"+ txtPhone.Text + "'";
+            string query = "EXEC dbo.addCustomer @nameCustomer = N'"+ txtName_Customer.Text 
+                    + "',@address = N'"+ txtAddress.Text + "',@sex = "+ cbTypeSex.SelectedIndex 
+                    + ",@birthday ="+ txtAge.Text + ",@phone = N'"+ txtPhone.Text + "'";
             AddCustomerDAO.Instance.AddCustomer(query);
             MessageBox.Show("Thêm khách hàng " + txtName_Customer.Text + " thành công");
             txtAddress.Text = "";

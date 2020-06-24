@@ -23,7 +23,7 @@ namespace BaiTapLon_CS.DAO
         }
         public DataTable getInfo()
         {
-            string query = "SELECT * FROM Manager WHERE ID_Manager =" + Form1.ID_Manager;
+            string query = "EXEC getInfo @id =" + Form1.ID_Manager;
             return DataProvider.Instance.DisplayListView(query);
         }
         public void updateInfo(string query)

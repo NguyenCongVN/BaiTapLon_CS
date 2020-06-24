@@ -27,7 +27,7 @@ namespace BaiTapLon_CS.DAO
         public string getID(string email, string password)
         {
             string id = "";
-            string query = "SELECT * FROM Manager WHERE Email='" + email + "' and Password='" + password + "'";
+            string query = "EXEC dbo.login @email = N'"+email+"',@password = N'"+password+"'";
             DataTable dt = DataProvider.Instance.DisplayListView(query);
             if (dt != null)
             {
@@ -46,7 +46,7 @@ namespace BaiTapLon_CS.DAO
         public List<String> getName_Permission(string ID_Permission)
         {
             List<string> key_Permisson = new List<string>();
-            string query = "SELECT * FROM Permission WHERE ID_Permission='" + ID_Permission + "'";
+            string query = "EXEC Permissionn @id= "+ID_Permission;
             DataTable dt = DAO.DataProvider.Instance.DisplayListView(query);
             if (dt != null)
             {
@@ -60,7 +60,7 @@ namespace BaiTapLon_CS.DAO
         public string getID_Permission(string ID)
         {
             string id_Permission = "";
-            string query = "SELECT * FROM Detail_Permission WHERE ID_Manager='" + ID + "'";
+            string query = "EXEC detailPermission @id="+ID;
             DataTable dt = DAO.DataProvider.Instance.DisplayListView(query);
             if (dt != null)
             {

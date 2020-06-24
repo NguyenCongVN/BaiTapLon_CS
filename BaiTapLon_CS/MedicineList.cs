@@ -207,7 +207,6 @@ namespace BaiTapLon_CS
             {
                 e.Handled = true;
             }
-            // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;

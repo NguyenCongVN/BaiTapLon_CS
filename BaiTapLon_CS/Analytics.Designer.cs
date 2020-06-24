@@ -43,14 +43,9 @@
                this.txtTotal = new System.Windows.Forms.TextBox();
                this.label8 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
-               this.btnCurrent = new System.Windows.Forms.Button();
-               this.btnTotalPage = new System.Windows.Forms.Button();
                this.cboxManufacturer = new System.Windows.Forms.ComboBox();
                this.label10 = new System.Windows.Forms.Label();
                this.cbCategory = new System.Windows.Forms.ComboBox();
-               this.btnAnalytics = new System.Windows.Forms.Button();
-               this.btnMonth = new System.Windows.Forms.Button();
-               this.btnToday = new System.Windows.Forms.Button();
                this.dateTimeFrom = new Bunifu.Framework.UI.BunifuDatepicker();
                this.dateTimeTo = new Bunifu.Framework.UI.BunifuDatepicker();
                this.dgvAnalytics = new System.Windows.Forms.DataGridView();
@@ -58,6 +53,11 @@
                this.btnPre = new Bunifu.Framework.UI.BunifuThinButton2();
                this.btnNext = new Bunifu.Framework.UI.BunifuThinButton2();
                this.btnExcel = new Bunifu.Framework.UI.BunifuFlatButton();
+               this.btnAnalytics = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnToday = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnMonth = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnTotalPage = new System.Windows.Forms.Button();
+               this.btnCurrent = new System.Windows.Forms.Button();
                ((System.ComponentModel.ISupportInitialize)(this.dgvAnalytics)).BeginInit();
                this.panel1.SuspendLayout();
                this.SuspendLayout();
@@ -189,24 +189,6 @@
                this.label9.TabIndex = 21;
                this.label9.Text = "Nhà sản xuất";
                // 
-               // btnCurrent
-               // 
-               this.btnCurrent.Enabled = false;
-               this.btnCurrent.Location = new System.Drawing.Point(318, 711);
-               this.btnCurrent.Name = "btnCurrent";
-               this.btnCurrent.Size = new System.Drawing.Size(43, 42);
-               this.btnCurrent.TabIndex = 24;
-               this.btnCurrent.UseVisualStyleBackColor = true;
-               // 
-               // btnTotalPage
-               // 
-               this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.Location = new System.Drawing.Point(534, 711);
-               this.btnTotalPage.Name = "btnTotalPage";
-               this.btnTotalPage.Size = new System.Drawing.Size(50, 42);
-               this.btnTotalPage.TabIndex = 26;
-               this.btnTotalPage.UseVisualStyleBackColor = true;
-               // 
                // cboxManufacturer
                // 
                this.cboxManufacturer.FormattingEnabled = true;
@@ -246,51 +228,6 @@
                this.cbCategory.TabIndex = 29;
                this.cbCategory.Text = "Danh mục";
                // 
-               // btnAnalytics
-               // 
-               this.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnAnalytics.ForeColor = System.Drawing.Color.Black;
-               this.btnAnalytics.Image = global::BaiTapLon_CS.Properties.Resources.analyist1;
-               this.btnAnalytics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.btnAnalytics.Location = new System.Drawing.Point(629, 283);
-               this.btnAnalytics.Name = "btnAnalytics";
-               this.btnAnalytics.Size = new System.Drawing.Size(117, 54);
-               this.btnAnalytics.TabIndex = 14;
-               this.btnAnalytics.Text = "Thống kê";
-               this.btnAnalytics.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.btnAnalytics.UseVisualStyleBackColor = true;
-               this.btnAnalytics.Click += new System.EventHandler(this.btnAnalytics_Click);
-               // 
-               // btnMonth
-               // 
-               this.btnMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnMonth.ForeColor = System.Drawing.Color.Black;
-               this.btnMonth.Image = global::BaiTapLon_CS.Properties.Resources.month;
-               this.btnMonth.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.btnMonth.Location = new System.Drawing.Point(950, 282);
-               this.btnMonth.Name = "btnMonth";
-               this.btnMonth.Size = new System.Drawing.Size(147, 54);
-               this.btnMonth.TabIndex = 7;
-               this.btnMonth.Text = "Tháng này";
-               this.btnMonth.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.btnMonth.UseVisualStyleBackColor = true;
-               this.btnMonth.Click += new System.EventHandler(this.btnWeek_Click);
-               // 
-               // btnToday
-               // 
-               this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnToday.ForeColor = System.Drawing.Color.Black;
-               this.btnToday.Image = global::BaiTapLon_CS.Properties.Resources.today;
-               this.btnToday.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.btnToday.Location = new System.Drawing.Point(791, 282);
-               this.btnToday.Name = "btnToday";
-               this.btnToday.Size = new System.Drawing.Size(127, 54);
-               this.btnToday.TabIndex = 6;
-               this.btnToday.Text = "Hôm nay";
-               this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.btnToday.UseVisualStyleBackColor = true;
-               this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
-               // 
                // dateTimeFrom
                // 
                this.dateTimeFrom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -322,7 +259,7 @@
                // dgvAnalytics
                // 
                this.dgvAnalytics.AllowUserToAddRows = false;
-               this.dgvAnalytics.AllowUserToOrderColumns = true;
+               this.dgvAnalytics.AllowUserToDeleteRows = false;
                this.dgvAnalytics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvAnalytics.BackgroundColor = System.Drawing.Color.White;
                this.dgvAnalytics.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -346,16 +283,17 @@
                dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Aqua;
                dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
                this.dgvAnalytics.DefaultCellStyle = dataGridViewCellStyle2;
+               this.dgvAnalytics.Dock = System.Windows.Forms.DockStyle.Fill;
                this.dgvAnalytics.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
                this.dgvAnalytics.GridColor = System.Drawing.Color.Black;
-               this.dgvAnalytics.Location = new System.Drawing.Point(3, 3);
+               this.dgvAnalytics.Location = new System.Drawing.Point(0, 0);
                this.dgvAnalytics.Name = "dgvAnalytics";
                this.dgvAnalytics.ReadOnly = true;
                this.dgvAnalytics.RowHeadersWidth = 51;
                this.dgvAnalytics.RowTemplate.Height = 24;
                this.dgvAnalytics.ScrollBars = System.Windows.Forms.ScrollBars.None;
                this.dgvAnalytics.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-               this.dgvAnalytics.Size = new System.Drawing.Size(624, 218);
+               this.dgvAnalytics.Size = new System.Drawing.Size(630, 224);
                this.dgvAnalytics.TabIndex = 34;
                this.dgvAnalytics.UseWaitCursor = true;
                this.dgvAnalytics.VirtualMode = true;
@@ -449,12 +387,109 @@
                this.btnExcel.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
                this.btnExcel.OnHoverTextColor = System.Drawing.Color.White;
                this.btnExcel.selected = false;
-               this.btnExcel.Size = new System.Drawing.Size(164, 59);
+               this.btnExcel.Size = new System.Drawing.Size(150, 59);
                this.btnExcel.TabIndex = 38;
                this.btnExcel.Text = "Xuất Excel";
                this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                this.btnExcel.Textcolor = System.Drawing.Color.White;
                this.btnExcel.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click_1);
+               // 
+               // btnAnalytics
+               // 
+               this.btnAnalytics.ActiveBorderThickness = 1;
+               this.btnAnalytics.ActiveCornerRadius = 20;
+               this.btnAnalytics.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnAnalytics.ActiveForecolor = System.Drawing.Color.White;
+               this.btnAnalytics.ActiveLineColor = System.Drawing.Color.Orange;
+               this.btnAnalytics.BackColor = System.Drawing.Color.White;
+               this.btnAnalytics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAnalytics.BackgroundImage")));
+               this.btnAnalytics.ButtonText = "Thống kê";
+               this.btnAnalytics.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnAnalytics.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnAnalytics.ForeColor = System.Drawing.Color.Red;
+               this.btnAnalytics.IdleBorderThickness = 1;
+               this.btnAnalytics.IdleCornerRadius = 20;
+               this.btnAnalytics.IdleFillColor = System.Drawing.Color.White;
+               this.btnAnalytics.IdleForecolor = System.Drawing.Color.SeaGreen;
+               this.btnAnalytics.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
+               this.btnAnalytics.Location = new System.Drawing.Point(619, 364);
+               this.btnAnalytics.Margin = new System.Windows.Forms.Padding(5);
+               this.btnAnalytics.Name = "btnAnalytics";
+               this.btnAnalytics.Size = new System.Drawing.Size(153, 60);
+               this.btnAnalytics.TabIndex = 39;
+               this.btnAnalytics.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               this.btnAnalytics.Click += new System.EventHandler(this.btnAnalytics_Click_1);
+               // 
+               // btnToday
+               // 
+               this.btnToday.ActiveBorderThickness = 1;
+               this.btnToday.ActiveCornerRadius = 20;
+               this.btnToday.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnToday.ActiveForecolor = System.Drawing.Color.White;
+               this.btnToday.ActiveLineColor = System.Drawing.Color.Orange;
+               this.btnToday.BackColor = System.Drawing.Color.White;
+               this.btnToday.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToday.BackgroundImage")));
+               this.btnToday.ButtonText = "Hôm nay";
+               this.btnToday.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnToday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnToday.ForeColor = System.Drawing.Color.Red;
+               this.btnToday.IdleBorderThickness = 1;
+               this.btnToday.IdleCornerRadius = 20;
+               this.btnToday.IdleFillColor = System.Drawing.Color.White;
+               this.btnToday.IdleForecolor = System.Drawing.Color.SeaGreen;
+               this.btnToday.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
+               this.btnToday.Location = new System.Drawing.Point(782, 364);
+               this.btnToday.Margin = new System.Windows.Forms.Padding(5);
+               this.btnToday.Name = "btnToday";
+               this.btnToday.Size = new System.Drawing.Size(153, 60);
+               this.btnToday.TabIndex = 40;
+               this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               this.btnToday.Click += new System.EventHandler(this.btnToday_Click_1);
+               // 
+               // btnMonth
+               // 
+               this.btnMonth.ActiveBorderThickness = 1;
+               this.btnMonth.ActiveCornerRadius = 20;
+               this.btnMonth.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnMonth.ActiveForecolor = System.Drawing.Color.White;
+               this.btnMonth.ActiveLineColor = System.Drawing.Color.Orange;
+               this.btnMonth.BackColor = System.Drawing.Color.White;
+               this.btnMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMonth.BackgroundImage")));
+               this.btnMonth.ButtonText = "Tháng này";
+               this.btnMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnMonth.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnMonth.ForeColor = System.Drawing.Color.Red;
+               this.btnMonth.IdleBorderThickness = 1;
+               this.btnMonth.IdleCornerRadius = 20;
+               this.btnMonth.IdleFillColor = System.Drawing.Color.White;
+               this.btnMonth.IdleForecolor = System.Drawing.Color.SeaGreen;
+               this.btnMonth.IdleLineColor = System.Drawing.Color.DeepSkyBlue;
+               this.btnMonth.Location = new System.Drawing.Point(944, 364);
+               this.btnMonth.Margin = new System.Windows.Forms.Padding(5);
+               this.btnMonth.Name = "btnMonth";
+               this.btnMonth.Size = new System.Drawing.Size(153, 60);
+               this.btnMonth.TabIndex = 41;
+               this.btnMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
+               // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.Enabled = false;
+               this.btnTotalPage.Location = new System.Drawing.Point(535, 711);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(50, 42);
+               this.btnTotalPage.TabIndex = 26;
+               this.btnTotalPage.UseVisualStyleBackColor = true;
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.Enabled = false;
+               this.btnCurrent.Location = new System.Drawing.Point(319, 711);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(43, 42);
+               this.btnCurrent.TabIndex = 24;
+               this.btnCurrent.UseVisualStyleBackColor = true;
                // 
                // Analytics
                // 
@@ -462,6 +497,9 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1179, 799);
+               this.Controls.Add(this.btnMonth);
+               this.Controls.Add(this.btnToday);
+               this.Controls.Add(this.btnAnalytics);
                this.Controls.Add(this.btnExcel);
                this.Controls.Add(this.btnNext);
                this.Controls.Add(this.btnPre);
@@ -478,12 +516,9 @@
                this.Controls.Add(this.txtTotal);
                this.Controls.Add(this.txtAmount);
                this.Controls.Add(this.txtAmount_Product);
-               this.Controls.Add(this.btnAnalytics);
                this.Controls.Add(this.label6);
                this.Controls.Add(this.label5);
                this.Controls.Add(this.label4);
-               this.Controls.Add(this.btnMonth);
-               this.Controls.Add(this.btnToday);
                this.Controls.Add(this.txtNameProduct);
                this.Controls.Add(this.label3);
                this.Controls.Add(this.label2);
@@ -492,6 +527,7 @@
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                this.Name = "Analytics";
                this.Text = "Analytics";
+               this.Load += new System.EventHandler(this.Analytics_Load);
                ((System.ComponentModel.ISupportInitialize)(this.dgvAnalytics)).EndInit();
                this.panel1.ResumeLayout(false);
                this.ResumeLayout(false);
@@ -505,19 +541,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNameProduct;
-        private System.Windows.Forms.Button btnToday;
-        private System.Windows.Forms.Button btnMonth;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnAnalytics;
         private System.Windows.Forms.TextBox txtAmount_Product;
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnCurrent;
-        private System.Windows.Forms.Button btnTotalPage;
         private System.Windows.Forms.ComboBox cboxManufacturer;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbCategory;
@@ -528,5 +559,10 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnPre;
         private Bunifu.Framework.UI.BunifuThinButton2 btnNext;
         private Bunifu.Framework.UI.BunifuFlatButton btnExcel;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnAnalytics;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnToday;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnMonth;
+        private System.Windows.Forms.Button btnTotalPage;
+        private System.Windows.Forms.Button btnCurrent;
     }
 }

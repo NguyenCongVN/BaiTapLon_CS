@@ -354,6 +354,7 @@
     <Compile Include="DAO\SearchCustomerDAO.cs" />
     <Compile Include="DAO\SearchOrderDAO.cs" />
     <Compile Include="DAO\Search_MedicineDAO.cs" />
+    <Compile Include="DAO\StatisticDAO.cs" />
     <Compile Include="DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +434,12 @@
     </Compile>
     <Compile Include="Search_Order_Detail.Designer.cs">
       <DependentUpon>Search_Order_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistic.Designer.cs">
+      <DependentUpon>Statistic.cs</DependentUpon>
     </Compile>
     <Compile Include="Tutorial.cs">
       <SubType>Form</SubType>
@@ -550,6 +557,9 @@
     <EmbeddedResource Include="Search_Order_Detail.resx">
       <DependentUpon>Search_Order_Detail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Statistic.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tutorial.resx">
       <DependentUpon>Tutorial.cs</DependentUpon>
     </EmbeddedResource>
@@ -615,6 +625,13 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\nhom1.png" />
+    <None Include="Resources\pie-chart1.png" />
+    <None Include="Resources\search %282%29.png" />
+    <None Include="Resources\search %281%291.png" />
+    <None Include="Resources\search %281%29.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\pie-chart.png" />
     <None Include="Resources\user.jpg" />
     <None Include="Resources\user %283%29.png" />
     <None Include="Resources\product.png" />
@@ -671,6 +688,19 @@
     <None Include="Resources\icons8-add-32.png" />
     <None Include="Resources\icons8-name-16.png" />
     <None Include="Resources\icons8-name-8.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\history %281%29.png" />
+    <None Include="Resources\history %281%291.png" />
+    <None Include="Resources\icons8-forgot-password-48.png" />
+    <None Include="Resources\icons8-invoice-32.png" />
+    <None Include="Resources\icons8-id-verified-32.png" />
+    <None Include="Resources\icons8-customer-32.png" />
+    <None Include="Resources\icons8-phone-32.png" />
+    <None Include="Resources\icons8-phone-321.png" />
+    <None Include="Resources\icons8-customer-32 %281%29.png" />
+    <None Include="Resources\icons8-close-window-32.png" />
+    <None Include="Resources\icons8-medical-bag-50.png" />
+    <None Include="Resources\icons8-medical-doctor-100.png" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

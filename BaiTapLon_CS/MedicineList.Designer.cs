@@ -28,7 +28,8 @@
           /// </summary>
           private void InitializeComponent()
           {
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+               this.components = new System.ComponentModel.Container();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicineList));
                this.panel2 = new System.Windows.Forms.Panel();
                this.dgwMedicineList = new System.Windows.Forms.DataGridView();
@@ -50,6 +51,7 @@
                this.btnReset = new System.Windows.Forms.Button();
                this.btnSearch = new System.Windows.Forms.Button();
                this.totalResult = new System.Windows.Forms.Label();
+               this.bunifuColorTransition1 = new Bunifu.Framework.UI.BunifuColorTransition(this.components);
                this.panel2.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.dgwMedicineList)).BeginInit();
                this.SuspendLayout();
@@ -71,16 +73,16 @@
                this.dgwMedicineList.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgwMedicineList.ColumnHeadersHeight = 29;
                this.dgwMedicineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-               dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-               dataGridViewCellStyle4.Format = "g";
-               dataGridViewCellStyle4.NullValue = null;
-               dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Maroon;
-               dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle4;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle2.Format = "g";
+               dataGridViewCellStyle2.NullValue = null;
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle2;
                this.dgwMedicineList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
                this.dgwMedicineList.GridColor = System.Drawing.Color.Black;
                this.dgwMedicineList.Location = new System.Drawing.Point(20, 32);
@@ -106,7 +108,6 @@
                this.label2.Size = new System.Drawing.Size(82, 23);
                this.label2.TabIndex = 20;
                this.label2.Text = "Mã thuốc";
-//               this.label2.Click += new System.EventHandler(this.label2_Click);
                // 
                // label3
                // 
@@ -118,7 +119,6 @@
                this.label3.Size = new System.Drawing.Size(84, 23);
                this.label3.TabIndex = 21;
                this.label3.Text = "Tên thuốc";
-        //       this.label3.Click += new System.EventHandler(this.label3_Click);
                // 
                // label4
                // 
@@ -130,7 +130,6 @@
                this.label4.Size = new System.Drawing.Size(88, 23);
                this.label4.TabIndex = 22;
                this.label4.Text = "Danh mục";
-           //    this.label4.Click += new System.EventHandler(this.label4_Click);
                // 
                // txtID_Medicine
                // 
@@ -191,7 +190,6 @@
                this.label5.Size = new System.Drawing.Size(111, 23);
                this.label5.TabIndex = 30;
                this.label5.Text = "Nhà sản xuất";
-           //    this.label5.Click += new System.EventHandler(this.label5_Click);
                // 
                // btnCurrent
                // 
@@ -338,6 +336,12 @@
                this.totalResult.TabIndex = 42;
                this.totalResult.Text = "label7";
                // 
+               // bunifuColorTransition1
+               // 
+               this.bunifuColorTransition1.Color1 = System.Drawing.Color.Crimson;
+               this.bunifuColorTransition1.Color2 = System.Drawing.Color.White;
+               this.bunifuColorTransition1.ProgessValue = 30;
+               // 
                // MedicineList
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -395,5 +399,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalResult;
+        private Bunifu.Framework.UI.BunifuColorTransition bunifuColorTransition1;
     }
 }

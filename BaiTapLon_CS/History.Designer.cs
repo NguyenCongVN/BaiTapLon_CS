@@ -133,7 +133,7 @@
                this.txtTotal.Multiline = true;
                this.txtTotal.Name = "txtTotal";
                this.txtTotal.ReadOnly = true;
-               this.txtTotal.Size = new System.Drawing.Size(169, 38);
+               this.txtTotal.Size = new System.Drawing.Size(75, 38);
                this.txtTotal.TabIndex = 7;
                // 
                // btnCurrent

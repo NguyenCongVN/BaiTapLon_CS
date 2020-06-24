@@ -41,16 +41,17 @@
                this.label7 = new System.Windows.Forms.Label();
                this.label6 = new System.Windows.Forms.Label();
                this.label4 = new System.Windows.Forms.Label();
-               this.label3 = new System.Windows.Forms.Label();
                this.label5 = new System.Windows.Forms.Label();
-               this.btnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
-               this.txtPassword = new Bunifu.Framework.UI.BunifuTextbox();
-               this.txtAccount = new Bunifu.Framework.UI.BunifuTextbox();
                this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
                this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
                this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
                this.btnExit = new Bunifu.Framework.UI.BunifuFlatButton();
+               this.btnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
+               this.txtPassword = new Bunifu.Framework.UI.BunifuTextbox();
+               this.txtAccount = new Bunifu.Framework.UI.BunifuTextbox();
+               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.panel1.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                this.SuspendLayout();
                // 
                // label1
@@ -96,13 +97,13 @@
                // panel1
                // 
                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(173)))), ((int)(((byte)(164)))));
+               this.panel1.Controls.Add(this.pictureBox1);
                this.panel1.Controls.Add(this.label10);
                this.panel1.Controls.Add(this.label9);
                this.panel1.Controls.Add(this.label8);
                this.panel1.Controls.Add(this.label7);
                this.panel1.Controls.Add(this.label6);
                this.panel1.Controls.Add(this.label4);
-               this.panel1.Controls.Add(this.label3);
                this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
                this.panel1.Location = new System.Drawing.Point(0, 0);
                this.panel1.Name = "panel1";
@@ -176,17 +177,6 @@
                this.label4.TabIndex = 1;
                this.label4.Text = "Gồm 5 thành viên";
                // 
-               // label3
-               // 
-               this.label3.AutoSize = true;
-               this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label3.ForeColor = System.Drawing.Color.Crimson;
-               this.label3.Location = new System.Drawing.Point(43, 77);
-               this.label3.Name = "label3";
-               this.label3.Size = new System.Drawing.Size(230, 37);
-               this.label3.TabIndex = 0;
-               this.label3.Text = "Hiệu thuốc nhóm 1";
-               // 
                // label5
                // 
                this.label5.AutoSize = true;
@@ -197,71 +187,6 @@
                this.label5.Size = new System.Drawing.Size(225, 58);
                this.label5.TabIndex = 10;
                this.label5.Text = "ĐĂNG NHẬP";
-               // 
-               // btnLogin
-               // 
-               this.btnLogin.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-               this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-               this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.btnLogin.BorderRadius = 0;
-               this.btnLogin.ButtonText = "ĐĂNG NHẬP";
-               this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-               this.btnLogin.DisabledColor = System.Drawing.Color.Gray;
-               this.btnLogin.Iconcolor = System.Drawing.Color.Transparent;
-               this.btnLogin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogin.Iconimage")));
-               this.btnLogin.Iconimage_right = null;
-               this.btnLogin.Iconimage_right_Selected = null;
-               this.btnLogin.Iconimage_Selected = null;
-               this.btnLogin.IconMarginLeft = 0;
-               this.btnLogin.IconMarginRight = 0;
-               this.btnLogin.IconRightVisible = true;
-               this.btnLogin.IconRightZoom = 0D;
-               this.btnLogin.IconVisible = true;
-               this.btnLogin.IconZoom = 90D;
-               this.btnLogin.IsTab = false;
-               this.btnLogin.Location = new System.Drawing.Point(479, 489);
-               this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-               this.btnLogin.Name = "btnLogin";
-               this.btnLogin.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-               this.btnLogin.OnHovercolor = System.Drawing.Color.DeepPink;
-               this.btnLogin.OnHoverTextColor = System.Drawing.Color.White;
-               this.btnLogin.selected = false;
-               this.btnLogin.Size = new System.Drawing.Size(175, 63);
-               this.btnLogin.TabIndex = 14;
-               this.btnLogin.Text = "ĐĂNG NHẬP";
-               this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.btnLogin.Textcolor = System.Drawing.Color.White;
-               this.btnLogin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
-               // 
-               // txtPassword
-               // 
-               this.txtPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-               this.txtPassword.BackColor = System.Drawing.Color.White;
-               this.txtPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtPassword.BackgroundImage")));
-               this.txtPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.txtPassword.ForeColor = System.Drawing.Color.MediumBlue;
-               this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("txtPassword.Icon")));
-               this.txtPassword.Location = new System.Drawing.Point(510, 381);
-               this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-               this.txtPassword.Name = "txtPassword";
-               this.txtPassword.Size = new System.Drawing.Size(294, 53);
-               this.txtPassword.TabIndex = 12;
-               this.txtPassword.text = "";
-               // 
-               // txtAccount
-               // 
-               this.txtAccount.BackColor = System.Drawing.Color.White;
-               this.txtAccount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtAccount.BackgroundImage")));
-               this.txtAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.txtAccount.ForeColor = System.Drawing.Color.MediumBlue;
-               this.txtAccount.Icon = ((System.Drawing.Image)(resources.GetObject("txtAccount.Icon")));
-               this.txtAccount.Location = new System.Drawing.Point(510, 241);
-               this.txtAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-               this.txtAccount.Name = "txtAccount";
-               this.txtAccount.Size = new System.Drawing.Size(294, 55);
-               this.txtAccount.TabIndex = 11;
-               this.txtAccount.text = "";
                // 
                // bunifuCustomLabel1
                // 
@@ -324,6 +249,80 @@
                this.btnExit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
                // 
+               // btnLogin
+               // 
+               this.btnLogin.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+               this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+               this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.btnLogin.BorderRadius = 0;
+               this.btnLogin.ButtonText = "ĐĂNG NHẬP";
+               this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnLogin.DisabledColor = System.Drawing.Color.Gray;
+               this.btnLogin.Iconcolor = System.Drawing.Color.Transparent;
+               this.btnLogin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogin.Iconimage")));
+               this.btnLogin.Iconimage_right = null;
+               this.btnLogin.Iconimage_right_Selected = null;
+               this.btnLogin.Iconimage_Selected = null;
+               this.btnLogin.IconMarginLeft = 0;
+               this.btnLogin.IconMarginRight = 0;
+               this.btnLogin.IconRightVisible = true;
+               this.btnLogin.IconRightZoom = 0D;
+               this.btnLogin.IconVisible = true;
+               this.btnLogin.IconZoom = 90D;
+               this.btnLogin.IsTab = false;
+               this.btnLogin.Location = new System.Drawing.Point(479, 489);
+               this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.btnLogin.Name = "btnLogin";
+               this.btnLogin.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+               this.btnLogin.OnHovercolor = System.Drawing.Color.DeepPink;
+               this.btnLogin.OnHoverTextColor = System.Drawing.Color.White;
+               this.btnLogin.selected = false;
+               this.btnLogin.Size = new System.Drawing.Size(175, 63);
+               this.btnLogin.TabIndex = 14;
+               this.btnLogin.Text = "ĐĂNG NHẬP";
+               this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.btnLogin.Textcolor = System.Drawing.Color.White;
+               this.btnLogin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+               // 
+               // txtPassword
+               // 
+               this.txtPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+               this.txtPassword.BackColor = System.Drawing.Color.White;
+               this.txtPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtPassword.BackgroundImage")));
+               this.txtPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
+               this.txtPassword.Icon = ((System.Drawing.Image)(resources.GetObject("txtPassword.Icon")));
+               this.txtPassword.Location = new System.Drawing.Point(510, 381);
+               this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.txtPassword.Name = "txtPassword";
+               this.txtPassword.Size = new System.Drawing.Size(294, 53);
+               this.txtPassword.TabIndex = 12;
+               this.txtPassword.text = "";
+               // 
+               // txtAccount
+               // 
+               this.txtAccount.BackColor = System.Drawing.Color.White;
+               this.txtAccount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtAccount.BackgroundImage")));
+               this.txtAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+               this.txtAccount.ForeColor = System.Drawing.Color.DimGray;
+               this.txtAccount.Icon = ((System.Drawing.Image)(resources.GetObject("txtAccount.Icon")));
+               this.txtAccount.Location = new System.Drawing.Point(510, 241);
+               this.txtAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+               this.txtAccount.Name = "txtAccount";
+               this.txtAccount.Size = new System.Drawing.Size(294, 55);
+               this.txtAccount.TabIndex = 11;
+               this.txtAccount.text = "";
+               // 
+               // pictureBox1
+               // 
+               this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources.nhom1;
+               this.pictureBox1.Location = new System.Drawing.Point(3, 159);
+               this.pictureBox1.Name = "pictureBox1";
+               this.pictureBox1.Size = new System.Drawing.Size(303, 78);
+               this.pictureBox1.TabIndex = 7;
+               this.pictureBox1.TabStop = false;
+               // 
                // Form1
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,6 +348,7 @@
                this.Text = "Đăng nhập";
                this.panel1.ResumeLayout(false);
                this.panel1.PerformLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -361,7 +361,6 @@
         private System.Windows.Forms.RadioButton radioBtnCashier;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuTextbox txtAccount;
         private Bunifu.Framework.UI.BunifuFlatButton btnLogin;
@@ -375,6 +374,7 @@
           private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton btnExit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

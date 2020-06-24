@@ -136,7 +136,7 @@
                this.groupBox1.Size = new System.Drawing.Size(1196, 191);
                this.groupBox1.TabIndex = 2;
                this.groupBox1.TabStop = false;
-               this.groupBox1.Text = "Thông tin chung";
+               this.groupBox1.Text = "THÔNG TIN CHUNG";
                // 
                // txtRemind
                // 
@@ -392,7 +392,7 @@
                this.groupBox2.Size = new System.Drawing.Size(1196, 351);
                this.groupBox2.TabIndex = 0;
                this.groupBox2.TabStop = false;
-               this.groupBox2.Text = "Thông tin các mặt hàng";
+               this.groupBox2.Text = "THÔNG TIN ĐƠN HÀNG";
                // 
                // btnAddToInvoice
                // 

@@ -30,6 +30,7 @@
         {
                this.components = new System.ComponentModel.Container();
                this.panel1 = new System.Windows.Forms.Panel();
+               this.button1 = new System.Windows.Forms.Button();
                this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.button7 = new System.Windows.Forms.Button();
                this.button6 = new System.Windows.Forms.Button();
@@ -58,17 +59,20 @@
                this.time = new System.Windows.Forms.Label();
                this.label5 = new System.Windows.Forms.Label();
                this.timer2 = new System.Windows.Forms.Timer(this.components);
+               this.btnExit = new Bunifu.Framework.UI.BunifuImageButton();
                this.panel1.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                this.panel2.SuspendLayout();
                this.menuStrip1.SuspendLayout();
                this.pnlContain.SuspendLayout();
                this.panel3.SuspendLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
                this.SuspendLayout();
                // 
                // panel1
                // 
                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.panel1.Controls.Add(this.button1);
                this.panel1.Controls.Add(this.pictureBox1);
                this.panel1.Controls.Add(this.button7);
                this.panel1.Controls.Add(this.button6);
@@ -83,13 +87,31 @@
                this.panel1.Size = new System.Drawing.Size(272, 796);
                this.panel1.TabIndex = 2;
                // 
+               // button1
+               // 
+               this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button1.FlatAppearance.BorderSize = 0;
+               this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+               this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               this.button1.ForeColor = System.Drawing.Color.White;
+               this.button1.Image = global::BaiTapLon_CS.Properties.Resources.pie_chart1;
+               this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.button1.Location = new System.Drawing.Point(5, 611);
+               this.button1.Name = "button1";
+               this.button1.Size = new System.Drawing.Size(267, 70);
+               this.button1.TabIndex = 8;
+               this.button1.Text = "THỐNG KÊ";
+               this.button1.UseVisualStyleBackColor = false;
+               this.button1.Click += new System.EventHandler(this.button1_Click_1);
+               // 
                // pictureBox1
                // 
-               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.user1;
+               this.pictureBox1.BackColor = System.Drawing.Color.White;
+               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.icons8_medical_doctor_100;
                this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.pictureBox1.Location = new System.Drawing.Point(73, 12);
+               this.pictureBox1.Location = new System.Drawing.Point(63, 27);
                this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(97, 79);
+               this.pictureBox1.Size = new System.Drawing.Size(100, 79);
                this.pictureBox1.TabIndex = 7;
                this.pictureBox1.TabStop = false;
                this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -101,11 +123,11 @@
                this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.button7.ForeColor = System.Drawing.Color.White;
-               this.button7.Image = global::BaiTapLon_CS.Properties.Resources.Actions_history_clear_icon;
+               this.button7.Image = global::BaiTapLon_CS.Properties.Resources.history__1_1;
                this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.button7.Location = new System.Drawing.Point(5, 651);
+               this.button7.Location = new System.Drawing.Point(12, 714);
                this.button7.Name = "button7";
-               this.button7.Size = new System.Drawing.Size(254, 94);
+               this.button7.Size = new System.Drawing.Size(260, 70);
                this.button7.TabIndex = 6;
                this.button7.Text = "LỊCH SỬ";
                this.button7.UseVisualStyleBackColor = false;
@@ -121,9 +143,9 @@
                this.button6.ForeColor = System.Drawing.Color.White;
                this.button6.Image = global::BaiTapLon_CS.Properties.Resources.Import_export_icon;
                this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.button6.Location = new System.Drawing.Point(2, 321);
+               this.button6.Location = new System.Drawing.Point(2, 302);
                this.button6.Name = "button6";
-               this.button6.Size = new System.Drawing.Size(254, 94);
+               this.button6.Size = new System.Drawing.Size(267, 70);
                this.button6.TabIndex = 3;
                this.button6.Text = "NHẬP ĐƠN";
                this.button6.UseVisualStyleBackColor = false;
@@ -138,9 +160,9 @@
                this.button5.ForeColor = System.Drawing.Color.White;
                this.button5.Image = global::BaiTapLon_CS.Properties.Resources.Actions_view_statistics_icon;
                this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.button5.Location = new System.Drawing.Point(1, 541);
+               this.button5.Location = new System.Drawing.Point(5, 508);
                this.button5.Name = "button5";
-               this.button5.Size = new System.Drawing.Size(254, 94);
+               this.button5.Size = new System.Drawing.Size(267, 70);
                this.button5.TabIndex = 5;
                this.button5.Text = "PHÂN TÍCH";
                this.button5.UseVisualStyleBackColor = false;
@@ -158,9 +180,9 @@
                this.productList.ForeColor = System.Drawing.Color.White;
                this.productList.Image = global::BaiTapLon_CS.Properties.Resources.Checklist_icon__1_;
                this.productList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.productList.Location = new System.Drawing.Point(5, 96);
+               this.productList.Location = new System.Drawing.Point(12, 114);
                this.productList.Name = "productList";
-               this.productList.Size = new System.Drawing.Size(256, 94);
+               this.productList.Size = new System.Drawing.Size(251, 70);
                this.productList.TabIndex = 1;
                this.productList.Text = "SẢN PHẨM";
                this.productList.UseVisualStyleBackColor = false;
@@ -175,9 +197,9 @@
                this.button4.ForeColor = System.Drawing.Color.White;
                this.button4.Image = global::BaiTapLon_CS.Properties.Resources.search_pointer_icon;
                this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.button4.Location = new System.Drawing.Point(0, 431);
+               this.button4.Location = new System.Drawing.Point(3, 400);
                this.button4.Name = "button4";
-               this.button4.Size = new System.Drawing.Size(254, 94);
+               this.button4.Size = new System.Drawing.Size(269, 70);
                this.button4.TabIndex = 4;
                this.button4.Text = "TÌM KIẾM";
                this.button4.UseVisualStyleBackColor = false;
@@ -192,9 +214,9 @@
                this.button2.ForeColor = System.Drawing.Color.White;
                this.button2.Image = global::BaiTapLon_CS.Properties.Resources.Actions_list_add_user_icon__2_;
                this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.button2.Location = new System.Drawing.Point(2, 211);
+               this.button2.Location = new System.Drawing.Point(2, 199);
                this.button2.Name = "button2";
-               this.button2.Size = new System.Drawing.Size(254, 94);
+               this.button2.Size = new System.Drawing.Size(270, 70);
                this.button2.TabIndex = 2;
                this.button2.Text = "THÊM";
                this.button2.UseVisualStyleBackColor = false;
@@ -230,9 +252,9 @@
                this.lbText.ForeColor = System.Drawing.Color.White;
                this.lbText.Location = new System.Drawing.Point(25, 8);
                this.lbText.Name = "lbText";
-               this.lbText.Size = new System.Drawing.Size(146, 17);
+               this.lbText.Size = new System.Drawing.Size(142, 17);
                this.lbText.TabIndex = 2;
-               this.lbText.Text = "Code by : Phiêu Lê";
+               this.lbText.Text = "Code by : NHÓM 1";
                // 
                // lbName
                // 
@@ -274,34 +296,34 @@
             this.đổiMậtKhẩuToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
                this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-               this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+               this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(107, 27);
                this.thôngTinToolStripMenuItem.Text = "Chức năng";
                // 
                // xemThôngTinTrangCáNhânToolStripMenuItem
                // 
                this.xemThôngTinTrangCáNhânToolStripMenuItem.Name = "xemThôngTinTrangCáNhânToolStripMenuItem";
-               this.xemThôngTinTrangCáNhânToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+               this.xemThôngTinTrangCáNhânToolStripMenuItem.Size = new System.Drawing.Size(316, 28);
                this.xemThôngTinTrangCáNhânToolStripMenuItem.Text = "Xem thông tin trang cá nhân";
                this.xemThôngTinTrangCáNhânToolStripMenuItem.Click += new System.EventHandler(this.xemThôngTinTrangCáNhânToolStripMenuItem_Click);
                // 
                // đổiMậtKhẩuToolStripMenuItem
                // 
                this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-               this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+               this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(316, 28);
                this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
                this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
                // 
                // đăngXuấtToolStripMenuItem
                // 
                this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-               this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(280, 26);
+               this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(316, 28);
                this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
                this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
                // 
                // chúThíchToolStripMenuItem
                // 
                this.chúThíchToolStripMenuItem.Name = "chúThíchToolStripMenuItem";
-               this.chúThíchToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+               this.chúThíchToolStripMenuItem.Size = new System.Drawing.Size(177, 27);
                this.chúThíchToolStripMenuItem.Text = "Hướng dẫn sử dụng";
                this.chúThíchToolStripMenuItem.Click += new System.EventHandler(this.chúThíchToolStripMenuItem_Click);
                // 
@@ -387,11 +409,26 @@
                this.timer2.Interval = 1000;
                this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
                // 
+               // btnExit
+               // 
+               this.btnExit.BackColor = System.Drawing.Color.DarkTurquoise;
+               this.btnExit.Image = global::BaiTapLon_CS.Properties.Resources.icons8_close_window_32;
+               this.btnExit.ImageActive = null;
+               this.btnExit.Location = new System.Drawing.Point(1415, 0);
+               this.btnExit.Name = "btnExit";
+               this.btnExit.Size = new System.Drawing.Size(36, 31);
+               this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+               this.btnExit.TabIndex = 11;
+               this.btnExit.TabStop = false;
+               this.btnExit.Zoom = 10;
+               this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+               // 
                // GUI
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.ClientSize = new System.Drawing.Size(1451, 827);
+               this.Controls.Add(this.btnExit);
                this.Controls.Add(this.panel3);
                this.Controls.Add(this.pnComponent);
                this.Controls.Add(this.panel2);
@@ -414,6 +451,7 @@
                this.pnlContain.PerformLayout();
                this.panel3.ResumeLayout(false);
                this.panel3.PerformLayout();
+               ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -450,5 +488,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private Bunifu.Framework.UI.BunifuImageButton btnExit;
     }
 }
