@@ -75,16 +75,7 @@ namespace BaiTapLon_CS.Forms
                 MessageBox.Show("Nhap sai ngày tháng hết hạn", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            try
-            {
-                //medicine.Amount = int.Parse(TextBoxSoLuongCon.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Nhap sai số sản phẩm", null, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            //medicine.Source = TextBoxXuatXu.Text;
+            medicine.Source = TextBoxXuatXu.Text;
 
             try
             {

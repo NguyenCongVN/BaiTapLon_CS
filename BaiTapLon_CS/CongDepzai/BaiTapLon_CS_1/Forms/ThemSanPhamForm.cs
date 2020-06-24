@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms;
 using BaiTapLon_CS.Forms.Control;
 using System;
@@ -53,7 +54,7 @@ namespace BaiTapLon_CS.Forms
 
             medicine.Registration_Number = TextBoxMaDangKi.Text;
 
-            medicine.ID_Category = new List<int?>{ (ComboBoxLoaiHang.SelectedItem as DataRowView).Row.Field<int>("ID_Category") };
+            medicine.ID_Category = new List<int?>{ (ComboBoxLoaiHang.SelectedItem as ComboBoxItem).Value };
 
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {

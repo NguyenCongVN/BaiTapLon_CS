@@ -18,21 +18,7 @@ namespace BaiTapLon_CS.Forms
 
         public void FillTheTextBox()
         {
-            string query = "select manager.Name_Manager, " +
-"import.Import_Date, " +
-"import.ID_Import, " +
-"sum(Cost) as 'Total' " +
-"from Import import " +
-"inner " +
-"join Manager manager " +
-"on import.ID_Manager = manager.ID_Manager " +
-"inner " +
-"join Import_Detail detail " +
-"on detail.ID_Import = import.ID_Import " +
-"where import.ID_Import = @value " +
-"group by manager.Name_Manager, " +
-"import.Import_Date, " +
-"import.ID_Import";
+            string query = "exec ShowImportDetail @value";
 
 
             SqlConnection connection = new SqlConnection(Form1.connect);

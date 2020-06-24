@@ -158,6 +158,13 @@ namespace BaiTapLon_CS.Forms.Control
                 if (medicine.ID_Medicine == Id)
                 {
                     medicine1 = medicine;
+                    medicine1.ID_Category = new List<int?>();
+                    medicine1.Name_Category = new List<string>();
+                    foreach(var category in MedicineHelper.GetCategoryOfTheMedicine(medicine.ID_Medicine))
+                    {
+                        medicine1.ID_Category.Add(category.CategoryID);
+                        medicine1.Name_Category.Add(category.NameCategory);
+                    }
                     break;
                 }
             }
