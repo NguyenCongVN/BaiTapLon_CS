@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowMedicines));
             this.PanelSanPham = new System.Windows.Forms.Panel();
+            this.labelGiaNhap = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +58,6 @@
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
             this.categoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.labelGiaNhap = new System.Windows.Forms.Label();
             this.PanelSanPham.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,6 +95,15 @@
             this.PanelSanPham.Size = new System.Drawing.Size(985, 580);
             this.PanelSanPham.TabIndex = 3;
             // 
+            // labelGiaNhap
+            // 
+            this.labelGiaNhap.AutoSize = true;
+            this.labelGiaNhap.Location = new System.Drawing.Point(628, 507);
+            this.labelGiaNhap.Name = "labelGiaNhap";
+            this.labelGiaNhap.Size = new System.Drawing.Size(94, 16);
+            this.labelGiaNhap.TabIndex = 17;
+            this.labelGiaNhap.Text = "Giá Nhập Kho:";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -109,7 +117,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources.icons8_add_property_48px_2;
             this.pictureBox1.Location = new System.Drawing.Point(3, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(46, 54);
@@ -322,15 +330,6 @@
             // 
             this.categoryBindingSource1.DataMember = "Category";
             this.categoryBindingSource1.DataSource = this.bAITAPLONDataSet;
-            // 
-            // labelGiaNhap
-            // 
-            this.labelGiaNhap.AutoSize = true;
-            this.labelGiaNhap.Location = new System.Drawing.Point(628, 507);
-            this.labelGiaNhap.Name = "labelGiaNhap";
-            this.labelGiaNhap.Size = new System.Drawing.Size(94, 16);
-            this.labelGiaNhap.TabIndex = 17;
-            this.labelGiaNhap.Text = "Giá Nhập Kho:";
             // 
             // ShowMedicines
             // 

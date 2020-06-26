@@ -240,7 +240,7 @@ namespace BaiTapLon_CS.Forms
             medicine1.ID_Manufacturer = new List<int?>();
             try
             {
-                int idManufacturer = (int)(ComboBoxCongty.SelectedItem as DataRowView).Row.Field<int>("ID_Manufacturer");
+                int idManufacturer = (int)(ComboBoxCongty.SelectedItem as ComboBoxItem).Value;
                 if (!medicine1.ID_Manufacturer.Contains(idManufacturer))
                     medicine1.ID_Manufacturer.Add(idManufacturer);
             }
@@ -251,7 +251,7 @@ namespace BaiTapLon_CS.Forms
 
             try
             {
-                int idCategory = (ComboBoxChonLoai.SelectedItem as DataRowView).Row.Field<int>("ID_Category");
+                int idCategory = (ComboBoxChonLoai.SelectedItem as ComboBoxItem).Value;
                 if (!medicine1.ID_Category.Contains(idCategory))
                     medicine1.ID_Category.Add(idCategory);
             }
