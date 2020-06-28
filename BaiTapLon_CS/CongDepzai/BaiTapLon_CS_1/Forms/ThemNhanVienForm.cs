@@ -48,7 +48,7 @@ namespace BaiTapLon_CS.Forms
                 }
                 try
                 {
-                    manager.Salary =  decimal.Parse(textBoxLuong.Text);
+                    manager.Salary = decimal.Parse(textBoxLuong.Text);
                 }
                 catch
                 {
@@ -76,7 +76,7 @@ namespace BaiTapLon_CS.Forms
             manager.Password = TextBoxMatKhau.Text;
 
 
-            if((comboBox1.SelectedItem as ComboBoxItem).Value == 1)
+            if ((comboBox1.SelectedItem as ComboBoxItem).Value == 1)
             {
                 manager.Sex = true;
             }

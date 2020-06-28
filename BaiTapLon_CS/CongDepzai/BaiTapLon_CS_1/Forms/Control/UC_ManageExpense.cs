@@ -23,7 +23,7 @@ namespace MedicineShopManagement.UserControls
             foreach (var item in expenses)
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Type ,
-                    item.Cost.ToString() ,
+                    ExtensionHelper.ChangeToCurrency(item.Cost.ToString()) ,
                     item.Detail ,
                     item.DayCost.ToString() , item.ID.ToString()});
                 listViewChiTieu.Items.Add(listViewItem);

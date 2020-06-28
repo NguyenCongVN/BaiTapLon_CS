@@ -44,8 +44,8 @@ namespace BaiTapLon_CS.Forms
             foreach (var item in MedicineHelper.GetImportHistory(medicine.ID_Medicine))
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Import_Date.ToString() ,
-                    item.Date_Of_Manufacture.ToString() ,
-                    item.Expiry_Date.ToString() ,
+                    item.Date_Of_Manufacture.ToShortDateString() ,
+                    item.Expiry_Date.ToShortDateString() ,
                     item.ID_Import.ToString()
                     });
                 ListImport.Items.Add(listViewItem);

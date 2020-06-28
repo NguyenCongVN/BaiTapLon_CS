@@ -25,7 +25,7 @@ namespace BaiTapLon_CS.Forms
             InitializeComponent();
             InitilizeManufaturerComboBox();
             ShowMedicines.InitComboBoxCategory(ComboBoxChonLoai);
-            ListNhapHang.Columns[5].Width = 0;
+            ListNhapHang.Columns[ListNhapHang.Columns.Count - 1].Width = 0;
             ListShow.Items.Clear();
             List<Medicine> medicines = MedicineHelper.GetMedicines();
             int i = 0;
@@ -52,7 +52,7 @@ namespace BaiTapLon_CS.Forms
             int idXoa = -1;
             try
             {
-                idXoa = int.Parse(ListNhapHang.SelectedItems[0].SubItems[5].Text);
+                idXoa = int.Parse(ListNhapHang.SelectedItems[0].SubItems[6].Text);
                 foreach (var medicine in listToAdd)
                 {
                     if (medicine.Item2 == idXoa)
@@ -67,6 +67,13 @@ namespace BaiTapLon_CS.Forms
             {
                 Debug.WriteLine("Ma xoa san pham khong hop le");
             }
+            decimal Total = 0;
+            foreach (ListViewItem row in ListNhapHang.Items)
+            {
+                Total += decimal.Parse(ExtensionHelper.ChangeToNormalDecimal(row.SubItems[5].Text));
+            }
+            labelTongTien.Text = ExtensionHelper.ChangeToCurrency(Total.ToString()) + " VND";
+
 
         }
 
@@ -129,6 +136,7 @@ namespace BaiTapLon_CS.Forms
                 TextBoxSoLuongCon.Text = medicine1.Remain_Amount.Value.ToString();
             }
             TextBoxXuatXu.Text = medicine1.Source;
+            textBoxTienNhap.Text = medicine1.Cost.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -147,6 +155,7 @@ namespace BaiTapLon_CS.Forms
                 }
                 else
                 {
+                    MessageBox.Show("Chọn thuốc để nhập !");
                     return;
                 }
             }
@@ -160,6 +169,10 @@ namespace BaiTapLon_CS.Forms
                     int.Parse(TextBoxThangSanXuat.Text),
                     int.Parse(TextBoxNgaySanXuat.Text));
                 medicine1.Date_Of_Manufacture = dateTime;
+                if (medicine1.Date_Of_Manufacture >= DateTime.Now)
+                {
+                    throw new Exception();
+                }
             }
             catch (Exception ex)
             {
@@ -241,25 +254,39 @@ namespace BaiTapLon_CS.Forms
             try
             {
                 int idManufacturer = (int)(ComboBoxCongty.SelectedItem as ComboBoxItem).Value;
+
                 if (!medicine1.ID_Manufacturer.Contains(idManufacturer))
                     medicine1.ID_Manufacturer.Add(idManufacturer);
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Hãy Chọn Công Ty Sản Xuất");
+                return;
                 Debug.WriteLine(ex.ToString());
             }
 
             try
             {
-                int idCategory = (ComboBoxChonLoai.SelectedItem as ComboBoxItem).Value;
-                if (!medicine1.ID_Category.Contains(idCategory))
-                    medicine1.ID_Category.Add(idCategory);
+                decimal Cost = decimal.Parse(textBoxTienNhap.Text);
+                medicine1.Cost = Cost;
             }
-            catch (Exception ex)
+            catch
             {
-                Debug.WriteLine(ex.ToString());
+                MessageBox.Show("Nhập vào số tiền mỗi đơn vị thuốc");
+                return;
             }
 
+
+            //try
+            //{
+            //    int idCategory = (ComboBoxChonLoai.SelectedItem as ComboBoxItem).Value;
+            //    if (!medicine1.ID_Category.Contains(idCategory))
+            //        medicine1.ID_Category.Add(idCategory);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex.ToString());
+            //}
             listToAdd.Add(new Tuple<Medicine, int>(medicine1, iteratorAdd));
 
 
@@ -267,10 +294,16 @@ namespace BaiTapLon_CS.Forms
             ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , medicine1.ID_Medicine.ToString() ,
                     medicine1.Name_Medicine ,
                     medicine1.Remain_Amount.ToString() ,
-                    medicine1.Expiry_Date.ToString() , iteratorAdd.ToString()});
+                    medicine1.Expiry_Date.Value.ToShortDateString() , ExtensionHelper.ChangeToCurrency((medicine1.Cost.Value * medicine1.Remain_Amount.Value).ToString()) , iteratorAdd.ToString()});
             ListNhapHang.Items.Add(listViewItem);
             iteratorAdd++;
             i++;
+            decimal Total = 0;
+            foreach (ListViewItem row in ListNhapHang.Items)
+            {
+                Total += decimal.Parse(ExtensionHelper.ChangeToNormalDecimal(row.SubItems[5].Text));
+            }
+            labelTongTien.Text = ExtensionHelper.ChangeToCurrency(Total.ToString()) + " VND";
         }
 
         private void NhapHang_Load(object sender, EventArgs e)
@@ -363,7 +396,7 @@ namespace BaiTapLon_CS.Forms
             BoolClass boolClass = new BoolClass { isChanged = false };
             ThemCongTy themCongTy = new ThemCongTy(boolClass);
             themCongTy.ShowDialog();
-            if(boolClass.isChanged = true)
+            if (boolClass.isChanged = true)
             {
                 InitilizeManufaturerComboBox();
             }
@@ -386,6 +419,11 @@ namespace BaiTapLon_CS.Forms
                     }
                 }
             }
+        }
+
+        private void ButtonHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

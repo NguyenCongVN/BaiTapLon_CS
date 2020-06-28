@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
+﻿using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using BaiTapLon_CS.Helper;
 using BaiTapLon_CS.Properties;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
 {
@@ -21,7 +16,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
         public string ColumnHeader1 { get; set; }
         public string ColumnHeader2 { get; set; }
         public string ColumnHeader3 { get; set; }
-        public void SetColumnHeader(string col1 , string col2 , string col3 , string col4)
+        public void SetColumnHeader(string col1, string col2, string col3, string col4)
         {
             listViewGeneral.Columns[0].Text = col1;
             listViewGeneral.Columns[1].Text = col2;
@@ -72,21 +67,49 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
             }
             if (instance.ImageMedicine != null)
             {
-                pictureBoxThuocBanChay.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxThuocBanChay, instance.ImageMedicine);
+                try
+                {
+                    pictureBoxThuocBanChay.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxThuocBanChay, instance.ImageMedicine);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else
             {
-                pictureBoxThuocBanChay.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxThuocBanChay, Resources.icons8_pill_240px);
+                try
+                {
+                    pictureBoxThuocBanChay.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxThuocBanChay, Resources.icons8_pill_240px);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
 
 
             if (instance.Image_Manager != null)
             {
-                pictureBoxNhanVienXuatSac.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxNhanVienXuatSac, instance.Image_Manager);
+                try
+                {
+                    pictureBoxNhanVienXuatSac.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxNhanVienXuatSac, instance.Image_Manager);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else
             {
-                pictureBoxNhanVienXuatSac.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxNhanVienXuatSac, Resources.icons8_manager_100px);
+                try
+                {
+                    pictureBoxNhanVienXuatSac.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxNhanVienXuatSac, Resources.icons8_manager_100px);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             pictureBoxKhachHangThanQuen.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxThuocBanChay, Resources.icons8_user_100px);
 
@@ -107,16 +130,31 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
 
             if (instance.Image_Manager != null)
             {
-                pictureBoxDetail.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxDetail, instance.Image_Manager);
+                try
+                {
+                    pictureBoxDetail.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxDetail, instance.Image_Manager);
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
             else
             {
+                try
+                {
+
                 pictureBoxDetail.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxDetail, Resources.icons8_manager_100px);
             }
+                catch (Exception ex)
+            {
+
+            }
+        }
 
             labelTen.Text = "Họ Và Tên: " + instance.Name_Manager;
             labelSoDonHang.Text = "Số Đơn Hàng Bán: " + instance.TotalInvoiceSold.ToString();
-            labelSoTienBan.Text = "Số Tiền Bán: " + instance.TotalMoneySold.ToString() + " VND";
+            labelSoTienBan.Text = "Số Tiền Bán: " + ExtensionHelper.ChangeToCurrency(instance.TotalMoneySold.ToString()) + " VND";
             listViewGeneral.Visible = true;
             List<ManagerStatistic> managers = ThongKeHelper.GetManagerStatistic();
             int i = 0;
@@ -126,7 +164,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
                 i++;
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Name_Manager ,
                     item.TotalInvoice.ToString() ,
-                    item.TotalMoneySold.ToString()
+                    ExtensionHelper.ChangeToCurrency(item.TotalMoneySold.ToString())
                     });
                 listViewGeneral.Items.Add(listViewItem);
             }
@@ -145,7 +183,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
             //pictureBoxDetail.Image = ChangeBitmapHelper.ChangeBitMap(pictureBoxDetail, instance.)
             labelTen.Text = "Họ Và Tên: " + instance.CustomerName;
             labelSoDonHang.Text = "Số Đơn Hàng Mua: " + instance.NumberInvoiceOfCustomer.ToString();
-            labelSoTienBan.Text = "Số Tiền Mua: " + instance.TotalCost.ToString() + " VND";
+            labelSoTienBan.Text = "Số Tiền Mua: " + ExtensionHelper.ChangeToCurrency(instance.TotalCost.ToString()) + " VND";
             listViewGeneral.Visible = true;
             List<CustomerStatistic> customer = ThongKeHelper.GetCustomerStatistic();
             int i = 0;
@@ -155,7 +193,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
                 i++;
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Name_Customer ,
                     item.TotalInvoice.ToString() ,
-                    item.TotalMoney.ToString()
+                    ExtensionHelper.ChangeToCurrency(item.TotalMoney.ToString())
                     });
                 listViewGeneral.Items.Add(listViewItem);
             }
@@ -182,7 +220,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
                 pictureBoxDetail.Image = ChangeBitmapHelper.ChangeBitMapResource(pictureBoxDetail, Resources.icons8_pill_240px);
             }
             listViewGeneral.Visible = true;
-            
+
             List<MedicineStatistic> medicines = ThongKeHelper.GetMedicineStatistic();
             int i = 0;
             listViewGeneral.Items.Clear();

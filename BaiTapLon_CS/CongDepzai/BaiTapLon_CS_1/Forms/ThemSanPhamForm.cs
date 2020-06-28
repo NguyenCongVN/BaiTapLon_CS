@@ -4,9 +4,7 @@ using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms;
 using BaiTapLon_CS.Forms.Control;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace BaiTapLon_CS.Forms
@@ -54,7 +52,7 @@ namespace BaiTapLon_CS.Forms
 
             medicine.Registration_Number = TextBoxMaDangKi.Text;
 
-            medicine.ID_Category = new List<int?>{ (ComboBoxLoaiHang.SelectedItem as ComboBoxItem).Value };
+            medicine.ID_Category = new List<int?> { (ComboBoxLoaiHang.SelectedItem as ComboBoxItem).Value };
 
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
@@ -77,7 +75,7 @@ namespace BaiTapLon_CS.Forms
         {
             ThemLoaiHang themLoai = new ThemLoaiHang(boolClass);
             themLoai.ShowDialog();
-            if(boolClass.isChanged == true)
+            if (boolClass.isChanged == true)
             {
                 ShowMedicines.InitComboBoxCategory(ComboBoxLoaiHang);
             }

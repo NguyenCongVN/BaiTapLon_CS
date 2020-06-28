@@ -34,7 +34,7 @@ namespace BaiTapLon_CS.Forms.Control
                     item.Remain_Amount.ToString() ,
                     item.Min_Expiry.Value.ToShortDateString() + " - " + item.Max_Expiry.Value.ToShortDateString() });
                 ListShow.Items.Add(listViewItem);
-                
+
             }
             ContextMenuStrip contextMenuStripListShow = new ContextMenuStrip();
             ToolStripMenuItem itemXoa = new ToolStripMenuItem();
@@ -53,7 +53,7 @@ namespace BaiTapLon_CS.Forms.Control
             ComboBoxChonLoai.Items.Add(allItem);
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
-                string query = "select * from Category";
+                string query = "exec GetAllCategory";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
                 {
                     DataTable table = new DataTable();
@@ -81,7 +81,7 @@ namespace BaiTapLon_CS.Forms.Control
                     using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
                     {
                         sqlConnection.Open();
-                        string query = "delete from Medicine where ID_Medicine = @value";
+                        string query = "exec deleteMedicine @value";
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                         sqlCommand.Parameters.AddWithValue("value", id);
                         sqlCommand.ExecuteScalar();
@@ -126,10 +126,10 @@ namespace BaiTapLon_CS.Forms.Control
                 + " - " + medicine1.Max_Date_Of_Manufacture.Value.ToShortDateString();
             LabelDongGoi.Text = "Đóng gói:" + medicine1.Packing;
             LabelSoLuongTrongMoiGoi.Text = "Số Lượng trong mỗi gói:" + medicine1.Unit;
-            LabelGiaThanh.Text = "Giá Thành:" + medicine1.Cost.ToString();
+            LabelGiaThanh.Text = "Giá Thành:" + ExtensionHelper.ChangeToCurrency(medicine1.Cost.ToString());
             LabelMaDangKi.Text = "Mã Đăng Kí:" + medicine1.Registration_Number;
             LabelXuatXu.Text = "Xuất Xứ:" + medicine1.Source;
-            labelGiaNhap.Text = "Giá Nhập:Từ " + medicine1.Min_Import_Cost.ToString() + " tới" + medicine1.Max_Import_Cost.ToString();
+            labelGiaNhap.Text = "Giá Nhập:Từ " + ExtensionHelper.ChangeToCurrency(medicine1.Min_Import_Cost.ToString()) + " tới" + ExtensionHelper.ChangeToCurrency(medicine1.Max_Import_Cost.ToString());
         }
 
         private void ButtonNhapHang_Click(object sender, EventArgs e)
@@ -160,7 +160,7 @@ namespace BaiTapLon_CS.Forms.Control
                     medicine1 = medicine;
                     medicine1.ID_Category = new List<int?>();
                     medicine1.Name_Category = new List<string>();
-                    foreach(var category in MedicineHelper.GetCategoryOfTheMedicine(medicine.ID_Medicine))
+                    foreach (var category in MedicineHelper.GetCategoryOfTheMedicine(medicine.ID_Medicine))
                     {
                         medicine1.ID_Category.Add(category.CategoryID);
                         medicine1.Name_Category.Add(category.NameCategory);
@@ -200,7 +200,7 @@ namespace BaiTapLon_CS.Forms.Control
                 return;
             }
             string path = ExtensionHelper.ChoosePath();
-            if(path != string.Empty)
+            if (path != string.Empty)
             {
                 try
                 {

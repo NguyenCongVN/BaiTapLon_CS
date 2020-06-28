@@ -1,5 +1,6 @@
 ﻿using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Helper;
+using BaiTapLon_CS.Helper;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -18,7 +19,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms
         public void Load()
         {
             textBoxMaNhap.Text = invoice.ID.ToString();
-            textBoxTongTien.Text = invoice.Cost.ToString();
+            textBoxTongTien.Text = ExtensionHelper.ChangeToCurrency(invoice.Cost.ToString());
             textBoxNguoiMua.Text = invoice.NameCustomer;
             textBoxNguoiBan.Text = invoice.NameManager;
             TextBoxNgayNhap.Text = invoice.Time_Of_Purchase.Day.ToString();
@@ -38,7 +39,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Name_Medicine ,
                     item.Amount.ToString() ,
-                    item.Cost.ToString()});
+                    ExtensionHelper.ChangeToCurrency(item.Cost.ToString())});
                 listViewDetail.Items.Add(listViewItem);
                 i++;
             }

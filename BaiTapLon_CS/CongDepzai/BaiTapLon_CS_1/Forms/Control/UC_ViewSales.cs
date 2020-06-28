@@ -1,6 +1,7 @@
 ﻿using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms;
 using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Helper;
+using BaiTapLon_CS.Helper;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -31,7 +32,7 @@ namespace MedicineShopManagement.UserControls
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.NameManager ,
                     item.NameCustomer ,
-                    item.Cost.ToString() ,
+                    ExtensionHelper.ChangeToCurrency(item.Cost.ToString()) ,
                     item.ID.ToString(),
                 item.Time_Of_Purchase.ToShortDateString()});
                 listViewSale.Items.Add(listViewItem);
@@ -45,7 +46,7 @@ namespace MedicineShopManagement.UserControls
             try
             {
                 ID = int.Parse(listViewSale.SelectedItems[0].SubItems[4].Text);
-                if(ID != -1)
+                if (ID != -1)
                 {
                     Invoice invoice = new Invoice
                     {
@@ -59,7 +60,7 @@ namespace MedicineShopManagement.UserControls
                     show.ShowDialog();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
