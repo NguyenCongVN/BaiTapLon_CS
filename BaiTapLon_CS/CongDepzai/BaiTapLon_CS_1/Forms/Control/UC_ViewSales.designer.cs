@@ -37,12 +37,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewSale = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
@@ -125,29 +126,32 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.listView1);
+            this.panel6.Controls.Add(this.listViewSale);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(10, 77);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(965, 468);
             this.panel6.TabIndex = 14;
             // 
-            // listView1
+            // listViewSale
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewSale.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(965, 468);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader3});
+            this.listViewSale.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewSale.FullRowSelect = true;
+            this.listViewSale.HideSelection = false;
+            this.listViewSale.Location = new System.Drawing.Point(0, 0);
+            this.listViewSale.Name = "listViewSale";
+            this.listViewSale.Size = new System.Drawing.Size(965, 468);
+            this.listViewSale.TabIndex = 0;
+            this.listViewSale.UseCompatibleStateImageBehavior = false;
+            this.listViewSale.View = System.Windows.Forms.View.Details;
+            this.listViewSale.Click += new System.EventHandler(this.listViewSale_Click);
             // 
             // columnHeader1
             // 
@@ -159,20 +163,23 @@
             this.columnHeader2.Text = "Người bán";
             this.columnHeader2.Width = 228;
             // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Mã Người bán";
-            this.columnHeader3.Width = 189;
-            // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Khách Hàng";
             this.columnHeader4.Width = 249;
             // 
-            // columnHeader5
+            // columnHeader6
             // 
-            this.columnHeader5.Text = "Mã Khách Hàng";
-            this.columnHeader5.Width = 203;
+            this.columnHeader6.Text = "Giá Trị Đơn Hàng";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "ID";
+            this.columnHeader7.Width = 0;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Ngày Bán";
             // 
             // UC_ViewSales
             // 
@@ -204,11 +211,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewSale;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

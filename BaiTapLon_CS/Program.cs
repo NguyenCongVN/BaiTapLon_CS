@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicineShopManagement.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace BaiTapLon_CS

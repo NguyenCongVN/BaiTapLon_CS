@@ -8,5 +8,6 @@ namespace BaiTapLon_CS.Class
         public decimal Cost { get; set; }
         public string Detail { get; set; }
         public DateTime DayCost { get; set; }
+        public int ID { get; set; }
     }
 }

@@ -21,6 +21,12 @@ namespace BaiTapLon_CS.Class
         public string Source { get; set; }
         public List<string> Name_Manufacturer { get; set; }
         public List<int?> ID_Manufacturer { get; set; }
+        public DateTime? Min_Date_Of_Manufacture { get; set; }
+        public DateTime? Max_Date_Of_Manufacture { get; set; }
+        public decimal? Max_Import_Cost { get; set; }
+        public decimal? Min_Import_Cost { get; set; }
+        public DateTime? Max_Expiry { get; set; }
+        public DateTime? Min_Expiry { get; set; }
     }
 }
 

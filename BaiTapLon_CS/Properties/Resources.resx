@@ -337,4 +337,76 @@
   <data name="icons8-medical-doctor-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-medical-doctor-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EmployeeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\EmployeeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\ExportFileIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_add_property_480px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_480px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_add_property_48px_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_48px_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_add_property_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_property_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_add_user_male_24px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_add_user_male_24px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_graph_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_graph_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_graph_50px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_graph_50px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_manager_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_manager_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_manager_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_manager_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_nurse_male_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_nurse_male_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_pill_240px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_pill_240px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_statistics_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_statistics_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_statistics_80px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_statistics_80px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_user_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_user_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_user_50px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\icons8_user_50px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LookupIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\LookupIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shopping_Cart2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\Shopping-Cart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TaskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\CongDepzai\BaiTapLon_CS_1\Resource\Icon\TaskIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_pill_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_pill_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_pill_40px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_pill_40px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_pill_50px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_pill_50px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8_pill_80px_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_pill_80px_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

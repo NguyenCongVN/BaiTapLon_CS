@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaiTapLon_CS.Helper;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -18,21 +19,7 @@ namespace BaiTapLon_CS.Forms
 
         public void FillTheTextBox()
         {
-            string query = "select manager.Name_Manager, " +
-"import.Import_Date, " +
-"import.ID_Import, " +
-"sum(Cost) as 'Total' " +
-"from Import import " +
-"inner " +
-"join Manager manager " +
-"on import.ID_Manager = manager.ID_Manager " +
-"inner " +
-"join Import_Detail detail " +
-"on detail.ID_Import = import.ID_Import " +
-"where import.ID_Import = @value " +
-"group by manager.Name_Manager, " +
-"import.Import_Date, " +
-"import.ID_Import";
+            string query = "exec ShowImportDetail @value";
 
 
             SqlConnection connection = new SqlConnection(Form1.connect);
@@ -50,26 +37,14 @@ namespace BaiTapLon_CS.Forms
                 TextBoxNgayNhap.Text = importDate.Day.ToString();
                 TextBoxThangNhap.Text = importDate.Month.ToString();
                 TextBoxNamNhap.Text = importDate.Year.ToString();
-                textBoxTongTien.Text = total.ToString();
+                textBoxTongTien.Text = ExtensionHelper.ChangeToCurrency(total.ToString());
             }
         }
 
 
         public void ShowList()
         {
-            string query = "select detail.Date_Of_Manufacture, " +
-    "detail.Expiry_Date, " +
-    "detail.Amount, " +
-    "detail.Cost, " +
-    "medicine.Name_Medicine " +
-    "from Import import inner join " +
-    "Import_Detail detail " +
-    "on import.ID_Import = detail.ID_Import " +
-    "inner join Manager manager " +
-    "on manager.ID_Manager = import.ID_Manager " +
-    "inner join Medicine medicine " +
-    "on detail.ID_Medicine = medicine.ID_Medicine " +
-    "where import.ID_Import = @value";
+            string query = "exec GetImportHistoryDetail @value";
 
             SqlConnection connection = new SqlConnection(Form1.connect);
             SqlCommand command = new SqlCommand(query, connection);
@@ -81,8 +56,8 @@ namespace BaiTapLon_CS.Forms
                 foreach (DataRow item in table.Rows)
                 {
                     ListViewItem listViewItem = new ListViewItem(new string[] {item.Field<string>("Name_Medicine") ,
-                    item.Field<DateTime>("Date_Of_Manufacture").ToString() ,
-                    item.Field<DateTime>("Expiry_Date").ToString() ,
+                    item.Field<DateTime>("Date_Of_Manufacture").ToShortDateString(),
+                    item.Field<DateTime>("Expiry_Date").ToShortDateString() ,
                     item.Field<int>("Amount").ToString()
                     });
                     listView1.Items.Add(listViewItem);

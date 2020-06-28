@@ -34,19 +34,17 @@
             this.TextBoxTenNhanVien = new System.Windows.Forms.TextBox();
             this.TextBoxEmail = new System.Windows.Forms.TextBox();
             this.TextBoxDienThoai = new System.Windows.Forms.TextBox();
-            this.TextBoxMatKhau = new System.Windows.Forms.TextBox();
             this.Label = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.LabelMaSanPham = new System.Windows.Forms.Label();
             this.LabelDongGoi = new System.Windows.Forms.Label();
-            this.LabelXuatXu = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxNgayVaoLam = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxLuong = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.buttonLienHe = new System.Windows.Forms.Button();
+            this.buttonDoiMatKhau = new System.Windows.Forms.Button();
             this.comboBoxGioiTinh = new System.Windows.Forms.ComboBox();
             this.textBoxNamVaoLam = new System.Windows.Forms.MaskedTextBox();
             this.textBoxThangVaoLam = new System.Windows.Forms.MaskedTextBox();
@@ -104,13 +102,6 @@
             this.TextBoxDienThoai.Size = new System.Drawing.Size(231, 20);
             this.TextBoxDienThoai.TabIndex = 57;
             // 
-            // TextBoxMatKhau
-            // 
-            this.TextBoxMatKhau.Location = new System.Drawing.Point(111, 151);
-            this.TextBoxMatKhau.Name = "TextBoxMatKhau";
-            this.TextBoxMatKhau.Size = new System.Drawing.Size(231, 20);
-            this.TextBoxMatKhau.TabIndex = 53;
-            // 
             // Label
             // 
             this.Label.AutoSize = true;
@@ -147,19 +138,10 @@
             this.LabelDongGoi.TabIndex = 45;
             this.LabelDongGoi.Text = "Điện Thoại:";
             // 
-            // LabelXuatXu
-            // 
-            this.LabelXuatXu.AutoSize = true;
-            this.LabelXuatXu.Location = new System.Drawing.Point(12, 151);
-            this.LabelXuatXu.Name = "LabelXuatXu";
-            this.LabelXuatXu.Size = new System.Drawing.Size(56, 13);
-            this.LabelXuatXu.TabIndex = 43;
-            this.LabelXuatXu.Text = "Mật Khẩu:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 194);
+            this.label2.Location = new System.Drawing.Point(12, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 65;
@@ -168,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 230);
+            this.label3.Location = new System.Drawing.Point(12, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 66;
@@ -176,7 +158,7 @@
             // 
             // textBoxNgayVaoLam
             // 
-            this.textBoxNgayVaoLam.Location = new System.Drawing.Point(149, 227);
+            this.textBoxNgayVaoLam.Location = new System.Drawing.Point(149, 195);
             this.textBoxNgayVaoLam.Name = "textBoxNgayVaoLam";
             this.textBoxNgayVaoLam.Size = new System.Drawing.Size(30, 20);
             this.textBoxNgayVaoLam.TabIndex = 68;
@@ -184,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 269);
+            this.label4.Location = new System.Drawing.Point(12, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 69;
@@ -192,7 +174,7 @@
             // 
             // textBoxLuong
             // 
-            this.textBoxLuong.Location = new System.Drawing.Point(111, 269);
+            this.textBoxLuong.Location = new System.Drawing.Point(111, 237);
             this.textBoxLuong.Name = "textBoxLuong";
             this.textBoxLuong.Size = new System.Drawing.Size(46, 20);
             this.textBoxLuong.TabIndex = 70;
@@ -200,20 +182,21 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 272);
+            this.label5.Location = new System.Drawing.Point(163, 240);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 71;
             this.label5.Text = "/Tháng";
             // 
-            // buttonLienHe
+            // buttonDoiMatKhau
             // 
-            this.buttonLienHe.Location = new System.Drawing.Point(360, 85);
-            this.buttonLienHe.Name = "buttonLienHe";
-            this.buttonLienHe.Size = new System.Drawing.Size(75, 23);
-            this.buttonLienHe.TabIndex = 72;
-            this.buttonLienHe.Text = "Liên Hệ";
-            this.buttonLienHe.UseVisualStyleBackColor = true;
+            this.buttonDoiMatKhau.Location = new System.Drawing.Point(15, 285);
+            this.buttonDoiMatKhau.Name = "buttonDoiMatKhau";
+            this.buttonDoiMatKhau.Size = new System.Drawing.Size(91, 23);
+            this.buttonDoiMatKhau.TabIndex = 72;
+            this.buttonDoiMatKhau.Text = "Đổi Mật Khẩu";
+            this.buttonDoiMatKhau.UseVisualStyleBackColor = true;
+            this.buttonDoiMatKhau.Click += new System.EventHandler(this.buttonDoiMatKhau_Click);
             // 
             // comboBoxGioiTinh
             // 
@@ -221,21 +204,21 @@
             this.comboBoxGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.comboBoxGioiTinh.Location = new System.Drawing.Point(111, 194);
+            this.comboBoxGioiTinh.Location = new System.Drawing.Point(111, 162);
             this.comboBoxGioiTinh.Name = "comboBoxGioiTinh";
             this.comboBoxGioiTinh.Size = new System.Drawing.Size(68, 21);
             this.comboBoxGioiTinh.TabIndex = 73;
             // 
             // textBoxNamVaoLam
             // 
-            this.textBoxNamVaoLam.Location = new System.Drawing.Point(335, 227);
+            this.textBoxNamVaoLam.Location = new System.Drawing.Point(335, 195);
             this.textBoxNamVaoLam.Name = "textBoxNamVaoLam";
             this.textBoxNamVaoLam.Size = new System.Drawing.Size(51, 20);
             this.textBoxNamVaoLam.TabIndex = 74;
             // 
             // textBoxThangVaoLam
             // 
-            this.textBoxThangVaoLam.Location = new System.Drawing.Point(245, 227);
+            this.textBoxThangVaoLam.Location = new System.Drawing.Point(245, 195);
             this.textBoxThangVaoLam.Name = "textBoxThangVaoLam";
             this.textBoxThangVaoLam.Size = new System.Drawing.Size(30, 20);
             this.textBoxThangVaoLam.TabIndex = 75;
@@ -243,7 +226,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(297, 230);
+            this.label6.Location = new System.Drawing.Point(297, 198);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 76;
@@ -252,7 +235,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(198, 230);
+            this.label7.Location = new System.Drawing.Point(198, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 77;
@@ -261,7 +244,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(108, 230);
+            this.label8.Location = new System.Drawing.Point(108, 198);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 78;
@@ -278,7 +261,7 @@
             this.Controls.Add(this.textBoxThangVaoLam);
             this.Controls.Add(this.textBoxNamVaoLam);
             this.Controls.Add(this.comboBoxGioiTinh);
-            this.Controls.Add(this.buttonLienHe);
+            this.Controls.Add(this.buttonDoiMatKhau);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxLuong);
             this.Controls.Add(this.label4);
@@ -291,12 +274,10 @@
             this.Controls.Add(this.TextBoxTenNhanVien);
             this.Controls.Add(this.TextBoxEmail);
             this.Controls.Add(this.TextBoxDienThoai);
-            this.Controls.Add(this.TextBoxMatKhau);
             this.Controls.Add(this.Label);
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.LabelMaSanPham);
             this.Controls.Add(this.LabelDongGoi);
-            this.Controls.Add(this.LabelXuatXu);
             this.Name = "ChangeInformationManager";
             this.Text = "ChangeInformationManager";
             this.ResumeLayout(false);
@@ -311,19 +292,17 @@
         private System.Windows.Forms.TextBox TextBoxTenNhanVien;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.TextBox TextBoxDienThoai;
-        private System.Windows.Forms.TextBox TextBoxMatKhau;
         private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Label LabelMaSanPham;
         private System.Windows.Forms.Label LabelDongGoi;
-        private System.Windows.Forms.Label LabelXuatXu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox textBoxNgayVaoLam;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox textBoxLuong;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonLienHe;
+        private System.Windows.Forms.Button buttonDoiMatKhau;
         private System.Windows.Forms.ComboBox comboBoxGioiTinh;
         private System.Windows.Forms.MaskedTextBox textBoxNamVaoLam;
         private System.Windows.Forms.MaskedTextBox textBoxThangVaoLam;

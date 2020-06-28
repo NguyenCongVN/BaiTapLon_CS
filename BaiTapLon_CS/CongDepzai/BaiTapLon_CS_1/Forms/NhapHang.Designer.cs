@@ -33,8 +33,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TextBoxTimKiem = new System.Windows.Forms.TextBox();
             this.ComboBoxChonLoai = new System.Windows.Forms.ComboBox();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bAITAPLONDataSet = new BaiTapLon_CS.BAITAPLONDataSet();
             this.ListShow = new System.Windows.Forms.ListView();
             this.BoxStt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BoxId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,6 +44,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonXacNhan = new System.Windows.Forms.Button();
             this.ButtonHuy = new System.Windows.Forms.Button();
@@ -62,14 +61,11 @@
             this.LabelXuatXu = new System.Windows.Forms.Label();
             this.ButtonThemVaoDanhSach = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.categoryTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
             this.textBoxSoLuong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.ComboBoxCongty = new System.Windows.Forms.ComboBox();
             this.manufacturerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bAITAPLONDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.manufacturerTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.ManufacturerTableAdapter();
             this.buttonThemCongTy = new System.Windows.Forms.Button();
             this.LabelNgayHetHan = new System.Windows.Forms.Label();
             this.TextBoxNgaySuDung = new System.Windows.Forms.TextBox();
@@ -78,10 +74,20 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
+            this.textBoxTienNhap = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label13 = new System.Windows.Forms.Label();
+            this.labelTongTien = new System.Windows.Forms.Label();
+            this.bAITAPLONDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bAITAPLONDataSet = new BaiTapLon_CS.BAITAPLONDataSet();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
+            this.manufacturerTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.ManufacturerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -108,28 +114,16 @@
             this.TextBoxTimKiem.Name = "TextBoxTimKiem";
             this.TextBoxTimKiem.Size = new System.Drawing.Size(157, 20);
             this.TextBoxTimKiem.TabIndex = 18;
+            this.TextBoxTimKiem.TextChanged += new System.EventHandler(this.TextBoxTimKiem_TextChanged);
             // 
             // ComboBoxChonLoai
             // 
-            this.ComboBoxChonLoai.DataSource = this.categoryBindingSource;
-            this.ComboBoxChonLoai.DisplayMember = "Name_Category";
             this.ComboBoxChonLoai.FormattingEnabled = true;
             this.ComboBoxChonLoai.Location = new System.Drawing.Point(77, 38);
             this.ComboBoxChonLoai.Name = "ComboBoxChonLoai";
             this.ComboBoxChonLoai.Size = new System.Drawing.Size(101, 21);
             this.ComboBoxChonLoai.TabIndex = 17;
-            this.ComboBoxChonLoai.ValueMember = "ID_Category";
             this.ComboBoxChonLoai.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChonLoai_SelectedValueChanged);
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataMember = "Category";
-            this.categoryBindingSource.DataSource = this.bAITAPLONDataSet;
-            // 
-            // bAITAPLONDataSet
-            // 
-            this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
-            this.bAITAPLONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ListShow
             // 
@@ -179,13 +173,15 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader7,
+            this.columnHeader6});
             this.ListNhapHang.FullRowSelect = true;
             this.ListNhapHang.GridLines = true;
             this.ListNhapHang.HideSelection = false;
-            this.ListNhapHang.Location = new System.Drawing.Point(501, 38);
+            this.ListNhapHang.Location = new System.Drawing.Point(501, 41);
             this.ListNhapHang.Name = "ListNhapHang";
-            this.ListNhapHang.Size = new System.Drawing.Size(442, 366);
+            this.ListNhapHang.Size = new System.Drawing.Size(471, 366);
             this.ListNhapHang.TabIndex = 21;
             this.ListNhapHang.UseCompatibleStateImageBehavior = false;
             this.ListNhapHang.View = System.Windows.Forms.View.Details;
@@ -205,19 +201,23 @@
             // 
             this.columnHeader3.Text = "Tên Sản Phẩm";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 125;
+            this.columnHeader3.Width = 91;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Số Lượng";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 58;
+            this.columnHeader4.Width = 78;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Ngày Hết Hạn";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 136;
+            this.columnHeader5.Width = 82;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "IdAdd";
             // 
             // label1
             // 
@@ -229,7 +229,7 @@
             // 
             // ButtonXacNhan
             // 
-            this.ButtonXacNhan.Location = new System.Drawing.Point(877, 440);
+            this.ButtonXacNhan.Location = new System.Drawing.Point(887, 504);
             this.ButtonXacNhan.Name = "ButtonXacNhan";
             this.ButtonXacNhan.Size = new System.Drawing.Size(66, 23);
             this.ButtonXacNhan.TabIndex = 23;
@@ -239,17 +239,18 @@
             // 
             // ButtonHuy
             // 
-            this.ButtonHuy.Location = new System.Drawing.Point(788, 440);
+            this.ButtonHuy.Location = new System.Drawing.Point(784, 504);
             this.ButtonHuy.Name = "ButtonHuy";
             this.ButtonHuy.Size = new System.Drawing.Size(64, 23);
             this.ButtonHuy.TabIndex = 24;
             this.ButtonHuy.Text = "Hủy";
             this.ButtonHuy.UseVisualStyleBackColor = true;
+            this.ButtonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(333, 441);
+            this.label6.Location = new System.Drawing.Point(339, 478);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 60;
@@ -258,7 +259,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(256, 441);
+            this.label5.Location = new System.Drawing.Point(262, 478);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 59;
@@ -267,7 +268,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 438);
+            this.label2.Location = new System.Drawing.Point(191, 475);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 58;
@@ -276,21 +277,21 @@
             // 
             // TextBoxThangSanXuat
             // 
-            this.TextBoxThangSanXuat.Location = new System.Drawing.Point(304, 434);
+            this.TextBoxThangSanXuat.Location = new System.Drawing.Point(310, 471);
             this.TextBoxThangSanXuat.Name = "TextBoxThangSanXuat";
             this.TextBoxThangSanXuat.Size = new System.Drawing.Size(24, 20);
             this.TextBoxThangSanXuat.TabIndex = 57;
             // 
             // TextBoxNamSanXuat
             // 
-            this.TextBoxNamSanXuat.Location = new System.Drawing.Point(368, 434);
+            this.TextBoxNamSanXuat.Location = new System.Drawing.Point(374, 471);
             this.TextBoxNamSanXuat.Name = "TextBoxNamSanXuat";
             this.TextBoxNamSanXuat.Size = new System.Drawing.Size(52, 20);
             this.TextBoxNamSanXuat.TabIndex = 56;
             // 
             // TextBoxSoLuongCon
             // 
-            this.TextBoxSoLuongCon.Location = new System.Drawing.Point(188, 367);
+            this.TextBoxSoLuongCon.Location = new System.Drawing.Point(194, 404);
             this.TextBoxSoLuongCon.Name = "TextBoxSoLuongCon";
             this.TextBoxSoLuongCon.ReadOnly = true;
             this.TextBoxSoLuongCon.Size = new System.Drawing.Size(232, 20);
@@ -298,7 +299,7 @@
             // 
             // TextBoxXuatXu
             // 
-            this.TextBoxXuatXu.Location = new System.Drawing.Point(188, 406);
+            this.TextBoxXuatXu.Location = new System.Drawing.Point(194, 443);
             this.TextBoxXuatXu.Name = "TextBoxXuatXu";
             this.TextBoxXuatXu.ReadOnly = true;
             this.TextBoxXuatXu.Size = new System.Drawing.Size(232, 20);
@@ -306,7 +307,7 @@
             // 
             // TextBoxNgaySanXuat
             // 
-            this.TextBoxNgaySanXuat.Location = new System.Drawing.Point(226, 434);
+            this.TextBoxNgaySanXuat.Location = new System.Drawing.Point(232, 471);
             this.TextBoxNgaySanXuat.Name = "TextBoxNgaySanXuat";
             this.TextBoxNgaySanXuat.Size = new System.Drawing.Size(24, 20);
             this.TextBoxNgaySanXuat.TabIndex = 47;
@@ -314,7 +315,7 @@
             // LabelSoLuongCon
             // 
             this.LabelSoLuongCon.AutoSize = true;
-            this.LabelSoLuongCon.Location = new System.Drawing.Point(21, 367);
+            this.LabelSoLuongCon.Location = new System.Drawing.Point(27, 404);
             this.LabelSoLuongCon.Name = "LabelSoLuongCon";
             this.LabelSoLuongCon.Size = new System.Drawing.Size(78, 13);
             this.LabelSoLuongCon.TabIndex = 46;
@@ -323,7 +324,7 @@
             // LabelNgaySanXuat
             // 
             this.LabelNgaySanXuat.AutoSize = true;
-            this.LabelNgaySanXuat.Location = new System.Drawing.Point(15, 438);
+            this.LabelNgaySanXuat.Location = new System.Drawing.Point(21, 475);
             this.LabelNgaySanXuat.Name = "LabelNgaySanXuat";
             this.LabelNgaySanXuat.Size = new System.Drawing.Size(82, 13);
             this.LabelNgaySanXuat.TabIndex = 44;
@@ -332,7 +333,7 @@
             // LabelXuatXu
             // 
             this.LabelXuatXu.AutoSize = true;
-            this.LabelXuatXu.Location = new System.Drawing.Point(18, 406);
+            this.LabelXuatXu.Location = new System.Drawing.Point(24, 443);
             this.LabelXuatXu.Name = "LabelXuatXu";
             this.LabelXuatXu.Size = new System.Drawing.Size(48, 13);
             this.LabelXuatXu.TabIndex = 43;
@@ -358,10 +359,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // categoryTableAdapter
-            // 
-            this.categoryTableAdapter.ClearBeforeFill = true;
-            // 
             // textBoxSoLuong
             // 
             this.textBoxSoLuong.Location = new System.Drawing.Point(368, 211);
@@ -381,7 +378,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 477);
+            this.label11.Location = new System.Drawing.Point(24, 514);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 13);
             this.label11.TabIndex = 65;
@@ -389,37 +386,26 @@
             // 
             // ComboBoxCongty
             // 
-            this.ComboBoxCongty.DataSource = this.manufacturerBindingSource;
-            this.ComboBoxCongty.DisplayMember = "Name_Manufacturer";
             this.ComboBoxCongty.FormattingEnabled = true;
-            this.ComboBoxCongty.Location = new System.Drawing.Point(188, 474);
+            this.ComboBoxCongty.Location = new System.Drawing.Point(194, 511);
             this.ComboBoxCongty.Name = "ComboBoxCongty";
             this.ComboBoxCongty.Size = new System.Drawing.Size(93, 21);
             this.ComboBoxCongty.TabIndex = 66;
-            this.ComboBoxCongty.ValueMember = "ID_Manufacturer";
             // 
             // manufacturerBindingSource
             // 
             this.manufacturerBindingSource.DataMember = "Manufacturer";
             this.manufacturerBindingSource.DataSource = this.bAITAPLONDataSetBindingSource;
             // 
-            // bAITAPLONDataSetBindingSource
-            // 
-            this.bAITAPLONDataSetBindingSource.DataSource = this.bAITAPLONDataSet;
-            this.bAITAPLONDataSetBindingSource.Position = 0;
-            // 
-            // manufacturerTableAdapter
-            // 
-            this.manufacturerTableAdapter.ClearBeforeFill = true;
-            // 
             // buttonThemCongTy
             // 
-            this.buttonThemCongTy.Location = new System.Drawing.Point(321, 471);
+            this.buttonThemCongTy.Location = new System.Drawing.Point(327, 508);
             this.buttonThemCongTy.Name = "buttonThemCongTy";
             this.buttonThemCongTy.Size = new System.Drawing.Size(99, 23);
             this.buttonThemCongTy.TabIndex = 67;
             this.buttonThemCongTy.Text = "Thêm Công Ty";
             this.buttonThemCongTy.UseVisualStyleBackColor = true;
+            this.buttonThemCongTy.Click += new System.EventHandler(this.buttonThemCongTy_Click);
             // 
             // LabelNgayHetHan
             // 
@@ -479,11 +465,76 @@
             this.label7.TabIndex = 55;
             this.label7.Text = "Tháng";
             // 
+            // textBoxTienNhap
+            // 
+            this.textBoxTienNhap.Location = new System.Drawing.Point(194, 361);
+            this.textBoxTienNhap.Name = "textBoxTienNhap";
+            this.textBoxTienNhap.Size = new System.Drawing.Size(112, 20);
+            this.textBoxTienNhap.TabIndex = 68;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(27, 364);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 13);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Tiền Mỗi Đơn Vị Nhập:";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Thành Tiền";
+            this.columnHeader7.Width = 160;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(708, 426);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.TabIndex = 70;
+            this.label13.Text = "Tổng Tiền:";
+            // 
+            // labelTongTien
+            // 
+            this.labelTongTien.AutoSize = true;
+            this.labelTongTien.Location = new System.Drawing.Point(839, 426);
+            this.labelTongTien.Name = "labelTongTien";
+            this.labelTongTien.Size = new System.Drawing.Size(0, 13);
+            this.labelTongTien.TabIndex = 71;
+            // 
+            // bAITAPLONDataSetBindingSource
+            // 
+            this.bAITAPLONDataSetBindingSource.DataSource = this.bAITAPLONDataSet;
+            this.bAITAPLONDataSetBindingSource.Position = 0;
+            // 
+            // bAITAPLONDataSet
+            // 
+            this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
+            this.bAITAPLONDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.bAITAPLONDataSet;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // manufacturerTableAdapter
+            // 
+            this.manufacturerTableAdapter.ClearBeforeFill = true;
+            // 
             // NhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 542);
+            this.ClientSize = new System.Drawing.Size(984, 542);
+            this.Controls.Add(this.labelTongTien);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBoxTienNhap);
             this.Controls.Add(this.buttonThemCongTy);
             this.Controls.Add(this.ComboBoxCongty);
             this.Controls.Add(this.label11);
@@ -521,10 +572,10 @@
             this.Name = "NhapHang";
             this.Text = "NhapHang";
             this.Load += new System.EventHandler(this.NhapHang_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manufacturerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,5 +632,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.TextBox textBoxTienNhap;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelTongTien;
     }
 }

@@ -138,8 +138,8 @@ namespace MedicineShopManagement.UserControls
             x2 *= 100;
             soldCircleProgressbar1.Value = (int)x2;
 
-            importCost.Text = total1.ToString() + " VNĐ";
-            soldValue.Text = total2.ToString() + " VNĐ";
+            importCost.Text = ExtensionHelper.ChangeToCurrency(total1.ToString()) + " VNĐ";
+            soldValue.Text = ExtensionHelper.ChangeToCurrency(total2.ToString()) + " VNĐ";
             amountCustomer.Text = ThongKeHelper.NumberOfCustomerInYear(2020).ToString();
         }
 

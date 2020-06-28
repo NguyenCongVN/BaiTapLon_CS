@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -195,12 +196,90 @@ namespace BaiTapLon_CS.Helper
                         Cost = row.Field<decimal>("Salary"),
                         Type = row.Field<string>("Type"),
                         DayCost = row.Field<DateTime>("PaidDate"),
-                        Detail = row.Field<string>("Detail")
+                        Detail = row.Field<string>("Detail"),
+                        ID = row.Field<int>("ID")
                     });
                 }
             }
 
             return expenses;
+        }
+
+        public static List<ManagerStatistic> GetManagerStatistic()
+        {
+            List<ManagerStatistic> managers = new List<ManagerStatistic>();
+            string query = "exec GetStatisticEmployees";
+            using (SqlConnection connection = new SqlConnection(Form1.connect))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        managers.Add(new ManagerStatistic
+                        {
+                            ID_Manager = row.Field<int>("ID_Manager"),
+                            Name_Manager = row.Field<string>("Name_Manager"),
+                            Salary = row.Field<decimal>("Luong"),
+                            TotalInvoice = row.Field<int>("Total invoice"),
+                            TotalMedicineSold = row.Field<int>("Tong so hang ban"),
+                            TotalMoneySold = row.Field<decimal>("Tong so tien ban")
+                        });
+                    }
+                }
+            }
+            return managers;
+        }
+
+        public static List<CustomerStatistic> GetCustomerStatistic()
+        {
+            List<CustomerStatistic> customers = new List<CustomerStatistic>();
+            string query = "exec GetStatisticCustomers";
+            using (SqlConnection connection = new SqlConnection(Form1.connect))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        customers.Add(new CustomerStatistic
+                        {
+                            Name_Customer = row.Field<string>("Ten khach hang"),
+                            Phone = row.Field<string>("So dien thoai"),
+                            TotalInvoice = row.Field<int>("Tong so don hang"),
+                            TotalMoney = row.Field<decimal>("Tong so tien mua")
+                        });
+                    }
+                }
+            }
+            return customers;
+        }
+
+        public static List<MedicineStatistic> GetMedicineStatistic()
+        {
+            List<MedicineStatistic> medicines = new List<MedicineStatistic>();
+            string query = "exec GetStatisticMedicines";
+            using (SqlConnection connection = new SqlConnection(Form1.connect))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach (DataRow row in table.Rows)
+                    {
+                        medicines.Add(new MedicineStatistic
+                        {
+                            ID_Medicine = row.Field<int>("ID_Medicine"),
+                            Name_Medicine = row.Field<string>("Name_Medicine"),
+                            Image_Medicine = row.Field<string>("Image_Medicine"),
+                            TotalSold = row.Field<int>("Tong so ban duoc")
+                        });
+                    }
+                }
+            }
+            return medicines;
         }
     }
 }

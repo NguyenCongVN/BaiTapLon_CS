@@ -45,12 +45,12 @@
             this.LabelXuatXu = new System.Windows.Forms.Label();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
+            this.ComboBoxLoaiHang = new System.Windows.Forms.ComboBox();
+            this.ButtonThemLoaiHang = new System.Windows.Forms.Button();
             this.bAITAPLONDataSet = new BaiTapLon_CS.BAITAPLONDataSet();
             this.categoryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new BaiTapLon_CS.BAITAPLONDataSetTableAdapters.CategoryTableAdapter();
-            this.ComboBoxLoaiHang = new System.Windows.Forms.ComboBox();
             this.categoryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.ButtonThemLoaiHang = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bAITAPLONDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource1)).BeginInit();
@@ -65,6 +65,7 @@
             this.ButtonHuy.TabIndex = 64;
             this.ButtonHuy.Text = "Hủy";
             this.ButtonHuy.UseVisualStyleBackColor = true;
+            this.ButtonHuy.Click += new System.EventHandler(this.ButtonHuy_Click);
             // 
             // ButtonThem
             // 
@@ -185,6 +186,24 @@
             this.label7.TabIndex = 76;
             this.label7.Text = "Loại Hàng";
             // 
+            // ComboBoxLoaiHang
+            // 
+            this.ComboBoxLoaiHang.FormattingEnabled = true;
+            this.ComboBoxLoaiHang.Location = new System.Drawing.Point(201, 27);
+            this.ComboBoxLoaiHang.Name = "ComboBoxLoaiHang";
+            this.ComboBoxLoaiHang.Size = new System.Drawing.Size(132, 21);
+            this.ComboBoxLoaiHang.TabIndex = 77;
+            // 
+            // ButtonThemLoaiHang
+            // 
+            this.ButtonThemLoaiHang.Location = new System.Drawing.Point(339, 25);
+            this.ButtonThemLoaiHang.Name = "ButtonThemLoaiHang";
+            this.ButtonThemLoaiHang.Size = new System.Drawing.Size(113, 23);
+            this.ButtonThemLoaiHang.TabIndex = 78;
+            this.ButtonThemLoaiHang.Text = "Thêm Loại Hàng";
+            this.ButtonThemLoaiHang.UseVisualStyleBackColor = true;
+            this.ButtonThemLoaiHang.Click += new System.EventHandler(this.ButtonThemLoaiHang_Click);
+            // 
             // bAITAPLONDataSet
             // 
             this.bAITAPLONDataSet.DataSetName = "BAITAPLONDataSet";
@@ -199,30 +218,10 @@
             // 
             this.categoryTableAdapter.ClearBeforeFill = true;
             // 
-            // ComboBoxLoaiHang
-            // 
-            this.ComboBoxLoaiHang.DataSource = this.categoryBindingSource2;
-            this.ComboBoxLoaiHang.DisplayMember = "Name_Category";
-            this.ComboBoxLoaiHang.FormattingEnabled = true;
-            this.ComboBoxLoaiHang.Location = new System.Drawing.Point(201, 27);
-            this.ComboBoxLoaiHang.Name = "ComboBoxLoaiHang";
-            this.ComboBoxLoaiHang.Size = new System.Drawing.Size(132, 21);
-            this.ComboBoxLoaiHang.TabIndex = 77;
-            this.ComboBoxLoaiHang.ValueMember = "ID_Category";
-            // 
             // categoryBindingSource2
             // 
             this.categoryBindingSource2.DataMember = "Category";
             this.categoryBindingSource2.DataSource = this.bAITAPLONDataSet;
-            // 
-            // ButtonThemLoaiHang
-            // 
-            this.ButtonThemLoaiHang.Location = new System.Drawing.Point(339, 25);
-            this.ButtonThemLoaiHang.Name = "ButtonThemLoaiHang";
-            this.ButtonThemLoaiHang.Size = new System.Drawing.Size(113, 23);
-            this.ButtonThemLoaiHang.TabIndex = 78;
-            this.ButtonThemLoaiHang.Text = "Thêm Loại Hàng";
-            this.ButtonThemLoaiHang.UseVisualStyleBackColor = true;
             // 
             // ThemSanPhamForm
             // 

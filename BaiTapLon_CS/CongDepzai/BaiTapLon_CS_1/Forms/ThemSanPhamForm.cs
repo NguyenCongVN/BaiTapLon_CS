@@ -1,7 +1,9 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms;
 using BaiTapLon_CS.Forms.Control;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -16,7 +18,7 @@ namespace BaiTapLon_CS.Forms
         {
             InitializeComponent();
             this.boolClass = boolClass;
-
+            ShowMedicines.InitComboBoxCategory(ComboBoxLoaiHang);
         }
 
         private void ThemSanPhamForm_Load(object sender, EventArgs e)
@@ -50,23 +52,38 @@ namespace BaiTapLon_CS.Forms
 
             medicine.Registration_Number = TextBoxMaDangKi.Text;
 
-            medicine.ID_Category.Add((ComboBoxLoaiHang.SelectedItem as DataRowView).Row.Field<int>("ID_Category"));
+            medicine.ID_Category = new List<int?> { (ComboBoxLoaiHang.SelectedItem as ComboBoxItem).Value };
 
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
                 sqlConnection.Open();
-                string query = "insert into Medicine values (@name,null,@manufactureDate,@experitationDate,@source,@packing,@unit,@cost,@amount,@registationNumber,@idCategory)";
+                string query = "exec InsertMedicine @name,@source,@packing,@unit,@cost,@registationNumber,@idCategory";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddRange(new SqlParameter[] { new SqlParameter("name" , medicine.Name_Medicine)
                 ,new SqlParameter("source" , medicine.Source)
                 ,new SqlParameter("packing" , medicine.Packing),new SqlParameter("unit" , medicine.Unit)
                 ,new SqlParameter("cost" , medicine.Cost)
                 ,new SqlParameter("registationNumber" , medicine.Registration_Number)
-                ,new SqlParameter("idCategory" , medicine.ID_Category)});
+                ,new SqlParameter("idCategory" , medicine.ID_Category[0])});
                 sqlCommand.ExecuteScalar();
             }
             this.Close();
             boolClass.isChanged = true;
+        }
+
+        private void ButtonThemLoaiHang_Click(object sender, EventArgs e)
+        {
+            ThemLoaiHang themLoai = new ThemLoaiHang(boolClass);
+            themLoai.ShowDialog();
+            if (boolClass.isChanged == true)
+            {
+                ShowMedicines.InitComboBoxCategory(ComboBoxLoaiHang);
+            }
+        }
+
+        private void ButtonHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

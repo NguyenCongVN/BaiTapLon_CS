@@ -12,5 +12,11 @@ namespace BaiTapLon_CS.Helper
             return bitmap1;
         }
 
+        public static Bitmap ChangeBitMapResource(PictureBox pictureBox, Bitmap bitmap)
+        {
+            Bitmap bitmap1 = new Bitmap(bitmap, new Size(pictureBox.Width, pictureBox.Height));
+            return bitmap1;
+        }
+
     }
 }

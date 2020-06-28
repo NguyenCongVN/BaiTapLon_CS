@@ -23,10 +23,6 @@ namespace BaiTapLon_CS.Forms.Control
 
         private void Load()
         {
-            //PanelSanPham.Visible = false;
-            //PanelSanPham.SendToBack();
-            //panelDanhSachNhanVien.Visible = true;
-            //panelDanhSachNhanVien.BringToFront();
             ListViewDanhSachNhanVien.Items.Clear();
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
@@ -47,15 +43,13 @@ namespace BaiTapLon_CS.Forms.Control
             }
             ContextMenuStrip contextMenuStripListShow = new ContextMenuStrip();
             ToolStripMenuItem itemThem = new ToolStripMenuItem();
-            itemThem.Name = "ThemNhanVien";
-            itemThem.Text = "Thêm Nhân Viên";
-            itemThem.Click += ItemThemNhanVien_Click;
+
 
             ToolStripMenuItem itemXoa = new ToolStripMenuItem();
             itemXoa.Name = "XoaNhanVien";
             itemXoa.Text = "Xóa Nhân Viên";
             itemXoa.Click += ItemXoaNhanVien_Click;
-            contextMenuStripListShow.Items.Add(itemThem);
+
             contextMenuStripListShow.Items.Add(itemXoa);
             ListViewDanhSachNhanVien.ContextMenuStrip = contextMenuStripListShow;
         }
@@ -69,16 +63,18 @@ namespace BaiTapLon_CS.Forms.Control
                 {
                     using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
                     {
-                        string query = "delete from Manager where ID_Manager = @value";
+                        sqlConnection.Open();
+                        string query = "exec XoaQL @value";
                         SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                        sqlCommand.Parameters.AddWithValue("value", ListViewDanhSachNhanVien.SelectedItems[0].SubItems[1]);
+                        sqlCommand.Parameters.AddWithValue("value", ListViewDanhSachNhanVien.SelectedItems[0].SubItems[1].Text);
                         sqlCommand.ExecuteScalar();
                     }
+                    Load();
                 }
             }
         }
 
-        private void ItemThemNhanVien_Click(object sender, EventArgs e)
+        private void ItemThemNhanVien_Click()
         {
             BoolClass boolClass = new BoolClass();
             boolClass.isChanged = false;
@@ -113,7 +109,7 @@ namespace BaiTapLon_CS.Forms.Control
             }
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
-                string query = "select * from Manager where ID_Manager = @value";
+                string query = "exec QuanLy1 @value";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("value", Id);
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand))
@@ -161,19 +157,26 @@ namespace BaiTapLon_CS.Forms.Control
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string path = openFileDialog.FileName;
-                using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
+                try
                 {
-                    sqlConnection.Open();
-                    string query = "update Manager set Image =@value where ID_Manager = @selectedId";
-                    SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("value", path);
-                    sqlCommand.Parameters.AddWithValue("selectedId", Id);
-                    sqlCommand.ExecuteScalar();
+                    string path = openFileDialog.FileName;
+                    using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
+                    {
+                        sqlConnection.Open();
+                        string query = "exec QuanLy2 @value,@selectedId";
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                        sqlCommand.Parameters.AddWithValue("value", path);
+                        sqlCommand.Parameters.AddWithValue("selectedId", Id);
+                        sqlCommand.ExecuteScalar();
+                    }
+                    Bitmap bitmap = new Bitmap(path);
+                    Bitmap resizedBitmap = new Bitmap(bitmap, new Size(PictureBoxNhanVien.Width, PictureBoxNhanVien.Height));
+                    PictureBoxNhanVien.Image = resizedBitmap;
                 }
-                Bitmap bitmap = new Bitmap(path);
-                Bitmap resizedBitmap = new Bitmap(bitmap, new Size(PictureBoxNhanVien.Width, PictureBoxNhanVien.Height));
-                PictureBoxNhanVien.Image = resizedBitmap;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Có lỗi xảy ra");
+                }
             }
         }
 
@@ -190,7 +193,7 @@ namespace BaiTapLon_CS.Forms.Control
             }
             using (SqlConnection sqlConnection = new SqlConnection(Form1.connect))
             {
-                string query = "select * from Manager where ID_Manager = @value";
+                string query = "exec QuanLy1 @value";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("value", Id);
                 using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand))
@@ -221,19 +224,18 @@ namespace BaiTapLon_CS.Forms.Control
                     else
                     {
                         sqlConnection.Open();
-                        string query1 = "update Manager set Name_Manager = @name, " +
-                                        "Phone = @phone, " +
-                                        "Email = @email " +
-                                        ",Password = @password " +
-                                        ",Day_Work = @daywork " +
-                                        ",Salary = @salary " +
-                                        ",Sex = @sex " +
-                                        "where ID_Manager = @old_Id";
+                        string query1 = "exec updateQL @name, " +
+                                        "@phone, " +
+                                        "@email " +
+                                        ",@daywork " +
+                                        ",@salary " +
+                                        ",@sex " +
+                                        ",@old_Id";
                         SqlCommand sqlCommand1 = new SqlCommand(query1, sqlConnection);
                         sqlCommand1.Parameters.AddWithValue("name", manager.Name_Manager);
                         sqlCommand1.Parameters.AddWithValue("Phone", manager.Phone);
                         sqlCommand1.Parameters.AddWithValue("Email", manager.Email);
-                        sqlCommand1.Parameters.AddWithValue("Password", manager.Password);
+                        //sqlCommand1.Parameters.AddWithValue("Password", manager.Password);
                         sqlCommand1.Parameters.AddWithValue("daywork", manager.DayWork);
                         sqlCommand1.Parameters.AddWithValue("salary", manager.Salary);
                         sqlCommand1.Parameters.AddWithValue("sex", manager.Sex);
@@ -259,6 +261,14 @@ namespace BaiTapLon_CS.Forms.Control
             }
         }
 
+        private void panel1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ItemThemNhanVien_Click();
+        }
     }
 }

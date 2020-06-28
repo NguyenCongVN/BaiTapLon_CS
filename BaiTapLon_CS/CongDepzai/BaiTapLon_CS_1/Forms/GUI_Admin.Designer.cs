@@ -254,9 +254,9 @@
             this.panelDanhSachNhanVien.Controls.Add(this.PictureBoxNhanVien);
             this.panelDanhSachNhanVien.Controls.Add(this.ListViewDanhSachNhanVien);
             this.panelDanhSachNhanVien.Controls.Add(this.label7);
-            this.panelDanhSachNhanVien.Location = new System.Drawing.Point(149, 138);
+            this.panelDanhSachNhanVien.Location = new System.Drawing.Point(386, 31);
             this.panelDanhSachNhanVien.Name = "panelDanhSachNhanVien";
-            this.panelDanhSachNhanVien.Size = new System.Drawing.Size(682, 411);
+            this.panelDanhSachNhanVien.Size = new System.Drawing.Size(254, 314);
             this.panelDanhSachNhanVien.TabIndex = 16;
             // 
             // panelThongKe
@@ -805,6 +805,7 @@
             this.PanelSanPham.Controls.Add(this.label3);
             this.PanelSanPham.Controls.Add(this.TextBoxTimKiem);
             this.PanelSanPham.Controls.Add(this.ButtonSuaThongTinHang);
+            this.PanelSanPham.Controls.Add(this.panelDanhSachNhanVien);
             this.PanelSanPham.Controls.Add(this.ButtonChonAnh);
             this.PanelSanPham.Controls.Add(this.LabelMaDangKi);
             this.PanelSanPham.Controls.Add(this.LabelGiaThanh);
@@ -854,7 +855,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelDanhSachNhanVien);
             this.Controls.Add(this.PanelSanPham);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;

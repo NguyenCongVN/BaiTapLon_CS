@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dashboard));
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelSide = new System.Windows.Forms.Panel();
             this.btnViewSales = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
@@ -48,7 +49,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelTenQuanLy = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerTime = new System.Windows.Forms.Timer(this.components);
@@ -63,6 +64,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.panelLeft.Controls.Add(this.button1);
             this.panelLeft.Controls.Add(this.panelSide);
             this.panelLeft.Controls.Add(this.btnViewSales);
             this.panelLeft.Controls.Add(this.btnUsers);
@@ -75,6 +77,23 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(215, 720);
             this.panelLeft.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(6, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 59);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "     Thống Kê";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelSide
             // 
@@ -141,9 +160,9 @@
             this.btnShowMedicines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowMedicines.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowMedicines.ForeColor = System.Drawing.Color.White;
-            this.btnShowMedicines.Image = ((System.Drawing.Image)(resources.GetObject("btnShowMedicines.Image")));
+            this.btnShowMedicines.Image = global::BaiTapLon_CS.Properties.Resources.icons8_pill_40px_1;
             this.btnShowMedicines.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShowMedicines.Location = new System.Drawing.Point(12, 205);
+            this.btnShowMedicines.Location = new System.Drawing.Point(3, 205);
             this.btnShowMedicines.Name = "btnShowMedicines";
             this.btnShowMedicines.Size = new System.Drawing.Size(203, 60);
             this.btnShowMedicines.TabIndex = 2;
@@ -263,7 +282,7 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.labelTime);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.labelTenQuanLy);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(215, 48);
@@ -305,16 +324,15 @@
             this.labelTime.TabIndex = 0;
             this.labelTime.Text = "HH:MM:SS";
             // 
-            // label5
+            // labelTenQuanLy
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(165, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Nguyễn Thành Công";
+            this.labelTenQuanLy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenQuanLy.ForeColor = System.Drawing.Color.White;
+            this.labelTenQuanLy.Location = new System.Drawing.Point(165, 19);
+            this.labelTenQuanLy.Name = "labelTenQuanLy";
+            this.labelTenQuanLy.Size = new System.Drawing.Size(279, 19);
+            this.labelTenQuanLy.TabIndex = 0;
+            this.labelTenQuanLy.Text = "Nguyễn Thành Công";
             // 
             // label1
             // 
@@ -391,10 +409,11 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelTenQuanLy;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControls;
+        private System.Windows.Forms.Button button1;
     }
 }

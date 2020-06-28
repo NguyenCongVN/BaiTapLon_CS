@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.Forms;
 using BaiTapLon_CS.Helper;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace MedicineShopManagement.UserControls
             foreach (var item in expenses)
             {
                 ListViewItem listViewItem = new ListViewItem(new string[] {i.ToString() , item.Type ,
-                    item.Cost.ToString() ,
+                    ExtensionHelper.ChangeToCurrency(item.Cost.ToString()) ,
                     item.Detail ,
-                    item.DayCost.ToString()});
+                    item.DayCost.ToString() , item.ID.ToString()});
                 listViewChiTieu.Items.Add(listViewItem);
                 i++;
             }
@@ -33,6 +34,24 @@ namespace MedicineShopManagement.UserControls
         private void button1_Click(object sender, EventArgs e)
         {
             Load();
+        }
+
+        private void listViewChiTieu_Click(object sender, EventArgs e)
+        {
+            int Id = -1;
+            try
+            {
+                Id = int.Parse(listViewChiTieu.SelectedItems[0].SubItems[5].Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            if (Id != -1)
+            {
+                ShowTheImportHistoryForm historyForm = new ShowTheImportHistoryForm(Id);
+                historyForm.ShowDialog();
+            }
         }
     }
 }

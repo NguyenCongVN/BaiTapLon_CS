@@ -117,22 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAKdSURBVGhD7ZdNaxNRFIYDLvwNgiv3/oZCIvlAxNY06Eb82Cnd+rFw4+dWW3UpSTRC66aCrS2p
-        UnBVshG0tSJt3PgLxFqL4PXOeE65Ob6TyZkkvUHzwAMdeufME3Kn3KaGDBnyjzEy9nJ5ZGzeePY15egB
-        w7xIOXrQMB9Sjh40zIeUowcN8yHl6Flq/jSDIOXoQcN8SDl60DAfUo4eNMyHlKMHDfMh5ehBw9gDl9+F
-        yuukurOllKMHDWPlg92YJLqzpZSjBw3zIeXoQcN8SDl60DBWfvXudkiiO1tKOXrQMFY+2I1JojtbSjl6
-        0DAfUo4eNMyHlKMHDWPlV+9uhzgPXn1vzte+mOcffrTMjJJy9KBhLMfI6zgP31w3jxrfdu9b3Phu7q3U
-        zYW566Y4c8YcrRVDg58vzt0If1eYKuynJB38kH55v7FsTkyfNplKLs7mkUquSFmdgx7aC+ubO+bK0gMU
-        2lb7Ie6WnpX2UV486OEsbwl5HWWw53ntpfoUDOzM7CTlxcMPRHKYvEYeurZqZumFfdh4A6L+KEFrrL/S
-        5ewxSmwPx/XKhY2ttntegtaQzY5ebBTRjZMrr1DMrhK0hk2X8yXKjAZFsLw95DWy9nYrXDMxfxvGsBK0
-        hk1Xc08pMxqOQ3KcvEa++LQTrhmfPtsSocW9N1PNfaTMaDiuVxYej7ZEaHHvtX6lzGhQRDfmnxxvidDi
-        3mvd+w9QmjnXEqHFvTddya1TZjQoohsH6iVO4kD9GU3i4ub2X9vIVYLWkKuqM1EvyZSzoyAoVILWWDs/
-        SvQLeyC7A8I60p5Ib9EYfwRff3CqRIHtVB+n+02mmh23YZ9lKDDZPzR7QXCqtO/FKRtZta5Zt8m1TDlf
-        sR/yZOJ/KYcM+a9IpX4D8s9YY+pSk+EAAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="bAITAPLONDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="categoryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>175, 17</value>
+  </metadata>
+  <metadata name="categoryTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>353, 17</value>
+  </metadata>
+  <metadata name="categoryBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>525, 17</value>
+  </metadata>
 </root>
