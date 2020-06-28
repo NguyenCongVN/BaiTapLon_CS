@@ -127,6 +127,7 @@ namespace BaiTapLon_CS
                          txtAddress_Order.Text = "";
                          txtID_Customer.Text = "";
                          txtID_Customer.Focus();
+                         Total.Text = "0";
                          MessageBox.Show("Thêm hóa đơn thành công, bạn có muốn in hóa đơn không");
                     }
                     else
@@ -152,6 +153,7 @@ namespace BaiTapLon_CS
                     CultureInfo culture = new CultureInfo("en-US");
 
                     Total.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
+                    
                     txtID_Medicine.Text = "";
                     txtPrice.Text = "";
                     txtAmount.Text = "";
