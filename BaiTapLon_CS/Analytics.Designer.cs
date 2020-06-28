@@ -325,10 +325,10 @@
                this.btnPre.IdleFillColor = System.Drawing.Color.White;
                this.btnPre.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnPre.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnPre.Location = new System.Drawing.Point(202, 703);
+               this.btnPre.Location = new System.Drawing.Point(236, 703);
                this.btnPre.Margin = new System.Windows.Forms.Padding(5);
                this.btnPre.Name = "btnPre";
-               this.btnPre.Size = new System.Drawing.Size(82, 50);
+               this.btnPre.Size = new System.Drawing.Size(59, 50);
                this.btnPre.TabIndex = 36;
                this.btnPre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnPre.Click += new System.EventHandler(this.btnPre_Click);
@@ -351,10 +351,10 @@
                this.btnNext.IdleFillColor = System.Drawing.Color.White;
                this.btnNext.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnNext.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnNext.Location = new System.Drawing.Point(402, 703);
+               this.btnNext.Location = new System.Drawing.Point(387, 703);
                this.btnNext.Margin = new System.Windows.Forms.Padding(5);
                this.btnNext.Name = "btnNext";
-               this.btnNext.Size = new System.Drawing.Size(94, 50);
+               this.btnNext.Size = new System.Drawing.Size(62, 50);
                this.btnNext.TabIndex = 37;
                this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
@@ -476,9 +476,9 @@
                // btnTotalPage
                // 
                this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.Location = new System.Drawing.Point(535, 711);
+               this.btnTotalPage.Location = new System.Drawing.Point(476, 711);
                this.btnTotalPage.Name = "btnTotalPage";
-               this.btnTotalPage.Size = new System.Drawing.Size(50, 42);
+               this.btnTotalPage.Size = new System.Drawing.Size(61, 42);
                this.btnTotalPage.TabIndex = 26;
                this.btnTotalPage.UseVisualStyleBackColor = true;
                // 

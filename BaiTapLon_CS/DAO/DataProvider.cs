@@ -48,7 +48,7 @@ namespace BaiTapLon_CS.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi cú pháp rồi " + e);
+                MessageBox.Show("Lỗi cú pháp rồi");
                 return null;
             }
         }
@@ -66,8 +66,8 @@ namespace BaiTapLon_CS.DAO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Lỗi cú pháp rồi:" + e);
-                return;
+                MessageBox.Show("Lỗi cú pháp rồi ");
+                return ;
             }
         }
     }

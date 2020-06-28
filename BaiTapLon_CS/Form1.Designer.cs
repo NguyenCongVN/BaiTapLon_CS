@@ -35,6 +35,7 @@
                this.radioBtnAdmin = new System.Windows.Forms.RadioButton();
                this.radioBtnCashier = new System.Windows.Forms.RadioButton();
                this.panel1 = new System.Windows.Forms.Panel();
+               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.label10 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
                this.label8 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
                this.btnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
                this.txtPassword = new Bunifu.Framework.UI.BunifuTextbox();
                this.txtAccount = new Bunifu.Framework.UI.BunifuTextbox();
-               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.panel1.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                this.SuspendLayout();
@@ -107,9 +107,18 @@
                this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
                this.panel1.Location = new System.Drawing.Point(0, 0);
                this.panel1.Name = "panel1";
-               this.panel1.Size = new System.Drawing.Size(322, 648);
+               this.panel1.Size = new System.Drawing.Size(350, 648);
                this.panel1.TabIndex = 9;
                this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+               // 
+               // pictureBox1
+               // 
+               this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources.nhom1;
+               this.pictureBox1.Location = new System.Drawing.Point(3, 159);
+               this.pictureBox1.Name = "pictureBox1";
+               this.pictureBox1.Size = new System.Drawing.Size(303, 78);
+               this.pictureBox1.TabIndex = 7;
+               this.pictureBox1.TabStop = false;
                // 
                // label10
                // 
@@ -313,15 +322,6 @@
                this.txtAccount.Size = new System.Drawing.Size(294, 55);
                this.txtAccount.TabIndex = 11;
                this.txtAccount.text = "";
-               // 
-               // pictureBox1
-               // 
-               this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources.nhom1;
-               this.pictureBox1.Location = new System.Drawing.Point(3, 159);
-               this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(303, 78);
-               this.pictureBox1.TabIndex = 7;
-               this.pictureBox1.TabStop = false;
                // 
                // Form1
                // 

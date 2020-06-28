@@ -312,7 +312,7 @@
                this.btnExit.Location = new System.Drawing.Point(768, 358);
                this.btnExit.Margin = new System.Windows.Forms.Padding(5);
                this.btnExit.Name = "btnExit";
-               this.btnExit.Size = new System.Drawing.Size(143, 71);
+               this.btnExit.Size = new System.Drawing.Size(117, 71);
                this.btnExit.TabIndex = 12;
                this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -338,7 +338,7 @@
                this.cancelInvoice.Location = new System.Drawing.Point(439, 358);
                this.cancelInvoice.Margin = new System.Windows.Forms.Padding(5);
                this.cancelInvoice.Name = "cancelInvoice";
-               this.cancelInvoice.Size = new System.Drawing.Size(143, 71);
+               this.cancelInvoice.Size = new System.Drawing.Size(105, 71);
                this.cancelInvoice.TabIndex = 11;
                this.cancelInvoice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.cancelInvoice.Click += new System.EventHandler(this.cancelInvoice_Click);
@@ -364,7 +364,7 @@
                this.btnSaveData.Location = new System.Drawing.Point(113, 358);
                this.btnSaveData.Margin = new System.Windows.Forms.Padding(5);
                this.btnSaveData.Name = "btnSaveData";
-               this.btnSaveData.Size = new System.Drawing.Size(143, 71);
+               this.btnSaveData.Size = new System.Drawing.Size(114, 71);
                this.btnSaveData.TabIndex = 10;
                this.btnSaveData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click_1);

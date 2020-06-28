@@ -38,33 +38,17 @@ namespace BaiTapLon_CS
         {
             InitializeComponent();
             page = 1;
-            string query = "ALTER PROC count_history " +
-                    "AS BEGIN " +
-                    "SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount " +
-                    "FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde " +
-                    "where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager =" + Form1.ID_Manager + " END";
-               DataProvider.Instance.Add(query);
-               string qqq = "EXEC count_history";
-               DisplayListView(qqq);
-               int total = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[7].Value));
+            string qqq = "EXEC count_history @id ="+Form1.ID_Manager;
+            DisplayListView(qqq);
+            int total = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[7].Value));
             CultureInfo culture = new CultureInfo("en-US");
             txtTotal.Text = String.Format(culture, "{0:N0}", decimal.Parse(total.ToString(), NumberStyles.AllowThousands));
             txtOrder.Text = HistoryDAO.Instance.getCountOrder();
             txtAmount_Product.Text = this.dgvHistory.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[6].Value)).ToString();
-            query = "ALTER PROC history @pageNumber INT,@pageSize INT " +
-                       "AS BEGIN " +
-                       "DECLARE @startRow INT " +
-                       "DECLARE @endRow INT " +
-                       "SET @startRow = ((@pageNumber - 1) * @pageSize) + 1 " +
-                       "SET @endRow = (@pageNumber * @pageSize) " +
-                       "SELECT * FROM (SELECT inv.ID_Invoice,cu.Name_Customer,me.ID_Medicine,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost * inde.Amount AS N'Tổng', ROW_NUMBER() OVER (ORDER BY inv.ID_Invoice DESC) AS RowNumber   FROM Customer as cu,dbo.Medicine AS me,Invoice as inv, Invoice_Detail as inde " +
-                       "where me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice= inv.ID_Invoice AND cu.ID_Customer= inv.ID_Customer and inv.ID_Manager=" + Form1.ID_Manager + ") AS temp WHERE temp.RowNumber BETWEEN @startRow AND @endRow END";
-            DataProvider.Instance.Add(query);
             string qq= "EXEC history @pageNumber = " + page + ", @pageSize = " + pageSize;
             DisplayListView(qq);
-               dgvHistory.Columns[8].Visible = false;
-
-               pageMax = int.Parse(HistoryDAO.Instance.getCount_Order_Detail());
+            dgvHistory.Columns[8].Visible = false;
+            pageMax = int.Parse(HistoryDAO.Instance.getCount_Order_Detail());
             if (pageMax % pageSize == 0)
             {
                 pageMax = pageMax / pageSize;

@@ -29,7 +29,7 @@
           private void InitializeComponent()
           {
                this.components = new System.ComponentModel.Container();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicineList));
                this.panel2 = new System.Windows.Forms.Panel();
                this.dgwMedicineList = new System.Windows.Forms.DataGridView();
@@ -73,16 +73,16 @@
                this.dgwMedicineList.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgwMedicineList.ColumnHeadersHeight = 29;
                this.dgwMedicineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-               dataGridViewCellStyle2.Format = "g";
-               dataGridViewCellStyle2.NullValue = null;
-               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
-               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle2;
+               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle1.Format = "g";
+               dataGridViewCellStyle1.NullValue = null;
+               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Maroon;
+               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle1;
                this.dgwMedicineList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
                this.dgwMedicineList.GridColor = System.Drawing.Color.Black;
                this.dgwMedicineList.Location = new System.Drawing.Point(20, 32);
@@ -211,7 +211,7 @@
                this.btnTotalPage.ForeColor = System.Drawing.Color.Black;
                this.btnTotalPage.Location = new System.Drawing.Point(698, 684);
                this.btnTotalPage.Name = "btnTotalPage";
-               this.btnTotalPage.Size = new System.Drawing.Size(62, 36);
+               this.btnTotalPage.Size = new System.Drawing.Size(72, 36);
                this.btnTotalPage.TabIndex = 34;
                this.btnTotalPage.Text = "of";
                this.btnTotalPage.UseVisualStyleBackColor = false;

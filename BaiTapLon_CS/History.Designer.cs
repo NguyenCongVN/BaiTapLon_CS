@@ -28,7 +28,7 @@
           /// </summary>
           private void InitializeComponent()
           {
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(History));
                this.dgvHistory = new System.Windows.Forms.DataGridView();
                this.txtAmount_Product = new System.Windows.Forms.TextBox();
@@ -55,14 +55,14 @@
                this.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvHistory.BackgroundColor = System.Drawing.Color.White;
                this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-               dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgvHistory.DefaultCellStyle = dataGridViewCellStyle1;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgvHistory.DefaultCellStyle = dataGridViewCellStyle2;
                this.dgvHistory.GridColor = System.Drawing.Color.White;
                this.dgvHistory.Location = new System.Drawing.Point(6, 16);
                this.dgvHistory.Name = "dgvHistory";
@@ -76,11 +76,11 @@
                // txtAmount_Product
                // 
                this.txtAmount_Product.BackColor = System.Drawing.Color.White;
-               this.txtAmount_Product.Location = new System.Drawing.Point(267, 480);
+               this.txtAmount_Product.Location = new System.Drawing.Point(267, 491);
                this.txtAmount_Product.Multiline = true;
                this.txtAmount_Product.Name = "txtAmount_Product";
                this.txtAmount_Product.ReadOnly = true;
-               this.txtAmount_Product.Size = new System.Drawing.Size(75, 38);
+               this.txtAmount_Product.Size = new System.Drawing.Size(75, 27);
                this.txtAmount_Product.TabIndex = 2;
                // 
                // label2
@@ -119,30 +119,30 @@
                // txtOrder
                // 
                this.txtOrder.BackColor = System.Drawing.Color.White;
-               this.txtOrder.Location = new System.Drawing.Point(267, 536);
+               this.txtOrder.Location = new System.Drawing.Point(267, 544);
                this.txtOrder.Multiline = true;
                this.txtOrder.Name = "txtOrder";
                this.txtOrder.ReadOnly = true;
-               this.txtOrder.Size = new System.Drawing.Size(75, 38);
+               this.txtOrder.Size = new System.Drawing.Size(75, 30);
                this.txtOrder.TabIndex = 6;
                // 
                // txtTotal
                // 
                this.txtTotal.BackColor = System.Drawing.Color.White;
-               this.txtTotal.Location = new System.Drawing.Point(267, 589);
+               this.txtTotal.Location = new System.Drawing.Point(267, 600);
                this.txtTotal.Multiline = true;
                this.txtTotal.Name = "txtTotal";
                this.txtTotal.ReadOnly = true;
-               this.txtTotal.Size = new System.Drawing.Size(75, 38);
+               this.txtTotal.Size = new System.Drawing.Size(75, 27);
                this.txtTotal.TabIndex = 7;
                // 
                // btnCurrent
                // 
                this.btnCurrent.Enabled = false;
                this.btnCurrent.ForeColor = System.Drawing.Color.White;
-               this.btnCurrent.Location = new System.Drawing.Point(379, 432);
+               this.btnCurrent.Location = new System.Drawing.Point(390, 432);
                this.btnCurrent.Name = "btnCurrent";
-               this.btnCurrent.Size = new System.Drawing.Size(75, 40);
+               this.btnCurrent.Size = new System.Drawing.Size(51, 40);
                this.btnCurrent.TabIndex = 11;
                this.btnCurrent.UseVisualStyleBackColor = true;
                // 
@@ -150,7 +150,7 @@
                // 
                this.btnTotalPage.Enabled = false;
                this.btnTotalPage.ForeColor = System.Drawing.Color.White;
-               this.btnTotalPage.Location = new System.Drawing.Point(653, 432);
+               this.btnTotalPage.Location = new System.Drawing.Point(546, 432);
                this.btnTotalPage.Name = "btnTotalPage";
                this.btnTotalPage.Size = new System.Drawing.Size(75, 40);
                this.btnTotalPage.TabIndex = 13;
@@ -182,10 +182,10 @@
                this.btnNext.IdleFillColor = System.Drawing.Color.White;
                this.btnNext.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnNext.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnNext.Location = new System.Drawing.Point(506, 426);
+               this.btnNext.Location = new System.Drawing.Point(480, 432);
                this.btnNext.Margin = new System.Windows.Forms.Padding(5);
                this.btnNext.Name = "btnNext";
-               this.btnNext.Size = new System.Drawing.Size(96, 53);
+               this.btnNext.Size = new System.Drawing.Size(49, 46);
                this.btnNext.TabIndex = 39;
                this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
@@ -208,10 +208,10 @@
                this.btnPre.IdleFillColor = System.Drawing.Color.White;
                this.btnPre.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnPre.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnPre.Location = new System.Drawing.Point(225, 426);
+               this.btnPre.Location = new System.Drawing.Point(309, 432);
                this.btnPre.Margin = new System.Windows.Forms.Padding(5);
                this.btnPre.Name = "btnPre";
-               this.btnPre.Size = new System.Drawing.Size(127, 46);
+               this.btnPre.Size = new System.Drawing.Size(52, 46);
                this.btnPre.TabIndex = 38;
                this.btnPre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnPre.Click += new System.EventHandler(this.btnPre_Click_1);

@@ -141,6 +141,7 @@
                // 
                this.bunifuDgv.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
                this.bunifuDgv.AllowUserToAddRows = false;
+               this.bunifuDgv.AllowUserToDeleteRows = false;
                dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
                this.bunifuDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
                this.bunifuDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -152,7 +153,7 @@
                dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(140)))), ((int)(((byte)(224)))));
                dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
                dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(140)))), ((int)(((byte)(224)))));
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Crimson;
                dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
                dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
                this.bunifuDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -165,11 +166,12 @@
                dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
                dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
                this.bunifuDgv.DefaultCellStyle = dataGridViewCellStyle3;
+               this.bunifuDgv.Dock = System.Windows.Forms.DockStyle.Fill;
                this.bunifuDgv.DoubleBuffered = true;
                this.bunifuDgv.EnableHeadersVisualStyles = false;
                this.bunifuDgv.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(140)))), ((int)(((byte)(224)))));
                this.bunifuDgv.HeaderForeColor = System.Drawing.Color.White;
-               this.bunifuDgv.Location = new System.Drawing.Point(25, 3);
+               this.bunifuDgv.Location = new System.Drawing.Point(0, 0);
                this.bunifuDgv.Name = "bunifuDgv";
                this.bunifuDgv.ReadOnly = true;
                this.bunifuDgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -186,8 +188,9 @@
                this.bunifuDgv.RowTemplate.Height = 30;
                this.bunifuDgv.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
                this.bunifuDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-               this.bunifuDgv.Size = new System.Drawing.Size(971, 220);
+               this.bunifuDgv.Size = new System.Drawing.Size(999, 240);
                this.bunifuDgv.TabIndex = 23;
+               this.bunifuDgv.Click += new System.EventHandler(this.bunifuDgv_Click);
                // 
                // bunifuElipse1
                // 
@@ -289,6 +292,7 @@
                this.txtID_Invoice.Size = new System.Drawing.Size(218, 52);
                this.txtID_Invoice.TabIndex = 45;
                this.txtID_Invoice.text = "";
+              // this.txtID_Invoice.KeyPress += new System.EventArgs(this.txtID_Invoice_KeyPress);
                // 
                // btnNext
                // 
