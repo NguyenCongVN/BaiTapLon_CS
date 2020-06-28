@@ -97,6 +97,7 @@
                this.dgvSearchCustomer.Name = "dgvSearchCustomer";
                this.dgvSearchCustomer.RowHeadersWidth = 51;
                this.dgvSearchCustomer.RowTemplate.Height = 24;
+               this.dgvSearchCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
                this.dgvSearchCustomer.Size = new System.Drawing.Size(740, 227);
                this.dgvSearchCustomer.TabIndex = 1;
                this.dgvSearchCustomer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSearchCustomer_MouseClick);

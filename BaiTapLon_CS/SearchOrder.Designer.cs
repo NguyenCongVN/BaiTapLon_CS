@@ -38,8 +38,6 @@
                this.label4 = new System.Windows.Forms.Label();
                this.label5 = new System.Windows.Forms.Label();
                this.label7 = new System.Windows.Forms.Label();
-               this.btnCurrent = new System.Windows.Forms.Button();
-               this.btnTotalPage = new System.Windows.Forms.Button();
                this.panel1 = new System.Windows.Forms.Panel();
                this.bunifuDgv = new Bunifu.Framework.UI.BunifuCustomDataGrid();
                this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -54,6 +52,8 @@
                this.btnNext = new Bunifu.Framework.UI.BunifuThinButton2();
                this.btnPre = new Bunifu.Framework.UI.BunifuThinButton2();
                this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnTotalPage = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnCurrent = new Bunifu.Framework.UI.BunifuThinButton2();
                ((System.ComponentModel.ISupportInitialize)(this.bunifuDgv)).BeginInit();
                this.panel2.SuspendLayout();
                this.SuspendLayout();
@@ -105,28 +105,6 @@
                this.label7.Size = new System.Drawing.Size(120, 30);
                this.label7.TabIndex = 6;
                this.label7.Text = "Số điện thoại";
-               // 
-               // btnCurrent
-               // 
-               this.btnCurrent.BackColor = System.Drawing.Color.Transparent;
-               this.btnCurrent.Enabled = false;
-               this.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnCurrent.Location = new System.Drawing.Point(410, 641);
-               this.btnCurrent.Name = "btnCurrent";
-               this.btnCurrent.Size = new System.Drawing.Size(67, 43);
-               this.btnCurrent.TabIndex = 19;
-               this.btnCurrent.UseVisualStyleBackColor = false;
-               // 
-               // btnTotalPage
-               // 
-               this.btnTotalPage.BackColor = System.Drawing.Color.Transparent;
-               this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnTotalPage.Location = new System.Drawing.Point(637, 641);
-               this.btnTotalPage.Name = "btnTotalPage";
-               this.btnTotalPage.Size = new System.Drawing.Size(67, 43);
-               this.btnTotalPage.TabIndex = 21;
-               this.btnTotalPage.UseVisualStyleBackColor = false;
                // 
                // panel1
                // 
@@ -292,7 +270,6 @@
                this.txtID_Invoice.Size = new System.Drawing.Size(218, 52);
                this.txtID_Invoice.TabIndex = 45;
                this.txtID_Invoice.text = "";
-              // this.txtID_Invoice.KeyPress += new System.EventArgs(this.txtID_Invoice_KeyPress);
                // 
                // btnNext
                // 
@@ -315,7 +292,7 @@
                this.btnNext.Location = new System.Drawing.Point(504, 631);
                this.btnNext.Margin = new System.Windows.Forms.Padding(5);
                this.btnNext.Name = "btnNext";
-               this.btnNext.Size = new System.Drawing.Size(96, 53);
+               this.btnNext.Size = new System.Drawing.Size(74, 49);
                this.btnNext.TabIndex = 41;
                this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -338,10 +315,10 @@
                this.btnPre.IdleFillColor = System.Drawing.Color.White;
                this.btnPre.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnPre.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnPre.Location = new System.Drawing.Point(292, 631);
+               this.btnPre.Location = new System.Drawing.Point(326, 631);
                this.btnPre.Margin = new System.Windows.Forms.Padding(5);
                this.btnPre.Name = "btnPre";
-               this.btnPre.Size = new System.Drawing.Size(100, 53);
+               this.btnPre.Size = new System.Drawing.Size(72, 49);
                this.btnPre.TabIndex = 40;
                this.btnPre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnPre.Click += new System.EventHandler(this.btnPre_Click);
@@ -372,12 +349,64 @@
                this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
                // 
+               // btnTotalPage
+               // 
+               this.btnTotalPage.ActiveBorderThickness = 1;
+               this.btnTotalPage.ActiveCornerRadius = 20;
+               this.btnTotalPage.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnTotalPage.ActiveForecolor = System.Drawing.Color.White;
+               this.btnTotalPage.ActiveLineColor = System.Drawing.Color.SeaGreen;
+               this.btnTotalPage.BackColor = System.Drawing.Color.White;
+               this.btnTotalPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTotalPage.BackgroundImage")));
+               this.btnTotalPage.ButtonText = "of 1";
+               this.btnTotalPage.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnTotalPage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnTotalPage.ForeColor = System.Drawing.Color.Blue;
+               this.btnTotalPage.IdleBorderThickness = 1;
+               this.btnTotalPage.IdleCornerRadius = 20;
+               this.btnTotalPage.IdleFillColor = System.Drawing.Color.White;
+               this.btnTotalPage.IdleForecolor = System.Drawing.Color.MediumBlue;
+               this.btnTotalPage.IdleLineColor = System.Drawing.Color.Crimson;
+               this.btnTotalPage.Location = new System.Drawing.Point(604, 631);
+               this.btnTotalPage.Margin = new System.Windows.Forms.Padding(5);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(79, 49);
+               this.btnTotalPage.TabIndex = 50;
+               this.btnTotalPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               // 
+               // btnCurrent
+               // 
+               this.btnCurrent.ActiveBorderThickness = 1;
+               this.btnCurrent.ActiveCornerRadius = 20;
+               this.btnCurrent.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnCurrent.ActiveForecolor = System.Drawing.Color.White;
+               this.btnCurrent.ActiveLineColor = System.Drawing.Color.SeaGreen;
+               this.btnCurrent.BackColor = System.Drawing.Color.White;
+               this.btnCurrent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCurrent.BackgroundImage")));
+               this.btnCurrent.ButtonText = "1";
+               this.btnCurrent.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnCurrent.ForeColor = System.Drawing.Color.Blue;
+               this.btnCurrent.IdleBorderThickness = 1;
+               this.btnCurrent.IdleCornerRadius = 20;
+               this.btnCurrent.IdleFillColor = System.Drawing.Color.White;
+               this.btnCurrent.IdleForecolor = System.Drawing.Color.MediumBlue;
+               this.btnCurrent.IdleLineColor = System.Drawing.Color.Crimson;
+               this.btnCurrent.Location = new System.Drawing.Point(425, 631);
+               this.btnCurrent.Margin = new System.Windows.Forms.Padding(5);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(46, 49);
+               this.btnCurrent.TabIndex = 49;
+               this.btnCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+               // 
                // SearchOrder
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1121, 779);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnCurrent);
                this.Controls.Add(this.txtName_Customer);
                this.Controls.Add(this.txtPhone);
                this.Controls.Add(this.txtID_Customer);
@@ -390,8 +419,6 @@
                this.Controls.Add(this.bunifuCustomLabel2);
                this.Controls.Add(this.bunifuCustomLabel1);
                this.Controls.Add(this.panel1);
-               this.Controls.Add(this.btnTotalPage);
-               this.Controls.Add(this.btnCurrent);
                this.Controls.Add(this.label7);
                this.Controls.Add(this.label5);
                this.Controls.Add(this.label4);
@@ -413,8 +440,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnCurrent;
-        private System.Windows.Forms.Button btnTotalPage;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuDgv;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
@@ -429,5 +454,7 @@
         private Bunifu.Framework.UI.BunifuTextbox txtID_Customer;
         private Bunifu.Framework.UI.BunifuTextbox txtPhone;
         private Bunifu.Framework.UI.BunifuTextbox txtName_Customer;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnTotalPage;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnCurrent;
     }
 }

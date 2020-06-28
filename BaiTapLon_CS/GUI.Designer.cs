@@ -71,7 +71,7 @@
                // 
                // panel1
                // 
-               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.panel1.Controls.Add(this.button1);
                this.panel1.Controls.Add(this.pictureBox1);
                this.panel1.Controls.Add(this.button7);
@@ -89,12 +89,12 @@
                // 
                // button1
                // 
-               this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button1.FlatAppearance.BorderSize = 0;
                this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.button1.ForeColor = System.Drawing.Color.White;
-               this.button1.Image = global::BaiTapLon_CS.Properties.Resources.pie_chart1;
+               this.button1.Image = global::BaiTapLon_CS.Properties.Resources.statistic;
                this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.button1.Location = new System.Drawing.Point(5, 611);
                this.button1.Name = "button1";
@@ -107,9 +107,9 @@
                // pictureBox1
                // 
                this.pictureBox1.BackColor = System.Drawing.Color.White;
-               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.icons8_medical_doctor_100;
+               this.pictureBox1.BackgroundImage = global::BaiTapLon_CS.Properties.Resources.doctor;
                this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-               this.pictureBox1.Location = new System.Drawing.Point(63, 27);
+               this.pictureBox1.Location = new System.Drawing.Point(73, 29);
                this.pictureBox1.Name = "pictureBox1";
                this.pictureBox1.Size = new System.Drawing.Size(100, 79);
                this.pictureBox1.TabIndex = 7;
@@ -118,12 +118,12 @@
                // 
                // button7
                // 
-               this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button7.FlatAppearance.BorderSize = 0;
                this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.button7.ForeColor = System.Drawing.Color.White;
-               this.button7.Image = global::BaiTapLon_CS.Properties.Resources.history__1_1;
+               this.button7.Image = global::BaiTapLon_CS.Properties.Resources.hiss;
                this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.button7.Location = new System.Drawing.Point(12, 714);
                this.button7.Name = "button7";
@@ -135,7 +135,7 @@
                // 
                // button6
                // 
-               this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
                this.button6.FlatAppearance.BorderSize = 0;
                this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -153,7 +153,7 @@
                // 
                // button5
                // 
-               this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button5.FlatAppearance.BorderSize = 0;
                this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -171,7 +171,7 @@
                // productList
                // 
                this.productList.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-               this.productList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.productList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.productList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
                this.productList.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
                this.productList.FlatAppearance.BorderSize = 0;
@@ -180,9 +180,9 @@
                this.productList.ForeColor = System.Drawing.Color.White;
                this.productList.Image = global::BaiTapLon_CS.Properties.Resources.Checklist_icon__1_;
                this.productList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.productList.Location = new System.Drawing.Point(12, 114);
+               this.productList.Location = new System.Drawing.Point(0, 114);
                this.productList.Name = "productList";
-               this.productList.Size = new System.Drawing.Size(251, 70);
+               this.productList.Size = new System.Drawing.Size(263, 70);
                this.productList.TabIndex = 1;
                this.productList.Text = "SẢN PHẨM";
                this.productList.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
                // 
                // button4
                // 
-               this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button4.FlatAppearance.BorderSize = 0;
                this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -207,7 +207,7 @@
                // 
                // button2
                // 
-               this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.button2.FlatAppearance.BorderSize = 0;
                this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -224,7 +224,7 @@
                // 
                // panel2
                // 
-               this.panel2.BackColor = System.Drawing.Color.Red;
+               this.panel2.BackColor = System.Drawing.Color.Crimson;
                this.panel2.Controls.Add(this.panel4);
                this.panel2.Controls.Add(this.lbText);
                this.panel2.Controls.Add(this.lbName);
@@ -277,7 +277,7 @@
                // 
                // menuStrip1
                // 
-               this.menuStrip1.BackColor = System.Drawing.Color.DarkTurquoise;
+               this.menuStrip1.BackColor = System.Drawing.Color.FloralWhite;
                this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
                this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -362,7 +362,7 @@
                // 
                // panel3
                // 
-               this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(190)))));
+               this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
                this.panel3.Controls.Add(this.panel5);
                this.panel3.Controls.Add(this.time);
                this.panel3.Controls.Add(this.label5);
@@ -411,8 +411,8 @@
                // 
                // btnExit
                // 
-               this.btnExit.BackColor = System.Drawing.Color.DarkTurquoise;
-               this.btnExit.Image = global::BaiTapLon_CS.Properties.Resources.icons8_close_window_32;
+               this.btnExit.BackColor = System.Drawing.Color.FloralWhite;
+               this.btnExit.Image = global::BaiTapLon_CS.Properties.Resources.exxit;
                this.btnExit.ImageActive = null;
                this.btnExit.Location = new System.Drawing.Point(1415, 0);
                this.btnExit.Name = "btnExit";

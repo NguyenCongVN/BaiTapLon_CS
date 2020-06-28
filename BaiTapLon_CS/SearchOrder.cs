@@ -154,8 +154,8 @@ namespace BaiTapLon_CS
                          {
                               pageMax = (pageMax / pageSize) + 1;
                          }
-                         btnTotalPage.Text = "of " + pageMax.ToString();
-                         btnCurrent.Text = page.ToString();
+                         btnTotalPage.ButtonText = "of " + pageMax.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
           }
@@ -166,7 +166,7 @@ namespace BaiTapLon_CS
                     page -= 1;
                     string query = "EXEC dbo.searchInvoice @pageNumber =" + page + ",@pageSize=" + pageSize;
                     searchMedicine_List_Search(query);
-                    btnCurrent.Text = page.ToString();
+                    btnCurrent.ButtonText = page.ToString();
                }
           }
           private void btnNext_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace BaiTapLon_CS
                     page += 1;
                     string query = "EXEC dbo.searchInvoice @pageNumber =" + page + ",@pageSize=" + pageSize;
                     searchMedicine_List_Search(query);
-                    btnCurrent.Text = page.ToString();
+                    btnCurrent.ButtonText = page.ToString();
                }
           }
 

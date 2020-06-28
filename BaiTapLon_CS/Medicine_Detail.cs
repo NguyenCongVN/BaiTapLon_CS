@@ -38,19 +38,12 @@ namespace BaiTapLon_CS
                 pictureBox1.BackgroundImage = bitmap1;
             }
 
-            string query = "SELECT dbo.Import.Import_Date,imde.Date_Of_Manufacture,imde.Expiry_Date,imde.Amount FROM dbo.Medicine AS me JOIN dbo.Import_Detail as imde ON imde.ID_Medicine = me.ID_Medicine JOIN dbo.Import ON Import.ID_Import = imde.ID_Import and me.ID_Medicine = " + txtID_Medicine.Text;
+            string query = "getImportDetail @id="+txtID_Medicine.Text;
             DisplayListView(query);
 
-
-
-            int total_import = this.dataGridView1.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[3].Value));
-
-            string query_amount_sell = "SELECT SUM(Amount) FROM Invoice_Detail WHERE ID_Medicine = " + txtID_Medicine.Text;
-            if (total_import != 0)
-            {
-                txtAmount.Text = (total_import - int.Parse(DAO.Medicine_DetailDAO.Instance.getTotalSell(query_amount_sell))).ToString();
-            }
-        }
+               string q = "SELECT dbo.fuAmountImport("+ txtID_Medicine.Text + ") - dbo.fuSell("+ txtID_Medicine.Text + ")";
+               txtAmount.Text = DAO.DataProvider.Instance.DisplayListView(q).Rows[0][0].ToString(); 
+          }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

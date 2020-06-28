@@ -28,7 +28,7 @@
           /// </summary>
           private void InitializeComponent()
           {
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
                this.dataGridView1 = new System.Windows.Forms.DataGridView();
                this.panel1 = new System.Windows.Forms.Panel();
                this.panel2 = new System.Windows.Forms.Panel();
@@ -50,6 +50,8 @@
                // 
                // dataGridView1
                // 
+               this.dataGridView1.AllowUserToAddRows = false;
+               this.dataGridView1.AllowUserToDeleteRows = false;
                this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
                this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -57,9 +59,10 @@
                this.dataGridView1.Name = "dataGridView1";
                this.dataGridView1.ReadOnly = true;
                this.dataGridView1.RowHeadersWidth = 51;
-               dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-               this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
+               dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+               this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
                this.dataGridView1.RowTemplate.Height = 24;
+               this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
                this.dataGridView1.Size = new System.Drawing.Size(933, 219);
                this.dataGridView1.TabIndex = 0;
                this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

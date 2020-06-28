@@ -57,8 +57,8 @@ namespace BaiTapLon_CS
             {
                 pageMax = (pageMax / pageSize) + 1;
             }
-            btnCurrent.Text = page.ToString();
-            btnTotalPage.Text = "of " + pageMax.ToString();
+            btnCurrent.ButtonText = page.ToString();
+            btnTotalPage.ButtonText = "of " + pageMax.ToString();
         }
         private void btnExcel_Click(object sender, EventArgs e)
         {
@@ -105,7 +105,7 @@ namespace BaiTapLon_CS
                     page -= 1;
                     string query = "EXEC history @pageNumber =" + page + ",@pageSize=" + pageSize;
                     DisplayListView(query);
-                    btnCurrent.Text = page.ToString();
+                    btnCurrent.ButtonText = page.ToString();
                     dgvHistory.Columns[8].Visible = false;
                }
           }
@@ -117,7 +117,7 @@ namespace BaiTapLon_CS
                     page += 1;
                     string query = "EXEC history @pageNumber =" + page + ",@pageSize=" + pageSize;
                     DisplayListView(query);
-                    btnCurrent.Text = page.ToString();
+                    btnCurrent.ButtonText = page.ToString();
                     dgvHistory.Columns[8].Visible = false;
                }
           }

@@ -156,7 +156,8 @@
       <HintPath>..\packages\MaterialMenu.0.0.4.5\lib\net46\MaterialMenu.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
@@ -662,6 +663,9 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\search3.png" />
+    <None Include="Resources\statistic.png" />
     <None Include="Resources\nhom1.png" />
     <None Include="Resources\pie-chart1.png" />
     <None Include="Resources\search %282%29.png" />
@@ -725,7 +729,6 @@
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\TaskIcon.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Manager Image\Viet.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Medicine Image\PanadolExtra.jfif" />
-
     <None Include="Resources\Cong_Image.bmp" />
     <None Include="Resources\icons8_manager_100px.png" />
     <None Include="Resources\icons8_pill_240px.png" />
@@ -733,7 +736,6 @@
     <None Include="Resources\icons8_pill_50px_1.png" />
     <None Include="Resources\icons8_pill_40px.png" />
     <None Include="Resources\icons8_pill_40px_1.png" />
-
     <None Include="Resources\find1.png" />
     <None Include="Resources\icons8-reset-48.png" />
     <None Include="Resources\icons8-advanced-search-48.png" />
@@ -756,7 +758,9 @@
     <None Include="Resources\icons8-close-window-32.png" />
     <None Include="Resources\icons8-medical-bag-50.png" />
     <None Include="Resources\icons8-medical-doctor-100.png" />
-
+    <None Include="Resources\doctor.png" />
+    <None Include="Resources\hiss.png" />
+    <None Include="Resources\exxit.png" />
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

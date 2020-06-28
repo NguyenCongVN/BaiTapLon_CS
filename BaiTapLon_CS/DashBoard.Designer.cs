@@ -71,11 +71,10 @@
                // 
                // pictureBox5
                // 
-               this.pictureBox5.Image = global::BaiTapLon_CS.Properties.Resources.user__3_;
-               this.pictureBox5.Location = new System.Drawing.Point(814, 129);
+               this.pictureBox5.Location = new System.Drawing.Point(0, 0);
                this.pictureBox5.Name = "pictureBox5";
-               this.pictureBox5.Size = new System.Drawing.Size(94, 82);
-               this.pictureBox5.TabIndex = 6;
+               this.pictureBox5.Size = new System.Drawing.Size(100, 50);
+               this.pictureBox5.TabIndex = 28;
                this.pictureBox5.TabStop = false;
                // 
                // pictureBox6
@@ -89,12 +88,10 @@
                // 
                // pictureBox3
                // 
-               this.pictureBox3.BackColor = System.Drawing.Color.White;
-               this.pictureBox3.Image = global::BaiTapLon_CS.Properties.Resources.product;
-               this.pictureBox3.Location = new System.Drawing.Point(66, 129);
+               this.pictureBox3.Location = new System.Drawing.Point(0, 0);
                this.pictureBox3.Name = "pictureBox3";
-               this.pictureBox3.Size = new System.Drawing.Size(90, 82);
-               this.pictureBox3.TabIndex = 4;
+               this.pictureBox3.Size = new System.Drawing.Size(100, 50);
+               this.pictureBox3.TabIndex = 29;
                this.pictureBox3.TabStop = false;
                // 
                // pictureBox4
@@ -109,16 +106,15 @@
                // 
                // pictureBox2
                // 
-               this.pictureBox2.Image = global::BaiTapLon_CS.Properties.Resources.portfolio;
-               this.pictureBox2.Location = new System.Drawing.Point(443, 129);
+               this.pictureBox2.Location = new System.Drawing.Point(0, 0);
                this.pictureBox2.Name = "pictureBox2";
-               this.pictureBox2.Size = new System.Drawing.Size(89, 82);
-               this.pictureBox2.TabIndex = 2;
+               this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+               this.pictureBox2.TabIndex = 30;
                this.pictureBox2.TabStop = false;
                // 
                // pictureBox1
                // 
-               this.pictureBox1.BackColor = System.Drawing.Color.MediumBlue;
+               this.pictureBox1.BackColor = System.Drawing.Color.DodgerBlue;
                this.pictureBox1.Location = new System.Drawing.Point(423, 167);
                this.pictureBox1.Name = "pictureBox1";
                this.pictureBox1.Size = new System.Drawing.Size(273, 136);
@@ -153,7 +149,7 @@
                // outOfProduct
                // 
                this.outOfProduct.AutoSize = true;
-               this.outOfProduct.BackColor = System.Drawing.Color.MediumBlue;
+               this.outOfProduct.BackColor = System.Drawing.Color.DodgerBlue;
                this.outOfProduct.Font = new System.Drawing.Font("Modern No. 20", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.outOfProduct.ForeColor = System.Drawing.Color.White;
                this.outOfProduct.Location = new System.Drawing.Point(617, 194);
@@ -165,7 +161,7 @@
                // label4
                // 
                this.label4.AutoSize = true;
-               this.label4.BackColor = System.Drawing.Color.MediumBlue;
+               this.label4.BackColor = System.Drawing.Color.DodgerBlue;
                this.label4.Font = new System.Drawing.Font("MV Boli", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                this.label4.Location = new System.Drawing.Point(534, 259);
                this.label4.Name = "label4";

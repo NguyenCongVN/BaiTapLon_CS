@@ -193,6 +193,16 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap doctor {
+            get {
+                object obj = ResourceManager.GetObject("doctor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EmployeeIcon {
             get {
                 object obj = ResourceManager.GetObject("EmployeeIcon", resourceCulture);
@@ -233,6 +243,16 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exxit {
+            get {
+                object obj = ResourceManager.GetObject("exxit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap find {
             get {
                 object obj = ResourceManager.GetObject("find", resourceCulture);
@@ -263,15 +283,19 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap icons8_add_property_480px {
+        internal static System.Drawing.Bitmap hiss {
             get {
-                object obj = ResourceManager.GetObject("icons8_add_property_480px", resourceCulture);
-
+                object obj = ResourceManager.GetObject("hiss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap history {
             get {
                 object obj = ResourceManager.GetObject("history", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -279,15 +303,9 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap icons8_add_property_48px_2 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_add_property_48px_2", resourceCulture);
-
         internal static System.Drawing.Bitmap history__1_ {
             get {
                 object obj = ResourceManager.GetObject("history (1)", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -295,15 +313,9 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap icons8_add_property_96px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_add_property_96px", resourceCulture);
-
         internal static System.Drawing.Bitmap history__1_1 {
             get {
                 object obj = ResourceManager.GetObject("history (1)1", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -311,15 +323,9 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap icons8_add_user_male_24px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_add_user_male_24px_1", resourceCulture);
-
         internal static System.Drawing.Bitmap icons8_add_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-32", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -327,10 +333,46 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-        internal static System.Drawing.Bitmap icons8_graph_50px {
+        internal static System.Drawing.Bitmap icons8_add_property_480px {
             get {
-                object obj = ResourceManager.GetObject("icons8_graph_50px", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_add_property_480px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_property_48px_2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_property_48px_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_property_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_property_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_user_male_24px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_user_male_24px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_advanced_search_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-advanced-search-48", resourceCulture);
@@ -341,9 +383,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_graph_50px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_graph_50px_1", resourceCulture);
         internal static System.Drawing.Bitmap icons8_cancel_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-cancel-32", resourceCulture);
@@ -354,9 +393,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_manager_100px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_manager_100px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_close_window_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-close-window-32", resourceCulture);
@@ -367,9 +403,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_manager_50px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_manager_50px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_customer_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-customer-32", resourceCulture);
@@ -380,9 +413,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_nurse_male_40px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_nurse_male_40px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_customer_32__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-customer-32 (1)", resourceCulture);
@@ -393,9 +423,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_pill_240px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_pill_240px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_exit_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-exit-32", resourceCulture);
@@ -406,9 +433,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_pill_40px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_pill_40px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_forgot_password_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-forgot-password-48", resourceCulture);
@@ -419,9 +443,26 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_pill_40px_1 {
+        internal static System.Drawing.Bitmap icons8_graph_50px {
             get {
-                object obj = ResourceManager.GetObject("icons8_pill_40px_1", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_graph_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_graph_50px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_graph_50px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_id_verified_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-id-verified-32", resourceCulture);
@@ -432,9 +473,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_pill_50px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_pill_50px_1", resourceCulture);
         internal static System.Drawing.Bitmap icons8_invoice_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-invoice-32", resourceCulture);
@@ -445,9 +483,26 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_pill_80px_1 {
+        internal static System.Drawing.Bitmap icons8_manager_100px {
             get {
-                object obj = ResourceManager.GetObject("icons8_pill_80px_1", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_manager_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_manager_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_manager_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_medical_bag_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-medical-bag-50", resourceCulture);
@@ -458,9 +513,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_statistics_40px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_statistics_40px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_medical_doctor_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-medical-doctor-100", resourceCulture);
@@ -471,9 +523,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_statistics_64px {
-            get {
-                object obj = ResourceManager.GetObject("icons8_statistics_64px", resourceCulture);
         internal static System.Drawing.Bitmap icons8_name_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-name-16", resourceCulture);
@@ -484,9 +533,6 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_statistics_80px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_statistics_80px_1", resourceCulture);
         internal static System.Drawing.Bitmap icons8_name_8 {
             get {
                 object obj = ResourceManager.GetObject("icons8-name-8", resourceCulture);
@@ -497,9 +543,16 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_user_100px {
+        internal static System.Drawing.Bitmap icons8_nurse_male_40px {
             get {
-                object obj = ResourceManager.GetObject("icons8_user_100px", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_nurse_male_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_phone_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-phone-32", resourceCulture);
@@ -510,12 +563,59 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_user_50px_1 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_user_50px_1", resourceCulture);
         internal static System.Drawing.Bitmap icons8_phone_321 {
             get {
                 object obj = ResourceManager.GetObject("icons8-phone-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pill_240px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pill_240px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pill_40px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pill_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pill_40px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pill_40px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pill_50px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pill_50px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pill_80px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_pill_80px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -536,6 +636,56 @@ namespace BaiTapLon_CS.Properties {
         internal static System.Drawing.Bitmap icons8_save_all_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-save-all-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_statistics_40px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_statistics_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_statistics_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_statistics_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_statistics_80px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_statistics_80px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_100px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_50px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_50px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -763,6 +913,16 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reset {
+            get {
+                object obj = ResourceManager.GetObject("reset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Reset_icon {
             get {
                 object obj = ResourceManager.GetObject("Reset-icon", resourceCulture);
@@ -843,9 +1003,29 @@ namespace BaiTapLon_CS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search3 {
+            get {
+                object obj = ResourceManager.GetObject("search3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shopping_Cart2 {
             get {
                 object obj = ResourceManager.GetObject("Shopping_Cart2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statistic {
+            get {
+                object obj = ResourceManager.GetObject("statistic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

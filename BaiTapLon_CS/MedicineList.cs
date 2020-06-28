@@ -43,9 +43,9 @@ namespace BaiTapLon_CS
         private void LoadMedicineList(string query)
         {
             Medicine_List(query);
-            btnCurrent.Text = page.ToString();
+            btnCurrent.ButtonText = page.ToString();
             pageMax = int.Parse(MedicineListDAO.Instance.getCountMedicine());
-               totalResult.Text = "Có " + pageMax + " dữ liệu";
+            totalResult.Text = "Có " + pageMax + " dữ liệu";
             if (pageMax % pageSize == 0)
             {
                 pageMax = pageMax / pageSize;
@@ -54,7 +54,7 @@ namespace BaiTapLon_CS
             {
                 pageMax = (pageMax / pageSize) + 1;
             }
-            btnTotalPage.Text = "of " + pageMax.ToString();
+            btnTotalPage.ButtonText = "of " + pageMax.ToString();
         }
         public MedicineList()
         {
@@ -145,8 +145,8 @@ namespace BaiTapLon_CS
             if (isEnter == false)
             {
                 MessageBox.Show("Bạn chưa có nhập thông tin tìm kiếm gì hết nhé");
-                btnCurrent.Text = "0";
-                btnTotalPage.Text = "of 0";
+                btnCurrent.ButtonText = "0";
+                btnTotalPage.ButtonText = "of 0";
             }
             else
             {
@@ -163,8 +163,8 @@ namespace BaiTapLon_CS
                 {
                     pageMax = (pageMax / pageSize) + 1;
                 }
-                btnCurrent.Text = page.ToString();
-                btnTotalPage.Text = "of " + pageMax.ToString();
+                btnCurrent.ButtonText = page.ToString();
+                btnTotalPage.ButtonText = "of " + pageMax.ToString();
                 searchQuery = "ALTER PROC searchMedicine @pageNumber INT,@pageSize INT AS BEGIN DECLARE @startRow INT DECLARE @endRow INT SET @startRow = ((@pageNumber - 1) * @pageSize) + 1 SET @endRow = (@pageNumber * @pageSize) SELECT * FROM ( SELECT me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number, ROW_NUMBER() OVER (ORDER BY me.ID_Medicine ASC) AS RowNumber " +
                          " FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category" +
                          " and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer)AS temp WHERE temp.RowNumber BETWEEN @startRow AND @endRow END";
@@ -180,7 +180,7 @@ namespace BaiTapLon_CS
                page = 1;
             string query ="EXEC dbo.spGetProduct @pageNumber = "+page+", @pageSize = "+pageSize;
                Medicine_List(query);
-            btnCurrent.Text = page.ToString();
+            btnCurrent.ButtonText = page.ToString();
             pageMax = int.Parse(MedicineListDAO.Instance.getCountMedicine());
             if (pageMax % pageSize == 0)
             {
@@ -190,7 +190,7 @@ namespace BaiTapLon_CS
             {
                 pageMax = (pageMax / pageSize) + 1;
             }
-            btnTotalPage.Text = "of " + pageMax.ToString();
+            btnTotalPage.ButtonText = "of " + pageMax.ToString();
         }
         private void dgwMedicineList_MouseClick(object sender, MouseEventArgs e)
         {
@@ -221,7 +221,7 @@ namespace BaiTapLon_CS
                          page -= 1;
                          string query = "EXEC dbo.spGetProduct @pageNumber =" + page + ",@pageSize =" + pageSize;
                          Medicine_List(query);
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
                else if (isSearch)
@@ -231,7 +231,7 @@ namespace BaiTapLon_CS
                          page -= 1;
                          searchQuery = "EXEC dbo.searchMedicine @pageNumber =" + page + ",@pageSize =" + pageSize;
                          Medicine_List(searchQuery);
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
           }
@@ -245,7 +245,7 @@ namespace BaiTapLon_CS
                          page += 1;
                          string query = "EXEC dbo.spGetProduct @pageNumber =" + page + ",@pageSize =" + pageSize;
                          Medicine_List(query);
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
                else if (isSearch)
@@ -255,7 +255,7 @@ namespace BaiTapLon_CS
                          page += 1;
                          searchQuery = "EXEC dbo.searchMedicine @pageNumber =" + page + ",@pageSize =" + pageSize;
                          Medicine_List(searchQuery);
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
 

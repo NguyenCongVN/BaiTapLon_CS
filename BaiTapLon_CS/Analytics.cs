@@ -47,7 +47,7 @@ namespace BaiTapLon_CS
             var idManufacturer = cboxManufacturer.SelectedIndex + 1;
             List<String> category = DAO.AnalyticsDAO.Instance.getCategoty(idManufacturer);
             cbCategory.Items.Clear();
-            cbCategory.Text = "Lựa chọn";
+            cbCategory.Text = "Tất cả";
             foreach (var i in category)
             {
                 cbCategory.Items.Add(i);
@@ -72,7 +72,7 @@ namespace BaiTapLon_CS
                     if (page >= 2)
                     {
                          page -= 1;
-                         string query = "EXEC today @pageNumber = " + page + ",@pageSize = " + pageSize;
+                         string query = "EXEC today @pageNumber = " + page + ",@pageSize = " + pageSize + ",@id=" + LoginDAO.ID_Manager;
                          LoadAnalytics(query);
                          dgvAnalytics.Columns[6].Visible = false;
                          btnCurrent.Text = page.ToString();
@@ -85,7 +85,7 @@ namespace BaiTapLon_CS
                     {
                          page -= 1;
                        
-                         var query ="EXEC analyist_month @pageNumber = " + page + ",@pageSize = " + pageSize;
+                         var query ="EXEC analyist_month @pageNumber = " + page + ",@pageSize = " + pageSize +",@id="+LoginDAO.ID_Manager;
                          LoadAnalytics(query);
                          dgvAnalytics.Columns[6].Visible = false;
                          btnCurrent.Text = page.ToString();
@@ -103,7 +103,7 @@ namespace BaiTapLon_CS
                          string query = "EXEC analyist @pageNumber=" + page + ",@pageSize=" + pageSize;
                          LoadAnalytics(query);
                          dgvAnalytics.Columns[6].Visible = false;
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                    
                }
@@ -112,10 +112,10 @@ namespace BaiTapLon_CS
                     if (page <= pageMax - 1)
                     {
                          page += 1;
-                         string query = "EXEC today @pageNumber = " + page + ",@pageSize = " + pageSize;
+                         string query = "EXEC today @pageNumber = " + page + ",@pageSize = " + pageSize + ",id=" +LoginDAO.ID_Manager ;
                          LoadAnalytics(query);
                          dgvAnalytics.Columns[6].Visible = false;
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
                else if (month)
@@ -123,10 +123,10 @@ namespace BaiTapLon_CS
                     if (page <= pageMax - 1)
                     {
                          page += 1;
-                         var query = "EXEC analyist_month @pageNumber = " + page + ",@pageSize = " + pageSize;
+                         var query = "EXEC analyist_month @pageNumber = " + page + ",@pageSize = " + pageSize + ",@id=" + LoginDAO.ID_Manager;
                          LoadAnalytics(query);
                          dgvAnalytics.Columns[6].Visible = false;
-                         btnCurrent.Text = page.ToString();
+                         btnCurrent.ButtonText = page.ToString();
                     }
                }
           }
@@ -151,14 +151,10 @@ namespace BaiTapLon_CS
                {
                     pageMax = (pageMax / pageSize) + 1;
                }
-               btnCurrent.Text = page.ToString();
-               btnTotalPage.Text = "of " + pageMax.ToString();
+               btnCurrent.ButtonText = page.ToString();
+               btnTotalPage.ButtonText = "of " + pageMax.ToString();
 
-               var query = "ALTER PROC count_month as begin SELECT inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
-                   "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
-                   ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + LoginDAO.ID_Manager + " END";
-               DataProvider.Instance.Add(query);
-               string q = "exec count_month";
+               string q = "exec count_month @id=" + LoginDAO.ID_Manager;
                LoadAnalytics(q);
                CultureInfo culture = new CultureInfo("en-US");
                decimal val = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[5].Value)).ToString(), NumberStyles.AllowThousands);
@@ -168,19 +164,15 @@ namespace BaiTapLon_CS
                     txtAmount.Text = (dgvAnalytics.Rows.Count - 1).ToString();
                     txtAmount_Product.Text = this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
                     dgvAnalytics.DataSource = null;
-                    var que = "ALTER PROC analyist_month @pageNumber INT,@pageSize INT " +
-                              "AS BEGIN" +
-                              " DECLARE @startRow INT " +
-                              "DECLARE @endRow INT " +
-                              "SET @startRow = ((@pageNumber - 1) * @pageSize) + 1 " +
-                              "SET @endRow = (@pageNumber * @pageSize)  " +
-                         "SELECT * FROM (SELECT inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount as N'Tổng',ROW_NUMBER() OVER (ORDER BY inde.ID_Invoice ASC) AS RowNumber FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
-                         "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
-                         ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + LoginDAO.ID_Manager + ")AS temp WHERE temp.RowNumber BETWEEN @startRow AND @endRow END";
-                    DataProvider.Instance.Add(que);
-                    string qq = "EXEC analyist_month @pageNumber = " + page + ",@pageSize = " + pageSize;
+                    string qq = "EXEC analyist_month @pageNumber="+page+",@pageSize="+pageSize+",@id="+LoginDAO.ID_Manager;
                     LoadAnalytics(qq);
                     dgvAnalytics.Columns[6].Visible = false;
+               }
+               else
+               {
+                    txtAmount.Text = "0";
+                    txtAmount_Product.Text = "0";
+                    txtTotal.Text = "0";
                }
           }
 
@@ -244,20 +236,19 @@ namespace BaiTapLon_CS
                {
                     Subquery += " and me.Name_Medicine = me.Name_Medicine";
                }
-               var aDate = new DateTime(2020, 1, 1, 0, 0, 0);
-               if (dateTimeFrom.Value != aDate)
+
+
+               if (isIndex == true)
                {
-                    isEnter = true;
-                    if (isIndex == true)
-                    {
-                         Subquery += " and inde.Time_Of_Purchase <='" + dateTimeTo.Value + "'";
-                         isIndex = false;
-                    }
-                    else
-                    {
-                         Subquery += " and inde.Time_Of_Purchase <='" + dateTimeTo.Value + "'";
-                    }
+                    Subquery += " and inde.Time_Of_Purchase <='" + dateTimeTo.Value + "'";
+                    isIndex = false;
                }
+               else
+               {
+                    Subquery += " and inde.Time_Of_Purchase <='" + dateTimeTo.Value + "'";
+               }
+
+
                if (dateTimeFrom.Value <= dateTimeTo.Value)
                {
                     isEnter = true;
@@ -288,8 +279,8 @@ namespace BaiTapLon_CS
                     {
                          pageMax = (pageMax / pageSize) + 1;
                     }
-                    btnCurrent.Text = page.ToString();
-                    btnTotalPage.Text = "of " + pageMax.ToString();
+                    btnCurrent.ButtonText = page.ToString();
+                    btnTotalPage.ButtonText = "of " + pageMax.ToString();
                     query = "ALTER PROC total_Analyist AS BEGIN SELECT inde.ID_Invoice,me.Name_Medicine,inde.Time_Of_Purchase,inv.Cost,inv.Amount,inv.Cost*inv.Amount FROM dbo.Medicine AS me,dbo.Category AS cat ,dbo.Invoice_Detail AS inv,dbo.Invoice as inde,dbo.Category_Detail AS cade,Manufacturer as man, Manufacturer_Detail as mande" +
                          " WHERE inv.ID_Medicine = me.ID_Medicine AND cat.ID_Category = cade.ID_Category AND me.ID_Medicine = cade.ID_Medicine and inde.ID_Invoice = inv.ID_Invoice and man.ID_Manufacturer = mande.ID_Manufacturer and cat.ID_Category = mande.ID_Category and " + Subquery + " and inde.ID_Manager = " + LoginDAO.ID_Manager + " END";
                     DataProvider.Instance.Add(query);
@@ -300,7 +291,7 @@ namespace BaiTapLon_CS
                     txtTotal.Text = String.Format(culture, "{0:N0}", val);
                     if (dgvAnalytics.Rows.Count != 0)
                     {
-                         txtAmount.Text = (dgvAnalytics.Rows.Count - 1).ToString();
+                         txtAmount.Text = (dgvAnalytics.Rows.Count).ToString();
                     }
                     else
                     {
@@ -321,7 +312,12 @@ namespace BaiTapLon_CS
                     DataProvider.Instance.Add(query);
                     q = "EXEC analyist @pageNumber=" + page + ",@pageSize=" + pageSize;
                     LoadAnalytics(q);
+                    if(dgvAnalytics.DataSource!= null)
                     dgvAnalytics.Columns[6].Visible = false;
+                    else
+                    {
+                         MessageBox.Show("Không có dữ liệu");
+                    }
                }
                else
                {
@@ -344,7 +340,7 @@ namespace BaiTapLon_CS
                month = false;
                Subquery = "";
                page = 1;
-               btnCurrent.Text = page.ToString();
+               btnCurrent.ButtonText = page.ToString();
 
                pageMax = int.Parse(DAO.AnalyticsDAO.Instance.getCountToday());
                if (pageMax % pageSize == 0)
@@ -355,12 +351,9 @@ namespace BaiTapLon_CS
                {
                     pageMax = (pageMax / pageSize) + 1;
                }
-               btnTotalPage.Text = "of " + pageMax.ToString();
-               var query = "ALTER PROC count_today as begin SELECT inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
-                    "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
-                    ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + LoginDAO.ID_Manager + " END";
-               DataProvider.Instance.Add(query);
-               string q = "exec count_today";
+               btnTotalPage.ButtonText = "of " + pageMax.ToString();
+
+               string q = "exec count_today @id="+LoginDAO.ID_Manager;
                LoadAnalytics(q);
                CultureInfo culture = new CultureInfo("en-US");
                decimal val = decimal.Parse(this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[5].Value)).ToString(), NumberStyles.AllowThousands);
@@ -370,17 +363,7 @@ namespace BaiTapLon_CS
                     txtAmount.Text = (dgvAnalytics.Rows.Count - 1).ToString();
                     txtAmount_Product.Text = this.dgvAnalytics.Rows.Cast<DataGridViewRow>().Sum(t => Convert.ToInt32(t.Cells[4].Value)).ToString();
                     dgvAnalytics.DataSource = null;
-                    query = "ALTER PROC today @pageNumber INT,@pageSize INT " +
-                         "AS BEGIN " +
-                         " DECLARE @startRow INT " +
-                         "DECLARE @endRow INT " +
-                         "SET @startRow = ((@pageNumber - 1) * @pageSize) + 1 " +
-                         "SET @endRow = (@pageNumber * @pageSize)  " +
-                         "SELECT * FROM (SELECT inv.ID_Invoice,me.Name_Medicine,inv.Time_Of_Purchase,inde.Cost,inde.Amount,inde.Cost*inde.Amount AS N'Tổng',ROW_NUMBER() OVER (ORDER BY inde.ID_Invoice ASC) AS RowNumber FROM dbo.Medicine AS me,dbo.Invoice AS inv, dbo.Invoice_Detail AS inde " +
-                         "WHERE me.ID_Medicine = inde.ID_Medicine AND inde.ID_Invoice = inv.ID_Invoice AND DAY(inv.Time_Of_Purchase) = DAY(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and MONTH(inv.Time_Of_Purchase) = MONTH(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
-                         ") AND YEAR(inv.Time_Of_Purchase) = YEAR(" + "'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" + ") and inv.ID_Manager =" + LoginDAO.ID_Manager + ")AS temp WHERE temp.RowNumber BETWEEN @startRow AND @endRow END";
-                    DataProvider.Instance.Add(query);
-                    string qq = "EXEC today @pageNumber=" + page + ",@pageSize=" + pageSize;
+                    string qq = "EXEC today @pageNumber=" + page + ",@pageSize=" + pageSize+",@id="+LoginDAO.ID_Manager;
                     LoadAnalytics(qq);
                     dgvAnalytics.Columns[6].Visible = false;
                }
@@ -390,6 +373,11 @@ namespace BaiTapLon_CS
                     txtAmount_Product.Text = "0";
                     txtTotal.Text = "0";
                }
+          }
+
+          private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
+          {
+               
           }
      }
 }

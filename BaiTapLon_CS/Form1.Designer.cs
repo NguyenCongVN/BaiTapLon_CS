@@ -35,7 +35,6 @@
                this.radioBtnAdmin = new System.Windows.Forms.RadioButton();
                this.radioBtnCashier = new System.Windows.Forms.RadioButton();
                this.panel1 = new System.Windows.Forms.Panel();
-               this.pictureBox1 = new System.Windows.Forms.PictureBox();
                this.label10 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
                this.label8 = new System.Windows.Forms.Label();
@@ -50,8 +49,8 @@
                this.btnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
                this.txtPassword = new Bunifu.Framework.UI.BunifuTextbox();
                this.txtAccount = new Bunifu.Framework.UI.BunifuTextbox();
+               this.label3 = new System.Windows.Forms.Label();
                this.panel1.SuspendLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
                this.SuspendLayout();
                // 
                // label1
@@ -97,7 +96,7 @@
                // panel1
                // 
                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(173)))), ((int)(((byte)(164)))));
-               this.panel1.Controls.Add(this.pictureBox1);
+               this.panel1.Controls.Add(this.label3);
                this.panel1.Controls.Add(this.label10);
                this.panel1.Controls.Add(this.label9);
                this.panel1.Controls.Add(this.label8);
@@ -110,15 +109,6 @@
                this.panel1.Size = new System.Drawing.Size(350, 648);
                this.panel1.TabIndex = 9;
                this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-               // 
-               // pictureBox1
-               // 
-               this.pictureBox1.Image = global::BaiTapLon_CS.Properties.Resources.nhom1;
-               this.pictureBox1.Location = new System.Drawing.Point(3, 159);
-               this.pictureBox1.Name = "pictureBox1";
-               this.pictureBox1.Size = new System.Drawing.Size(303, 78);
-               this.pictureBox1.TabIndex = 7;
-               this.pictureBox1.TabStop = false;
                // 
                // label10
                // 
@@ -323,6 +313,17 @@
                this.txtAccount.TabIndex = 11;
                this.txtAccount.text = "";
                // 
+               // label3
+               // 
+               this.label3.AutoSize = true;
+               this.label3.Font = new System.Drawing.Font("MV Boli", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.label3.ForeColor = System.Drawing.Color.Crimson;
+               this.label3.Location = new System.Drawing.Point(61, 242);
+               this.label3.Name = "label3";
+               this.label3.Size = new System.Drawing.Size(203, 58);
+               this.label3.TabIndex = 7;
+               this.label3.Text = "NHÓM 1";
+               // 
                // Form1
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -348,7 +349,6 @@
                this.Text = "Đăng nhập";
                this.panel1.ResumeLayout(false);
                this.panel1.PerformLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -374,7 +374,7 @@
           private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton btnExit;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

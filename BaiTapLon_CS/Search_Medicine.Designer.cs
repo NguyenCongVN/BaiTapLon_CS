@@ -84,6 +84,7 @@
                this.dgvSearchMedicine.Name = "dgvSearchMedicine";
                this.dgvSearchMedicine.RowHeadersWidth = 51;
                this.dgvSearchMedicine.RowTemplate.Height = 24;
+               this.dgvSearchMedicine.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
                this.dgvSearchMedicine.Size = new System.Drawing.Size(692, 186);
                this.dgvSearchMedicine.TabIndex = 4;
                this.dgvSearchMedicine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchMedicine_CellContentClick);

@@ -29,7 +29,7 @@
           private void InitializeComponent()
           {
                this.components = new System.ComponentModel.Container();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicineList));
                this.panel2 = new System.Windows.Forms.Panel();
                this.dgwMedicineList = new System.Windows.Forms.DataGridView();
@@ -41,17 +41,17 @@
                this.cBoxCategoty = new System.Windows.Forms.ComboBox();
                this.cBoxManufacturer = new System.Windows.Forms.ComboBox();
                this.label5 = new System.Windows.Forms.Label();
-               this.btnCurrent = new System.Windows.Forms.Button();
-               this.btnTotalPage = new System.Windows.Forms.Button();
                this.label6 = new System.Windows.Forms.Label();
                this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
                this.label1 = new System.Windows.Forms.Label();
-               this.btnNext = new Bunifu.Framework.UI.BunifuThinButton2();
-               this.btnPre = new Bunifu.Framework.UI.BunifuThinButton2();
                this.btnReset = new System.Windows.Forms.Button();
-               this.btnSearch = new System.Windows.Forms.Button();
                this.totalResult = new System.Windows.Forms.Label();
                this.bunifuColorTransition1 = new Bunifu.Framework.UI.BunifuColorTransition(this.components);
+               this.btnNext = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnPre = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnSearch = new System.Windows.Forms.Button();
+               this.btnTotalPage = new Bunifu.Framework.UI.BunifuThinButton2();
+               this.btnCurrent = new Bunifu.Framework.UI.BunifuThinButton2();
                this.panel2.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.dgwMedicineList)).BeginInit();
                this.SuspendLayout();
@@ -73,16 +73,16 @@
                this.dgwMedicineList.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgwMedicineList.ColumnHeadersHeight = 29;
                this.dgwMedicineList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-               dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-               dataGridViewCellStyle1.Format = "g";
-               dataGridViewCellStyle1.NullValue = null;
-               dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Maroon;
-               dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle1;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+               dataGridViewCellStyle2.Format = "g";
+               dataGridViewCellStyle2.NullValue = null;
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgwMedicineList.DefaultCellStyle = dataGridViewCellStyle2;
                this.dgwMedicineList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
                this.dgwMedicineList.GridColor = System.Drawing.Color.Black;
                this.dgwMedicineList.Location = new System.Drawing.Point(20, 32);
@@ -191,31 +191,6 @@
                this.label5.TabIndex = 30;
                this.label5.Text = "Nhà sản xuất";
                // 
-               // btnCurrent
-               // 
-               this.btnCurrent.BackColor = System.Drawing.Color.White;
-               this.btnCurrent.Enabled = false;
-               this.btnCurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnCurrent.ForeColor = System.Drawing.Color.Black;
-               this.btnCurrent.Location = new System.Drawing.Point(519, 684);
-               this.btnCurrent.Name = "btnCurrent";
-               this.btnCurrent.Size = new System.Drawing.Size(51, 36);
-               this.btnCurrent.TabIndex = 33;
-               this.btnCurrent.UseVisualStyleBackColor = false;
-               // 
-               // btnTotalPage
-               // 
-               this.btnTotalPage.BackColor = System.Drawing.Color.White;
-               this.btnTotalPage.Enabled = false;
-               this.btnTotalPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-               this.btnTotalPage.ForeColor = System.Drawing.Color.Black;
-               this.btnTotalPage.Location = new System.Drawing.Point(698, 684);
-               this.btnTotalPage.Name = "btnTotalPage";
-               this.btnTotalPage.Size = new System.Drawing.Size(72, 36);
-               this.btnTotalPage.TabIndex = 34;
-               this.btnTotalPage.Text = "of";
-               this.btnTotalPage.UseVisualStyleBackColor = false;
-               // 
                // label6
                // 
                this.label6.AutoSize = true;
@@ -243,6 +218,37 @@
                this.label1.TabIndex = 41;
                this.label1.Text = "Tìm kiếm :";
                // 
+               // btnReset
+               // 
+               this.btnReset.BackColor = System.Drawing.Color.SteelBlue;
+               this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+               this.btnReset.ForeColor = System.Drawing.SystemColors.Control;
+               this.btnReset.Image = global::BaiTapLon_CS.Properties.Resources.reset;
+               this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+               this.btnReset.Location = new System.Drawing.Point(951, 201);
+               this.btnReset.Name = "btnReset";
+               this.btnReset.Size = new System.Drawing.Size(166, 79);
+               this.btnReset.TabIndex = 5;
+               this.btnReset.Text = "Khôi phục";
+               this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+               this.btnReset.UseVisualStyleBackColor = false;
+               this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+               // 
+               // totalResult
+               // 
+               this.totalResult.AutoSize = true;
+               this.totalResult.Location = new System.Drawing.Point(318, 311);
+               this.totalResult.Name = "totalResult";
+               this.totalResult.Size = new System.Drawing.Size(46, 17);
+               this.totalResult.TabIndex = 42;
+               this.totalResult.Text = "label7";
+               // 
+               // bunifuColorTransition1
+               // 
+               this.bunifuColorTransition1.Color1 = System.Drawing.Color.Crimson;
+               this.bunifuColorTransition1.Color2 = System.Drawing.Color.White;
+               this.bunifuColorTransition1.ProgessValue = 30;
+               // 
                // btnNext
                // 
                this.btnNext.ActiveBorderThickness = 1;
@@ -261,10 +267,10 @@
                this.btnNext.IdleFillColor = System.Drawing.Color.White;
                this.btnNext.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnNext.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnNext.Location = new System.Drawing.Point(601, 671);
+               this.btnNext.Location = new System.Drawing.Point(605, 683);
                this.btnNext.Margin = new System.Windows.Forms.Padding(5);
                this.btnNext.Name = "btnNext";
-               this.btnNext.Size = new System.Drawing.Size(89, 61);
+               this.btnNext.Size = new System.Drawing.Size(85, 49);
                this.btnNext.TabIndex = 39;
                this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnNext.Click += new System.EventHandler(this.btnNext_Click_1);
@@ -287,36 +293,20 @@
                this.btnPre.IdleFillColor = System.Drawing.Color.White;
                this.btnPre.IdleForecolor = System.Drawing.Color.SeaGreen;
                this.btnPre.IdleLineColor = System.Drawing.Color.SeaGreen;
-               this.btnPre.Location = new System.Drawing.Point(389, 673);
+               this.btnPre.Location = new System.Drawing.Point(408, 683);
                this.btnPre.Margin = new System.Windows.Forms.Padding(5);
                this.btnPre.Name = "btnPre";
-               this.btnPre.Size = new System.Drawing.Size(95, 59);
+               this.btnPre.Size = new System.Drawing.Size(76, 49);
                this.btnPre.TabIndex = 38;
                this.btnPre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                this.btnPre.Click += new System.EventHandler(this.btnPre_Click_1);
-               // 
-               // btnReset
-               // 
-               this.btnReset.BackColor = System.Drawing.Color.SteelBlue;
-               this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-               this.btnReset.ForeColor = System.Drawing.SystemColors.Control;
-               this.btnReset.Image = global::BaiTapLon_CS.Properties.Resources.icons8_reset_48;
-               this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-               this.btnReset.Location = new System.Drawing.Point(951, 201);
-               this.btnReset.Name = "btnReset";
-               this.btnReset.Size = new System.Drawing.Size(166, 79);
-               this.btnReset.TabIndex = 5;
-               this.btnReset.Text = "Khôi phục";
-               this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-               this.btnReset.UseVisualStyleBackColor = false;
-               this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
                // 
                // btnSearch
                // 
                this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
                this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
                this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-               this.btnSearch.Image = global::BaiTapLon_CS.Properties.Resources.icons8_advanced_search_48;
+               this.btnSearch.Image = global::BaiTapLon_CS.Properties.Resources.search3;
                this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
                this.btnSearch.Location = new System.Drawing.Point(771, 201);
                this.btnSearch.Name = "btnSearch";
@@ -327,20 +317,55 @@
                this.btnSearch.UseVisualStyleBackColor = false;
                this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
                // 
-               // totalResult
+               // btnTotalPage
                // 
-               this.totalResult.AutoSize = true;
-               this.totalResult.Location = new System.Drawing.Point(318, 311);
-               this.totalResult.Name = "totalResult";
-               this.totalResult.Size = new System.Drawing.Size(46, 17);
-               this.totalResult.TabIndex = 42;
-               this.totalResult.Text = "label7";
+               this.btnTotalPage.ActiveBorderThickness = 1;
+               this.btnTotalPage.ActiveCornerRadius = 20;
+               this.btnTotalPage.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnTotalPage.ActiveForecolor = System.Drawing.Color.White;
+               this.btnTotalPage.ActiveLineColor = System.Drawing.Color.SeaGreen;
+               this.btnTotalPage.BackColor = System.Drawing.Color.White;
+               this.btnTotalPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnTotalPage.BackgroundImage")));
+               this.btnTotalPage.ButtonText = "of 1";
+               this.btnTotalPage.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnTotalPage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnTotalPage.ForeColor = System.Drawing.Color.Blue;
+               this.btnTotalPage.IdleBorderThickness = 1;
+               this.btnTotalPage.IdleCornerRadius = 20;
+               this.btnTotalPage.IdleFillColor = System.Drawing.Color.White;
+               this.btnTotalPage.IdleForecolor = System.Drawing.Color.MediumBlue;
+               this.btnTotalPage.IdleLineColor = System.Drawing.Color.Crimson;
+               this.btnTotalPage.Location = new System.Drawing.Point(712, 683);
+               this.btnTotalPage.Margin = new System.Windows.Forms.Padding(5);
+               this.btnTotalPage.Name = "btnTotalPage";
+               this.btnTotalPage.Size = new System.Drawing.Size(79, 49);
+               this.btnTotalPage.TabIndex = 47;
+               this.btnTotalPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                // 
-               // bunifuColorTransition1
+               // btnCurrent
                // 
-               this.bunifuColorTransition1.Color1 = System.Drawing.Color.Crimson;
-               this.bunifuColorTransition1.Color2 = System.Drawing.Color.White;
-               this.bunifuColorTransition1.ProgessValue = 30;
+               this.btnCurrent.ActiveBorderThickness = 1;
+               this.btnCurrent.ActiveCornerRadius = 20;
+               this.btnCurrent.ActiveFillColor = System.Drawing.Color.SeaGreen;
+               this.btnCurrent.ActiveForecolor = System.Drawing.Color.White;
+               this.btnCurrent.ActiveLineColor = System.Drawing.Color.SeaGreen;
+               this.btnCurrent.BackColor = System.Drawing.Color.White;
+               this.btnCurrent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCurrent.BackgroundImage")));
+               this.btnCurrent.ButtonText = "1";
+               this.btnCurrent.Cursor = System.Windows.Forms.Cursors.Hand;
+               this.btnCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.btnCurrent.ForeColor = System.Drawing.Color.Blue;
+               this.btnCurrent.IdleBorderThickness = 1;
+               this.btnCurrent.IdleCornerRadius = 20;
+               this.btnCurrent.IdleFillColor = System.Drawing.Color.White;
+               this.btnCurrent.IdleForecolor = System.Drawing.Color.MediumBlue;
+               this.btnCurrent.IdleLineColor = System.Drawing.Color.Crimson;
+               this.btnCurrent.Location = new System.Drawing.Point(511, 683);
+               this.btnCurrent.Margin = new System.Windows.Forms.Padding(5);
+               this.btnCurrent.Name = "btnCurrent";
+               this.btnCurrent.Size = new System.Drawing.Size(46, 49);
+               this.btnCurrent.TabIndex = 46;
+               this.btnCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                // 
                // MedicineList
                // 
@@ -348,14 +373,14 @@
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                this.BackColor = System.Drawing.Color.White;
                this.ClientSize = new System.Drawing.Size(1168, 765);
+               this.Controls.Add(this.btnTotalPage);
+               this.Controls.Add(this.btnCurrent);
                this.Controls.Add(this.totalResult);
                this.Controls.Add(this.label1);
                this.Controls.Add(this.flowLayoutPanel1);
                this.Controls.Add(this.label6);
                this.Controls.Add(this.btnNext);
                this.Controls.Add(this.btnPre);
-               this.Controls.Add(this.btnTotalPage);
-               this.Controls.Add(this.btnCurrent);
                this.Controls.Add(this.label5);
                this.Controls.Add(this.cBoxManufacturer);
                this.Controls.Add(this.cBoxCategoty);
@@ -391,8 +416,6 @@
         private System.Windows.Forms.ComboBox cBoxCategoty;
         private System.Windows.Forms.ComboBox cBoxManufacturer;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnCurrent;
-        private System.Windows.Forms.Button btnTotalPage;
         private Bunifu.Framework.UI.BunifuThinButton2 btnNext;
         private Bunifu.Framework.UI.BunifuThinButton2 btnPre;
         private System.Windows.Forms.Label label6;
@@ -400,5 +423,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalResult;
         private Bunifu.Framework.UI.BunifuColorTransition bunifuColorTransition1;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnTotalPage;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnCurrent;
     }
 }

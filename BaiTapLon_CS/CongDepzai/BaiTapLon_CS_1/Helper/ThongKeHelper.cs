@@ -71,7 +71,7 @@ namespace BaiTapLon_CS.Helper
         public static List<MoneyInMonth> GetMoneyInMonth(int year)
         {
             List<MoneyInMonth> moneyInMonths = new List<MoneyInMonth>();
-            string query = @"exec GetMoney @year";
+            string query = @"exec GetMoneyy @year";
             using (SqlConnection connection = new SqlConnection(Form1.connect))
             {
                 connection.Open();
