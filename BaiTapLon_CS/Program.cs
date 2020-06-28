@@ -14,7 +14,7 @@ namespace BaiTapLon_CS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Dashboard());
+            Application.Run(new Form1());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control;
+using BaiTapLon_CS.DAO;
 using BaiTapLon_CS.Forms.Control;
 using MedicineShopManagement.UserControls;
 using System;
@@ -18,6 +19,7 @@ namespace MedicineShopManagement.Forms
             PanelWidth = panelLeft.Width;
             isCollapsed = false;
             UC_Home uch = new UC_Home();
+            labelTenQuanLy.Text = LoginDAO.Name_Manager;
             AddControlsToPanel(uch);
         }
 
