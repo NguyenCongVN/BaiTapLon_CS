@@ -48,6 +48,93 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="bdr, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Utilities\bdr.exe</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.Dataviz.WinForms, Version=2.1.2.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.Dataviz.WinForms.2.1.2\lib\Bunifu.Dataviz.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.Licensing, Version=1.8.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.Dataviz.WinForms.2.1.2\lib\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGauge, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToggleSwitch, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTransition, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuUserControl, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.Deprecated, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Bunifu.UI.WinForms.Deprecated.dll</HintPath>
+    </Reference>
     <Reference Include="BunifuDataViz 1.0.1, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\BunifuDataViz 1.0.1.dll</HintPath>
@@ -69,7 +156,7 @@
       <HintPath>..\packages\MaterialMenu.0.0.4.5\lib\net46\MaterialMenu.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
@@ -284,6 +371,7 @@
     <Compile Include="DAO\AddCustomerDAO.cs" />
     <Compile Include="DAO\AnalyticsDAO.cs" />
     <Compile Include="DAO\ChangePasswordDAO.cs" />
+    <Compile Include="DAO\DashBoardDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HistoryDAO.cs" />
     <Compile Include="DAO\InfoDAO.cs" />
@@ -294,17 +382,18 @@
     <Compile Include="DAO\SearchCustomerDAO.cs" />
     <Compile Include="DAO\SearchOrderDAO.cs" />
     <Compile Include="DAO\Search_MedicineDAO.cs" />
+    <Compile Include="DAO\StatisticDAO.cs" />
+    <Compile Include="DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="GUI.cs">
@@ -367,6 +456,18 @@
     </Compile>
     <Compile Include="Search_Medicine.Designer.cs">
       <DependentUpon>Search_Medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Order_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Order_Detail.Designer.cs">
+      <DependentUpon>Search_Order_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistic.Designer.cs">
+      <DependentUpon>Statistic.cs</DependentUpon>
     </Compile>
     <Compile Include="Tutorial.cs">
       <SubType>Form</SubType>
@@ -452,11 +553,11 @@
     <EmbeddedResource Include="CongDepzai\BaiTapLon_CS_1\Forms\ThemSanPhamForm.resx">
       <DependentUpon>ThemSanPhamForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
@@ -489,6 +590,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Medicine.resx">
       <DependentUpon>Search_Medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Order_Detail.resx">
+      <DependentUpon>Search_Order_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistic.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tutorial.resx">
       <DependentUpon>Tutorial.cs</DependentUpon>
@@ -555,6 +662,17 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\nhom1.png" />
+    <None Include="Resources\pie-chart1.png" />
+    <None Include="Resources\search %282%29.png" />
+    <None Include="Resources\search %281%291.png" />
+    <None Include="Resources\search %281%29.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\pie-chart.png" />
+    <None Include="Resources\user.jpg" />
+    <None Include="Resources\user %283%29.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\portfolio.png" />
     <None Include="Resources\plasma-search-icon.png" />
     <None Include="Resources\Login-in-icon.png" />
     <None Include="Resources\the-nhan-vien-nha-thuoc-2-1024x682.jpg" />
@@ -607,6 +725,7 @@
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Icon\TaskIcon.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Manager Image\Viet.png" />
     <Content Include="CongDepzai\BaiTapLon_CS_1\Resource\Medicine Image\PanadolExtra.jfif" />
+
     <None Include="Resources\Cong_Image.bmp" />
     <None Include="Resources\icons8_manager_100px.png" />
     <None Include="Resources\icons8_pill_240px.png" />
@@ -614,6 +733,30 @@
     <None Include="Resources\icons8_pill_50px_1.png" />
     <None Include="Resources\icons8_pill_40px.png" />
     <None Include="Resources\icons8_pill_40px_1.png" />
+
+    <None Include="Resources\find1.png" />
+    <None Include="Resources\icons8-reset-48.png" />
+    <None Include="Resources\icons8-advanced-search-48.png" />
+    <None Include="Resources\icons8-save-all-32.png" />
+    <None Include="Resources\icons8-cancel-32.png" />
+    <None Include="Resources\icons8-exit-32.png" />
+    <None Include="Resources\icons8-add-32.png" />
+    <None Include="Resources\icons8-name-16.png" />
+    <None Include="Resources\icons8-name-8.png" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\history %281%29.png" />
+    <None Include="Resources\history %281%291.png" />
+    <None Include="Resources\icons8-forgot-password-48.png" />
+    <None Include="Resources\icons8-invoice-32.png" />
+    <None Include="Resources\icons8-id-verified-32.png" />
+    <None Include="Resources\icons8-customer-32.png" />
+    <None Include="Resources\icons8-phone-32.png" />
+    <None Include="Resources\icons8-phone-321.png" />
+    <None Include="Resources\icons8-customer-32 %281%29.png" />
+    <None Include="Resources\icons8-close-window-32.png" />
+    <None Include="Resources\icons8-medical-bag-50.png" />
+    <None Include="Resources\icons8-medical-doctor-100.png" />
+
     <Content Include="Resources\Image1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -172,6 +172,7 @@
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
                this.Name = "Info";
                this.Text = "Info";
+               this.TopMost = true;
                ((System.ComponentModel.ISupportInitialize)(this.picBoxUser)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();

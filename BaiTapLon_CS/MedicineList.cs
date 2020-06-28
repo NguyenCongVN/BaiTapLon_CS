@@ -7,7 +7,7 @@ namespace BaiTapLon_CS
 {
     public partial class MedicineList : Form
     {
-        private int pageSize = 9;
+        private int pageSize = 7;
         private int page;
         private int pageMax;
         private bool isList = false;
@@ -33,16 +33,19 @@ namespace BaiTapLon_CS
                 dgwMedicineList.Columns[7].HeaderText = "Số đăng ký";
                 dgwMedicineList.Columns[6].DefaultCellStyle.Format = "n0";
                 dgwMedicineList.Columns[6].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("vn-Vn");
-            }
+                dgwMedicineList.Columns[8].Visible = false;
+               }
+            else
+               {
+                    MessageBox.Show("Không có dữ liệu");
+               }
         }
-
         private void LoadMedicineList(string query)
         {
-
             Medicine_List(query);
-            btnPre.Enabled = false;
             btnCurrent.Text = page.ToString();
             pageMax = int.Parse(MedicineListDAO.Instance.getCountMedicine());
+               totalResult.Text = "Có " + pageMax + " dữ liệu";
             if (pageMax % pageSize == 0)
             {
                 pageMax = pageMax / pageSize;
@@ -59,39 +62,24 @@ namespace BaiTapLon_CS
             isSearch = false;
             page = 1;
             InitializeComponent();
-            string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
+            string query ="EXEC dbo.spGetProduct @pageNumber ="+page+",@pageSize ="+pageSize;
             LoadMedicineList(query);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cBType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            isSearch = true;
-            isList = false;
-            dgwMedicineList.DataSource = null;
-            btnNext.Enabled = false;
-            btnPre.Enabled = false;
-            Subquery = "";
-            var isIndex = true;
+                 isSearch = true;
+                 isList = false;
+                 dgwMedicineList.DataSource = null;
+                 Subquery = "";
+                 bool isIndex = true;
+                 bool isEnter = false;
             if (txtID_Medicine.Text != "")
             {
+                    isEnter = true;
                 if (isIndex == true)
                 {
-                    Subquery += "me.ID_Medicine = " + txtID_Medicine.Text;
+                    Subquery += " me.ID_Medicine = " + txtID_Medicine.Text;
                     isIndex = false;
                 }
                 else
@@ -99,11 +87,16 @@ namespace BaiTapLon_CS
                     Subquery += " and me.ID_Medicine = " + txtID_Medicine.Text;
                 }
             }
+            else
+               {
+                    Subquery += " me.ID_Medicine is not null ";
+               }
             if (txtName_Medicine.Text != "")
             {
+                    isEnter = true;
                 if (isIndex == true)
                 {
-                    Subquery += "LOWER(me.Name_Medicine) LIKE N'%" + txtName_Medicine.Text.ToLower() + "%'";
+                    Subquery += " and LOWER(me.Name_Medicine) LIKE N'%" + txtName_Medicine.Text.ToLower() + "%'";
                     isIndex = false;
                 }
                 else
@@ -111,12 +104,16 @@ namespace BaiTapLon_CS
                     Subquery += " and LOWER(me.Name_Medicine) LIKE N'%" + txtName_Medicine.Text.ToLower() + "%'";
                 }
 
-            }
+            }else
+               {
+                    Subquery += " and me.Name_Medicine is not null";
+               }
             if (cBoxCategoty.SelectedIndex != 0 && cBoxCategoty.SelectedIndex != -1)
             {
+                    isEnter = true;
                 if (isIndex == true)
                 {
-                    Subquery += "ca.Name_Category = N'" + cBoxCategoty.Text + "'";
+                    Subquery += " and ca.Name_Category = N'" + cBoxCategoty.Text + "'";
                     isIndex = false;
                 }
                 else
@@ -124,11 +121,16 @@ namespace BaiTapLon_CS
                     Subquery += " and ca.Name_Category =N'" + cBoxCategoty.Text + "'"; ;
                 }
             }
+            else
+               {
+                    Subquery += " and ca.Name_Category is not null";
+               }
             if (cBoxManufacturer.SelectedIndex != 0 && cBoxManufacturer.SelectedIndex != -1)
             {
+                    isEnter = true;
                 if (isIndex == true)
                 {
-                    Subquery += "manu.Name_Manufacturer = N'" + cBoxManufacturer.Text + "'";
+                    Subquery += " and manu.Name_Manufacturer = N'" + cBoxManufacturer.Text + "'";
                     isIndex = false;
                 }
                 else
@@ -136,15 +138,22 @@ namespace BaiTapLon_CS
                     Subquery += " and manu.Name_Manufacturer = N'" + cBoxManufacturer.Text + "'";
                 }
             }
-            if (Subquery == "")
+            else
+               {
+                    Subquery += " and manu.Name_Manufacturer is not null";
+               }
+            if (isEnter == false)
             {
                 MessageBox.Show("Bạn chưa có nhập thông tin tìm kiếm gì hết nhé");
+                btnCurrent.Text = "0";
+                btnTotalPage.Text = "of 0";
             }
             else
             {
                 page = 1;
-                btnPre.Enabled = false;
-                string que = "SELECT COUNT(*) FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
+                string qu = "ALTER PROC count_Search_Medicine AS BEGIN SELECT COUNT(*) FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer END";
+                DataProvider.Instance.Add(qu);
+                string que = "EXEC count_Search_Medicine";
                 pageMax = int.Parse(MedicineListDAO.Instance.getCountSearch(que));
                 if (pageMax % pageSize == 0)
                 {
@@ -154,29 +163,23 @@ namespace BaiTapLon_CS
                 {
                     pageMax = (pageMax / pageSize) + 1;
                 }
-                if (pageMax == 1)
-                {
-                    btnNext.Enabled = false;
-                }
-                else
-                {
-                    btnNext.Enabled = true;
-                }
                 btnCurrent.Text = page.ToString();
                 btnTotalPage.Text = "of " + pageMax.ToString();
-                searchQuery = "SELECT TOP(" + pageSize * page + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                //   " EXCEPT SELECT TOP("+pageSize*(page-1) +") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                Medicine_List(searchQuery);
+                searchQuery = "ALTER PROC searchMedicine @pageNumber INT,@pageSize INT AS BEGIN DECLARE @startRow INT DECLARE @endRow INT SET @startRow = ((@pageNumber - 1) * @pageSize) + 1 SET @endRow = (@pageNumber * @pageSize) SELECT * FROM ( SELECT me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number, ROW_NUMBER() OVER (ORDER BY me.ID_Medicine ASC) AS RowNumber " +
+                         " FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category" +
+                         " and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer)AS temp WHERE temp.RowNumber BETWEEN @startRow AND @endRow END";
+                    DataProvider.Instance.Add(searchQuery);
+                    string quee = "EXEC dbo.searchMedicine @pageNumber =1,@pageSize ="+pageSize;
+                    Medicine_List(quee);
             }
         }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
-            page = 1;
-            string query = "SELECT TOP(+" + pageSize + ") * FROM dbo.Medicine";
-            Medicine_List(query);
-            btnPre.Enabled = false;
-            btnPre.Enabled = false;
+               isList = true;
+               isSearch = false;
+               page = 1;
+            string query ="EXEC dbo.spGetProduct @pageNumber = "+page+", @pageSize = "+pageSize;
+               Medicine_List(query);
             btnCurrent.Text = page.ToString();
             pageMax = int.Parse(MedicineListDAO.Instance.getCountMedicine());
             if (pageMax % pageSize == 0)
@@ -189,173 +192,73 @@ namespace BaiTapLon_CS
             }
             btnTotalPage.Text = "of " + pageMax.ToString();
         }
-
-        private void listViewMedicine_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listViewMedicine_MouseClick(object sender, MouseEventArgs e)
-        {
-
-
-        }
-
         private void dgwMedicineList_MouseClick(object sender, MouseEventArgs e)
         {
             int row = dgwMedicineList.CurrentCell.RowIndex;
             ID_Medicine = int.Parse(dgwMedicineList.Rows[row].Cells[0].Value.ToString());
             Name_Medicine = dgwMedicineList.Rows[row].Cells[1].Value.ToString();
             Image_Medicine = dgwMedicineList.Rows[row].Cells[2].Value.ToString();
-            // Image_Medicine=dgwMedicineList.Rows[row].Cells[2].Value.ToString();
             Medicine_Detail mede = new Medicine_Detail();
             mede.Show();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cBoxCategoty_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void dgwMedicineList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (isList)
-            {
-                if (page < pageMax - 1)
-                {
-                    page += 1;
-                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
-                    Medicine_List(query);
-                    btnPre.Enabled = true;
-                    btnNext.Enabled = true;
-                    btnCurrent.Text = page.ToString();
-                }
-                else
-                {
-                    page += 1;
-                    btnNext.Enabled = false;
-                    btnPre.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
-                    Medicine_List(query);
-                    btnCurrent.Text = page.ToString();
-                }
-            }
-            else if (isSearch)
-            {
-                if (page < pageMax - 1)
-                {
-                    page += 1;
-                    searchQuery = "SELECT TOP(" + pageSize * page + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer" +
-                           " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                    Medicine_List(searchQuery);
-                    btnPre.Enabled = true;
-                    btnNext.Enabled = true;
-                    btnCurrent.Text = page.ToString();
-                }
-                else
-                {
-                    page += 1;
-                    btnNext.Enabled = false;
-                    btnPre.Enabled = true;
-                    searchQuery = "SELECT TOP(" + pageSize * page + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer" +
-                    " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                    Medicine_List(searchQuery);
-                    btnCurrent.Text = page.ToString();
-                }
-            }
-
-        }
-
-        private void btnPre_Click(object sender, EventArgs e)
-        {
-            if (isList)
-            {
-                if (page > 2)
-                {
-                    page -= 1;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize * page + ") * FROM dbo.Medicine EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") * FROM dbo.Medicine";
-                    Medicine_List(query);
-                    btnPre.Enabled = true;
-                    btnCurrent.Text = page.ToString();
-                }
-                else if (page == 2)
-                {
-                    page -= 1;
-                    btnPre.Enabled = false;
-                    btnNext.Enabled = true;
-                    string query = "SELECT TOP(" + pageSize + ") * FROM dbo.Medicine ";
-                    Medicine_List(query);
-                    btnCurrent.Text = page.ToString();
-                }
-            }
-            else if (isSearch)
-            {
-                if (page > 2)
-                {
-                    page -= 1;
-                    btnNext.Enabled = true;
-                    searchQuery = "SELECT TOP(" + pageSize * page + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer" +
-                         " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                    Medicine_List(searchQuery);
-                    btnPre.Enabled = true;
-                    btnCurrent.Text = page.ToString();
-                }
-                else if (page == 2)
-                {
-                    page -= 1;
-                    btnPre.Enabled = false;
-                    btnNext.Enabled = true;
-                    searchQuery = "SELECT TOP(" + pageSize * page + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer" +
-                      " EXCEPT SELECT TOP(" + pageSize * (page - 1) + ") me.ID_Medicine,me.Name_Medicine,me.Image_Medicine,me.Source,me.Packing,me.Unit,me.Cost,me.Registration_Number FROM Medicine as me,Category_Detail as cade,Category as Ca,Manufacturer as manu,Manufacturer_Detail as made where " + Subquery + " and me.ID_Medicine = cade.ID_Medicine and ca.ID_Category = cade.ID_Category and made.ID_Category = ca.ID_Category and manu.ID_Manufacturer = made.ID_Manufacturer";
-                    Medicine_List(searchQuery);
-                    btnCurrent.Text = page.ToString();
-                }
-            }
-        }
-
         private void txtID_Medicine_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
-
-            // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
         }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void btnPre_Click_1(object sender, EventArgs e)
         {
+               if (isList)
+               {
+                    if (page >= 2)
+                    {
+                         page -= 1;
+                         string query = "EXEC dbo.spGetProduct @pageNumber =" + page + ",@pageSize =" + pageSize;
+                         Medicine_List(query);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
+               else if (isSearch)
+               {
+                    if (page >= 2)
+                    {
+                         page -= 1;
+                         searchQuery = "EXEC dbo.searchMedicine @pageNumber =" + page + ",@pageSize =" + pageSize;
+                         Medicine_List(searchQuery);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
+          }
 
-        }
-    }
+          private void btnNext_Click_1(object sender, EventArgs e)
+          {
+               if (isList)
+               {
+                    if (page <= pageMax - 1)
+                    {
+                         page += 1;
+                         string query = "EXEC dbo.spGetProduct @pageNumber =" + page + ",@pageSize =" + pageSize;
+                         Medicine_List(query);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
+               else if (isSearch)
+               {
+                    if (page <= pageMax - 1)
+                    {
+                         page += 1;
+                         searchQuery = "EXEC dbo.searchMedicine @pageNumber =" + page + ",@pageSize =" + pageSize;
+                         Medicine_List(searchQuery);
+                         btnCurrent.Text = page.ToString();
+                    }
+               }
+
+          }
+     }
 }

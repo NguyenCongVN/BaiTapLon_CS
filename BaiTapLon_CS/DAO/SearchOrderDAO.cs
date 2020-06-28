@@ -1,4 +1,6 @@
-﻿namespace BaiTapLon_CS.DAO
+﻿using System;
+
+namespace BaiTapLon_CS.DAO
 {
     internal class SearchOrderDAO
     {
@@ -18,8 +20,16 @@
         }
         public string getCountMedicine(string query)
         {
-            string value = DataProvider.Instance.DisplayListView(query).Rows[0][0].ToString();
-            return value;
+               try
+               {
+                    string value = DataProvider.Instance.DisplayListView(query).Rows[0][0].ToString();
+                    return value;
+               }
+               catch (Exception e)
+               {
+                         return null;
+               }
+           
         }
     }
 

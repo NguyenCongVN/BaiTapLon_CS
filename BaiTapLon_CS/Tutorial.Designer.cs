@@ -53,14 +53,19 @@
                // 
                // Tutorial
                // 
-               this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+               this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+               this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+               this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+               this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
                this.ClientSize = new System.Drawing.Size(800, 450);
                this.Controls.Add(this.label2);
                this.Controls.Add(this.label1);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
                this.Name = "Tutorial";
+               this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+               this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                this.Text = "Tutorial";
+               this.TopMost = true;
                this.ResumeLayout(false);
                this.PerformLayout();
 

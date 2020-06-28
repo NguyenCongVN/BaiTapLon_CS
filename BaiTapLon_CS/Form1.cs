@@ -33,74 +33,67 @@ namespace BaiTapLon_CS
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+               txtPassword._TextBox.PasswordChar = '•';
+          }
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
-        }
+               ID_Manager = DAO.LoginDAO.Instance.getID(txtAccount.text, MaHoaMD5(txtPassword.text));
 
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnLogin_Click(object sender, EventArgs e)
-        {
-
-            ID_Manager = DAO.LoginDAO.Instance.getID(txtAccount.Text, MaHoaMD5(txtPassword.Text));
-
-            if (ID_Manager != "")    // Đăng nhập thành công
-            {
-                if (radioBtnAdmin.Checked == true) // kiểm tra xem có phải đăng nhập với tư cách admin
-                {
-                    name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager));
-                    foreach (var name in name_Permission)
+               if (ID_Manager != "")    // Đăng nhập thành công
+               {
+                    if (radioBtnAdmin.Checked == true) // kiểm tra xem có phải đăng nhập với tư cách admin
                     {
-                        if (name == "admin")
-                        {
-                            Form_Dashboard gui_admin = new Form_Dashboard();
-                            this.Hide();
-                            gui_admin.ShowDialog();
-                            this.Show();
-                        }
-                        else if (name == "employee")
-                        {
-                            MessageBox.Show("Bạn không đủ quyền truy cập");
-                        }
+                         name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager));
+                         foreach (var name in name_Permission)
+                         {
+                              if (name == "admin")
+                              {
+                                   Form_Dashboard gui_admin = new Form_Dashboard();
+                                   this.Hide();
+                                   gui_admin.ShowDialog();
+                                   this.Show();
+                              }
+                              else if (name == "employee")
+                              {
+                                   MessageBox.Show("Bạn không đủ quyền truy cập");
+                              }
+                         }
                     }
-
-                }
-                else  // Ngược lại, kiểm tra đăng nhập với tư cách nhân viên
-                {
-                    name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager));
-                    foreach (var name in name_Permission)
+                    else  // Ngược lại, kiểm tra đăng nhập với tư cách nhân viên
                     {
-                        if (name == "admin" || name == "employee")
-                        {
-                            GUI gui = new GUI();
-                            this.Hide();
-                            gui.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Bạn không đủ quyền truy cập");
-                        }
+                         name_Permission = DAO.LoginDAO.Instance.getName_Permission(DAO.LoginDAO.Instance.getID_Permission(ID_Manager));
+                         foreach (var name in name_Permission)
+                         {
+                              if (name == "admin" || name == "employee")
+                              {
+                                   GUI gui = new GUI();
+                                   this.Hide();
+                                   gui.Show();
+                              }
+                              else
+                              {
+                                   MessageBox.Show("Bạn không đủ quyền truy cập");
+                              }
+                         }
                     }
-                }
-            }
-            else   // Đăng nhập thất bại
-            {
-                txtAccount.Text = "";
-                txtPassword.Text = "";
-                txtAccount.Focus();
-                MessageBox.Show("Tên đăng nhập không chính xác");
-            }
+               }
+               else   // Đăng nhập thất bại
+               {
+                    txtAccount.text = "";
+                    txtPassword.text = "";
+                    txtAccount.Focus();
+                    MessageBox.Show("Tên đăng nhập không chính xác");
+               }
+          }
 
-        }
+          private void panel1_Paint(object sender, PaintEventArgs e)
+          {
+
+          }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+               Application.Exit();
         }
     }
 }
