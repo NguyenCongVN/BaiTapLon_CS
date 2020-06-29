@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace BaiTapLon_CS.Helper
 {
@@ -280,6 +281,32 @@ namespace BaiTapLon_CS.Helper
                 }
             }
             return medicines;
+        }
+
+        public static List<int> GetAllYear()
+        {
+            List<int> years = new List<int>();
+            string query = "exec GetAllYear";
+            using (SqlConnection connection = new SqlConnection(Form1.connect))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    foreach(DataRow row in table.Rows)
+                    {
+                        try
+                        {
+                            years.Add(row.Field<int>("Nam"));
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("Có lỗi xảy ra");
+                        }
+                    }
+                }
+            }
+            return years;
         }
     }
 }

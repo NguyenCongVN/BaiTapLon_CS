@@ -52,6 +52,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.salaryCircleProgressbar3 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxChonNam = new System.Windows.Forms.ComboBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -373,10 +375,33 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Tiền Nhân Viên";
             // 
+            // comboBoxChonNam
+            // 
+            this.comboBoxChonNam.FormattingEnabled = true;
+            this.comboBoxChonNam.Location = new System.Drawing.Point(86, 18);
+            this.comboBoxChonNam.Name = "comboBoxChonNam";
+            this.comboBoxChonNam.Size = new System.Drawing.Size(82, 29);
+            this.comboBoxChonNam.TabIndex = 7;
+            this.comboBoxChonNam.SelectedIndexChanged += new System.EventHandler(this.comboBoxChonNam_SelectedIndexChanged);
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(22, 23);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(46, 24);
+            this.materialLabel1.TabIndex = 8;
+            this.materialLabel1.Text = "Năm";
+            // 
             // UC_Home
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.comboBoxChonNam);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.salaryCircleProgressbar3);
             this.Controls.Add(this.importedCircleProgressbar2);
@@ -433,5 +458,7 @@
         private System.Windows.Forms.Label label11;
         private Bunifu.Framework.UI.BunifuCircleProgressbar salaryCircleProgressbar3;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBoxChonNam;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

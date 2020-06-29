@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Class;
 using BaiTapLon_CS.Helper;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,19 @@ namespace MedicineShopManagement.UserControls
 {
     public partial class UC_Home : UserControl
     {
+        public int CurrentChosenYear { get; set; }
         public UC_Home()
         {
             InitializeComponent();
-            LoadChart();
+            CurrentChosenYear = DateTime.Now.Year;
+            LoadChart(CurrentChosenYear);
+            LoadComboBoxNam();
         }
 
-        private Random rand = new Random();
-
-        private void LoadChart()
+        private void LoadChart(int year)
         {
             List<MoneyInMonth> revenues = new List<MoneyInMonth>();
-            revenues = ThongKeHelper.GetRevenueInMonths(2020);
+            revenues = ThongKeHelper.GetRevenueInMonths(year);
             var cnv = new Bunifu.DataViz.Canvas();
             var dataPoint = new Bunifu.DataViz.DataPoint(Bunifu.DataViz.BunifuDataViz._type.Bunifu_splineArea);
             foreach (var revenue in revenues)
@@ -71,10 +73,53 @@ namespace MedicineShopManagement.UserControls
             cnv.addData(dataPoint);
             bunifuDataViz1.colorSet.Add(Color.Red);
             bunifuDataViz1.Render(cnv);
+            
+            List<MoneyInMonth> importedCosts = new List<MoneyInMonth>();
+            importedCosts = ThongKeHelper.GetImportCostInMonth(CurrentChosenYear);
+            decimal total1 = 0;
+            foreach (var imported in importedCosts)
+            {
+                    total1 += imported.Money;
+            }
+            List<MoneyInMonth> soldValues = new List<MoneyInMonth>();
+            soldValues = ThongKeHelper.GetMoneyInMonth(CurrentChosenYear);
+            decimal total2 = 0;
+            foreach (var value in soldValues)
+            {
+                    total2 += value.Money;
+            }
+            importCost.Text = ExtensionHelper.ChangeToCurrency(total1.ToString()) + " VNĐ";
+            soldValue.Text = ExtensionHelper.ChangeToCurrency(total2.ToString()) + " VNĐ";
+            amountCustomer.Text = ThongKeHelper.NumberOfCustomerInYear(CurrentChosenYear).ToString();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadChart(CurrentChosenYear);
+        }
 
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxChonNam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CurrentChosenYear = (comboBoxChonNam.SelectedItem as ComboBoxItem).Value;
+                LoadChart(CurrentChosenYear);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Có lỗi Xảy ra");
+            }
+        }
+
+        public void LoadProgress()
+        {
             List<MoneyInMonth> salaries = new List<MoneyInMonth>();
-            salaries = ThongKeHelper.GetSalaryInMonths(2020);
+            salaries = ThongKeHelper.GetSalaryInMonths(DateTime.Now.Year);
             decimal thisMonth = 0;
             decimal total = 0;
             foreach (var salary in salaries)
@@ -95,7 +140,7 @@ namespace MedicineShopManagement.UserControls
 
 
             List<MoneyInMonth> importedCosts = new List<MoneyInMonth>();
-            importedCosts = ThongKeHelper.GetImportCostInMonth(2020);
+            importedCosts = ThongKeHelper.GetImportCostInMonth(DateTime.Now.Year);
             decimal thisMonth1 = 0;
             decimal total1 = 0;
             decimal x1 = 0;
@@ -137,20 +182,16 @@ namespace MedicineShopManagement.UserControls
             decimal x2 = (thisMonth2 / total2);
             x2 *= 100;
             soldCircleProgressbar1.Value = (int)x2;
-
-            importCost.Text = ExtensionHelper.ChangeToCurrency(total1.ToString()) + " VNĐ";
-            soldValue.Text = ExtensionHelper.ChangeToCurrency(total2.ToString()) + " VNĐ";
-            amountCustomer.Text = ThongKeHelper.NumberOfCustomerInYear(2020).ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void LoadComboBoxNam()
         {
-            LoadChart();
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+            comboBoxChonNam.Items.Clear();
+            foreach (int year in ThongKeHelper.GetAllYear())
+            {
+                ComboBoxItem item = new ComboBoxItem { Text = year.ToString(), Value = year };
+                comboBoxChonNam.Items.Add(item);
+            }
         }
     }
 }

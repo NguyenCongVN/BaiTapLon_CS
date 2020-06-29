@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Managers));
             this.panelDanhSachNhanVien = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TextBoxTimKiemNhanVien = new System.Windows.Forms.TextBox();
             this.ThayDoiThongTinNhanVien = new System.Windows.Forms.Button();
             this.ButtonChonAnhNhanVien = new System.Windows.Forms.Button();
             this.LabelTenNhanVien = new System.Windows.Forms.Label();
-            this.LabelNgaySinh = new System.Windows.Forms.Label();
             this.LabelMaNhanVien = new System.Windows.Forms.Label();
             this.LabelDienThoai = new System.Windows.Forms.Label();
             this.LabelEmail = new System.Windows.Forms.Label();
@@ -46,13 +48,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelDanhSachNhanVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNhanVien)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDanhSachNhanVien
@@ -63,7 +62,6 @@
             this.panelDanhSachNhanVien.Controls.Add(this.ThayDoiThongTinNhanVien);
             this.panelDanhSachNhanVien.Controls.Add(this.ButtonChonAnhNhanVien);
             this.panelDanhSachNhanVien.Controls.Add(this.LabelTenNhanVien);
-            this.panelDanhSachNhanVien.Controls.Add(this.LabelNgaySinh);
             this.panelDanhSachNhanVien.Controls.Add(this.LabelMaNhanVien);
             this.panelDanhSachNhanVien.Controls.Add(this.LabelDienThoai);
             this.panelDanhSachNhanVien.Controls.Add(this.LabelEmail);
@@ -76,6 +74,37 @@
             this.panelDanhSachNhanVien.Name = "panelDanhSachNhanVien";
             this.panelDanhSachNhanVien.Size = new System.Drawing.Size(985, 580);
             this.panelDanhSachNhanVien.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(71, 156);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(135, 41);
+            this.panel1.TabIndex = 12;
+            this.panel1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(27, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 24);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Thêm Nhân Viên";
+            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 35);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label17
             // 
@@ -125,21 +154,11 @@
             this.LabelTenNhanVien.TabIndex = 7;
             this.LabelTenNhanVien.Text = "Tên:";
             // 
-            // LabelNgaySinh
-            // 
-            this.LabelNgaySinh.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.LabelNgaySinh.AutoSize = true;
-            this.LabelNgaySinh.Location = new System.Drawing.Point(627, 259);
-            this.LabelNgaySinh.Name = "LabelNgaySinh";
-            this.LabelNgaySinh.Size = new System.Drawing.Size(73, 16);
-            this.LabelNgaySinh.TabIndex = 6;
-            this.LabelNgaySinh.Text = "Ngày Sinh:";
-            // 
             // LabelMaNhanVien
             // 
             this.LabelMaNhanVien.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.LabelMaNhanVien.AutoSize = true;
-            this.LabelMaNhanVien.Location = new System.Drawing.Point(627, 315);
+            this.LabelMaNhanVien.Location = new System.Drawing.Point(624, 252);
             this.LabelMaNhanVien.Name = "LabelMaNhanVien";
             this.LabelMaNhanVien.Size = new System.Drawing.Size(95, 16);
             this.LabelMaNhanVien.TabIndex = 5;
@@ -149,7 +168,7 @@
             // 
             this.LabelDienThoai.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.LabelDienThoai.AutoSize = true;
-            this.LabelDienThoai.Location = new System.Drawing.Point(630, 371);
+            this.LabelDienThoai.Location = new System.Drawing.Point(627, 308);
             this.LabelDienThoai.Name = "LabelDienThoai";
             this.LabelDienThoai.Size = new System.Drawing.Size(76, 16);
             this.LabelDienThoai.TabIndex = 4;
@@ -159,7 +178,7 @@
             // 
             this.LabelEmail.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.LabelEmail.AutoSize = true;
-            this.LabelEmail.Location = new System.Drawing.Point(630, 427);
+            this.LabelEmail.Location = new System.Drawing.Point(627, 364);
             this.LabelEmail.Name = "LabelEmail";
             this.LabelEmail.Size = new System.Drawing.Size(45, 16);
             this.LabelEmail.TabIndex = 3;
@@ -221,37 +240,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Danh Sách Nhân Viên";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(71, 156);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(135, 41);
-            this.panel1.TabIndex = 12;
-            this.panel1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 35);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(27, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Thêm Nhân Viên";
-            this.label1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Managers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,9 +249,9 @@
             this.Size = new System.Drawing.Size(985, 580);
             this.panelDanhSachNhanVien.ResumeLayout(false);
             this.panelDanhSachNhanVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNhanVien)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNhanVien)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,7 +264,6 @@
         private System.Windows.Forms.Button ThayDoiThongTinNhanVien;
         private System.Windows.Forms.Button ButtonChonAnhNhanVien;
         private System.Windows.Forms.Label LabelTenNhanVien;
-        private System.Windows.Forms.Label LabelNgaySinh;
         private System.Windows.Forms.Label LabelMaNhanVien;
         private System.Windows.Forms.Label LabelDienThoai;
         private System.Windows.Forms.Label LabelEmail;

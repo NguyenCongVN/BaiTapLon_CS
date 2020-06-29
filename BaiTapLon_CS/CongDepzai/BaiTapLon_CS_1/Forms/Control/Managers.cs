@@ -89,7 +89,6 @@ namespace BaiTapLon_CS.Forms.Control
 
         private void ListViewDanhSachNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             int Id;
             try
             {
@@ -123,7 +122,7 @@ namespace BaiTapLon_CS.Forms.Control
                         Name_Manager = dataTable.Rows[0].Field<string>("Name_Manager"),
                         Password = dataTable.Rows[0].Field<string>("Password"),
                         Phone = dataTable.Rows[0].Field<string>("Phone"),
-                        Image = dataTable.Rows[0].Field<string>("Image")
+                        Image = dataTable.Rows[0].Field<string>("Image"),
                     };
                     LabelTenNhanVien.Text = "Tên:" + manager.Name_Manager;
                     LabelMaNhanVien.Text = "Mã Nhân Viên:" + manager.ID_Manager.ToString();
