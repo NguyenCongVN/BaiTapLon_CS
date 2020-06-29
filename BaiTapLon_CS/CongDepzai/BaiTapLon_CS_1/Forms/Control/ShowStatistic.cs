@@ -60,7 +60,7 @@ namespace BaiTapLon_CS.CongDepzai.BaiTapLon_CS_1.Forms.Control
                         TotalMedicineBought = dataTable.Rows[0].Field<int>("Tong so hang da mua"),
                         TotalMedicineSold = dataTable.Rows[0].Field<int>("Tong so hang ban"),
                         TotalMoneySold = dataTable.Rows[0].Field<decimal>("Tong so tien ban"),
-                        TotalSold = dataTable.Rows[0].Field<int>("Tong so ban duoc"),
+                        TotalSold = dataTable.Rows[0].Field<decimal>("Tong so ban duoc"),
                         Image_Manager = dataTable.Rows[0].Field<string>("Image")
                     };
                 }

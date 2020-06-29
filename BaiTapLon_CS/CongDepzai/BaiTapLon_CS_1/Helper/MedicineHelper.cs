@@ -1,4 +1,5 @@
 ﻿using BaiTapLon_CS.Class;
+using BaiTapLon_CS.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -451,7 +452,7 @@ namespace BaiTapLon_CS.Helper
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
 
                 // Have to modify later
-                sqlCommand.Parameters.AddWithValue("idManager", 1);
+                sqlCommand.Parameters.AddWithValue("idManager", int.Parse(LoginDAO.ID_Manager));
                 /*sqlCommand.Parameters.AddWithValue("importDate", medicine.Import_Date);*/
                 sqlCommand.ExecuteScalar();
             }

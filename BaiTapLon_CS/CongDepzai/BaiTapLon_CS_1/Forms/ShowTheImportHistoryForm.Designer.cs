@@ -81,6 +81,7 @@
             // 
             this.TextBoxThangNhap.Location = new System.Drawing.Point(297, 73);
             this.TextBoxThangNhap.Name = "TextBoxThangNhap";
+            this.TextBoxThangNhap.ReadOnly = true;
             this.TextBoxThangNhap.Size = new System.Drawing.Size(23, 20);
             this.TextBoxThangNhap.TabIndex = 68;
             // 
@@ -88,6 +89,7 @@
             // 
             this.TextBoxNamNhap.Location = new System.Drawing.Point(361, 76);
             this.TextBoxNamNhap.Name = "TextBoxNamNhap";
+            this.TextBoxNamNhap.ReadOnly = true;
             this.TextBoxNamNhap.Size = new System.Drawing.Size(51, 20);
             this.TextBoxNamNhap.TabIndex = 67;
             // 
@@ -95,6 +97,7 @@
             // 
             this.TextBoxNgayNhap.Location = new System.Drawing.Point(219, 76);
             this.TextBoxNgayNhap.Name = "TextBoxNgayNhap";
+            this.TextBoxNgayNhap.ReadOnly = true;
             this.TextBoxNgayNhap.Size = new System.Drawing.Size(23, 20);
             this.TextBoxNgayNhap.TabIndex = 66;
             // 

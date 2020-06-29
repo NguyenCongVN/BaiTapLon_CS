@@ -10,7 +10,7 @@
         public int ID_Medicine { get; set; }
         public string NameMedicine { get; set; }
         public string ImageMedicine { get; set; }
-        public int TotalSold { get; set; }
+        public decimal TotalSold { get; set; }
         public int TotalInvoiceSold { get; set; }
         public decimal TotalMoneySold { get; set; }
         public int TotalMedicineSold { get; set; }

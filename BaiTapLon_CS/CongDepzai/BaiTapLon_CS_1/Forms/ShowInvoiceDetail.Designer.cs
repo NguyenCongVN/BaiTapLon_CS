@@ -32,8 +32,10 @@
             this.textBoxTongTien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listViewDetail = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxNguoiBan = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxMaNhap = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxNguoiMua = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label2
@@ -93,6 +93,10 @@
             this.listViewDetail.UseCompatibleStateImageBehavior = false;
             this.listViewDetail.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "STT";
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên Thuốc";
@@ -102,6 +106,10 @@
             // 
             this.columnHeader4.Text = "Số Lượng";
             this.columnHeader4.Width = 88;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Thành Tiền";
             // 
             // textBoxNguoiBan
             // 
@@ -169,6 +177,7 @@
             // 
             this.TextBoxThangNhap.Location = new System.Drawing.Point(294, 106);
             this.TextBoxThangNhap.Name = "TextBoxThangNhap";
+            this.TextBoxThangNhap.ReadOnly = true;
             this.TextBoxThangNhap.Size = new System.Drawing.Size(23, 20);
             this.TextBoxThangNhap.TabIndex = 83;
             // 
@@ -176,6 +185,7 @@
             // 
             this.TextBoxNamNhap.Location = new System.Drawing.Point(358, 109);
             this.TextBoxNamNhap.Name = "TextBoxNamNhap";
+            this.TextBoxNamNhap.ReadOnly = true;
             this.TextBoxNamNhap.Size = new System.Drawing.Size(51, 20);
             this.TextBoxNamNhap.TabIndex = 82;
             // 
@@ -183,6 +193,7 @@
             // 
             this.TextBoxNgayNhap.Location = new System.Drawing.Point(216, 109);
             this.TextBoxNgayNhap.Name = "TextBoxNgayNhap";
+            this.TextBoxNgayNhap.ReadOnly = true;
             this.TextBoxNgayNhap.Size = new System.Drawing.Size(23, 20);
             this.TextBoxNgayNhap.TabIndex = 81;
             // 
@@ -211,14 +222,6 @@
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 95;
             this.label3.Text = "Khách Hàng:";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Thành Tiền";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "STT";
             // 
             // ShowInvoiceDetail
             // 
